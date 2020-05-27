@@ -1,0 +1,47 @@
++++
+title = "Borel -algebra"
+author = ["Dmitry Kabanov"]
+date = 2019-09-14
+tags = ["math"]
+draft = false
++++
+
+When one studies probability theory, a notion of a Borel &sigma;-algebra arises.
+Here we will look at what this is.
+
+First thing is to understand what &sigma;-algebra means.
+Let \\(X\\) be a set. Then if we have another set \\(\mathcal B\\), which we call
+&sigma;-algebra over \\(X\\), if it has the following properties:
+
+-   it consists of subsets of \\(X\\),
+-   \\(X \in \mathcal B\\),
+-   for any \\(b \in \mathcal B\\), it follows that \\(b^\C \in \mathcal B\\), where
+
+superscript \\(\C\\) denotes complement,
+
+-   for any set of sets \\(b\_n \subset \mathcal B\\), \\(n=1, 2, \dots\\), their union is
+
+also in \\(\mathcal B\\):
+
+\begin{equation}
+  \bigcup\_{n=1}^{\infty} b\_n \subset \mathcal B,
+\end{equation}
+
+-   for any set of sets \\(b\_n \subset \mathcal B\\), \\(n=1, 2, \dots\\), their
+
+intersection is also in \\(\mathcal B\\):
+
+\begin{equation}
+  \bigcap\_{n=1}^{\infty} b\_n \subset \mathcal B.
+\end{equation}
+
+It also follows that as \\(X \in \mathcal B\\), and \\(X^\C = \emptyset\\), then
+\\(\emptyset \in \mathcal B\\).
+
+Consider collection \\(\mathcal O\\) of open subsets of \\(\R\\).
+This collection \\(\mathcal O\\) is not a &sigma;-algebra of subsets of \\(\R\\).
+Why?
+For any open subset \\(A \subseteq \R\\), its complement \\(A^\C\\) in \\(\R\\) is closed.
+For example, if \\(A=(0, 1)\\), then \\(A^\C=(-\infty, 0] \cup [1, \infty)\\).
+Therefore, if \\(A \in \mathcal O\\), then \\(A^\C \not \subset \mathcal O\\).
+That explains, why \\(\mathcal O\\) is not a &sigma;-algebra.
