@@ -1,0 +1,102 @@
+#+DATE: 2020-03-12
+#+TAGS[]: howto, hyperopt, hyperparameters
+#+HUGO_BASE_DIR: ../
+#+HUGO_SECTION: blog/2020
+
+* DONE Hyperopt Basics                                      :howto:hyperopt:
+  CLOSED: [2020-03-12 Thu 15:16]
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: hyperopt-basics
+  :END:
+  
+This is an introduction to using Hyperopt library.
+
+This library is used to choose the hyperparameters, that is the parameters of
+the model that is chosen to estimate the data.
+This is $\R$.
+For example, when you find your model by optimizing function
+\[
+  \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f),
+\]
+
+then $\lambda$ is a hyperparameter that must be chosen before the optimization. 
+
+** Overall algorithm of using Hyperopt
+   
+Optimization of the hyperparameters in Hyperopt consists of three steps:
+
+1. Define an objective function that numerically measures the quality of the
+   given set of hyperparameters.
+2. Define hyperparameters space.
+3. Call function `hyperopt.fmin` that will find optimal set of hyperparameters
+   given objective function and hyperparameter space.
+   
+** Defining objective function
+The simplest way to define an objective function is the following:
+
+#+BEGIN_SRC python
+def objective(params):
+    # expand params, for example:
+    alpha, beta = params
+    # evaluate some nonnegative function `loss` using params
+    loss = alpha**2 + beta**2
+  
+    return loss
+#+END_SRC
+
+** Defining parameter space
+Hyperparameter space is defined using utility module `hp`.
+For each parameter, we can specify which distribution it has.
+
+For example, the following code specifies that variable
+$\alpha \sim \uniform(-2, 5)$ while $\beta \sim \normal(0, 3^2)$:
+#+BEGIN_SRC python
+params_space = [
+  hyperopt.hp.uniform('alpha', -2, 5),
+  hyperopt.hp.normal('beta', 0, 3),
+]
+#+END_SRC
+
+** Running hyperparameter optimization
+Now we are ready to optimize hyperparameters. For that, we use function
+`hyperopt.fmin` which accepts objective function and parameter space.
+Besides that, we need to specify the algorithm that we use, and how many trials
+we would like to run:
+
+#+BEGIN_SRC python
+    params_star = hyperopt.fmin(
+        objective,
+        params_space,
+        algo=hyperopt.tpe.suggest
+    )
+#+END_SRC
+
+
+That's it! This was an introduction to the optimization of hyperparameters using
+Hyperopt library.
+
+
+This tutorial is based on the paper:
+https://conference.scipy.org/proceedings/scipy2013/pdfs/bergstra_hyperopt.pdf
+
+
+
+* TODO Introduction to Kalman filters
+  A Kalman filter is an iterative mathematical process that uses a set of
+  equations (describing some physical process) and consecutive data inputs to
+  estimate some quantities when the measurements contain uncertainties or
+  errors.
+  
+  Each iteration consists of three steps:
+  1. Kalman gain computation. Improved estimate based on measurements and model
+     prediction.
+  2. Current state estimation.
+  3. Error computation.
+
+  Kalman filter has an assumption that the noise in measurements has Gaussian
+  distribution.
+  This assumption is actually quite natural and works well in many situations.
+  
+  If you cannot make this assumption about the noise, then Particle Filtering
+  will work better.
+  
