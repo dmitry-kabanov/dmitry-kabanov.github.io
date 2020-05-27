@@ -1,0 +1,11 @@
+baseURL = "https://dmitrykabanov.com"
+languageCode = "en-us"
+title = "Website of Dmitry Kabanov"
+theme = "ananke"
+
+sectionPagesMenu = "main"
+
+[markup]
+  [markup.org]
+  [markup.highlight]
+    style = "rainbow_dash"
