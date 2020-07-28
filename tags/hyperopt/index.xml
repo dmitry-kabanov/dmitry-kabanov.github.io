@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hyperopt on Website of Dmitry Kabanov</title>
+    <link>https://dmitrykabanov.com/tags/hyperopt/</link>
+    <description>Recent content in hyperopt on Website of Dmitry Kabanov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2020 15:16:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://dmitrykabanov.com/tags/hyperopt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hyperopt Basics</title>
+      <link>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</link>
+      <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</guid>
+      <description>This is an introduction to using Hyperopt library.
+This library is used to choose the hyperparameters, that is the parameters of the model that is chosen to estimate the data. This is \(\R\). For example, when you find your model by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
+then \(\lambda\) is a hyperparameter that must be chosen before the optimization.
+Overall algorithm of using Hyperopt Optimization of the hyperparameters in Hyperopt consists of three steps:</description>
+    </item>
+    
+  </channel>
+</rss>

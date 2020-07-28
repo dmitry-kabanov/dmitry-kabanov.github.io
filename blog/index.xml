@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Website of Dmitry Kabanov</title>
+    <link>https://dmitrykabanov.com/blog/</link>
+    <description>Recent content in Blogs on Website of Dmitry Kabanov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Mar 2020 15:16:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hyperopt Basics</title>
+      <link>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</link>
+      <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</guid>
+      <description>This is an introduction to using Hyperopt library.
+This library is used to choose the hyperparameters, that is the parameters of the model that is chosen to estimate the data. This is \(\R\). For example, when you find your model by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
+then \(\lambda\) is a hyperparameter that must be chosen before the optimization.
+Overall algorithm of using Hyperopt Optimization of the hyperparameters in Hyperopt consists of three steps:</description>
+    </item>
+    
+    <item>
+      <title>Borel σ-algebra</title>
+      <link>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</guid>
+      <description>When one studies probability theory, a notion of a Borel $σ$-algebra arises. Here we will look at what this is.
+First thing is to understand what $σ$-algebra means.
+Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ-algebra over \(X\), if it has the following properties:
+  it consists of subsets of \(X\),
+  \(X \in \mathcal B\),
+  for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,</description>
+    </item>
+    
+  </channel>
+</rss>

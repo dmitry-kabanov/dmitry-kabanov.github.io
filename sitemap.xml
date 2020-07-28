@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://dmitrykabanov.com/blog/</loc>
+    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/howto/</loc>
+    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/hyperopt/</loc>
+    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</loc>
+    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/</loc>
+    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/</loc>
+    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</loc>
+    <lastmod>2019-09-14T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/math/</loc>
+    <lastmod>2019-09-14T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/categories/</loc>
+  </url>
+  
+</urlset>

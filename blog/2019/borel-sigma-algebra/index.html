@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Website of Dmitry Kabanov  | Borel σ-algebra</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.71.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+      <link rel="stylesheet" href="/css/chroma.css">
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Borel σ-algebra" />
+<meta property="og:description" content="When one studies probability theory, a notion of a Borel $σ$-algebra arises. Here we will look at what this is.
+First thing is to understand what $σ$-algebra means.
+Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ-algebra over \(X\), if it has the following properties:
+  it consists of subsets of \(X\),
+  \(X \in \mathcal B\),
+  for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/" />
+<meta property="article:published_time" content="2019-09-14T00:00:00+02:00" />
+<meta property="article:modified_time" content="2019-09-14T00:00:00+02:00" />
+<meta itemprop="name" content="Borel σ-algebra">
+<meta itemprop="description" content="When one studies probability theory, a notion of a Borel $σ$-algebra arises. Here we will look at what this is.
+First thing is to understand what $σ$-algebra means.
+Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ-algebra over \(X\), if it has the following properties:
+  it consists of subsets of \(X\),
+  \(X \in \mathcal B\),
+  for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,">
+<meta itemprop="datePublished" content="2019-09-14T00:00:00&#43;02:00" />
+<meta itemprop="dateModified" content="2019-09-14T00:00:00&#43;02:00" />
+<meta itemprop="wordCount" content="219">
+
+
+
+<meta itemprop="keywords" content="math," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Borel σ-algebra"/>
+<meta name="twitter:description" content="When one studies probability theory, a notion of a Borel $σ$-algebra arises. Here we will look at what this is.
+First thing is to understand what $σ$-algebra means.
+Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ-algebra over \(X\), if it has the following properties:
+  it consists of subsets of \(X\),
+  \(X \in \mathcal B\),
+  for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://dmitrykabanov.com" class="f3 fw2 hover-white no-underline white-90 dib">
+      Website of Dmitry Kabanov
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        BLOGS
+      </p>
+      <h1 class="f1 athelas mb1">Borel σ-algebra</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-09-14T00:00:00&#43;02:00">September 14, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>When one studies probability theory, a notion of a Borel $σ$-algebra arises.
+Here we will look at what this is.</p>
+<p>First thing is to understand what $σ$-algebra means.</p>
+<p>Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call
+σ-algebra over \(X\), if it has the following properties:</p>
+<ul>
+<li>
+<p>it consists of subsets of \(X\),</p>
+</li>
+<li>
+<p>\(X \in \mathcal B\),</p>
+</li>
+<li>
+<p>for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where
+superscript \(\C\) denotes complement,</p>
+</li>
+<li>
+<p>for any set of sets \(b_n \subset \mathcal B\), \(n=1, 2, \dots\), their union is
+also in \(\mathcal B\):</p>
+<p>\begin{equation}
+\bigcup_{n=1}^{\infty} b_n \subset \mathcal B,
+\end{equation}</p>
+</li>
+<li>
+<p>for any set of sets \(b_n \subset \mathcal B\), \(n=1, 2, \dots\), their
+intersection is also in \(\mathcal B\):</p>
+<p>\begin{equation}
+\bigcap_{n=1}^{\infty} b_n \subset \mathcal B.
+\end{equation}</p>
+</li>
+</ul>
+<p>It also follows that as \(X \in \mathcal B\), and \(X^\C = \emptyset\), then
+\(\emptyset \in \mathcal B\).</p>
+<p>Consider collection \(\mathcal O\) of open subsets of \(\R\).
+This collection \(\mathcal O\) is not a σ-algebra of subsets of \(\R\).
+Why?
+For any open subset \(A \subseteq \R\), its complement \(A^\C\) in \(\R\) is closed.
+For example, if \(A=(0, 1)\), then \(A^\C=(-\infty, 0] \cup [1, \infty)\).
+Therefore, if \(A \in \mathcal O\), then \(A^\C \not \subset \mathcal O\).
+That explains, why \(\mathcal O\) is not a $σ$-algebra.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/math" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">math</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com" >
+    &copy; 2020 Website of Dmitry Kabanov
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+<script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+
+  </body>
+</html>
