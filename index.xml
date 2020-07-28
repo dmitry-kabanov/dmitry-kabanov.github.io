@@ -6,21 +6,30 @@
     <description>Recent content on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Mar 2020 15:16:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 13:54:00 +0200</lastBuildDate>
     
 	<atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Using `tf.function` for performance in Tensorflow 2</title>
+      <link>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</link>
+      <pubDate>Tue, 28 Jul 2020 13:54:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</guid>
+      <description>Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
+Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient.</description>
+    </item>
+    
+    <item>
       <title>Hyperopt Basics</title>
-      <link>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</link>
+      <link>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</link>
       <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
       
-      <guid>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</guid>
-      <description>This is an introduction to using Hyperopt library.
-This library is used to choose the hyperparameters, that is the parameters of the model that is chosen to estimate the data. This is \(\R\). For example, when you find your model by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
-then \(\lambda\) is a hyperparameter that must be chosen before the optimization.
-Overall algorithm of using Hyperopt Optimization of the hyperparameters in Hyperopt consists of three steps:</description>
+      <guid>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</guid>
+      <description>This is an introduction to using Hyperopt library. I will use mostly terminology of machine learning (ML) as this library appeared in the ML community.
+Hyperopt library is used to choose the hyperparameters, that is, parameters that must be set before the learning process. The learning process is the process of fitting a given model to some dataset, which is done by minimization of some function.
+For example, when you fit model \(\hat f (x)\) by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]</description>
     </item>
     
     <item>

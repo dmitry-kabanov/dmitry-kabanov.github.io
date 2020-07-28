@@ -34,7 +34,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://dmitrykabanov.com/blog/" />
-<meta property="og:updated_time" content="2020-03-12T15:16:00+01:00" />
+<meta property="og:updated_time" content="2020-07-28T13:54:00+02:00" />
 <meta itemprop="name" content="Blogs">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Blogs"/>
@@ -109,15 +109,30 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blog</span>
     <h1 class="f3 near-black">
-      <a href="/blog/2020/hyperopt-basics/" class="link black dim">
+      <a href="/blog/2020/02-tf-function-performance/" class="link black dim">
+        Using `tf.function` for performance in Tensorflow 2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
+Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/2020/01-hyperopt-basics/" class="link black dim">
         Hyperopt Basics
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      This is an introduction to using Hyperopt library.
-This library is used to choose the hyperparameters, that is the parameters of the model that is chosen to estimate the data. This is \(\R\). For example, when you find your model by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
-then \(\lambda\) is a hyperparameter that must be chosen before the optimization.
-Overall algorithm of using Hyperopt Optimization of the hyperparameters in Hyperopt consists of three steps:
+      This is an introduction to using Hyperopt library. I will use mostly terminology of machine learning (ML) as this library appeared in the ML community.
+Hyperopt library is used to choose the hyperparameters, that is, parameters that must be set before the learning process. The learning process is the process of fitting a given model to some dataset, which is done by minimization of some function.
+For example, when you fit model \(\hat f (x)\) by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
     </div>
   </div>
 </div>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tensorflow on Website of Dmitry Kabanov</title>
+    <link>https://dmitrykabanov.com/tags/tensorflow/</link>
+    <description>Recent content in tensorflow on Website of Dmitry Kabanov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jul 2020 13:54:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://dmitrykabanov.com/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using `tf.function` for performance in Tensorflow 2</title>
+      <link>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</link>
+      <pubDate>Tue, 28 Jul 2020 13:54:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</guid>
+      <description>Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
+Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient.</description>
+    </item>
+    
+  </channel>
+</rss>

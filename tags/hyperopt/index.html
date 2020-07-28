@@ -114,15 +114,14 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blog</span>
     <h1 class="f3 near-black">
-      <a href="/blog/2020/hyperopt-basics/" class="link black dim">
+      <a href="/blog/2020/01-hyperopt-basics/" class="link black dim">
         Hyperopt Basics
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      This is an introduction to using Hyperopt library.
-This library is used to choose the hyperparameters, that is the parameters of the model that is chosen to estimate the data. This is \(\R\). For example, when you find your model by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
-then \(\lambda\) is a hyperparameter that must be chosen before the optimization.
-Overall algorithm of using Hyperopt Optimization of the hyperparameters in Hyperopt consists of three steps:
+      This is an introduction to using Hyperopt library. I will use mostly terminology of machine learning (ML) as this library appeared in the ML community.
+Hyperopt library is used to choose the hyperparameters, that is, parameters that must be set before the learning process. The learning process is the process of fitting a given model to some dataset, which is done by minimization of some function.
+For example, when you fit model \(\hat f (x)\) by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
     </div>
   </div>
 </div>

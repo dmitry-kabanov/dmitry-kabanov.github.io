@@ -4,7 +4,27 @@
   
   <url>
     <loc>https://dmitrykabanov.com/blog/</loc>
-    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
+    <lastmod>2020-07-28T13:54:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/</loc>
+    <lastmod>2020-07-28T13:54:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/tensorflow/</loc>
+    <lastmod>2020-07-28T13:54:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</loc>
+    <lastmod>2020-07-28T13:54:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/</loc>
+    <lastmod>2020-07-28T13:54:00+02:00</lastmod>
   </url>
   
   <url>
@@ -18,17 +38,7 @@
   </url>
   
   <url>
-    <loc>https://dmitrykabanov.com/blog/2020/hyperopt-basics/</loc>
-    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/tags/</loc>
-    <lastmod>2020-03-12T15:16:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/</loc>
+    <loc>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</loc>
     <lastmod>2020-03-12T15:16:00+01:00</lastmod>
   </url>
   
