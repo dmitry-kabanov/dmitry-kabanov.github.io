@@ -34,7 +34,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://dmitrykabanov.com/" />
-<meta property="og:updated_time" content="2020-07-28T13:54:00+02:00" />
+<meta property="og:updated_time" content="2020-07-31T12:19:00+02:00" />
 <meta itemprop="name" content="Website of Dmitry Kabanov">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Website of Dmitry Kabanov"/>
@@ -135,6 +135,33 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/blog/2020/03-saving-state-tf-function/" class="color-inherit dim link">
+            Saving state for tf.function-decorated functions
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
+To illustrate the problem, Tensorflow 2.2 is used:
+import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.
+        </div>
+          <a href="/blog/2020/03-saving-state-tf-function/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/blog/2020/02-tf-function-performance/" class="color-inherit dim link">
             Using `tf.function` for performance in Tensorflow 2
             </a>
@@ -178,37 +205,25 @@ For example, when you fit model \(\hat f (x)\) by optimizing function \[ \frac{1
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/blog/2019/borel-sigma-algebra/" class="color-inherit dim link">
-            Borel σ-algebra
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          When one studies probability theory, a notion of a Borel $σ$-algebra arises. Here we will look at what this is.
-First thing is to understand what $σ$-algebra means.
-Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ-algebra over \(X\), if it has the following properties:
-  it consists of subsets of \(X\),
-  \(X \in \mathcal B\),
-  for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,
-        </div>
-          <a href="/blog/2019/borel-sigma-algebra/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/blog/2019/borel-sigma-algebra/" class="link black dim">
+              Borel σ-algebra
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="/blog/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Blogs</a>
+        
+        </section>
       
 
       </div>

@@ -6,10 +6,22 @@
     <description>Recent content in tensorflow on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jul 2020 13:54:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 12:19:00 +0200</lastBuildDate>
     
 	<atom:link href="https://dmitrykabanov.com/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Saving state for tf.function-decorated functions</title>
+      <link>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</link>
+      <pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</guid>
+      <description>When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
+To illustrate the problem, Tensorflow 2.2 is used:
+import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&amp;rsquo;s consider the following code. Let&amp;rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.</description>
+    </item>
     
     <item>
       <title>Using `tf.function` for performance in Tensorflow 2</title>

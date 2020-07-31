@@ -34,7 +34,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://dmitrykabanov.com/tags/" />
-<meta property="og:updated_time" content="2020-07-28T13:54:00+02:00" />
+<meta property="og:updated_time" content="2020-07-31T12:19:00+02:00" />
 <meta itemprop="name" content="Tags">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tags"/>
@@ -120,6 +120,24 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blog</span>
     <h1 class="f3 near-black">
+      <a href="/blog/2020/03-saving-state-tf-function/" class="link black dim">
+        Saving state for tf.function-decorated functions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
+To illustrate the problem, Tensorflow 2.2 is used:
+import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.
+    </div>
+  </div>
+</div>
+
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
       <a href="/blog/2020/01-hyperopt-basics/" class="link black dim">
         Hyperopt Basics
       </a>
@@ -190,6 +208,24 @@ Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ
             Tag: tensorflow
           </a>
         </h2>
+        
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/2020/03-saving-state-tf-function/" class="link black dim">
+        Saving state for tf.function-decorated functions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
+To illustrate the problem, Tensorflow 2.2 is used:
+import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.
+    </div>
+  </div>
+</div>
+
         
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
