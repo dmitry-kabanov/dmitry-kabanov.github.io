@@ -4,12 +4,32 @@
   
   <url>
     <loc>https://dmitrykabanov.com/blog/</loc>
-    <lastmod>2020-07-31T12:19:00+02:00</lastmod>
+    <lastmod>2020-12-19T23:01:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</loc>
+    <lastmod>2020-12-19T23:01:00+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://dmitrykabanov.com/tags/howto/</loc>
-    <lastmod>2020-07-31T12:19:00+02:00</lastmod>
+    <lastmod>2020-12-19T23:01:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/slurm/</loc>
+    <lastmod>2020-12-19T23:01:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/</loc>
+    <lastmod>2020-12-19T23:01:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/</loc>
+    <lastmod>2020-12-19T23:01:00+01:00</lastmod>
   </url>
   
   <url>
@@ -18,17 +38,7 @@
   </url>
   
   <url>
-    <loc>https://dmitrykabanov.com/tags/</loc>
-    <lastmod>2020-07-31T12:19:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dmitrykabanov.com/tags/tensorflow/</loc>
-    <lastmod>2020-07-31T12:19:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/</loc>
     <lastmod>2020-07-31T12:19:00+02:00</lastmod>
   </url>
   

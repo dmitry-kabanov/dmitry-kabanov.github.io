@@ -6,10 +6,19 @@
     <description>Recent content on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2020 12:19:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 19 Dec 2020 23:01:00 +0100</lastBuildDate>
     
 	<atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to handle python job cancelation in Slurm job manager</title>
+      <link>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</link>
+      <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</guid>
+      <description>If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&amp;rsquo;s configuration parameter KillWait.</description>
+    </item>
     
     <item>
       <title>Saving state for tf.function-decorated functions</title>

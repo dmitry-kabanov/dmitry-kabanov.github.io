@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2020 12:19:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 19 Dec 2020 23:01:00 +0100</lastBuildDate>
     
 	<atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>howto</title>
       <link>https://dmitrykabanov.com/tags/howto/</link>
-      <pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
+      <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
       
       <guid>https://dmitrykabanov.com/tags/howto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slurm</title>
+      <link>https://dmitrykabanov.com/tags/slurm/</link>
+      <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
+      
+      <guid>https://dmitrykabanov.com/tags/slurm/</guid>
       <description></description>
     </item>
     
