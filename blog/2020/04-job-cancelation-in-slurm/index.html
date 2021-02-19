@@ -6,7 +6,7 @@
     
     <title>Website of Dmitry Kabanov  | How to handle python job cancelation in Slurm job manager</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -35,13 +35,14 @@
 <meta property="article:modified_time" content="2020-12-19T23:01:00+01:00" />
 <meta itemprop="name" content="How to handle python job cancelation in Slurm job manager">
 <meta itemprop="description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait.">
-<meta itemprop="datePublished" content="2020-12-19T23:01:00&#43;01:00" />
-<meta itemprop="dateModified" content="2020-12-19T23:01:00&#43;01:00" />
+<meta itemprop="datePublished" content="2020-12-19T23:01:00+01:00" />
+<meta itemprop="dateModified" content="2020-12-19T23:01:00+01:00" />
 <meta itemprop="wordCount" content="297">
 
 
 
-<meta itemprop="keywords" content="howto,slurm," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="howto,slurm," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to handle python job cancelation in Slurm job manager"/>
 <meta name="twitter:description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait."/>
 
@@ -205,7 +206,7 @@ using a command such as</p>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com" >
-    &copy; 2020 Website of Dmitry Kabanov
+    &copy; 2021 Website of Dmitry Kabanov
   </a>
     <div>
 

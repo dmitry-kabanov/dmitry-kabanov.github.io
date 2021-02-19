@@ -6,10 +6,24 @@
     <description>Recent content in Tags on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Dec 2020 23:01:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 19 Feb 2021 21:55:00 +0100</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git</title>
+      <link>https://dmitrykabanov.com/tags/git/</link>
+      <pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
+      
+      <guid>https://dmitrykabanov.com/tags/git/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>latex</title>
+      <link>https://dmitrykabanov.com/tags/latex/</link>
+      <pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
+      
+      <guid>https://dmitrykabanov.com/tags/latex/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>howto</title>

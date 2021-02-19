@@ -6,11 +6,7 @@
     <description>Recent content in tensorflow on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2020 12:19:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://dmitrykabanov.com/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 31 Jul 2020 12:19:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Saving state for tf.function-decorated functions</title>
       <link>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</link>

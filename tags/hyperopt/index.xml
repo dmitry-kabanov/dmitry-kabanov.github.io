@@ -6,11 +6,7 @@
     <description>Recent content in hyperopt on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Mar 2020 15:16:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://dmitrykabanov.com/tags/hyperopt/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 12 Mar 2020 15:16:00 +0100</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/hyperopt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hyperopt Basics</title>
       <link>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</link>

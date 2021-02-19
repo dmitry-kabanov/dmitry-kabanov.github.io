@@ -6,11 +6,7 @@
     <description>Recent content in howto on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Dec 2020 23:01:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://dmitrykabanov.com/tags/howto/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 19 Dec 2020 23:01:00 +0100</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/howto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to handle python job cancelation in Slurm job manager</title>
       <link>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</link>
