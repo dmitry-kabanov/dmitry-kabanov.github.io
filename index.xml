@@ -6,7 +6,17 @@
     <description>Recent content on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Feb 2021 21:55:00 +0100</lastBuildDate><atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Apr 2021 18:54:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic terms in the probability theory</title>
+      <link>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</link>
+      <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</guid>
+      <description>Basic terms in probability theory are outcomes, sample space, events, and probability measure.
+Outcomes and sample space . When you conduct a random experiment, there is a set of possible results of this experiment. This results are called outcomes. All possible outcomes together form a set, which is called sample space. It is customary to denote outcomes with \(\omega\) and sample space with \(\Omega\): \[ \Omega = \{ \omega \text{ such that } \omega \text{ is an outcome of random experiment} \}.</description>
+    </item>
+    
     <item>
       <title>Colaborate in Latex: Overleaf and local git</title>
       <link>https://dmitrykabanov.com/blog/2021/collaborate-overleaf-git/</link>

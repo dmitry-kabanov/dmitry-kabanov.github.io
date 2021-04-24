@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Feb 2021 21:55:00 +0100</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Apr 2021 18:54:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>math</title>
+      <link>https://dmitrykabanov.com/tags/math/</link>
+      <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>probability-theory</title>
+      <link>https://dmitrykabanov.com/tags/probability-theory/</link>
+      <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/tags/probability-theory/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>git</title>
       <link>https://dmitrykabanov.com/tags/git/</link>
@@ -58,15 +76,6 @@
       <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
       
       <guid>https://dmitrykabanov.com/tags/hyperopt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>math</title>
-      <link>https://dmitrykabanov.com/tags/math/</link>
-      <pubDate>Sat, 14 Sep 2019 00:00:00 +0200</pubDate>
-      
-      <guid>https://dmitrykabanov.com/tags/math/</guid>
       <description></description>
     </item>
     
