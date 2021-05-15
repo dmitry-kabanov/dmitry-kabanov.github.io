@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</loc>
-    <lastmod>2021-04-24T18:54:00+02:00</lastmod>
+    <loc>https://dmitrykabanov.com/blog/</loc>
+    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dmitrykabanov.com/blog/</loc>
+    <loc>https://dmitrykabanov.com/blog/2021/books-on-writing-science/</loc>
+    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/</loc>
+    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</loc>
     <lastmod>2021-04-24T18:54:00+02:00</lastmod>
   </url>
   
@@ -24,11 +34,6 @@
   
   <url>
     <loc>https://dmitrykabanov.com/tags/</loc>
-    <lastmod>2021-04-24T18:54:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/</loc>
     <lastmod>2021-04-24T18:54:00+02:00</lastmod>
   </url>
   
