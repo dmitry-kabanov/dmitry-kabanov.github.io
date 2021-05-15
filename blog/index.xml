@@ -95,15 +95,5 @@ Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ
   for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://dmitrykabanov.com/blog/2021/2021/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dmitrykabanov.com/blog/2021/2021/</guid>
-      <description>TODOColaborate in Latex Overleaf + Local setup When you write a paper in \(\LaTeX\) and your collaborators prefer to use Overleaf but you prefer to use local setup, then you can do it with the help of the Git version control system.
-Overall, the process is the following. You create a local git repository and sync it to some remote Git service such as GitHub, GitLab or BitBucket. Then, you create a project in Overleaf.</description>
-    </item>
-    
   </channel>
 </rss>
