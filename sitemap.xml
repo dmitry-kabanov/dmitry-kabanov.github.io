@@ -13,7 +13,27 @@
   </url>
   
   <url>
+    <loc>https://dmitrykabanov.com/categories/</loc>
+    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/categories/metawork/</loc>
+    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/</loc>
+    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dmitrykabanov.com/</loc>
+    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dmitrykabanov.com/tags/writing/</loc>
     <lastmod>2021-05-15T12:16:00+02:00</lastmod>
   </url>
   
@@ -29,11 +49,6 @@
   
   <url>
     <loc>https://dmitrykabanov.com/tags/probability-theory/</loc>
-    <lastmod>2021-04-24T18:54:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/tags/</loc>
     <lastmod>2021-04-24T18:54:00+02:00</lastmod>
   </url>
   
@@ -99,10 +114,6 @@
   
   <url>
     <loc>https://dmitrykabanov.com/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/categories/</loc>
   </url>
   
 </urlset>
