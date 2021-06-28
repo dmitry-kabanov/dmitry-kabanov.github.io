@@ -6,7 +6,17 @@
     <description>Recent content on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 May 2021 12:16:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jun 2021 10:49:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Need for software testing</title>
+      <link>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</link>
+      <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</guid>
+      <description>Recently I was attending the class on uncertainty quantification for partial differential equations. As a postdoc, I do participate in the class only partially, however, I have a group of students that I am helping with the homework.
+The first homework required use of Monte Carlo methods with differential equations with random coefficients to estimate uncertainty in the solutions of these equations. As the person with experience in writing PDE solvers, I wrote the solver for the PDE that we used in this homework and shared it with others.</description>
+    </item>
+    
     <item>
       <title>Books on writing science</title>
       <link>https://dmitrykabanov.com/blog/2021/books-on-writing-science/</link>
