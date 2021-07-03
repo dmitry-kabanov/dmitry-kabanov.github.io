@@ -35,8 +35,14 @@ I haven&amp;rsquo;t read it but it has very high grades in reviews.</description
       <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
       
       <guid>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</guid>
-      <description>Basic terms in probability theory are outcomes, sample space, events, and probability measure.
-Outcomes and sample space . When you conduct a random experiment, there is a set of possible results of this experiment. This results are called outcomes. All possible outcomes together form a set, which is called sample space. It is customary to denote outcomes with \(\omega\) and sample space with \(\Omega\): \[ \Omega = \{ \omega \text{ such that } \omega \text{ is an outcome of random experiment} \}.</description>
+      <description>&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and
+probability measure.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Outcomes and sample space&lt;/strong&gt;
+.
+When you conduct a random experiment, there is a set of possible results of this
+experiment.
+This results are called &lt;em&gt;outcomes&lt;/em&gt;.
+All possible outcomes together form a set, which is called &lt;em&gt;sample space&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
