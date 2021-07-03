@@ -6,7 +6,18 @@
     <description>Recent content in Blogs on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Jun 2021 10:49:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to quickly insert a figure in LyX</title>
+      <link>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</link>
+      <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</guid>
+      <description>&lt;p&gt;I will show one of the user-defined commands that I use in
+&lt;a href=&#34;https://lyx.org&#34;&gt;Lyx&lt;/a&gt;, a \(\LaTeX\) frontend, to quickly insert figures with
+captions.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Need for software testing</title>
       <link>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</link>

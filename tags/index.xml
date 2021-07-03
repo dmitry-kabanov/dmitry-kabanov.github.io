@@ -6,22 +6,40 @@
     <description>Recent content in Tags on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Jun 2021 10:49:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>numerics</title>
-      <link>https://dmitrykabanov.com/tags/numerics/</link>
-      <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
+      <title>howto</title>
+      <link>https://dmitrykabanov.com/tags/howto/</link>
+      <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
       
-      <guid>https://dmitrykabanov.com/tags/numerics/</guid>
+      <guid>https://dmitrykabanov.com/tags/howto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lyx</title>
+      <link>https://dmitrykabanov.com/tags/lyx/</link>
+      <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/tags/lyx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>software</title>
       <link>https://dmitrykabanov.com/tags/software/</link>
-      <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
+      <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
       
       <guid>https://dmitrykabanov.com/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numerics</title>
+      <link>https://dmitrykabanov.com/tags/numerics/</link>
+      <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
+      
+      <guid>https://dmitrykabanov.com/tags/numerics/</guid>
       <description></description>
     </item>
     
@@ -76,15 +94,6 @@
       <pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
       
       <guid>https://dmitrykabanov.com/tags/latex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>howto</title>
-      <link>https://dmitrykabanov.com/tags/howto/</link>
-      <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
-      
-      <guid>https://dmitrykabanov.com/tags/howto/</guid>
       <description></description>
     </item>
     

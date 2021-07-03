@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Website of Dmitry Kabanov  | How to quickly insert a figure in LyX</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+      <link rel="stylesheet" href="/css/chroma.css">
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="How to quickly insert a figure in LyX" />
+<meta property="og:description" content="I will show one of the user-defined commands that I use in
+Lyx, a \(\LaTeX\) frontend, to quickly insert figures with
+captions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/" />
+<meta property="article:published_time" content="2021-07-03T19:36:00+02:00" />
+<meta property="article:modified_time" content="2021-07-03T19:36:00+02:00" />
+<meta itemprop="name" content="How to quickly insert a figure in LyX">
+<meta itemprop="description" content="I will show one of the user-defined commands that I use in
+Lyx, a \(\LaTeX\) frontend, to quickly insert figures with
+captions.">
+<meta itemprop="datePublished" content="2021-07-03T19:36:00+02:00" />
+<meta itemprop="dateModified" content="2021-07-03T19:36:00+02:00" />
+<meta itemprop="wordCount" content="368">
+
+
+
+<meta itemprop="keywords" content="howto,software,lyx," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to quickly insert a figure in LyX"/>
+<meta name="twitter:description" content="I will show one of the user-defined commands that I use in
+Lyx, a \(\LaTeX\) frontend, to quickly insert figures with
+captions."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://dmitrykabanov.com" class="f3 fw2 hover-white no-underline white-90 dib">
+      Website of Dmitry Kabanov
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        BLOGS
+      </p>
+      <h1 class="f1 athelas mb1">How to quickly insert a figure in LyX</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-07-03T19:36:00&#43;02:00">July 3, 2021</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>I will show one of the user-defined commands that I use in
+<a href="https://lyx.org">Lyx</a>, a \(\LaTeX\) frontend, to quickly insert figures with
+captions.</p>
+<p>Lyx is a wonderful software that makes it easier to
+typeset documents that are usually produced with \(\LaTeX\).
+Instead of seeing only \(\LaTeX\) source code, you can see approximately what
+the final document will look like.
+Particularly, the typesetting of mathematical formulas is much easier, as you
+can see their rendered form immediately.
+I used Lyx a lot during my PhD years, and I still use it often
+for private writing, such as small mathematical notes or laboratory
+notebooks.</p>
+<p>When you use some software extensively, you do some operations very frequently.
+One of such operations is to insert figures.
+The procedure is the following:</p>
+<ol>
+<li>You press the <code>Insert float</code> toolbar button or the corresponding menu command.</li>
+<li>Then you need to remove the end-of-paragraph symbol after the caption
+placeholder. (I am not quite sure why it is there.)</li>
+<li>Move the cursor to the paragraph up, where the figure will be inserted.</li>
+<li>Open <code>Paragraph settings</code> dialog window.</li>
+<li>Set property <code>Centered</code>.</li>
+<li>Close the dialog window.</li>
+<li>Open the dialog window for the figure using the <code>Insert graphics</code> toolbar
+button or the corresponding menu item.</li>
+</ol>
+<p>Only after these generic actions, you start to do something unique, like
+choosing the actual graphics file you want to insert or typing the figure
+caption.</p>
+<p>To make the process simpler, it is helpful to introduce a new command that will
+do the above actions for you and assign a keyboard shortcut for this
+command.
+The process is the following.</p>
+<ol>
+<li>
+<p>Open Lyx Preferences (it depends on the operating system that you use).</p>
+</li>
+<li>
+<p>Click the <code>New</code> button.</p>
+</li>
+<li>
+<p>In the opened <code>Edit shortcut</code> window, insert the following line in the
+<code>Function</code> field:</p>
+<p><code>command-sequence float-insert figure; char-right; char-delete-forward; up; paragraph-params \align center; dialog-show-new-inset graphics;</code></p>
+</li>
+<li>
+<p>In the <code>Shortcut</code> field, choose your shortcut (my preference is
+<code>Ctrl-Shift-F</code>).</p>
+</li>
+<li>
+<p>Press <code>OK</code>.</p>
+</li>
+</ol>
+<p>That&rsquo;s it!
+Now it will be much easier to insert new figures in Lyx documents.
+By pressing the chosen shortcut, you are immediately taken to the dialog window
+for selecting a graphic file, and after selecting it, you have it centered.
+The only thing left is to type the corresponding figure caption.</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/howto" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">howto</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/software" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">software</a>
+   </li>
+  
+   <li class="list">
+     <a href="/tags/lyx" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">lyx</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2021/need-for-software-testing/">Need for software testing</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2020/04-job-cancelation-in-slurm/">How to handle python job cancelation in Slurm job manager</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2020/03-saving-state-tf-function/">Saving state for tf.function-decorated functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2020/01-hyperopt-basics/">Hyperopt Basics</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com" >
+    &copy; 2021 Website of Dmitry Kabanov
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+<script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+
+  </body>
+</html>
