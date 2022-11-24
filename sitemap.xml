@@ -1,149 +1,102 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://dmitrykabanov.com/blog/</loc>
-    <lastmod>2021-07-03T19:36:00+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/categories/</loc>
+    <lastmod>2022-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/blog/2022/javascript-expressions-and-variables/</loc>
+    <lastmod>2022-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/tags/js/</loc>
+    <lastmod>2022-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/categories/programming/</loc>
+    <lastmod>2022-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/tags/</loc>
+    <lastmod>2022-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/</loc>
+    <lastmod>2022-11-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</loc>
     <lastmod>2021-07-03T19:36:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/howto/</loc>
     <lastmod>2021-07-03T19:36:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/lyx/</loc>
     <lastmod>2021-07-03T19:36:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/software/</loc>
     <lastmod>2021-07-03T19:36:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/tags/</loc>
-    <lastmod>2021-07-03T19:36:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/</loc>
-    <lastmod>2021-07-03T19:36:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</loc>
     <lastmod>2021-06-28T10:49:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/numerics/</loc>
     <lastmod>2021-06-28T10:49:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/testing/</loc>
     <lastmod>2021-06-28T10:49:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2021/books-on-writing-science/</loc>
     <lastmod>2021-05-15T12:16:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dmitrykabanov.com/categories/</loc>
-    <lastmod>2021-05-15T12:16:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/categories/metawork/</loc>
     <lastmod>2021-05-15T12:16:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/writing/</loc>
     <lastmod>2021-05-15T12:16:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</loc>
     <lastmod>2021-04-24T18:54:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/math/</loc>
     <lastmod>2021-04-24T18:54:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/probability-theory/</loc>
     <lastmod>2021-04-24T18:54:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2021/collaborate-overleaf-git/</loc>
     <lastmod>2021-02-19T21:55:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/git/</loc>
     <lastmod>2021-02-19T21:55:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/latex/</loc>
     <lastmod>2021-02-19T21:55:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</loc>
     <lastmod>2020-12-19T23:01:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/slurm/</loc>
     <lastmod>2020-12-19T23:01:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</loc>
     <lastmod>2020-07-31T12:19:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/tensorflow/</loc>
     <lastmod>2020-07-31T12:19:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</loc>
     <lastmod>2020-07-28T13:54:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/tags/hyperopt/</loc>
     <lastmod>2020-03-12T15:16:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</loc>
     <lastmod>2020-03-12T15:16:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</loc>
-    <lastmod>2019-09-14T00:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/blog/2021/2021/</loc>
+  </url><url>
     <loc>https://dmitrykabanov.com/about/</loc>
   </url>
-  
 </urlset>

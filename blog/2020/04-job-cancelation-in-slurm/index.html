@@ -4,230 +4,31 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Website of Dmitry Kabanov  | How to handle python job cancelation in Slurm job manager</title>
+    <title>How to handle python job cancelation in Slurm job manager | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait.">
+    <meta name="generator" content="Hugo 0.106.0">
     
     
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
     
     
-      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+      <meta name="robots" content="noindex, nofollow">
     
 
     
-      <link rel="stylesheet" href="/css/chroma.css">
-    
-
-    
-      
-    
-
-    
-
-    <meta property="og:title" content="How to handle python job cancelation in Slurm job manager" />
-<meta property="og:description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/" />
-<meta property="article:published_time" content="2020-12-19T23:01:00+01:00" />
-<meta property="article:modified_time" content="2020-12-19T23:01:00+01:00" />
-<meta itemprop="name" content="How to handle python job cancelation in Slurm job manager">
-<meta itemprop="description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait.">
-<meta itemprop="datePublished" content="2020-12-19T23:01:00+01:00" />
-<meta itemprop="dateModified" content="2020-12-19T23:01:00+01:00" />
-<meta itemprop="wordCount" content="297">
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
-<meta itemprop="keywords" content="howto,slurm," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to handle python job cancelation in Slurm job manager"/>
-<meta name="twitter:description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait."/>
-
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
+  
+    <link rel="stylesheet" href="/css/chroma.css">
   
 
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="https://dmitrykabanov.com" class="f3 fw2 hover-white no-underline white-90 dib">
-      Website of Dmitry Kabanov
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
-              About me
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
-              Blogs
-            </a>
-          </li>
-          
-        </ul>
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
-</nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-
-    <header class="mt4 w-100">
-      <p class="f6 b helvetica tracked">
-          
-        BLOGS
-      </p>
-      <h1 class="f1 athelas mb1">How to handle python job cancelation in Slurm job manager</h1>
-      
-      <time class="f6 mv4 dib tracked" datetime="2020-12-19T23:01:00&#43;01:00">December 19, 2020</time>
-      
-      
-    </header>
-
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>If you use Slurm job manager to run jobs on shared cluster, it often occurs
-that your job reaches the time limit and is terminated by Slurm.
-To allow a user to deal with the job termination, Slurm does this in two stages:
-first, the job receives <code>SIGTERM</code> signal that indicates that the job will be
-killed soon, and then the job receives <code>SIGKILL</code> signal that actually kills it.
-The time interval between these two signals is specified via Slurm&rsquo;s
-configuration parameter <code>KillWait</code>. This information is from the
-<a href="https://slurm.schedmd.com/sbatch.html">documentation for the <code>sbatch</code> command</a> for the
-<code>--time</code> parameter.</p>
-<p>Now, to actually handle the <code>SIGTERM</code> signal in Python, one should use <code>signal</code>
-package that comes built-in and register callback function that handles this
-signal:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">signal</span>
-
-<span class="k">class</span> <span class="nc">TimeLimitException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span> <span class="nf">handle_signal</span><span class="p">(</span><span class="n">signal_num</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">signal_num</span> <span class="o">==</span> <span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">TimeLimitException</span><span class="p">()</span>
-</code></pre></div><p>Note that we raise a custom exception such that the main code of the script
-could catch this particular exception and do the appropriate logic to end
-the job gracefully (write results of computations to file, etc.).</p>
-<p>In the <code>__main__</code> part of the python script we must register the handler and
-write the code with <code>try</code>-<code>except</code> block:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-    <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">,</span> <span class="n">handle_signal</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># do computations</span>
-    <span class="k">except</span> <span class="n">TimeLimitException</span><span class="p">:</span>
-        <span class="c1"># handle approaching-time-limit event by saving files, etc.</span>
-</code></pre></div><p>That&rsquo;s it! Now you should be able to write python jobs for Slurm that can
-save the results when the job approaches time limit.</p>
-<p>This post was written with the help of wonderful people from
-<a href="https://stackoverflow.com/questions/65326039/how-to-handle-job-cancelation-in-slurm/65337295#65337295">Stackoverflow</a>.</p>
-<p><strong>UPDATE 2020-12-21.</strong>
-<a href="https://lists.schedmd.com/pipermail/slurm-users/2020-April/005239.html">For some reason</a>, the signal propagates to the child process (python script) only
-when the process is started under <code>srun</code> even if it is a serial computation.
-That is, inside your job script you should start the computations
-using a command such as</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">srun python run_my_computations.py
-</code></pre></div><ul class="pa0">
-  
-   <li class="list">
-     <a href="/tags/howto" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">howto</a>
-   </li>
-  
-   <li class="list">
-     <a href="/tags/slurm" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">slurm</a>
-   </li>
-  
-</ul>
-<div class="mt6">
-      
-      
-      </div>
-    </section>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/blog/2020/03-saving-state-tf-function/">Saving state for tf.function-decorated functions</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/blog/2020/01-hyperopt-basics/">Hyperopt Basics</a>
-        </li>
-	    
-    </ul>
-</div>
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com" >
-    &copy; 2021 Website of Dmitry Kabanov
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-</div>
-  </div>
-</footer>
-
     
 
-<script src="/dist/js/app.3fc0f988d21662902933.js"></script>
-<script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
  MathJax.Hub.Config({
      tex2jax: {
          inlineMath: [['$','$'], ['\\(','\\)']],
@@ -265,6 +66,216 @@ using a command such as</p>
  });
 </script>
 
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="How to handle python job cancelation in Slurm job manager" />
+<meta property="og:description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-12-19T23:01:00+01:00" />
+<meta property="article:modified_time" content="2020-12-19T23:01:00+01:00" />
+
+<meta itemprop="name" content="How to handle python job cancelation in Slurm job manager">
+<meta itemprop="description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait."><meta itemprop="datePublished" content="2020-12-19T23:01:00+01:00" />
+<meta itemprop="dateModified" content="2020-12-19T23:01:00+01:00" />
+<meta itemprop="wordCount" content="297">
+<meta itemprop="keywords" content="howto,slurm," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to handle python job cancelation in Slurm job manager"/>
+<meta name="twitter:description" content="If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">How to handle python job cancelation in Slurm job manager</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-12-19T23:01:00+01:00">December 19, 2020</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>If you use Slurm job manager to run jobs on shared cluster, it often occurs
+that your job reaches the time limit and is terminated by Slurm.
+To allow a user to deal with the job termination, Slurm does this in two stages:
+first, the job receives <code>SIGTERM</code> signal that indicates that the job will be
+killed soon, and then the job receives <code>SIGKILL</code> signal that actually kills it.
+The time interval between these two signals is specified via Slurm&rsquo;s
+configuration parameter <code>KillWait</code>. This information is from the
+<a href="https://slurm.schedmd.com/sbatch.html">documentation for the <code>sbatch</code> command</a> for the
+<code>--time</code> parameter.</p>
+<p>Now, to actually handle the <code>SIGTERM</code> signal in Python, one should use <code>signal</code>
+package that comes built-in and register callback function that handles this
+signal:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">signal</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TimeLimitException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">handle_signal</span><span class="p">(</span><span class="n">signal_num</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">signal_num</span> <span class="o">==</span> <span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="n">TimeLimitException</span><span class="p">()</span>
+</span></span></code></pre></div><p>Note that we raise a custom exception such that the main code of the script
+could catch this particular exception and do the appropriate logic to end
+the job gracefully (write results of computations to file, etc.).</p>
+<p>In the <code>__main__</code> part of the python script we must register the handler and
+write the code with <code>try</code>-<code>except</code> block:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">,</span> <span class="n">handle_signal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># do computations</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="n">TimeLimitException</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># handle approaching-time-limit event by saving files, etc.</span>
+</span></span></code></pre></div><p>That&rsquo;s it! Now you should be able to write python jobs for Slurm that can
+save the results when the job approaches time limit.</p>
+<p>This post was written with the help of wonderful people from
+<a href="https://stackoverflow.com/questions/65326039/how-to-handle-job-cancelation-in-slurm/65337295#65337295">Stackoverflow</a>.</p>
+<p><strong>UPDATE 2020-12-21.</strong>
+<a href="https://lists.schedmd.com/pipermail/slurm-users/2020-April/005239.html">For some reason</a>, the signal propagates to the child process (python script) only
+when the process is started under <code>srun</code> even if it is a serial computation.
+That is, inside your job script you should start the computations
+using a command such as</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">srun python run_my_computations.py
+</span></span></code></pre></div><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/howto/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">howto</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/slurm/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">slurm</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2020/03-saving-state-tf-function/">Saving state for tf.function-decorated functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2020/01-hyperopt-basics/">Hyperopt Basics</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="ssssss bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
 
   </body>
 </html>

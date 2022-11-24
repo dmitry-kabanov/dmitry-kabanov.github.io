@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on Website of Dmitry Kabanov</title>
+    <link>https://dmitrykabanov.com/categories/programming/</link>
+    <description>Recent content in programming on Website of Dmitry Kabanov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript: expressions and variables</title>
+      <link>https://dmitrykabanov.com/blog/2022/javascript-expressions-and-variables/</link>
+      <pubDate>Thu, 24 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2022/javascript-expressions-and-variables/</guid>
+      <description>&lt;p&gt;I was recently studying Javascript out of curiousity as this language is used
+so much in the current web and mobile development.
+These are notes on basic Javascript knowledge to better memorize its syntax.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

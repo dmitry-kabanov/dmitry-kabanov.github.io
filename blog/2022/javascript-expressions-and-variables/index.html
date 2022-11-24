@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Javascript: expressions and variables | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I was recently studying Javascript out of curiousity as this language is used
+so much in the current web and mobile development.
+These are notes on basic Javascript knowledge to better memorize its syntax.">
+    <meta name="generator" content="Hugo 0.106.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Javascript: expressions and variables" />
+<meta property="og:description" content="I was recently studying Javascript out of curiousity as this language is used
+so much in the current web and mobile development.
+These are notes on basic Javascript knowledge to better memorize its syntax." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2022/javascript-expressions-and-variables/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-24T00:00:00+00:00" />
+
+<meta itemprop="name" content="Javascript: expressions and variables">
+<meta itemprop="description" content="I was recently studying Javascript out of curiousity as this language is used
+so much in the current web and mobile development.
+These are notes on basic Javascript knowledge to better memorize its syntax."><meta itemprop="datePublished" content="2022-11-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-11-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="253">
+<meta itemprop="keywords" content="js," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Javascript: expressions and variables"/>
+<meta name="twitter:description" content="I was recently studying Javascript out of curiousity as this language is used
+so much in the current web and mobile development.
+These are notes on basic Javascript knowledge to better memorize its syntax."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Javascript: expressions and variables</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-11-24T00:00:00Z">November 24, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I was recently studying Javascript out of curiousity as this language is used
+so much in the current web and mobile development.
+These are notes on basic Javascript knowledge to better memorize its syntax.</p>
+<p>Main sources for learning that I use are <a href="https://eloquentjavascript.net/">fantastic book Eloquent Javascript</a> and
+<a href="https://www.domestika.org/en/courses/390-introduction-to-javascript-programming">this interesting course on Domestika</a>.</p>
+<h2 id="expressions">Expressions</h2>
+<p>Javascript is a C-family language, so basic arithmetic operations are exactly
+the same as in C:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">3</span> <span class="o">+</span> <span class="mi">8</span><span class="p">;</span>  <span class="c1">// Sum, 11
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// Product, 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">7</span> <span class="o">%</span> <span class="mi">3</span><span class="p">;</span>  <span class="c1">// Remainder, 1
+</span></span></span></code></pre></div><p>as well as logical operations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">7</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">9</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">20</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// true
+</span></span></span></code></pre></div><p>Equality can be checked with <code>==</code> operator but this operator thinks that zero is
+equal to <code>false</code> (that is, it does type casting), while special operator <code>===</code>
+does not do this, it does not change the types.
+It is recommended to use the latter operator most of the time.</p>
+<h2 id="variables-and-constants">Variables and constants</h2>
+<p>Variables can be defined with the <code>let</code> keyword. Pre-2015 Javascript used
+the word <code>var</code>, which can also be used still but <code>let</code> is recommended.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+</span></span></code></pre></div><p>In the above code, the variable <code>a</code> is declared and initialized to value <code>25</code>.</p>
+<p>One can also declare a variable without initializing it:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">b</span><span class="p">;</span>
+</span></span></code></pre></div><p>then it has special type <code>undefined</code>.</p>
+<p>Constants (that is, variables that cannot change their values) are defined
+using keyword <code>const</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MEANING_OF_LIFE</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</span></span></code></pre></div><p>It is customary to use upper case letters and underscores for constants.</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/js/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">js</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="ssssss bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
