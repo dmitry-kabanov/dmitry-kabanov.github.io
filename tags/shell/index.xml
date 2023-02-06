@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on Website of Dmitry Kabanov</title>
+    <link>https://dmitrykabanov.com/tags/shell/</link>
+    <description>Recent content in shell on Website of Dmitry Kabanov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redirection of stdout and stderr to the same file</title>
+      <link>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</link>
+      <pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</guid>
+      <description>Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.</description>
+    </item>
+    
+  </channel>
+</rss>

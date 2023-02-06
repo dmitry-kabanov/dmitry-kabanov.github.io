@@ -7,7 +7,7 @@
     <title>Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.106.0">
+    <meta name="generator" content="Hugo 0.109.0">
     
     
     
@@ -83,7 +83,6 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://dmitrykabanov.com/blog/" />
-
 <meta itemprop="name" content="Blogs">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Blogs"/>
@@ -149,6 +148,26 @@
   <article class="pa3 pa4-ns nested-copy-line-height">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blogs</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/2020/03-saving-state-tf-function/" class="link black dim">
+        Saving state for tf.function-decorated functions
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
+To illustrate the problem, Tensorflow 2.2 is used:
+import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.
+    </div>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100 w-30-l mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
@@ -297,7 +316,7 @@ All possible outcomes together form a set, which is called <em>sample space</em>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2022 
+    &copy;  Website of Dmitry Kabanov 2023 
   </a>
     <div>
 <div class="ananke-socials">

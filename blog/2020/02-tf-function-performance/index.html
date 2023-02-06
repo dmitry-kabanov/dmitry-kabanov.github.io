@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
 Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient.">
-    <meta name="generator" content="Hugo 0.106.0">
+    <meta name="generator" content="Hugo 0.109.0">
     
     
     
@@ -82,7 +82,6 @@ Tensorflow 2 offers another mode of execution called Graph mode. In this mode, f
 <meta property="og:url" content="https://dmitrykabanov.com/blog/2020/02-tf-function-performance/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2020-07-28T13:54:00+02:00" />
 <meta property="article:modified_time" content="2020-07-28T13:54:00+02:00" />
-
 <meta itemprop="name" content="Using `tf.function` for performance in Tensorflow 2">
 <meta itemprop="description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
 Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient."><meta itemprop="datePublished" content="2020-07-28T13:54:00+02:00" />
@@ -211,7 +210,7 @@ create the arrays:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f_slow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@tf.function</span>
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f_fast</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
@@ -268,7 +267,7 @@ parameters.</p>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2022 
+    &copy;  Website of Dmitry Kabanov 2023 
   </a>
     <div>
 <div class="ananke-socials">

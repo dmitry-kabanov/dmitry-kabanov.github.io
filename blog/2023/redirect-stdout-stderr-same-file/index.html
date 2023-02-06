@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Redirection of stdout and stderr to the same file | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.">
+    <meta name="generator" content="Hugo 0.109.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Redirection of stdout and stderr to the same file" />
+<meta property="og:description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-02-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-06T00:00:00+00:00" />
+<meta itemprop="name" content="Redirection of stdout and stderr to the same file">
+<meta itemprop="description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file."><meta itemprop="datePublished" content="2023-02-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="254">
+<meta itemprop="keywords" content="unix,shell,programming," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redirection of stdout and stderr to the same file"/>
+<meta name="twitter:description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Redirection of stdout and stderr to the same file</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-02-06T00:00:00Z">February 6, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (<code>stdout</code>)
+and to the standard error output (<code>stderr</code>).
+For example, by default, in a Python program the <code>print</code> function writes to
+<code>stdout</code> and the functions of the <code>logging</code> module to <code>stderr</code>.
+Therefore, one needs to <strong>redirect both <code>stdout</code> and <code>stderr</code></strong> to the same file.</p>
+<h2 id="redirection-basics">Redirection basics</h2>
+<p>Redirection of <code>stdout</code> is done via <code>&gt;</code> syntax:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmd &gt;log.txt
+</span></span></code></pre></div><p>and redirection of <code>stderr</code> to <code>stdout</code> is done with <code>2&gt;&amp;1</code>.</p>
+<p>Thus, one just needs to combine these two redirections together
+to redirect stderr to <code>stdout</code> and then redirect both to <code>log.txt</code>.
+However, the order of redirection instructions is important here!</p>
+<h2 id="wrong-way">Wrong way</h2>
+<p>This command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmd 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt;log.txt  <span class="c1"># wrong!</span>
+</span></span></code></pre></div><p>writes <code>stderr</code> to <code>stdout</code> but separately writes <code>stdout</code> to file <code>log.txt</code>.
+If <code>stdout</code> is connected to screen,
+then <code>stderr</code> effectively will be written to screen but <code>stdout</code> to file.</p>
+<p>Why this happens?
+The shell executes these redirection instructions immediately,
+hence, when <code>2&gt;&amp;1</code> redirection is implemented, it is not yet known
+that <code>stdout</code> will be redirected to <code>log.txt</code> in the next instruction.</p>
+<h2 id="right-way">Right way</h2>
+<p>The right way to redirection is the command</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">cmd &gt;log.txt 2&gt;&amp;1  # right!
+</code></pre><p>that will write both <code>stderr</code> and <code>stdout</code> to the same file <code>file.txt</code>.</p>
+<p>As a shortcut for the previous command, one can use</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">cmd &amp;&gt;log.txt
+</code></pre><p>This shortcut is not only shorter but also allows to avoid the possibility
+of a bug by using the wrong order.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/unix/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">unix</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/shell/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">shell</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

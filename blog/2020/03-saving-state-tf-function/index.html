@@ -10,7 +10,7 @@
 The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
 To illustrate the problem, Tensorflow 2.2 is used:
 import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.">
-    <meta name="generator" content="Hugo 0.106.0">
+    <meta name="generator" content="Hugo 0.109.0">
     
     
     
@@ -86,7 +86,6 @@ import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsqu
 <meta property="og:url" content="https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2020-07-31T12:19:00+02:00" />
 <meta property="article:modified_time" content="2020-07-31T12:19:00+02:00" />
-
 <meta itemprop="name" content="Saving state for tf.function-decorated functions">
 <meta itemprop="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
 The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
@@ -210,7 +209,7 @@ So, the code looks like this:</p>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@tf.function</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span>
 </span></span></code></pre></div><p>Now when we use <code>Calc.scale</code> function while changing the value of the scaling
@@ -246,11 +245,11 @@ This can be done using properties, and then the result is what expected:</p>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">alpha</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@alpha</span><span class="o">.</span><span class="n">setter</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@alpha.setter</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">alpha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@tf.function</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span>
 </span></span><span class="line"><span class="cl">
@@ -269,7 +268,7 @@ This can be done using properties, and then the result is what expected:</p>
 <code>alpha</code> as a function argument:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Fix problem using functional style of programming.</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CalcVersionThree</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@tf.function</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span>
 </span></span><span class="line"><span class="cl">
@@ -339,7 +338,7 @@ you can read <a href="https://github.com/tensorflow/tensorflow/blob/master/tenso
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2022 
+    &copy;  Website of Dmitry Kabanov 2023 
   </a>
     <div>
 <div class="ananke-socials">
