@@ -228,68 +228,6 @@ for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where sup
 
         </div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Blogs</span>
-    <h1 class="f3 near-black">
-      <a href="/blog/2021/2021/" class="link black dim">
-        
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <h2 id="colaborate-in-latex-overleaf-and-local-git"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Colaborate in Latex: Overleaf and local git</h2>
-<p>When you write a paper in \(\LaTeX\) and your collaborators prefer to use <a href="https://www.overleaf.com">Overleaf</a>
-but you prefer to use local setup, then you can do it with the help of the <a href="https://git-scm.com/">git
-version control system</a>.</p>
-<p>Overall, the process is the following. You create a local git repository and
-sync it to a remote git service of your choice.
-Then you create a project in Overleaf. In the project settings you can find
-the link which you add to your git setup as the second remote server.
-The details are below.</p>
-<p><strong>Creating the local git setup.</strong> This is done the usual way by creating a
-project folder and invoking the <code>git init</code> command inside of it.</p>
-<p><strong>Add a git remote.</strong> After creating a repo in the chosen git cloud service,
-you add it to your local git configuration as an <em>origin</em> remote (this name is a
-customary name for the primary remote in git).</p>
-<p><strong>Creating an Overleaf project.</strong> After creating a project in Overleaf, you can
-find the git URL in the leftside panel by clicking Menu and then Git in the Sync
-subsection. The URL will look like <code>https://git.overleaf.com/</code> followed by
-letters and digits.</p>
-<figure><img src="/images/2021/collaborate-latex-git-1.png"/>
-</figure>
-
-<figure><img src="/images/2021/collaborate-latex-git-2.png"/>
-</figure>
-
-<p><strong>Adding the Overleaf git remote.</strong> Now you need to add this URL as the second
-remote in git:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git remote add overleaf https://git.overleaf.com/random-letters-and-digits
-</span></span></code></pre></div><p><strong>Actual collaboration.</strong> The setup process is done and you can syncronize your
-<code>origin</code> and <code>overleaf</code> remotes by pulling and pushing to them.
-For example, your collaborator tells you that he made changes on the Overleaf
-side.
-To syncronize these changes to your git cloud, you need to execute these
-commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git pull overleaf
-</span></span><span class="line"><span class="cl">git push origin
-</span></span></code></pre></div><p>and to push your changes to Overleaf, the command is</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git push overleaf
-</span></span></code></pre></div><h2 id="basic-terms-in-the-probability-theory"><!-- raw HTML omitted -->DONE<!-- raw HTML omitted --> Basic terms in the probability theory</h2>
-<p>Basic terms in probability theory are outcomes, sample space, events, and
-probability measure.</p>
-<p><strong>Outcomes and sample space</strong>
-.
-When you conduct a random experiment, there is a set of possible results of this
-experiment.
-This results are called <em>outcomes</em>.
-All possible outcomes together form a set, which is called <em>sample space</em>.</p>
-    </div>
-  </div>
-</div>
-
-        </div>
-      
     </section>
     <ul class="pagination pagination-default">
       <li class="page-item">

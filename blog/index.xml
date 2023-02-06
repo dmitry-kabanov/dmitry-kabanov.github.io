@@ -165,59 +165,5 @@ it consists of subsets of \(X\),
 for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://dmitrykabanov.com/blog/2021/2021/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dmitrykabanov.com/blog/2021/2021/</guid>
-      <description>&lt;h2 id=&#34;colaborate-in-latex-overleaf-and-local-git&#34;&gt;&lt;!-- raw HTML omitted --&gt;DONE&lt;!-- raw HTML omitted --&gt; Colaborate in Latex: Overleaf and local git&lt;/h2&gt;
-&lt;p&gt;When you write a paper in \(\LaTeX\) and your collaborators prefer to use &lt;a href=&#34;https://www.overleaf.com&#34;&gt;Overleaf&lt;/a&gt;
-but you prefer to use local setup, then you can do it with the help of the &lt;a href=&#34;https://git-scm.com/&#34;&gt;git
-version control system&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Overall, the process is the following. You create a local git repository and
-sync it to a remote git service of your choice.
-Then you create a project in Overleaf. In the project settings you can find
-the link which you add to your git setup as the second remote server.
-The details are below.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Creating the local git setup.&lt;/strong&gt; This is done the usual way by creating a
-project folder and invoking the &lt;code&gt;git init&lt;/code&gt; command inside of it.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Add a git remote.&lt;/strong&gt; After creating a repo in the chosen git cloud service,
-you add it to your local git configuration as an &lt;em&gt;origin&lt;/em&gt; remote (this name is a
-customary name for the primary remote in git).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Creating an Overleaf project.&lt;/strong&gt; After creating a project in Overleaf, you can
-find the git URL in the leftside panel by clicking Menu and then Git in the Sync
-subsection. The URL will look like &lt;code&gt;https://git.overleaf.com/&lt;/code&gt; followed by
-letters and digits.&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://dmitrykabanov.com/images/2021/collaborate-latex-git-1.png&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;&lt;img src=&#34;https://dmitrykabanov.com/images/2021/collaborate-latex-git-2.png&#34;/&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;Adding the Overleaf git remote.&lt;/strong&gt; Now you need to add this URL as the second
-remote in git:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add overleaf https://git.overleaf.com/random-letters-and-digits
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Actual collaboration.&lt;/strong&gt; The setup process is done and you can syncronize your
-&lt;code&gt;origin&lt;/code&gt; and &lt;code&gt;overleaf&lt;/code&gt; remotes by pulling and pushing to them.
-For example, your collaborator tells you that he made changes on the Overleaf
-side.
-To syncronize these changes to your git cloud, you need to execute these
-commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull overleaf
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and to push your changes to Overleaf, the command is&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push overleaf
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;basic-terms-in-the-probability-theory&#34;&gt;&lt;!-- raw HTML omitted --&gt;DONE&lt;!-- raw HTML omitted --&gt; Basic terms in the probability theory&lt;/h2&gt;
-&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and
-probability measure.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Outcomes and sample space&lt;/strong&gt;
-.
-When you conduct a random experiment, there is a set of possible results of this
-experiment.
-This results are called &lt;em&gt;outcomes&lt;/em&gt;.
-All possible outcomes together form a set, which is called &lt;em&gt;sample space&lt;/em&gt;.&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>
