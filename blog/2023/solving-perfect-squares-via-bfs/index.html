@@ -89,7 +89,7 @@ To implement BFS, one should use the queue data structure." />
 One typical application of BFS is to find the shortest path between the root and the given nodes.
 To implement BFS, one should use the queue data structure."><meta itemprop="datePublished" content="2023-04-17T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-04-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="519">
+<meta itemprop="wordCount" content="506">
 <meta itemprop="keywords" content="programming,algorithms," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Solving Perfect Squares problem using breadth-first search"/>
 <meta name="twitter:description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &ldquo;by levels&rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
@@ -233,10 +233,11 @@ So, if <code>n</code> is 13, the answer is 2 as \(13 = 9 + 4\).</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">min_num_of_squares</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># Upper bound on the perfect squares.</span>
-</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># Potential neighbors of the current node.</span>
-</span></span><span class="line"><span class="cl">    <span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># Initialize the queue with root node `0`.</span>
 </span></span><span class="line"><span class="cl">    <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
