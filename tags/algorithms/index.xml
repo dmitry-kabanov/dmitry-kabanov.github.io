@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithms on Website of Dmitry Kabanov</title>
+    <link>https://dmitrykabanov.com/tags/algorithms/</link>
+    <description>Recent content in algorithms on Website of Dmitry Kabanov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solving Perfect Squares problem using breadth-first search</title>
+      <link>https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/</link>
+      <pubDate>Mon, 17 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/</guid>
+      <description>I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &amp;ldquo;by levels&amp;rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
+One typical application of BFS is to find the shortest path between the root and the given nodes.
+To implement BFS, one should use the queue data structure.</description>
+    </item>
+    
+  </channel>
+</rss>
