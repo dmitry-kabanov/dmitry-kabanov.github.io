@@ -6,7 +6,19 @@
     <description>Recent content in Blogs on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to mirror GitLab repo to GitHub</title>
+      <link>https://dmitrykabanov.com/blog/2023/how-to-mirror-gitlab-repo-to-github/</link>
+      <pubDate>Mon, 08 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/how-to-mirror-gitlab-repo-to-github/</guid>
+      <description>&lt;p&gt;If you have a &lt;a href=&#34;https://gitlab.com&#34;&gt;GitLab&lt;/a&gt; repo and would like to mirror it in your &lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt; account,
+it can be set up directly in the GitLab repo settings.
+Note that here we use new fine-grained tokens functionality of GitHub
+(which is currently in beta, as of May 2023).&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Solving Perfect Squares problem using breadth-first search</title>
       <link>https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/</link>
