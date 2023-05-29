@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>JavaScript: functions | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="As any programming language, JavaScript allows to pack useful things into
+functions, and it is the key to good JavaScript knowledge, to use them
+efficiently.
+In this post, I describe three ways that the functions can be declared
+in JavaScript,
+talk about visibility of variables inside the functions,
+how to have optional function arguments with default values,
+how to create closures (functions, bound to outer variables),
+and how to use recursion.">
+    <meta name="generator" content="Hugo 0.111.1">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="JavaScript: functions" />
+<meta property="og:description" content="As any programming language, JavaScript allows to pack useful things into
+functions, and it is the key to good JavaScript knowledge, to use them
+efficiently.
+In this post, I describe three ways that the functions can be declared
+in JavaScript,
+talk about visibility of variables inside the functions,
+how to have optional function arguments with default values,
+how to create closures (functions, bound to outer variables),
+and how to use recursion." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/javascript-functions/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-05-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-29T00:00:00+00:00" />
+<meta itemprop="name" content="JavaScript: functions">
+<meta itemprop="description" content="As any programming language, JavaScript allows to pack useful things into
+functions, and it is the key to good JavaScript knowledge, to use them
+efficiently.
+In this post, I describe three ways that the functions can be declared
+in JavaScript,
+talk about visibility of variables inside the functions,
+how to have optional function arguments with default values,
+how to create closures (functions, bound to outer variables),
+and how to use recursion."><meta itemprop="datePublished" content="2023-05-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-05-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="837">
+<meta itemprop="keywords" content="programming,javascript," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript: functions"/>
+<meta name="twitter:description" content="As any programming language, JavaScript allows to pack useful things into
+functions, and it is the key to good JavaScript knowledge, to use them
+efficiently.
+In this post, I describe three ways that the functions can be declared
+in JavaScript,
+talk about visibility of variables inside the functions,
+how to have optional function arguments with default values,
+how to create closures (functions, bound to outer variables),
+and how to use recursion."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">JavaScript: functions</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-29T00:00:00Z">May 29, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>As any programming language, JavaScript allows to pack useful things into
+functions, and it is the key to good JavaScript knowledge, to use them
+efficiently.
+In this post, I describe three ways that the functions can be declared
+in JavaScript,
+talk about visibility of variables inside the functions,
+how to have optional function arguments with default values,
+how to create closures (functions, bound to outer variables),
+and how to use recursion.</p>
+<h2 id="defining-a-function-using-the-keyword-function">Defining a function using the keyword <code>function</code></h2>
+<p>One can declare a function value like this (note the semicolon in the end):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>One can do some kind of polymorphism by redefining a function this way:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// Here we assume that there is a global variable COND1 that determines the
+</span></span></span><span class="line"><span class="cl"><span class="c1">// function that we will use.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">g</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">COND1</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">g</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Therefore, the behavior of function <code>g</code> will be different in different contexts.</p>
+<p>The more common way of defining a function is to combine the keyword <code>function</code>
+together with a name:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Note that in this case, one does not need to use a semicolon after the function.</p>
+<h2 id="variables-and-scopes">Variables and scopes</h2>
+<p>Each binding, that is, a variable, has a <em>scope</em>, that is, it can be visible
+only in a particular part of a program.
+If a variable defined outside of any functions and braces, it is a <em>global</em>
+variable.</p>
+<p>If a variable defined inside a function, it is a <em>local</em> variable.
+Note, that in the context of a function, the difference between keywords
+<code>var</code> and <code>let</code> becomes clear.
+If a variable declared using the keyword <code>var</code> inside a function,
+then it is visible everywhere in this function.
+Starting with 2015, one can define a variable using the <code>let</code> keyword.
+Such variables are visible only inside a block where they are declared.
+For example, in the following code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sum_to_n</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>the <code>sum</code> variable is visible in the whole function, while <code>i</code> variable
+is visible only inside the <code>for</code> loop.</p>
+<h2 id="arrow-functions">Arrow functions</h2>
+<p>There is also a concise way of defining an anonymous function in ES6 (2015):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">my_func</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
+</span></span></code></pre></div><p>Here, the arguments are in parentheses, and the return value is after <code>=&gt;</code> characters.</p>
+<p>If there is only one argument, then parentheses can be omitted:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">square</span> <span class="o">=</span> <span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+</span></span></code></pre></div><p>One of the important details about arrow functions is that
+in simple cases, no <code>return</code> keyword should be used.
+If the function body is surrounded by braces, then the <code>return</code> keyword
+must be used:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sq1</span> <span class="o">=</span> <span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sq2</span> <span class="o">=</span> <span class="nx">x</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span> <span class="p">};</span>
+</span></span></code></pre></div><p>Note that if the function does not accept any parameters,
+then the parameter list is just a pair of parentheses:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">hello_world</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="optional-arguments">Optional arguments</h2>
+<p>In  JavaScript, the number of arguments when invoking a function does not
+have to be the same as defined in function definition.
+All extra arguments will be ignored, while the missing arguments are assigned
+the value <code>undefined</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`a = </span><span class="si">${</span><span class="nx">a</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`b = </span><span class="si">${</span><span class="nx">b</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">func</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="s2">&#34;this will be ignored&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">func</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = 5.25
+</span></span><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = undefined
+</span></span></code></pre></div><p>Because the value <code>undefined</code> is usually not very useful, you can provide
+the desired default value after the equality sign:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">func_with_optional_args</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`a = </span><span class="si">${</span><span class="nx">a</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`b = </span><span class="si">${</span><span class="nx">b</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">func_with_optional_args</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="s2">&#34;this will be ignored&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">func_with_optional_args</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = 5.25
+</span></span><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = 2
+</span></span></code></pre></div><p>Note that the third arguments will be ignored anyway.</p>
+<h2 id="closures">Closures</h2>
+<p>JavaScript also has <em>closures</em>, that is, functions that access variables
+from the enclosing scope.</p>
+<p>It is a useful feature to create parameterized functions.
+For example, we can create a function that multiply a given value
+by an arbitrary argument:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">multiplier</span><span class="p">(</span><span class="nx">factor</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">n</span> <span class="p">=&gt;</span> <span class="nx">factor</span> <span class="o">*</span> <span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">times_2</span> <span class="o">=</span> <span class="nx">multiplier</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">times_5</span> <span class="o">=</span> <span class="nx">multiplier</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">times_2</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">times_5</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">20
+</span></span><span class="line"><span class="cl">50
+</span></span></code></pre></div><h2 id="recursion">Recursion</h2>
+<p>Recursive function is a function that calls itself. There must be a termination
+condition in such a function to make sure that it stops calling itself
+infinitely many times.</p>
+<p>Let&rsquo;s write a function that computes a Fibonacci number via recursion.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;7th Fibonacci number is&#34;</span><span class="p">,</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="mi">7</span><span class="p">));</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">7th Fibonacci number is 13
+</span></span></code></pre></div><p>Of course, recursion is not the most effective way to solve this problem.
+Usually, recursion works well in the problem that require branching
+and checking multiple options.</p>
+<h2 id="references">References</h2>
+<p>This post is mostly based on Chapter 3 of the fantastic book on Javascript
+&ldquo;<a href="https://eloquentjavascript.net/">Eloquent JavaScript</a>&rdquo; by Marijn Haverbeke.
+I have also consulted
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Mozilla Developer Network</a>
+documentation a bit.</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/javascript/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">javascript</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

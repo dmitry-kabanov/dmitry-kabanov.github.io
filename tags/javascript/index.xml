@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Website of Dmitry Kabanov</title>
+    <link>https://dmitrykabanov.com/tags/javascript/</link>
+    <description>Recent content in javascript on Website of Dmitry Kabanov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript: functions</title>
+      <link>https://dmitrykabanov.com/blog/2023/javascript-functions/</link>
+      <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/javascript-functions/</guid>
+      <description>&lt;p&gt;As any programming language, JavaScript allows to pack useful things into
+functions, and it is the key to good JavaScript knowledge, to use them
+efficiently.
+In this post, I describe three ways that the functions can be declared
+in JavaScript,
+talk about visibility of variables inside the functions,
+how to have optional function arguments with default values,
+how to create closures (functions, bound to outer variables),
+and how to use recursion.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
