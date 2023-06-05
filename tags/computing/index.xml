@@ -6,7 +6,16 @@
     <description>Recent content in computing on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/computing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/computing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to use x86_64 packages in Conda on M1 Mac</title>
+      <link>https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/</guid>
+      <description>If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture.</description>
+    </item>
+    
     <item>
       <title>How to reencode H.264 videos to H.265</title>
       <link>https://dmitrykabanov.com/blog/2023/reencode-h.264-to-h/</link>
