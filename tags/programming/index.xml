@@ -6,7 +6,18 @@
     <description>Recent content in programming on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Universal initialization in C&#43;&#43;</title>
+      <link>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</guid>
+      <description>For my new position, I need to improve my knowledge of the C++ programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C++ by Peter Gottschling to get up to speed with, well, modern C++.
+In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C++11.
+The syntax for the universal initialization is the following:</description>
+    </item>
+    
     <item>
       <title>JavaScript: functions</title>
       <link>https://dmitrykabanov.com/blog/2023/javascript-functions/</link>

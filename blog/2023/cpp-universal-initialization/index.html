@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Universal initialization in C&#43;&#43; | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
+The syntax for the universal initialization is the following:">
+    <meta name="generator" content="Hugo 0.114.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Universal initialization in C&#43;&#43;" />
+<meta property="og:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
+The syntax for the universal initialization is the following:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-06-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-23T00:00:00+00:00" />
+<meta itemprop="name" content="Universal initialization in C&#43;&#43;">
+<meta itemprop="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
+The syntax for the universal initialization is the following:"><meta itemprop="datePublished" content="2023-06-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-06-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="385">
+<meta itemprop="keywords" content="programming,cpp," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Universal initialization in C&#43;&#43;"/>
+<meta name="twitter:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
+The syntax for the universal initialization is the following:"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Universal initialization in C&#43;&#43;</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-06-23T00:00:00Z">June 23, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>For my new position, I need to improve my knowledge of the C++ programming
+language (which I did not use basically since 2010).
+So I have started reading the book
+<a href="https://www.informit.com/store/discovering-modern-c-plus-plus-9780136677642">Discovering Modern C++</a>
+by Peter Gottschling to get up to speed with, well, modern C++.</p>
+<p>In this post, I would like to talk about universal initialization (a.k.a.
+brace-initialization) that was introduced in C++11.</p>
+<p>The syntax for the universal initialization is the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">{};</span>  <span class="c1">// Initialize integer variable to 42
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">string</span> <span class="n">s</span><span class="p">{</span><span class="s">&#34;Hello World!&#34;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="o">*</span><span class="n">pData</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">27.43</span><span class="p">,</span> <span class="mf">1e-38</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">values</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">geo</span> <span class="p">{</span> <span class="p">{</span><span class="s">&#34;Germany&#34;</span><span class="p">,</span> <span class="s">&#34;Berlin&#34;</span><span class="p">},</span> <span class="s">&#34;France&#34;</span><span class="p">,</span> <span class="s">&#34;Paris&#34;</span> <span class="p">};</span>
+</span></span></code></pre></div><p>Note that the whitespace is not important here, but it looks cleaner when
+there is a space before the opening brace in complicated initializations
+like in the third line above.</p>
+<p>The universal initialization was introduced to overcome the following
+problems:</p>
+<ul>
+<li>avoid narrowing type errors,</li>
+<li>avoid syntactic ambiguity &ldquo;is it a function declaration or an object creation?&rdquo;,</li>
+<li>make initialization of small-size containers slightly easier.</li>
+</ul>
+<p><strong>Avoid narrowing type errors</strong>. When initializing variable via assingment
+operator, it is possible to introduce hidden errors like loss of precision, as
+the compiler narrows the type of the initialization expression to the type of
+the variable, while this does not happen with the universal initialization:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">7.7</span><span class="p">;</span>  <span class="c1">// 7.7 will be truncated to 7 (although a compiler warns about it)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">x</span> <span class="p">{</span><span class="mf">7.7</span><span class="p">};</span>  <span class="c1">// compiler will emit an error; 7.7 must be changed to int(7.7)
+</span></span></span></code></pre></div><p><strong>Avoid syntactic ambiguity</strong>.
+This is what is called &ldquo;most vexing parse&rdquo; in the book
+&ldquo;Effective C++&rdquo; by Scott Meyers.
+The normal syntax for object initialization is ambiguous and consides
+with the syntax for function declaration. The universal initialization
+allows us to avoid this ambiguity, which makes it easier to read for humans.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Test</span> <span class="nf">test</span><span class="p">();</span>  <span class="c1">// Is it object initialization or function declaration?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Test</span> <span class="n">test</span><span class="p">{};</span>  <span class="c1">// This is definitely object initialization.
+</span></span></span></code></pre></div><p><strong>Container initialization</strong>.
+When you need to initialize a small-size container,
+the universal initialization syntax is much shorter.
+Say, you need to initialize a vector with four elements.
+Then you need to use <code>push-back</code> method in old-style initialization,
+while it is a one-liner with the universal initialization:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// In C++11 you can do it more elegant with a one-liner:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+</span></span></code></pre></div><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/cpp/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">cpp</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2023/javascript-functions/">JavaScript: functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

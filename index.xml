@@ -6,7 +6,18 @@
     <description>Recent content on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Universal initialization in C&#43;&#43;</title>
+      <link>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</guid>
+      <description>For my new position, I need to improve my knowledge of the C++ programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C++ by Peter Gottschling to get up to speed with, well, modern C++.
+In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C++11.
+The syntax for the universal initialization is the following:</description>
+    </item>
+    
     <item>
       <title>How to use x86_64 packages in Conda on M1 Mac</title>
       <link>https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/</link>
