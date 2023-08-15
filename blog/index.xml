@@ -6,7 +6,30 @@
     <description>Recent content in Blogs on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“Modern C”: Notes on chapter 1 “Getting started”</title>
+      <link>https://dmitrykabanov.com/blog/2023/notes-on-ch01-modern-c/</link>
+      <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/notes-on-ch01-modern-c/</guid>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 1 &amp;ldquo;Getting Started&amp;rdquo;
+from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.
+This chapter introduces imperative programming and teaches how to compile
+and run a C program.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>“Modern C”: Notes on the book by Jens Gustedt</title>
+      <link>https://dmitrykabanov.com/blog/2023/notes-on-modern-c/</link>
+      <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/notes-on-modern-c/</guid>
+      <description>&lt;p&gt;These are the table of contents for my notes taken
+while reading the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt,
+which teaches C according to new language standards, C11 and C17.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Universal initialization in C&#43;&#43;</title>
       <link>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</link>

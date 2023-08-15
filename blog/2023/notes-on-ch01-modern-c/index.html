@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>“Modern C”: Notes on chapter 1 “Getting started” | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="These are my notes taken while reading chapter 1 &ldquo;Getting Started&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter introduces imperative programming and teaches how to compile
+and run a C program.">
+    <meta name="generator" content="Hugo 0.114.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="“Modern C”: Notes on chapter 1 “Getting started”" />
+<meta property="og:description" content="These are my notes taken while reading chapter 1 &ldquo;Getting Started&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter introduces imperative programming and teaches how to compile
+and run a C program." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/notes-on-ch01-modern-c/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-08-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-15T00:00:00+00:00" />
+<meta itemprop="name" content="“Modern C”: Notes on chapter 1 “Getting started”">
+<meta itemprop="description" content="These are my notes taken while reading chapter 1 &ldquo;Getting Started&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter introduces imperative programming and teaches how to compile
+and run a C program."><meta itemprop="datePublished" content="2023-08-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-08-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="499">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="“Modern C”: Notes on chapter 1 “Getting started”"/>
+<meta name="twitter:description" content="These are my notes taken while reading chapter 1 &ldquo;Getting Started&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter introduces imperative programming and teaches how to compile
+and run a C program."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://dmitrykabanov.com/images/2023/modern-c-cover.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">“Modern C”: Notes on chapter 1 “Getting started”</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 1 “Getting started”</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-15T00:00:00Z">August 15, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>These are my notes taken while reading chapter 1 &ldquo;Getting Started&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter introduces imperative programming and teaches how to compile
+and run a C program.</p>
+<p>The table of contents for all notes for this book are available <a href="/blog/2023/notes-on-modern-c/">in that post</a>.</p>
+<p>C is an imperative programming language.
+A program written in C consists of statements (C term for instructions),
+such as declaring variables and printing text to screen:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">9.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">42.42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Element %zu is %g</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span></code></pre></div><p>Here we declare an array of double precision floating-point numbers,
+initialize its elements (by using explicit notation for index and value),
+and then print a text message about the zeroth (first) element of this array.</p>
+<p>The function <code>printf</code> is probably the most used function in C.
+It formats a given string by inserting giving arguments into the string
+template.
+The things such as <code>%zu</code> and <code>%g</code> are <strong>format specifiers</strong>.
+This particular specifiers are for unsigned integer and a double value.
+The <strong>string literal</strong> <code>\n</code> is used to insert a new line character.</p>
+<p>Compiling a program on Linux or macOS can be done using popular free compilers
+such as GCC and Clang.
+It is recommended to force at least C99 standard:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gcc -std<span class="o">=</span>c99 -Wall program.c -lm -o program
+</span></span><span class="line"><span class="cl">clang -std<span class="o">=</span>c99 -Wall program.c -lm -o program
+</span></span></code></pre></div><p>In my experience, clang gives slightly more human error messages when things
+are not quite right.
+However, as can be seen from the above command examples, they can be used
+more or less in the same way, at least for simple programs as the command-line
+arguments are basically the same.</p>
+<p>The argument <code>-Wall</code> tells the compiler to warn about everything that
+does not look right to the compiler.
+The argument <code>-lm</code> tell the compiler to link a library that is called simply
+<code>m</code> and includes mathematical functions.
+Linking is the process that combines your source code with already compiled
+libraries from somebody else (or you - it is quite common to organize
+more or less large programs as a collection of libraries).</p>
+<p>When the program is compiled successfully, it can be run via</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./program
+</span></span></code></pre></div><p>which should print to the screen <code>Element 0 is 9.0</code>.</p>
+<p>The book does not say it, but for simple one-file programs it is also
+easy to use <code>Make</code>.
+Make has a built-in (so called implicit) rule for transforming files
+like <code>program.c</code> into an executable file <code>program</code>.
+To use it, one can simply write:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">make program
+</span></span></code></pre></div><p><code>Make</code> will see that there is the file <code>program.c</code> on disk and will try
+to compile it.
+To ensure that the compilation instructions used by Make are the same
+as in the above examples, one can write a simple <code>Makefile</code> like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-make" data-lang="make"><span class="line"><span class="cl"><span class="nv">CFLAGS</span> <span class="o">=</span> -std<span class="o">=</span>c99 -Wall
+</span></span><span class="line"><span class="cl"><span class="nv">LDLIBS</span> <span class="o">=</span> -lm
+</span></span></code></pre></div><p>It should use by default C compiler <code>cc</code>, which in macOS is <code>clang</code>
+and in Ubuntu <code>gcc</code>.</p>
+<p>Important rule of C programming: <strong>A program in C should compile cleanly
+without warnings</strong>.</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
