@@ -154,6 +154,25 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blogs</span>
     <h1 class="f3 near-black">
+      <a href="/blog/2022/get-list-of-open-files-macos/" class="link black dim">
+        Get list of open files on external volume in macOS
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me &mdash; a file was open by stuck QuickLook app.
+To find the list of open files on that volume:
+lsof /Volumes/MyVolume 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blogs</span>
+    <h1 class="f3 near-black">
       <a href="/blog/2022/javascript-control-flow/" class="link black dim">
         Javascript: control flow
       </a>
@@ -318,24 +337,6 @@ Overall, the process is the following. You create a local git repository and syn
 The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
 To illustrate the problem, Tensorflow 2.2 is used:
 import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Blogs</span>
-    <h1 class="f3 near-black">
-      <a href="/blog/2020/02-tf-function-performance/" class="link black dim">
-        Using `tf.function` for performance in Tensorflow 2
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
-Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient.
     </div>
   </div>
 </div>
