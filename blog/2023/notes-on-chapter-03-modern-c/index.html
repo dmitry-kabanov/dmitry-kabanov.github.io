@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>“Modern C”: Notes on chapter 3 “Everything is about control” | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="These are my notes taken while reading chapter 3
+&ldquo;Everything is about control&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter explains five control block statements:
+conditional statements with if, loops with for, while, and do-while,
+and selection statements with switch.">
+    <meta name="generator" content="Hugo 0.114.0">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.b063366857c44bfaa0bc6b9f781d1ebdaaf347b1c38be070adb5d5ebca508341.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="“Modern C”: Notes on chapter 3 “Everything is about control”" />
+<meta property="og:description" content="These are my notes taken while reading chapter 3
+&ldquo;Everything is about control&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter explains five control block statements:
+conditional statements with if, loops with for, while, and do-while,
+and selection statements with switch." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/notes-on-chapter-03-modern-c/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-08-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-25T00:00:00+00:00" />
+<meta itemprop="name" content="“Modern C”: Notes on chapter 3 “Everything is about control”">
+<meta itemprop="description" content="These are my notes taken while reading chapter 3
+&ldquo;Everything is about control&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter explains five control block statements:
+conditional statements with if, loops with for, while, and do-while,
+and selection statements with switch."><meta itemprop="datePublished" content="2023-08-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-08-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="654">
+<meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="“Modern C”: Notes on chapter 3 “Everything is about control”"/>
+<meta name="twitter:description" content="These are my notes taken while reading chapter 3
+&ldquo;Everything is about control&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter explains five control block statements:
+conditional statements with if, loops with for, while, and do-while,
+and selection statements with switch."/>
+
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
+}
+</script>
+
+    
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://dmitrykabanov.com/images/2023/modern-c-cover.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">“Modern C”: Notes on chapter 3 “Everything is about control”</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 3 “Everything is about control”</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-25T00:00:00Z">August 25, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>These are my notes taken while reading chapter 3
+&ldquo;Everything is about control&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter explains five control block statements:
+conditional statements with <code>if</code>, loops with <code>for</code>, <code>while</code>, and <code>do-while</code>,
+and selection statements with <code>switch</code>.</p>
+<p>The table of contents for all notes for this book are available <a href="/blog/2023/notes-on-modern-c/">in that post</a>.</p>
+<h3 id="3-dot-1-conditional-execution">3.1 Conditional execution</h3>
+<p>The general form of the conditional execution is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;i is greater than 25</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;No, i is not greater than 25</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p><em>Takeaway 3.1</em>. The value 0 represents logical false.</p>
+<p><em>Takeaway 3.2</em>. Any value different from 0 represents logical true.</p>
+<p>In C, equality and inequality operators are <code>==</code> and <code>!=</code>,
+respectively.
+Because numerical values can be treated as true or false, we can
+simplify conditions like this (assuming that <code>i</code> is a number):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Do something when i is not zero.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><p>to more succint code</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Do something when i is not zero.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><p>The latter version is preferred in C code.</p>
+<p>Include header <code>stdbool.h</code> adds type <code>bool</code> that can be used
+to emphasize that we have a boolean (logical) variable.
+Also, this header adds words <code>true</code> and <code>false</code>.</p>
+<p><em>Takeaway 3.3</em>. Don&rsquo;t compare to 0, false, or true.</p>
+<p><em>Takeaway 3.4</em>. All scalars have a truth value.</p>
+<p>Table <a href="#table--tab:scalar-types">1</a> shows C scalar types, their categories
+and how they can be specified in <code>printf</code> calls.</p>
+<p><a id="table--tab:scalar-types"></a></p>
+<div class="table-caption">
+  <span class="table-number"><a href="#table--tab:scalar-types">Table 1</a>:</span>
+  C scalar types and how to print them
+</div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Category</th>
+<th><code>printf</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size_t</code> (from <code>stddef.h</code>)</td>
+<td>Unsigned</td>
+<td><code>&quot;%zu&quot;</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>Floating</td>
+<td><code>&quot;%e&quot;</code>, <code>&quot;%f&quot;</code>, <code>&quot;%g&quot;</code></td>
+</tr>
+<tr>
+<td><code>signed</code> (a.k.a. <code>int</code>)</td>
+<td>Signed</td>
+<td><code>&quot;%d&quot;</code></td>
+</tr>
+<tr>
+<td><code>unsigned</code>[</td>
+<td>Unsigned</td>
+<td><code>&quot;%u&quot;</code></td>
+</tr>
+<tr>
+<td><code>bool</code> (from <code>stdbool.h</code>)</td>
+<td>Boolean</td>
+<td><code>&quot;%d&quot;</code></td>
+</tr>
+<tr>
+<td><code>ptrdiff_t</code> (<code>stddef.h</code>)</td>
+<td>Signed</td>
+<td><code>&quot;%td&quot;</code></td>
+</tr>
+<tr>
+<td><code>char const *</code></td>
+<td>String</td>
+<td><code>&quot;%s&quot;</code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>Character</td>
+<td><code>&quot;%c&quot;</code></td>
+</tr>
+<tr>
+<td><code>void *</code></td>
+<td>Pointer</td>
+<td><code>&quot;%p&quot;</code></td>
+</tr>
+<tr>
+<td><code>unsigned char</code></td>
+<td>Unsigned</td>
+<td><code>&quot;%hhu&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-dot-2-iterations">3.2 Iterations</h2>
+<p>To go over given finite set of values, <code>for</code> loop should be used:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">clause1</span><span class="p">;</span> <span class="n">condition2</span><span class="p">;</span> <span class="n">expression3</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loop</span> <span class="n">body</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>Here, <code>clause1</code> is normally iteration variable definition
+and initialization that sets initial value in iteration;
+<code>condition2</code> determines when the iteration stops;
+and <code>expression3</code> updates the iteration variable.
+The following example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">upper_bound</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">upper_bound</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// do something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><p>sets two variables: <code>i</code> to iterate and <code>upper_bound</code> that is used
+in the condition on loop termination.
+It looks actually as the loop will never stop but variables of type
+<code>size_t</code> cannot be negative, so iterations will happen exactly 10
+times, and when <code>i = 0</code>, after decrement its value will become
+a large number, and the condition <code>i &lt; upper_bound</code> will become
+<code>false</code>.
+Therefore, the loop body will execute only 10 times.</p>
+<p>Another way of iterating is a <code>while</code> loop.
+Typical example is some iterative computation procedure such as
+Heron approximation of the square root:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;tgmath.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="kt">double</span> <span class="k">const</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="k">const</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">34.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nf">fabs</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">eps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">*=</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>The <code>do-while</code> loop is similar:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">*=</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nf">fabs</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">eps</span><span class="p">);</span>
+</span></span></code></pre></div><p>The difference is that the <code>do-while</code> always has at least
+one iteration as the condition is checked in the end of an iteration.</p>
+<p>All loops can use keywords <code>break</code> to terminate the loop
+and <code>continue</code> to start a new iteration of the loop.</p>
+<h2 id="3-dot-3-multiple-selection">3.3 Multiple selection</h2>
+<p>An alternative to multiple <code>if-else</code> statements is a <code>switch</code> block:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="n">expression</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nl">case1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// do 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nl">case2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// do 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// do default
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>The keyword <code>break</code> is important as otherwise all statement until
+the end of the loop execute: for example, if expression evaluates
+to <code>case2</code>, then without the <code>break</code> keyword in <code>case2</code>,
+all statements <code>// do 2</code> and <code>// do default</code> would execute.</p>
+<p><em>Takeaway 3.5</em> <code>case</code> values must be integer constant expressions.</p>
+<p><em>Takeaway 3.6</em> <code>case</code> labels must not jump beyond a variable
+definition.</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-preamble-level-1-modern-c/">“Modern C”: Notes on preamble “Level 1 Aquaintance”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-02-modern-c/">“Modern C”: Notes on chapter 2 “The principal structure of a program”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-ch01-modern-c/">“Modern C”: Notes on chapter 1 “Getting started”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-modern-c/">“Modern C”: Notes on the book by Jens Gustedt</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/cpp-universal-initialization/">Universal initialization in C&#43;&#43;</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/javascript-functions/">JavaScript: functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

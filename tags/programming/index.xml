@@ -6,7 +6,21 @@
     <description>Recent content in programming on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“Modern C”: Notes on chapter 3 “Everything is about control”</title>
+      <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-03-modern-c/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/notes-on-chapter-03-modern-c/</guid>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 3
+&amp;ldquo;Everything is about control&amp;rdquo;
+from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.
+This chapter explains five control block statements:
+conditional statements with &lt;code&gt;if&lt;/code&gt;, loops with &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, and &lt;code&gt;do-while&lt;/code&gt;,
+and selection statements with &lt;code&gt;switch&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>“Modern C”: Notes on preamble “Level 1 Aquaintance”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-preamble-level-1-modern-c/</link>
