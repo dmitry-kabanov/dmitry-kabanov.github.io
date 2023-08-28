@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>“Modern C”: Notes on chapter 4 “Expressing computations” | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="These are my notes taken while reading chapter 4
+&ldquo;Expressing computations&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals.">
+    <meta name="generator" content="Hugo 0.114.0">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.b063366857c44bfaa0bc6b9f781d1ebdaaf347b1c38be070adb5d5ebca508341.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="“Modern C”: Notes on chapter 4 “Expressing computations”" />
+<meta property="og:description" content="These are my notes taken while reading chapter 4
+&ldquo;Expressing computations&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/notes-on-chapter-04-modern-c/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-08-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-28T00:00:00+00:00" />
+<meta itemprop="name" content="“Modern C”: Notes on chapter 4 “Expressing computations”">
+<meta itemprop="description" content="These are my notes taken while reading chapter 4
+&ldquo;Expressing computations&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals."><meta itemprop="datePublished" content="2023-08-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-08-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="670">
+<meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="“Modern C”: Notes on chapter 4 “Expressing computations”"/>
+<meta name="twitter:description" content="These are my notes taken while reading chapter 4
+&ldquo;Expressing computations&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals."/>
+
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
+}
+</script>
+
+    
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://dmitrykabanov.com/images/2023/modern-c-cover.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">“Modern C”: Notes on chapter 4 “Expressing computations”</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 4 “Expressing computations”</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-28T00:00:00Z">August 28, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>These are my notes taken while reading chapter 4
+&ldquo;Expressing computations&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.</p>
+<p>This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals.</p>
+<p>The table of contents for all notes for this book are available <a href="/blog/2023/notes-on-modern-c/">in that post</a>.</p>
+<p>Values used in this chapter are based on type <code>size_t</code> which is
+C representation of non-negative integers (natural numbers and
+zero), although on computer this is a finite set of numbers.</p>
+<p><em>Takeaway 4.1</em>. The type <code>size_t</code> represents values in the range
+<code>[0, SIZE_MAX]</code>.</p>
+<p>Constant <code>SIZE_MAX</code> comes from the header file <code>stdint.h</code>.
+Previously, computers had 32-bit processors and the value of
+<code>SIZE_MAX</code> was about 4 billions (precisely, \(2^{32} - 1\), where
+&ldquo;minus 1&rdquo; is to accomodate zero).
+Nowadays, most processors are 64-bit and <code>SIZE_MAX</code> is much larger
+(exact value is \(2^{64} - 1\), which is a number with 20 digits).</p>
+<h2 id="4-dot-1-arithmetic">4.1 Arithmetic</h2>
+<p>Arithmetic operators <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> work in general
+as we expect from mathematics.
+For unsigned values such as variables of type <code>size_t</code> the result
+is always well-defined.</p>
+<p>When performing arithmetic, division <code>/</code> and modulus <code>%</code> are
+well-defined only if the second operand is not 0.</p>
+<p>Sometimes the result of an arithmetic operation is such that
+it is not within range [0, <code>SIZE_MAX~], for example, it can become negative or larger than ~SIZE_MAX</code> (overflow).
+In such cases, arithmetic on <code>size_t</code> values &ldquo;wraps around&rdquo;,
+that is, the result is replace with the remainder of modulus
+operation <code>% (SIZE_MAX + 1)</code>.
+For example, -1 becomes <code>SIZE_MAX</code>, while <code>SIZE_MAX + 1</code> becomes 0.</p>
+<h2 id="4-dot-2-operators-that-modify-objects">4.2 Operators that modify objects</h2>
+<p>The first example is the assignment operator <code>=</code>.
+In C terminology, the right side is called <strong>rvalue</strong> and the left
+side is called <strong>lvalue</strong>.</p>
+<p>C has compact assignment operators for such expressions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="n">var</span> <span class="o">=</span> <span class="n">var</span> <span class="n">O</span> <span class="n">expression</span>
+</span></span></code></pre></div><p>which can be replaced with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="n">var</span> <span class="n">O</span><span class="o">=</span> <span class="n">expression</span>
+</span></span></code></pre></div><p>where <code>O</code> is <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>.</p>
+<p>Also, often used operators are increment <code>i++</code> and <code>++i</code> and
+decrement <code>i--</code> and <code>--i</code>. Postfix forms first return the value of
+<code>i</code> and then modify it, while prefix forms first modify <code>i</code> and
+then return the new value.
+It is not recommended to use these operators in more complex
+expressions directly but always as separate statements to improve
+code readability.</p>
+<h2 id="4-dot-3-boolean-context">4.3 Boolean context</h2>
+<p>Boolean expressions use comparison and logic operators
+and always return values <code>false</code> or <code>true</code>.
+Note that <code>false</code> and <code>true</code> in C are the same as 0 and 1,
+respectively, so they can be used in arithmetic expressions.</p>
+<p>Comparison operators are: equal to <code>==</code>, not equal to <code>!=</code>, less than <code>&lt;</code>,
+less or equal to <code>&lt;=</code>, greater than <code>&gt;</code>, greater or equal to <code>&gt;=</code>.</p>
+<p>Logic operators are: not <code>!</code>, logical and <code>&amp;&amp;</code>, logical or <code>||</code>.</p>
+<p>Logical and and or use &ldquo;short-curcuit evaluation&rdquo;, so that
+if the value of a logical expression can be determined from one
+of the subexpressions, other subexpressions are not evaluated:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">((</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">((</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Subexpressions (a/b) &gt; 1 is not evaluated at all
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if b equals to zero.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><h2 id="4-dot-4-the-ternary-or-conditional-operator">4.4 The ternary or conditional operator</h2>
+<p>The ternary operator is a compact form from an <code>if-else</code> statement
+with assignment. For example, this is how a minimum of two numbers
+can be computed:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="n">min_a_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
+</span></span></code></pre></div><h2 id="4-dot-5-evaluation-order">4.5 Evaluation order</h2>
+<p>C has comma operator, such that expression <code>f(a), f(b)</code> first
+evaluates <code>f(a)</code> and then evaluates <code>f(b)</code> and returns the value
+of <code>f(b)</code>.
+The comma operator is rarely useful and is confusing.
+For example, in <code>A[i, j]</code> the result is <code>A[j]</code>.</p>
+<p><em>Takeaway 4.16</em>. Do not use comma operator.</p>
+<p>Most operators do not have a predefined order, so that the result
+can be different depending on the order: for example, if
+function <code>f</code> changes some global state, the result of <code>f(a) + f(b)</code>
+probably depends on the order in which they are evaluated.</p>
+<p><em>Takeaway 4.19</em>. Functions that are called inside expressions
+should not have side effects.</p>
+<p>This is the only way to preserve sanity while programming in C.</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-03-modern-c/">“Modern C”: Notes on chapter 3 “Everything is about control”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-preamble-level-1-modern-c/">“Modern C”: Notes on preamble “Level 1 Aquaintance”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-02-modern-c/">“Modern C”: Notes on chapter 2 “The principal structure of a program”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-ch01-modern-c/">“Modern C”: Notes on chapter 1 “Getting started”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-modern-c/">“Modern C”: Notes on the book by Jens Gustedt</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/cpp-universal-initialization/">Universal initialization in C&#43;&#43;</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/javascript-functions/">JavaScript: functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

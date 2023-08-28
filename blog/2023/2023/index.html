@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="DONE Redirection of stdout and stderr to the same file unixshellprogramming
+Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (stdout)
+and to the standard error output (stderr).
+For example, by default, in a Python program the print function writes to
+stdout and the functions of the logging module to stderr.
+Therefore, one needs to redirect both stdout and stderr to the same file.
+Redirection basics
+Redirection of stdout is done via &gt; syntax:
+cmd &gt;log.txt
+and redirection of stderr to stdout is done with 2&gt;&amp;1.
+Thus, one just needs to combine these two redirections together
+to redirect stderr to stdout and then redirect both to log.txt.
+However, the order of redirection instructions is important here!
+Wrong way
+This command:
+cmd 2&gt;&amp;1 &gt;log.txt  # wrong!
+writes stderr to stdout but separately writes stdout to file log.txt.
+If stdout is connected to screen,
+then stderr effectively will be written to screen but stdout to file.
+Why this happens?
+The shell executes these redirection instructions immediately,
+hence, when 2&gt;&amp;1 redirection is implemented, it is not yet known
+that stdout will be redirected to log.txt in the next instruction.
+Right way
+The right way to redirection is the command
+cmd &gt;log.txt 2&gt;&amp;1  # right!
+that will write both stderr and stdout to the same file file.txt.
+As a shortcut for the previous command, one can use
+cmd &amp;&gt;log.txt
+This shortcut is not only shorter but also allows to avoid the possibility
+of a bug by using the wrong order.
+DONE How to reencode H.264 videos to H.265 shellcomputingvideos
+I had videos in H.264 codec that I wanted to reencode to H.265.
+The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
+modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
+which allows to keep the same quality with about twice less storage.
+As I make from time to time
+YouTube,
+Instagram, and
+TikTok
+videos, which
+I need to backup, it is always good to store your data in the most
+storage-efficient format.">
+    <meta name="generator" content="Hugo 0.114.0">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.b063366857c44bfaa0bc6b9f781d1ebdaaf347b1c38be070adb5d5ebca508341.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="" />
+<meta property="og:description" content="DONE Redirection of stdout and stderr to the same file unixshellprogramming
+Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (stdout)
+and to the standard error output (stderr).
+For example, by default, in a Python program the print function writes to
+stdout and the functions of the logging module to stderr.
+Therefore, one needs to redirect both stdout and stderr to the same file.
+Redirection basics
+Redirection of stdout is done via &gt; syntax:
+cmd &gt;log.txt
+and redirection of stderr to stdout is done with 2&gt;&amp;1.
+Thus, one just needs to combine these two redirections together
+to redirect stderr to stdout and then redirect both to log.txt.
+However, the order of redirection instructions is important here!
+Wrong way
+This command:
+cmd 2&gt;&amp;1 &gt;log.txt  # wrong!
+writes stderr to stdout but separately writes stdout to file log.txt.
+If stdout is connected to screen,
+then stderr effectively will be written to screen but stdout to file.
+Why this happens?
+The shell executes these redirection instructions immediately,
+hence, when 2&gt;&amp;1 redirection is implemented, it is not yet known
+that stdout will be redirected to log.txt in the next instruction.
+Right way
+The right way to redirection is the command
+cmd &gt;log.txt 2&gt;&amp;1  # right!
+that will write both stderr and stdout to the same file file.txt.
+As a shortcut for the previous command, one can use
+cmd &amp;&gt;log.txt
+This shortcut is not only shorter but also allows to avoid the possibility
+of a bug by using the wrong order.
+DONE How to reencode H.264 videos to H.265 shellcomputingvideos
+I had videos in H.264 codec that I wanted to reencode to H.265.
+The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
+modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
+which allows to keep the same quality with about twice less storage.
+As I make from time to time
+YouTube,
+Instagram, and
+TikTok
+videos, which
+I need to backup, it is always good to store your data in the most
+storage-efficient format." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/2023/" /><meta property="article:section" content="blog" />
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="DONE Redirection of stdout and stderr to the same file unixshellprogramming
+Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (stdout)
+and to the standard error output (stderr).
+For example, by default, in a Python program the print function writes to
+stdout and the functions of the logging module to stderr.
+Therefore, one needs to redirect both stdout and stderr to the same file.
+Redirection basics
+Redirection of stdout is done via &gt; syntax:
+cmd &gt;log.txt
+and redirection of stderr to stdout is done with 2&gt;&amp;1.
+Thus, one just needs to combine these two redirections together
+to redirect stderr to stdout and then redirect both to log.txt.
+However, the order of redirection instructions is important here!
+Wrong way
+This command:
+cmd 2&gt;&amp;1 &gt;log.txt  # wrong!
+writes stderr to stdout but separately writes stdout to file log.txt.
+If stdout is connected to screen,
+then stderr effectively will be written to screen but stdout to file.
+Why this happens?
+The shell executes these redirection instructions immediately,
+hence, when 2&gt;&amp;1 redirection is implemented, it is not yet known
+that stdout will be redirected to log.txt in the next instruction.
+Right way
+The right way to redirection is the command
+cmd &gt;log.txt 2&gt;&amp;1  # right!
+that will write both stderr and stdout to the same file file.txt.
+As a shortcut for the previous command, one can use
+cmd &amp;&gt;log.txt
+This shortcut is not only shorter but also allows to avoid the possibility
+of a bug by using the wrong order.
+DONE How to reencode H.264 videos to H.265 shellcomputingvideos
+I had videos in H.264 codec that I wanted to reencode to H.265.
+The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
+modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
+which allows to keep the same quality with about twice less storage.
+As I make from time to time
+YouTube,
+Instagram, and
+TikTok
+videos, which
+I need to backup, it is always good to store your data in the most
+storage-efficient format.">
+
+<meta itemprop="wordCount" content="7251">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="DONE Redirection of stdout and stderr to the same file unixshellprogramming
+Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (stdout)
+and to the standard error output (stderr).
+For example, by default, in a Python program the print function writes to
+stdout and the functions of the logging module to stderr.
+Therefore, one needs to redirect both stdout and stderr to the same file.
+Redirection basics
+Redirection of stdout is done via &gt; syntax:
+cmd &gt;log.txt
+and redirection of stderr to stdout is done with 2&gt;&amp;1.
+Thus, one just needs to combine these two redirections together
+to redirect stderr to stdout and then redirect both to log.txt.
+However, the order of redirection instructions is important here!
+Wrong way
+This command:
+cmd 2&gt;&amp;1 &gt;log.txt  # wrong!
+writes stderr to stdout but separately writes stdout to file log.txt.
+If stdout is connected to screen,
+then stderr effectively will be written to screen but stdout to file.
+Why this happens?
+The shell executes these redirection instructions immediately,
+hence, when 2&gt;&amp;1 redirection is implemented, it is not yet known
+that stdout will be redirected to log.txt in the next instruction.
+Right way
+The right way to redirection is the command
+cmd &gt;log.txt 2&gt;&amp;1  # right!
+that will write both stderr and stdout to the same file file.txt.
+As a shortcut for the previous command, one can use
+cmd &amp;&gt;log.txt
+This shortcut is not only shorter but also allows to avoid the possibility
+of a bug by using the wrong order.
+DONE How to reencode H.264 videos to H.265 shellcomputingvideos
+I had videos in H.264 codec that I wanted to reencode to H.265.
+The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
+modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
+which allows to keep the same quality with about twice less storage.
+As I make from time to time
+YouTube,
+Instagram, and
+TikTok
+videos, which
+I need to backup, it is always good to store your data in the most
+storage-efficient format."/>
+
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
+}
+</script>
+
+    
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1"></h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="redirect-stdout-stderr-same-file"><span class="org-todo done DONE">DONE</span> Redirection of stdout and stderr to the same file <span class="tag"><span class="unix">unix</span><span class="shell">shell</span><span class="programming">programming</span></span></h2>
+<p>Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (<code>stdout</code>)
+and to the standard error output (<code>stderr</code>).
+For example, by default, in a Python program the <code>print</code> function writes to
+<code>stdout</code> and the functions of the <code>logging</code> module to <code>stderr</code>.
+Therefore, one needs to <strong>redirect both <code>stdout</code> and <code>stderr</code></strong> to the same file.</p>
+<h3 id="redirection-basics">Redirection basics</h3>
+<p>Redirection of <code>stdout</code> is done via <code>&gt;</code> syntax:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmd &gt;log.txt
+</span></span></code></pre></div><p>and redirection of <code>stderr</code> to <code>stdout</code> is done with <code>2&gt;&amp;1</code>.</p>
+<p>Thus, one just needs to combine these two redirections together
+to redirect stderr to <code>stdout</code> and then redirect both to <code>log.txt</code>.
+However, the order of redirection instructions is important here!</p>
+<h3 id="wrong-way">Wrong way</h3>
+<p>This command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmd 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt;log.txt  <span class="c1"># wrong!</span>
+</span></span></code></pre></div><p>writes <code>stderr</code> to <code>stdout</code> but separately writes <code>stdout</code> to file <code>log.txt</code>.
+If <code>stdout</code> is connected to screen,
+then <code>stderr</code> effectively will be written to screen but <code>stdout</code> to file.</p>
+<p>Why this happens?
+The shell executes these redirection instructions immediately,
+hence, when <code>2&gt;&amp;1</code> redirection is implemented, it is not yet known
+that <code>stdout</code> will be redirected to <code>log.txt</code> in the next instruction.</p>
+<h3 id="right-way">Right way</h3>
+<p>The right way to redirection is the command</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">cmd &gt;log.txt 2&gt;&amp;1  # right!
+</code></pre><p>that will write both <code>stderr</code> and <code>stdout</code> to the same file <code>file.txt</code>.</p>
+<p>As a shortcut for the previous command, one can use</p>
+<pre tabindex="0"><code class="language-nil" data-lang="nil">cmd &amp;&gt;log.txt
+</code></pre><p>This shortcut is not only shorter but also allows to avoid the possibility
+of a bug by using the wrong order.</p>
+<h2 id="reencode-h.264-to-h"><span class="org-todo done DONE">DONE</span> How to reencode H.264 videos to H.265 <span class="tag"><span class="shell">shell</span><span class="computing">computing</span><span class="videos">videos</span></span></h2>
+<p>I had videos in H.264 codec that I wanted to reencode to H.265.
+The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
+modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
+which allows to keep the same quality with about twice less storage.</p>
+<p>As I make from time to time
+<a href="https://www.youtube.com/@dmitry-kabanov">YouTube</a>,
+<a href="https://www.instagram.com/dmitry.i.kabanov/">Instagram</a>, and
+<a href="https://www.tiktok.com/@dmitry.i.kabanov">TikTok</a>
+videos, which
+I need to backup, it is always good to store your data in the most
+storage-efficient format.</p>
+<p>To reencode the videos, I use <a href="https://ffmpeg.org/">ffmpeg</a>.
+The base command to do this is</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ffmpeg -i input.mp4 -vcodec libx265 -vtag hvc1 -acodec copy output.mp4
+</span></span></code></pre></div><p>However, if you use M1 Macbooks, you can speed up the process by using
+hardware codec:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ffmpeg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -i input.mp4 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -hwaccel videotoolbox <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -vcodec hevc_videotoolbox <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -vtag hvc1 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -acodec copy <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    output.mp4
+</span></span></code></pre></div><p>What I have noticed is that the output quality is very bad comparing
+to the input quality.
+The thing is that <code>ffmpeg</code> chooses bandwidth rate by itself, and this rate
+is relatively low.</p>
+<p>The solution is to specify the required bandwidth rate manually.
+For my videos in this particular case, the original format is
+1080x1920 (FullHD) and 60 Hz.
+For this resolution and frame rate, 16 megabit per second should be enough
+to preserve the quality.</p>
+<p>With the specified variable bandwidth rate (<code>-b:v</code> argument), the command
+is the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ffmpeg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -i input.mp4 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -b:v 16000k <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -hwaccel videotoolbox <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -vcodec hevc_videotoolbox <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -vtag hvc1 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -acodec copy <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    output.mp4
+</span></span></code></pre></div><p>This way, I compressed several videos
+from roughly 950 megabytes to 480 megabytes.
+This is extremely useful, when you need to upload backups to cloud services,
+especially with the upload speeds from my Internet provider :-)</p>
+<h2 id="solving-perfect-squares-via-bfs"><span class="org-todo done DONE">DONE</span> Solving Perfect Squares problem using breadth-first search <span class="tag"><span class="programming">programming</span><span class="algorithms">algorithms</span></span></h2>
+<p>I was learning recently about solving problems that use
+breadth-first search (BFS).
+This is a family of computer science algorithms that traverse
+tree data structures &ldquo;by levels&rdquo;.
+That is, starting at the root, we process all nodes on level 1,
+then all nodes on level 2, etc.</p>
+<p>One typical application of BFS is to find the shortest path between
+the root and the given nodes.</p>
+<p>To implement BFS, one should use the queue data structure.</p>
+<p>The schema of the algorithm is the following
+(in pseudocode mixture of C and Python):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">Given</span><span class="p">:</span> <span class="n">root</span> <span class="n">node</span><span class="p">,</span> <span class="n">target</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">add</span> <span class="n">the</span> <span class="n">root</span> <span class="n">node</span> <span class="n">to</span> <span class="n">the</span> <span class="n">queue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="n">queue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># iterate over the nodes that are on the same level.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">size</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">curr</span> <span class="o">=</span> <span class="n">pop</span> <span class="n">the</span> <span class="n">first</span> <span class="n">node</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">queue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">curr</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">target</span> <span class="n">node</span><span class="p">,</span> <span class="n">then</span> <span class="k">return</span> <span class="n">level</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">add</span> <span class="nb">all</span> <span class="n">neighbors</span> <span class="n">of</span> <span class="n">curr</span> <span class="n">to</span> <span class="n">the</span> <span class="n">queue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">level</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span></code></pre></div><p>Note that we return value of the <code>level</code> variable, when the currently
+processed node is the given target.
+If this condition is not met during the tree traversal, we return -1.</p>
+<hr>
+<p>An example of the problem that can be solved using BFS is the
+<a href="https://leetcode.com/problems/perfect-squares/">Perfect Squares problem</a>.</p>
+<p>The statement of the problem is to find the minimal number of perfect squares
+that sum up to the given number <code>n</code>.
+The <strong>perfect square</strong> is an integer that is a square of another integer,
+for example, \(9 = 3^2\), therefore, 9 is the perfect square.
+So, if <code>n</code> is 13, the answer is 2 as \(13 = 9 + 4\).</p>
+<p>The solution in Python using BFS is the following.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">min_num_of_squares</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Initialize the queue with root node `0`.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># We need at least one summand in the sum of squares to get `n`.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Process elements of the queue from the same level.</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Note that, although `len(queue)` is dynamic,</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># when we initialize `range`, it is fixed, that is,</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># `range` will not be affected by the changes</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># of the queue length while processing nodes</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># of the same level.</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">__</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">curr</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># Process potential squares of the `curr` node.</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">sq</span> <span class="ow">in</span> <span class="n">squares</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">sq</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">step</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">sq</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">sq</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span> <span class="o">+</span> <span class="n">sq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span></code></pre></div><p>Breadth-first search approach to this problem visually can be thought of
+as the root node &ldquo;zero&rdquo; at the center,
+surrounded by &ldquo;circles&rdquo; of perfect squares.
+And the solution is the minimal number of such &ldquo;circles&rdquo;
+that we need to draw, such that there is a sum of numbers that gives <code>n</code>.
+In practice, the &ldquo;circles&rdquo; are incomplete
+as we do not have to process elements
+that lead the sum to exceed the given number <code>n</code>.</p>
+<h2 id="how-to-mirror-gitlab-repo-to-github"><span class="org-todo done DONE">DONE</span> How to mirror GitLab repo to GitHub</h2>
+<p>If you have a <a href="https://gitlab.com">GitLab</a> repo and would like to mirror it in your <a href="https://github.com">GitHub</a> account,
+it can be set up directly in the GitLab repo settings.
+Note that here we use new fine-grained tokens functionality of GitHub
+(which is currently in beta, as of May 2023).
+&lt;!&ndash;more&ndash;&gt;</p>
+<p>Go to the project&rsquo;s settings (Settings -&gt; Repository)
+and expand &ldquo;Mirror repository&rdquo;
+You will see the following form.
+<img src="/images/2023/gitlab-mirror.png" alt=""></p>
+<p>In the &ldquo;Git repository URL&rdquo;, you need to specify the HTTPS URL for
+the repo on GitHub in the following form:<br />
+<code>https://github-username@github.com/github-username/repo.git</code></p>
+<p>Note the added <strong><strong>username part between <code>//</code> and <code>@</code></strong></strong> in the above URL &mdash;
+when you create a repository on GitHub, the generated URLs do not have this,
+so you need to add it manually!</p>
+<p>Now, for a password, we use
+<a href="https://github.com/settings/tokens?type=beta">fine-grained tokens</a>.
+Press &ldquo;Generate new token&rdquo; button and choose read and write permissions for
+&ldquo;Contents&rdquo;.</p>
+<p>Copy the generated token and paste it into the &ldquo;Password&rdquo; field in GitLab.</p>
+<p>Finally press &ldquo;Mirror repository&rdquo; button.
+Once you see a table with mirrors appeared, you can press &ldquo;Update now&rdquo;
+(two arrows) button to check if everything works correctly.</p>
+<p>Right now, usability is a bit off, as if something is not working, you have
+to delete the mirror and start over again.
+It would be a better user experience,
+if GitLab allowed to edit the mirror settings.</p>
+<p>Hopefully, these instructions work good for you. Enjoy!</p>
+<p>P.S. This two StackOverflow posts were really helpful to write the above
+instructions:</p>
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/questions/30268549/mirroring-from-gitlab-to-github">https://stackoverflow.com/questions/30268549/mirroring-from-gitlab-to-github</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/63906613/minimal-set-of-scopes-to-push-to-github-using-an-access-token">https://stackoverflow.com/questions/63906613/minimal-set-of-scopes-to-push-to-github-using-an-access-token</a></p>
+</li>
+</ul>
+<h2 id="how-to-record-system-audio-and-voice-in-cubase-using-blackhole"><span class="org-todo todo TODO">TODO</span> How to record system audio and your voice in Cubase using BlackHole</h2>
+<p>Sometimes you need to record system audio
+(for example, a song playing on YouTube)
+using a digital audioworkstation (DAW) such as
+<a href="https://www.steinberg.net/cubase/">Steinberg Cubase</a>.
+If you use macOS, then free tool <a href="https://github.com/ExistentialAudio/BlackHole">BlackHole</a> can help you do it.
+&lt;!&ndash;more&ndash;&gt;</p>
+<p>The procedure is the following.</p>
+<ul>
+<li>Install Blackhole 2ch</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install blackhole-2ch
+</span></span></code></pre></div><ul>
+<li>
+<p>Setup an aggregate device
+We need to create an aggregate device that includes an actual audiointerface
+(for example, built-in speakers of a MacBook), the microphone
+and BlacHole together.</p>
+</li>
+<li>
+<p>Select the aggregate device in Cubase</p>
+</li>
+</ul>
+<p>Start Cubase and in the menu ????~Studio -&gt; Studio Setup&hellip;~ choose the aggregate
+device that was just created.</p>
+<ul>
+<li>Set audio connections</li>
+</ul>
+<p>Open <code>Studio -&gt; Audio Connections</code> and make sure that we have to inputs:</p>
+<ul>
+<li>Set Stereo In to Blackhole 2ch (in my case inputs 2 and 3????)</li>
+<li>Set Mono In to Built-in microphone (in my case input 1???)</li>
+</ul>
+<!--listend-->
+<ul>
+<li>Allow Cubase to record several tracks simultaneously</li>
+</ul>
+<p>By default, Cubase allows only to record to the tracks that are selected.
+Therefore, a simple option is to select the track for recording system audio
+and the track for the voice and hit record.
+However, if you plan to select other tracks during recording, then you need
+to enable manual record-enable mode.
+Deselect &ldquo;Enable selected audio tracks&rdquo; in <code>Edit -&gt; Preferences</code></p>
+<ul>
+<li>Set tracks for recording</li>
+</ul>
+<p>Select each audio track and record-enable them and use live monitoring</p>
+<ul>
+<li>Select Blackhole as system audio</li>
+</ul>
+<p>After you do it, you will hear the system audio via live monitoring
+that was enabled in the previous step.</p>
+<ul>
+<li>Start recording</li>
+</ul>
+<p>Press Record in Cubase.
+Start playing music (for example, from <a href="https://soundcloud.com">SoundCloud</a>)
+and start recording your voice simultaneously.</p>
+<h2 id="javascript-functions"><span class="org-todo done DONE">DONE</span> JavaScript: functions <span class="tag"><span class="programming">programming</span><span class="javascript">javascript</span></span></h2>
+<p>As any programming language, JavaScript allows to pack useful things into
+functions, and it is the key to good JavaScript knowledge, to use them
+efficiently.
+In this post, I describe three ways that the functions can be declared
+in JavaScript,
+talk about visibility of variables inside the functions,
+how to have optional function arguments with default values,
+how to create closures (functions, bound to outer variables),
+and how to use recursion.
+&lt;!&ndash;more&ndash;&gt;</p>
+<h3 id="defining-a-function-using-the-keyword-function">Defining a function using the keyword <code>function</code></h3>
+<p>One can declare a function value like this (note the semicolon in the end):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>One can do some kind of polymorphism by redefining a function this way:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// Here we assume that there is a global variable COND1 that determines the
+</span></span></span><span class="line"><span class="cl"><span class="c1">// function that we will use.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">g</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">COND1</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">g</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Therefore, the behavior of function <code>g</code> will be different in different contexts.</p>
+<p>The more common way of defining a function is to combine the keyword <code>function</code>
+together with a name:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Note that in this case, one does not need to use a semicolon after the function.</p>
+<h3 id="variables-and-scopes">Variables and scopes</h3>
+<p>Each binding, that is, a variable, has a <em>scope</em>, that is, it can be visible
+only in a particular part of a program.
+If a variable defined outside of any functions and braces, it is a <em>global</em>
+variable.</p>
+<p>If a variable defined inside a function, it is a <em>local</em> variable.
+Note, that in the context of a function, the difference between keywords
+<code>var</code> and <code>let</code> becomes clear.
+If a variable declared using the keyword <code>var</code> inside a function,
+then it is visible everywhere in this function.
+Starting with 2015, one can define a variable using the <code>let</code> keyword.
+Such variables are visible only inside a block where they are declared.
+For example, in the following code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sum_to_n</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>the <code>sum</code> variable is visible in the whole function, while <code>i</code> variable
+is visible only inside the <code>for</code> loop.</p>
+<h3 id="arrow-functions">Arrow functions</h3>
+<p>There is also a concise way of defining an anonymous function in ES6 (2015):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">my_func</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
+</span></span></code></pre></div><p>Here, the arguments are in parentheses, and the return value is after <code>=&gt;</code> characters.</p>
+<p>If there is only one argument, then parentheses can be omitted:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">square</span> <span class="o">=</span> <span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+</span></span></code></pre></div><p>One of the important details about arrow functions is that
+in simple cases, no <code>return</code> keyword should be used.
+If the function body is surrounded by braces, then the <code>return</code> keyword
+must be used:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sq1</span> <span class="o">=</span> <span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sq2</span> <span class="o">=</span> <span class="nx">x</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span> <span class="p">};</span>
+</span></span></code></pre></div><p>Note that if the function does not accept any parameters,
+then the parameter list is just a pair of parentheses:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">hello_world</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hello World!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="optional-arguments">Optional arguments</h3>
+<p>In  JavaScript, the number of arguments when invoking a function does not
+have to be the same as defined in function definition.
+All extra arguments will be ignored, while the missing arguments are assigned
+the value <code>undefined</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`a = </span><span class="si">${</span><span class="nx">a</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`b = </span><span class="si">${</span><span class="nx">b</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">func</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="s2">&#34;this will be ignored&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">func</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = 5.25
+</span></span><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = undefined
+</span></span></code></pre></div><p>Because the value <code>undefined</code> is usually not very useful, you can provide
+the desired default value after the equality sign:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">func_with_optional_args</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`a = </span><span class="si">${</span><span class="nx">a</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`b = </span><span class="si">${</span><span class="nx">b</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">func_with_optional_args</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="s2">&#34;this will be ignored&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">func_with_optional_args</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = 5.25
+</span></span><span class="line"><span class="cl">a = 3
+</span></span><span class="line"><span class="cl">b = 2
+</span></span></code></pre></div><p>Note that the third arguments will be ignored anyway.</p>
+<h3 id="closures">Closures</h3>
+<p>JavaScript also has <em>closures</em>, that is, functions that access variables
+from the enclosing scope.</p>
+<p>It is a useful feature to create parameterized functions.
+For example, we can create a function that multiply a given value
+by an arbitrary argument:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">multiplier</span><span class="p">(</span><span class="nx">factor</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">n</span> <span class="p">=&gt;</span> <span class="nx">factor</span> <span class="o">*</span> <span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">times_2</span> <span class="o">=</span> <span class="nx">multiplier</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">times_5</span> <span class="o">=</span> <span class="nx">multiplier</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">times_2</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">times_5</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">20
+</span></span><span class="line"><span class="cl">50
+</span></span></code></pre></div><h3 id="recursion">Recursion</h3>
+<p>Recursive function is a function that calls itself. There must be a termination
+condition in such a function to make sure that it stops calling itself
+infinitely many times.</p>
+<p>Let&rsquo;s write a function that computes a Fibonacci number via recursion.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;7th Fibonacci number is&#34;</span><span class="p">,</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="mi">7</span><span class="p">));</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">7th Fibonacci number is 13
+</span></span></code></pre></div><p>Of course, recursion is not the most effective way to solve this problem.
+Usually, recursion works well in the problem that require branching
+and checking multiple options.</p>
+<h3 id="references">References</h3>
+<p>This post is mostly based on Chapter 3 of the fantastic book on Javascript
+&ldquo;<a href="https://eloquentjavascript.net/">Eloquent JavaScript</a>&rdquo; by Marijn Haverbeke.
+I have also consulted
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Mozilla Developer Network</a>
+documentation a bit.</p>
+<h2 id="x86_64-conda-packages-on-m1-mac"><span class="org-todo done DONE">DONE</span> How to use x86_64 packages in Conda on M1 Mac <span class="tag"><span class="computing">computing</span><span class="mac">mac</span></span></h2>
+<p>If you work on an M1 Mac computer (that is, on an Apple computer with
+an ARM processor)
+and use <a href="https://docs.conda.io/en/latest/">Conda</a>
+to manage Python environments and packages,
+sometimes you need to work with packages that are available
+only for <code>x86_64</code> architecture, that is, for Macs with Intel processors
+(<code>x86_64</code> is a common name for 64-bit Intel processors).
+For example, I ran into this problem when I wanted to go through
+<a href="https://snakemake.readthedocs.io/en/stable/tutorial/setup.html">SnakeMake tutorial</a>,
+and it turned out that many bioinformatics tools (needed for the tutorial)
+are not available for the M1 architecture.</p>
+<p>To work with <code>x86_64</code> packages in Conda, you need to have the following:</p>
+<ul>
+<li>run a terminal in Rosetta mode</li>
+<li>tell Conda about the package architecture it must use.</li>
+</ul>
+<p>So, the first step is to switch a terminal to Rosetta mode.
+Rosetta mode is macOS&rsquo; compatibility layer
+for software written for Intel processors.
+As I would like to use the terminal most of the time in native M1 mode,
+I open the <code>/Applications</code> directory in Finder and copy the terminal app:</p>
+<figure><img src="/images/2023/x86_64-copy-app.png" width="50%"/>
+</figure>
+
+<p>I use <a href="https://iterm2.com/">iTerm2</a> as my default terminal, so I name the copy <code>iTerm x86_64</code>.
+Now open &ldquo;Get info&rdquo; window for the app
+and check the &ldquo;Open with Rosetta&rdquo; checkbox,
+so that this copy of the terminal always opens in compability mode:</p>
+<figure><img src="/images/2023/x86_64-rosetta.png" width="50%"/>
+</figure>
+
+<p>Now when you need to work in a Conda environment with <code>x86_64</code> packages,
+use this copy of the terminal app.</p>
+<p>However, it is not enough to work with Conda environments.
+When you install Conda packages, you need to specify the required architecture
+using the environment variable <code>CONDA_SUBDIR</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-64 conda env create -f environment.yaml
+</span></span></code></pre></div><p>as you can see from the above command where I create a Conda environment
+from file <code>environment.yaml</code> and specify <code>osx-64</code> as the package architecture
+(<code>osx-64</code> is the Conda way of defining Intel macOS package architecture;
+the M1 packages are denoted <code>osx-arm64</code>).</p>
+<p>I hope this post is useful for you!</p>
+<h2 id="cpp-universal-initialization"><span class="org-todo done DONE">DONE</span> Universal initialization in C++ <span class="tag"><span class="programming">programming</span><span class="cpp">cpp</span></span></h2>
+<p>For my new position, I need to improve my knowledge of the C++ programming
+language (which I did not use basically since 2010).
+So I have started reading the book
+<a href="https://www.informit.com/store/discovering-modern-c-plus-plus-9780136677642">Discovering Modern C++</a>
+by Peter Gottschling to get up to speed with, well, modern C++.</p>
+<p>In this post, I would like to talk about universal initialization (a.k.a.
+brace-initialization) that was introduced in C++11.</p>
+<p>The syntax for the universal initialization is the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">{};</span>  <span class="c1">// Initialize integer variable to zero.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">string</span> <span class="n">s</span><span class="p">{</span><span class="s">&#34;Hello World!&#34;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="o">*</span><span class="n">pData</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">27.43</span><span class="p">,</span> <span class="mf">1e-38</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">values</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">geo</span> <span class="p">{</span> <span class="p">{</span><span class="s">&#34;Germany&#34;</span><span class="p">,</span> <span class="s">&#34;Berlin&#34;</span><span class="p">},</span> <span class="s">&#34;France&#34;</span><span class="p">,</span> <span class="s">&#34;Paris&#34;</span> <span class="p">};</span>
+</span></span></code></pre></div><p>Note that the whitespace is not important here, but it looks cleaner when
+there is a space before the opening brace in complicated initializations
+like in the third line above.</p>
+<p>The universal initialization was introduced to overcome the following
+problems:</p>
+<ul>
+<li>avoid narrowing type errors,</li>
+<li>avoid syntactic ambiguity &ldquo;is it a function declaration or an object creation?&rdquo;,</li>
+<li>make initialization of small-size containers slightly easier.</li>
+</ul>
+<p><strong>Avoid narrowing type errors</strong>. When initializing variable via assingment
+operator, it is possible to introduce hidden errors like loss of precision, as
+the compiler narrows the type of the initialization expression to the type of
+the variable, while this does not happen with the universal initialization:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">7.7</span><span class="p">;</span>  <span class="c1">// 7.7 will be truncated to 7 (although a compiler warns about it)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">x</span> <span class="p">{</span><span class="mf">7.7</span><span class="p">};</span>  <span class="c1">// compiler will emit an error; 7.7 must be changed to int(7.7)
+</span></span></span></code></pre></div><p><strong>Avoid syntactic ambiguity</strong>.
+This is what is called &ldquo;most vexing parse&rdquo; in the book
+&ldquo;Effective C++&rdquo; by Scott Meyers.
+The normal syntax for object initialization is ambiguous and consides
+with the syntax for function declaration. The universal initialization
+allows us to avoid this ambiguity, which makes it easier to read for humans.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Test</span> <span class="nf">test</span><span class="p">();</span>  <span class="c1">// Is it object initialization or function declaration?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Test</span> <span class="n">test</span><span class="p">{};</span>  <span class="c1">// This is definitely object initialization.
+</span></span></span></code></pre></div><p><strong>Container initialization</strong>.
+When you need to initialize a small-size container,
+the universal initialization syntax is much shorter.
+Say, you need to initialize a vector with four elements.
+Then you need to use <code>push-back</code> method in old-style initialization,
+while it is a one-liner with the universal initialization:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// In C++11 you can do it more elegant with a one-liner:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+</span></span></code></pre></div><h2 id="notes-on-modern-c"><span class="org-todo done DONE">DONE</span> “Modern C”: Notes on the book by Jens Gustedt <span class="tag"><span class="programming">programming</span><span class="c">c</span></span></h2>
+<p>These are the table of contents for my notes taken
+while reading the book &ldquo;Modern C&rdquo; by Jens Gustedt,
+which teaches C according to new language standards, C11 and C17.</p>
+<!--more-->
+<p>Jens Gustedt is a senior scientist at the French National Institute
+for Computer Science and Control (INRIA) and co-editor of the ISO C standard.</p>
+<p>The book itself can be purchased from <a href="https://www.manning.com/books/modern-c">Manning Publishing</a>.</p>
+<ul>
+<li><a href="#notes-on-ch01-modern-c">Chapter 1 &ldquo;Getting Started&rdquo;</a></li>
+<li><a href="#notes-on-chapter-02-modern-c">Chapter 2 &ldquo;The principal structure of a program&rdquo;</a></li>
+<li><a href="#notes-on-preamble-level-1-modern-c">Preamble &ldquo;Level 1 Aquaintance&rdquo;</a></li>
+<li><a href="#notes-on-chapter-03-modern-c">Chapter 3 &ldquo;Everything is about control&rdquo;</a></li>
+<li><a href="#notes-on-chapter-04-modern-c">Chapter 4 &ldquo;Expressing computations&rdquo;</a></li>
+</ul>
+<h2 id="notes-on-ch01-modern-c"><span class="org-todo done DONE">DONE</span> “Modern C”: Notes on chapter 1 “Getting started” <span class="tag"><span class="programming">programming</span><span class="c">c</span></span></h2>
+<p>These are my notes taken while reading chapter 1 &ldquo;Getting Started&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter introduces imperative programming and teaches how to compile
+and run a C program.</p>
+<!--more-->
+<p>The table of contents for all notes for this book are available <a href="#notes-on-modern-c">in that post</a>.</p>
+<p>C is an imperative programming language.
+A program written in C consists of statements (C term for instructions),
+such as declaring variables and printing text to screen:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">9.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">42.42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Element %zu is %g</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span></code></pre></div><p>Here we declare an array of double precision floating-point numbers,
+initialize its elements (by using explicit notation for index and value),
+and then print a text message about the zeroth (first) element of this array.</p>
+<p>The function <code>printf</code> is probably the most used function in C.
+It formats a given string by inserting giving arguments into the string
+template.
+The things such as <code>%zu</code> and <code>%g</code> are <strong>format specifiers</strong>.
+This particular specifiers are for unsigned integer and a double value.
+The <strong>string literal</strong> <code>\n</code> is used to insert a new line character.</p>
+<p>Compiling a program on Linux or macOS can be done using popular free compilers
+such as GCC and Clang.
+It is recommended to force at least C99 standard:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gcc -std<span class="o">=</span>c99 -Wall program.c -lm -o program
+</span></span><span class="line"><span class="cl">clang -std<span class="o">=</span>c99 -Wall program.c -lm -o program
+</span></span></code></pre></div><p>In my experience, clang gives slightly more human error messages when things
+are not quite right.
+However, as can be seen from the above command examples, they can be used
+more or less in the same way, at least for simple programs as the command-line
+arguments are basically the same.</p>
+<p>The argument <code>-Wall</code> tells the compiler to warn about everything that
+does not look right to the compiler.
+The argument <code>-lm</code> tell the compiler to link a library that is called simply
+<code>m</code> and includes mathematical functions.
+Linking is the process that combines your source code with already compiled
+libraries from somebody else (or you - it is quite common to organize
+more or less large programs as a collection of libraries).</p>
+<p>When the program is compiled successfully, it can be run via</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">./program
+</span></span></code></pre></div><p>which should print to the screen <code>Element 0 is 9.0</code>.</p>
+<p>The book does not say it, but for simple one-file programs it is also
+easy to use <code>Make</code>.
+Make has a built-in (so called implicit) rule for transforming files
+like <code>program.c</code> into an executable file <code>program</code>.
+To use it, one can simply write:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">make program
+</span></span></code></pre></div><p><code>Make</code> will see that there is the file <code>program.c</code> on disk and will try
+to compile it.
+To ensure that the compilation instructions used by Make are the same
+as in the above examples, one can write a simple <code>Makefile</code> like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-make" data-lang="make"><span class="line"><span class="cl"><span class="nv">CFLAGS</span> <span class="o">=</span> -std<span class="o">=</span>c99 -Wall
+</span></span><span class="line"><span class="cl"><span class="nv">LDLIBS</span> <span class="o">=</span> -lm
+</span></span></code></pre></div><p>It should use by default C compiler <code>cc</code>, which in macOS is <code>clang</code>
+and in Ubuntu <code>gcc</code>.</p>
+<p>Important rule of C programming: <strong>A program in C should compile cleanly
+without warnings</strong>.</p>
+<h2 id="notes-on-chapter-02-modern-c"><span class="org-todo done DONE">DONE</span> “Modern C”: Notes on chapter 2 “The principal structure of a program” <span class="tag"><span class="programming">programming</span><span class="c">c</span></span></h2>
+<p>These are my notes taken while reading chapter 2
+&ldquo;The principal structure of a program&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter explains details of C grammar, distinction between declaration
+and definition of objects, and statements.</p>
+<!--more-->
+<p>The table of contents for all notes for this book are available <a href="#notes-on-modern-c">in that post</a>.</p>
+<h3 id="2-dot-1-grammar">2.1 Grammar</h3>
+<p>C program is a text consisting of different text elements:</p>
+<ul>
+<li>Special words (which are directives, keywords, and reserved), such as
+<code>#include</code>, <code>int</code>, <code>double</code>, <code>return</code>, <code>for</code>.</li>
+<li>Brackets <code>{..}</code>, <code>[..]</code>, <code>(..)</code> to group parts of program together</li>
+<li>Separators comma <code>,</code> (to separate arguments of a function.
+or elements of an array) and semicolon <code>;</code> (to separate statements).</li>
+<li>Comments <code>/*..*/</code> to comment parts of a program for readability.</li>
+<li>Literals: numbers such as <code>1</code>, <code>42</code>, <code>0.007f</code>, <code>3.14</code>, <code>1.6e-28</code>,
+<code>'A'</code>, <code>&quot;It's a string&quot;</code>.</li>
+<li>Identifiers: name of functions, macros, variables, or aliases for types.</li>
+<li>Operators: arithmetic <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, assignment <code>=</code>, increment <code>++</code>.</li>
+</ul>
+<p><em>Takeaway 2.1</em>. Punctuation can have several different meanings.</p>
+<h3 id="2-dot-2-declarations">2.2 Declarations</h3>
+<p><em>Takeaway 2.2</em>. All identifiers must be declared.</p>
+<p>We can declare our own identifiers:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">myfunc</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>  <span class="c1">// Declare a function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">double</span> <span class="n">A</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>       <span class="c1">// Array of five elements
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">size_t</span> <span class="n">i</span><span class="p">;</span>          <span class="c1">// Variable that represents lengths
+</span></span></span></code></pre></div><p>Some identifiers are predeclared, for example, the function <code>printf</code>,
+type alias <code>size_t</code> or constant <code>EXIT_SUCCESS</code>.
+We obtain these declarations by including corresponding header files
+where we need them, for example, <code>printf</code> comes from <code>stdio.h</code>, while
+<code>EXIT_SUCCESS</code> comes from <code>stdlib.h</code>, so we need to include these files
+to our program:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span></code></pre></div><p>Header files are also called <em>include files</em>.</p>
+<p>We can also read documentation for C in Unix-like operation systems
+in terminal:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">man <span class="m">3</span> <span class="nb">printf</span>
+</span></span></code></pre></div><p>Section 3 of <code>man</code> is devoted to the C programming language.</p>
+<p>We can declare identifiers multiple times.</p>
+<p><em>Takeaway 2.3</em>. Identifiers may have several consistent declarations.</p>
+<p><em>Takeaway 2.4</em>. Declarations are bound to the scope in which they appear.</p>
+<p>There is block scope, in which identifier is visible only in a given
+block, essentially, between a pair of curly braces:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>  <span class="c1">// Scoped to function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">age</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Scoped to the for loop.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Do stuff with i.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>There is also file scope (or global scope), for example, function <code>main</code>
+in every C program is in the global scope.</p>
+<h3 id="2-dot-3-definitions">2.3 Definitions</h3>
+<p>Definitions define (ha-ha) concrete instances of declared identifiers.</p>
+<p>For variables, declaration and definition can be combined in <em>initialization</em>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.72</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>  <span class="c1">// Note that element [2] is initialized to zero.
+</span></span></span></code></pre></div><p>Initialization of array with explicit indices is called <em>designated</em>.</p>
+<p><em>Takeaway 2.7</em>. Missing element in initializers default to 0.</p>
+<p><em>Takeaway 2.8</em>. For an array with \(n\) elements, the first element has
+index 0, and the last has index \(n - 1\).</p>
+<p>A function is defined inside the pair of braces <code>{..}</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><em>Takeaway 2.9</em>. Each object or function must have exactly one definition.</p>
+<h3 id="2-dot-4-statements">2.4 Statements</h3>
+<p>Statements are program steps that do something useful with the identifiers,
+for example, use defined variables and functions to compute an answer.</p>
+<p>Iteration statement can be done with a <code>for</code> statement:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">initialization</span><span class="p">;</span> <span class="n">condition</span><span class="p">;</span> <span class="n">things</span> <span class="n">to</span> <span class="k">do</span> <span class="n">after</span> <span class="n">initialization</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span><span class="o">-</span><span class="n">loop</span> <span class="n">body</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><em>Takeaway 2.10</em>. Domain iterations should be coded with a <code>for</code> statement.</p>
+<p>In old versions of C, all identifiers must be declared in the beginning
+of a function.
+Nowadays, it is not so, and it is recommended to declare an iteration
+variable directly in initialization:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">42</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><em>Takeaway 2.11</em>. The loop variable should be defined in the initial part
+of a <code>for</code> loop.</p>
+<p>Function calls are another type of statement in C programs:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello World!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span></code></pre></div><p>Also important are <code>return</code> statements that take the control
+from a given point in a function and return it to the calling
+function:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>  <span class="c1">// Control goes back to the `main` function.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="nf">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// main must return 0 to indicate success.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="notes-on-preamble-level-1-modern-c"><span class="org-todo done DONE">DONE</span> “Modern C”: Notes on preamble “Level 1 Aquaintance” <span class="tag"><span class="programming">programming</span><span class="c">c</span></span></h2>
+<p>These are my notes taken while reading the preamble for the part
+&ldquo;Level 1. Aquaintance&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This preamble introduces stylistic decisions that
+the author uses in the rest of the book.</p>
+<!--more-->
+<p>The table of contents for all notes for this book are available <a href="#notes-on-modern-c">in that post</a>.</p>
+<p>The types and identifiers are visually separated.
+For examples, pointer variables have <code>*</code> attached to the type:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">;</span>
+</span></span></code></pre></div><p>The qualifiers are left-binding also:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="k">const</span> <span class="n">path_name</span><span class="p">;</span>
+</span></span></code></pre></div><p>Declaring several variables on the same line is not allowed:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="k">const</span><span class="o">*</span> <span class="k">const</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>  <span class="c1">// BAD
+</span></span></span></code></pre></div><p>Here, the second <code>const</code> is applied only to <code>a</code>, which makes
+everything really confusing for the reader.</p>
+<p>For functions that accept pointer parameters, array notation is used
+whenever the pointer is not allowed to be <code>NULL</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="kt">char</span> <span class="k">const</span> <span class="n">string</span><span class="p">[</span><span class="k">static</span> <span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="n">argc</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+</span></span></code></pre></div><p>Here we emphasize that <code>strlen</code> accepts a string with at least one
+charater (<code>nul</code>-terminator), and <code>main</code> accepts an array of type
+<code>char *</code> (hmm, here the author breaks his own rule about <code>*</code>) with
+<code>argc+1</code> elements (such an array contains <code>nul</code>-terminator as the
+sentinel.</p>
+<p>Anywhere, compatible declarations can be used without any complaints
+from the compiler:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">);</span>
+</span></span></code></pre></div><p>For function pointer parameters, the first notation is preferred:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">atexit</span><span class="p">(</span><span class="kt">void</span> <span class="nf">handler</span><span class="p">(</span><span class="kt">void</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">atext</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)(</span><span class="kt">void</span><span class="p">));</span>
+</span></span></code></pre></div><p>All variables must be defined as close as possible to the place
+where they used.
+Particularly, it means that the iteration variables in <code>for</code> loops
+must be declared inside the loop.</p>
+<p>Opening braces are always on the same line as the corresponding
+block statement, closing braces have the same indent as the block
+statement, and continued block statements are on the same
+line as the closing braces:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Do this
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Do that
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><h2 id="notes-on-chapter-03-modern-c"><span class="org-todo done DONE">DONE</span> “Modern C”: Notes on chapter 3 “Everything is about control” <span class="tag"><span class="programming">programming</span><span class="c">c</span></span></h2>
+<p>These are my notes taken while reading chapter 3
+&ldquo;Everything is about control&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter explains five control block statements:
+conditional statements with <code>if</code>, loops with <code>for</code>, <code>while</code>, and <code>do-while</code>,
+and selection statements with <code>switch</code>.</p>
+<!--more-->
+<p>The table of contents for all notes for this book are available <a href="#notes-on-modern-c">in that post</a>.</p>
+<h4 id="3-dot-1-conditional-execution">3.1 Conditional execution</h4>
+<p>The general form of the conditional execution is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;i is greater than 25</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;No, i is not greater than 25</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p><em>Takeaway 3.1</em>. The value 0 represents logical false.</p>
+<p><em>Takeaway 3.2</em>. Any value different from 0 represents logical true.</p>
+<p>In C, equality and inequality operators are <code>==</code> and <code>!=</code>,
+respectively.
+Because numerical values can be treated as true or false, we can
+simplify conditions like this (assuming that <code>i</code> is a number):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Do something when i is not zero.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><p>to more succint code</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Do something when i is not zero.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><p>The latter version is preferred in C code.</p>
+<p>Include header <code>stdbool.h</code> adds type <code>bool</code> that can be used
+to emphasize that we have a boolean (logical) variable.
+Also, this header adds words <code>true</code> and <code>false</code>.</p>
+<p><em>Takeaway 3.3</em>. Don&rsquo;t compare to 0, false, or true.</p>
+<p><em>Takeaway 3.4</em>. All scalars have a truth value.</p>
+<p>Table <a href="#table--tab:scalar-types">1</a> shows C scalar types, their categories
+and how they can be specified in <code>printf</code> calls.</p>
+<p><a id="table--tab:scalar-types"></a></p>
+<div class="table-caption">
+  <span class="table-number"><a href="#table--tab:scalar-types">Table 1</a>:</span>
+  C scalar types and how to print them
+</div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Category</th>
+<th><code>printf</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size_t</code> (from <code>stddef.h</code>)</td>
+<td>Unsigned</td>
+<td><code>&quot;%zu&quot;</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>Floating</td>
+<td><code>&quot;%e&quot;</code>, <code>&quot;%f&quot;</code>, <code>&quot;%g&quot;</code></td>
+</tr>
+<tr>
+<td><code>signed</code> (a.k.a. <code>int</code>)</td>
+<td>Signed</td>
+<td><code>&quot;%d&quot;</code></td>
+</tr>
+<tr>
+<td><code>unsigned</code>[</td>
+<td>Unsigned</td>
+<td><code>&quot;%u&quot;</code></td>
+</tr>
+<tr>
+<td><code>bool</code> (from <code>stdbool.h</code>)</td>
+<td>Boolean</td>
+<td><code>&quot;%d&quot;</code></td>
+</tr>
+<tr>
+<td><code>ptrdiff_t</code> (<code>stddef.h</code>)</td>
+<td>Signed</td>
+<td><code>&quot;%td&quot;</code></td>
+</tr>
+<tr>
+<td><code>char const *</code></td>
+<td>String</td>
+<td><code>&quot;%s&quot;</code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>Character</td>
+<td><code>&quot;%c&quot;</code></td>
+</tr>
+<tr>
+<td><code>void *</code></td>
+<td>Pointer</td>
+<td><code>&quot;%p&quot;</code></td>
+</tr>
+<tr>
+<td><code>unsigned char</code></td>
+<td>Unsigned</td>
+<td><code>&quot;%hhu&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-dot-2-iterations">3.2 Iterations</h3>
+<p>To go over given finite set of values, <code>for</code> loop should be used:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">clause1</span><span class="p">;</span> <span class="n">condition2</span><span class="p">;</span> <span class="n">expression3</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loop</span> <span class="n">body</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>Here, <code>clause1</code> is normally iteration variable definition
+and initialization that sets initial value in iteration;
+<code>condition2</code> determines when the iteration stops;
+and <code>expression3</code> updates the iteration variable.
+The following example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">upper_bound</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">upper_bound</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// do something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><p>sets two variables: <code>i</code> to iterate and <code>upper_bound</code> that is used
+in the condition on loop termination.
+It looks actually as the loop will never stop but variables of type
+<code>size_t</code> cannot be negative, so iterations will happen exactly 10
+times, and when <code>i = 0</code>, after decrement its value will become
+a large number, and the condition <code>i &lt; upper_bound</code> will become
+<code>false</code>.
+Therefore, the loop body will execute only 10 times.</p>
+<p>Another way of iterating is a <code>while</code> loop.
+Typical example is some iterative computation procedure such as
+Heron approximation of the square root:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;tgmath.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="kt">double</span> <span class="k">const</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="k">const</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">34.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nf">fabs</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">eps</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">*=</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>The <code>do-while</code> loop is similar:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">*=</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nf">fabs</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">eps</span><span class="p">);</span>
+</span></span></code></pre></div><p>The difference is that the <code>do-while</code> always has at least
+one iteration as the condition is checked in the end of an iteration.</p>
+<p>All loops can use keywords <code>break</code> to terminate the loop
+and <code>continue</code> to start a new iteration of the loop.</p>
+<h3 id="3-dot-3-multiple-selection">3.3 Multiple selection</h3>
+<p>An alternative to multiple <code>if-else</code> statements is a <code>switch</code> block:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="n">expression</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nl">case1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// do 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nl">case2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// do 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// do default
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>The keyword <code>break</code> is important as otherwise all statement until
+the end of the loop execute: for example, if expression evaluates
+to <code>case2</code>, then without the <code>break</code> keyword in <code>case2</code>,
+all statements <code>// do 2</code> and <code>// do default</code> would execute.</p>
+<p><em>Takeaway 3.5</em> <code>case</code> values must be integer constant expressions.</p>
+<p><em>Takeaway 3.6</em> <code>case</code> labels must not jump beyond a variable
+definition.</p>
+<h2 id="notes-on-chapter-04-modern-c"><span class="org-todo done DONE">DONE</span> “Modern C”: Notes on chapter 4 “Expressing computations” <span class="tag"><span class="programming">programming</span><span class="c">c</span></span></h2>
+<p>These are my notes taken while reading chapter 4
+&ldquo;Expressing computations&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.</p>
+<p>This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals.</p>
+<!--more-->
+<p>The table of contents for all notes for this book are available <a href="#notes-on-modern-c">in that post</a>.</p>
+<p>Values used in this chapter are based on type <code>size_t</code> which is
+C representation of non-negative integers (natural numbers and
+zero), although on computer this is a finite set of numbers.</p>
+<p><em>Takeaway 4.1</em>. The type <code>size_t</code> represents values in the range
+<code>[0, SIZE_MAX]</code>.</p>
+<p>Constant <code>SIZE_MAX</code> comes from the header file <code>stdint.h</code>.
+Previously, computers had 32-bit processors and the value of
+<code>SIZE_MAX</code> was about 4 billions (precisely, \(2^{32} - 1\), where
+&ldquo;minus 1&rdquo; is to accomodate zero).
+Nowadays, most processors are 64-bit and <code>SIZE_MAX</code> is much larger
+(exact value is \(2^{64} - 1\), which is a number with 20 digits).</p>
+<h4 id="4-dot-1-arithmetic">4.1 Arithmetic</h4>
+<p>Arithmetic operators <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> work in general
+as we expect from mathematics.
+For unsigned values such as variables of type <code>size_t</code> the result
+is always well-defined.</p>
+<p>When performing arithmetic, division <code>/</code> and modulus <code>%</code> are
+well-defined only if the second operand is not 0.</p>
+<p>Sometimes the result of an arithmetic operation is such that
+it is not within range [0, <code>SIZE_MAX~], for example, it can become negative or larger than ~SIZE_MAX</code> (overflow).
+In such cases, arithmetic on <code>size_t</code> values &ldquo;wraps around&rdquo;,
+that is, the result is replace with the remainder of modulus
+operation <code>% (SIZE_MAX + 1)</code>.
+For example, -1 becomes <code>SIZE_MAX</code>, while <code>SIZE_MAX + 1</code> becomes 0.</p>
+<h4 id="4-dot-2-operators-that-modify-objects">4.2 Operators that modify objects</h4>
+<p>The first example is the assignment operator <code>=</code>.
+In C terminology, the right side is called <strong>rvalue</strong> and the left
+side is called <strong>lvalue</strong>.</p>
+<p>C has compact assignment operators for such expressions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="n">var</span> <span class="o">=</span> <span class="n">var</span> <span class="n">O</span> <span class="n">expression</span>
+</span></span></code></pre></div><p>which can be replaced with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="n">var</span> <span class="n">O</span><span class="o">=</span> <span class="n">expression</span>
+</span></span></code></pre></div><p>where <code>O</code> is <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>.</p>
+<p>Also, often used operators are increment <code>i++</code> and <code>++i</code> and
+decrement <code>i--</code> and <code>--i</code>. Postfix forms first return the value of
+<code>i</code> and then modify it, while prefix forms first modify <code>i</code> and
+then return the new value.
+It is not recommended to use these operators in more complex
+expressions directly but always as separate statements to improve
+code readability.</p>
+<h4 id="4-dot-3-boolean-context">4.3 Boolean context</h4>
+<p>Boolean expressions use comparison and logic operators
+and always return values <code>false</code> or <code>true</code>.
+Note that <code>false</code> and <code>true</code> in C are the same as 0 and 1,
+respectively, so they can be used in arithmetic expressions.</p>
+<p>Comparison operators are: equal to <code>==</code>, not equal to <code>!=</code>, less than <code>&lt;</code>,
+less or equal to <code>&lt;=</code>, greater than <code>&gt;</code>, greater or equal to <code>&gt;=</code>.</p>
+<p>Logic operators are: not <code>!</code>, logical and <code>&amp;&amp;</code>, logical or <code>||</code>.</p>
+<p>Logical and and or use &ldquo;short-curcuit evaluation&rdquo;, so that
+if the value of a logical expression can be determined from one
+of the subexpressions, other subexpressions are not evaluated:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">((</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">((</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Subexpressions (a/b) &gt; 1 is not evaluated at all
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// if b equals to zero.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><h4 id="4-dot-4-the-ternary-or-conditional-operator">4.4 The ternary or conditional operator</h4>
+<p>The ternary operator is a compact form from an <code>if-else</code> statement
+with assignment. For example, this is how a minimum of two numbers
+can be computed:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="n">min_a_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
+</span></span></code></pre></div><h4 id="4-dot-5-evaluation-order">4.5 Evaluation order</h4>
+<p>C has comma operator, such that expression <code>f(a), f(b)</code> first
+evaluates <code>f(a)</code> and then evaluates <code>f(b)</code> and returns the value
+of <code>f(b)</code>.
+The comma operator is rarely useful and is confusing.
+For example, in <code>A[i, j]</code> the result is <code>A[j]</code>.</p>
+<p><em>Takeaway 4.16</em>. Do not use comma operator.</p>
+<p>Most operators do not have a predefined order, so that the result
+can be different depending on the order: for example, if
+function <code>f</code> changes some global state, the result of <code>f(a) + f(b)</code>
+probably depends on the order in which they are evaluated.</p>
+<p><em>Takeaway 4.19</em>. Functions that are called inside expressions
+should not have side effects.</p>
+<p>This is the only way to preserve sanity while programming in C.</p>
+<h2 id="how-to-import-modules-in-embedded-python"><span class="org-todo todo TODO">TODO</span> How to import modules in embedded Python</h2>
+<h2 id="update-website-to-mathjax-3"><span class="org-todo todo TODO">TODO</span> Update website to MathJax 3</h2>
+<p>Useful link: <a href="https://geoffruddock.com/math-typesetting-in-hugo/">https://geoffruddock.com/math-typesetting-in-hugo/</a></p>
+<h2 id="difference-in-python-imports-with-out-m"><span class="org-todo todo TODO">TODO</span> Difference in python imports with/out -m</h2>
+<h2 id="make-your-capslock-work-as-ctrl-or-esc"><span class="org-todo todo TODO">TODO</span> Make your CapsLock work as Ctrl or Esc</h2>
+<p>For people who type a lot and, particularly, program, the organization of the
+keyboard layout in macOS is not optimal.
+Especially this is true for people who use vim or emacs (or, at least, emacs
+keybindings in macos to move cursor left and right <code>CTRL-f</code> and <code>CTRL-b</code>).</p>
+<p>If you try to press these combinations using normal <code>CTRL</code> key, you have to bend your left wrist awkwardly as shown on the figure below.</p>
+<p>Also, for those who <a href="https://vim.org">vim</a>, pressing <code>Esc</code> is a bit difficult as it is located quite far from the middle row.</p>
+<p>Note, that <code>CTRL</code> is a key that is only used in combination with other keys, while <code>Esc</code> must be pressed independently.</p>
+<p>What if we can use <code>CapsLock</code> to do this things for us?</p>
+<p>It is easy to do using Karabiner Elements!</p>
+<p>To make this enabled, we need to download</p>
+<h2 id="switch-layouts-in-macos-using-right-option-key"><span class="org-todo todo TODO">TODO</span> Switch layouts in macOS using Right Option key</h2>
+<p>For people who type a lot and, particularly, program, the organization of the
+keyboard layout in macOS is not optimal.
+Especially this is true for people who use vim or emacs (or, at least, emacs
+keybindings in macos to move cursor left and right <code>CTRL-f</code> and <code>CTRL-b</code>).</p>
+<p>Also, if you have to switch keyboard layouts, the default combination
+<code>CTRL-Space</code> is suboptimal as it requires to press two keys.
+What if we could use only one key to switch layouts?</p>
+<p>After some reflection on what keys I use and do not, I have realized that I
+basically never use Right Option key.</p>
+<p>However, you cannot change keyboard shortcut for switching layouts to this key.</p>
+<p>To achieve this, we need to do it in indirect way.
+We use Karabiner Elements to make keyboard to send F13 key when you press Right
+Option key.
+Then you can change the key in keyboard preferences to F13.</p>
+<h2 id="use-rhash-to-make-checksums"><span class="org-todo todo TODO">TODO</span> Use rhash to make checksums</h2>
+<h2 id="stochastic-processes-brownian-motion"><span class="org-todo todo TODO">TODO</span> Stochastic processes of brownian motion type <span class="tag"><span class="math">math</span><span class="stochastics">stochastics</span></span></h2>
+<p>In this post, I consider several stochastic processes of Brownian motion
+type&mdash;precisely, standard Brownian motion, Brownian motion with drift, and
+geometric Brownian motion.</p>
+<p>First, let&rsquo;s import important packages and set constant and random seed:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set random seed for reproducibility.</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Time step.</span>
+</span></span><span class="line"><span class="cl"><span class="n">DELTA_T</span> <span class="o">=</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Number of time steps.</span>
+</span></span><span class="line"><span class="cl"><span class="n">NTIMES</span> <span class="o">=</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Number of sample paths.</span>
+</span></span><span class="line"><span class="cl"><span class="n">NPATHS</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">which</span> <span class="n">jupyter</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">which</span> <span class="n">python3</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/Users/dima/sw/conda/bin/jupyter
+</span></span><span class="line"><span class="cl">/Users/dima/sw/conda/bin/python3
+</span></span><span class="line"><span class="cl">Hello
+</span></span><span class="line"><span class="cl">[&#39;/Users/dima/wrk/website/content-org&#39;, &#39;/Users/dima/wrk/website/conda-env/lib/python38.zip&#39;, &#39;/Users/dima/wrk/website/conda-env/lib/python3.8&#39;, &#39;/Users/dima/wrk/website/conda-env/lib/python3.8/lib-dynload&#39;, &#39;&#39;, &#39;/Users/dima/.local/lib/python3.8/site-packages&#39;, &#39;/Users/dima/wrk/website/conda-env/lib/python3.8/site-packages&#39;, &#39;/Users/dima/wrk/website/conda-env/lib/python3.8/site-packages/IPython/extensions&#39;, &#39;/Users/dima/.ipython&#39;]
+</span></span><span class="line"><span class="cl">1.18.1
+</span></span></code></pre></div><h3 id="standard-brownian-motion">Standard Brownian motion</h3>
+<p>This process has the property that the increments are independent and normally
+distributed with zero mean and variance equal to the time between increments.
+It is also known as Wiener process. Formally, definition is</p>
+<p>A stochastic process \(B(t)\), \(t\ge0\) is called
+standard Brownian Motion (BM), if</p>
+<ol>
+<li>\(B(0) = 0\).</li>
+<li>\(B(t)\) has stationary and independent increments.</li>
+<li>Increments \(B(t) - B(s)\) are random variables with distribution \(N(0, t-s)\).</li>
+</ol>
+<p>Because the increments are independent, it follows that \(B(s)\) is independent
+from \(B(t)-B(s)\) (because \(B(s)\) can be seen as an increment \(B(s)-B(0)\).
+\[
+B(t) = B(s) + \left( B(t) - B(s) \right)
+\]
+The above formula gives us the way to simulate the process.
+To simulate it at times \(0 = t_0 &lt; t_1 &lt; \dots &lt; t_k\):</p>
+<ol>
+<li>Simulate \(k\) independent standard normal variables \(Z_i\), \(i=1,\dots,k\).</li>
+<li>Set \(B(0) = 0\).</li>
+<li>Set \(B(t_k) = \sum_{i=1}^k \sqrt{\Delta t_i} Z_i\), where \(\Delta t_i = t_i - t_{i-1}\).</li>
+</ol>
+<p>Python code to simulate one single realization (sample path):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate_standard_brownian_motion</span><span class="p">(</span><span class="n">delta_t</span><span class="p">,</span> <span class="n">nT</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Generate realization of standard motion process.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    delta_t : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Time step size.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nT : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of time steps.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    s : ndarray(nT+1,)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Realization (sample path) of the stochastic process.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Note that the initial zero value is included.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deltaW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta_t</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">nT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nT</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span>  <span class="n">s0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">deltaW</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="n">nT</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">s</span>
+</span></span></code></pre></div><p>Then, to simulate the multiple paths, we just call this function several times:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">sbm_paths</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">__</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NPATHS</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sbm_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">generate_standard_brownian_motion</span><span class="p">(</span><span class="n">DELTA_T</span><span class="p">,</span> <span class="n">NTIMES</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NPATHS</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sbm_paths</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span> <span class="n">sbm_paths</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Time&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;Process realization&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Standard brownian motion&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&#34;sbm.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;sbm.pdf&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NameErrorTraceback (most recent call last)
+</span></span><span class="line"><span class="cl">&lt;ipython-input-3-75d2da3055e0&gt; in &lt;module&gt;
+</span></span><span class="line"><span class="cl">      1 sbm_paths = []
+</span></span><span class="line"><span class="cl">      2
+</span></span><span class="line"><span class="cl">----&gt; 3 for __ in range(NPATHS):
+</span></span><span class="line"><span class="cl">      4     sbm_paths.append(
+</span></span><span class="line"><span class="cl">      5         generate_standard_brownian_motion(DELTA_T, NTIMES)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NameError: name &#39;NPATHS&#39; is not defined
+</span></span></code></pre></div><h2 id="measure-performance-in-python-using-time-dot-perf-counter"><span class="org-todo todo TODO">TODO</span> Measure performance in Python using time.perf_counter</h2>
+<h2 id="how-to-use-anki-for-learning-irregular-verbs-in-german"><span class="org-todo todo TODO">TODO</span> How to use Anki for learning irregular verbs in German</h2>
+<h2 id="use-tf-dot-shape-to-get-dynamic-tensor-shape"><span class="org-todo todo TODO">TODO</span> Use tf.shape to get dynamic tensor shape</h2>
+<p>\[
+E = mc^2
+\]</p>
+<p>Using Eq. (1), we arrive at</p>
+<p>\begin{equation}
+y = x^2,
+\end{equation}</p>
+<p>where we should use</p>
+<p>\begin{equation*}
+y = \int_\alpha^\beta x \, dx.
+\end{equation*}</p>
+<h2 id="why-rescale-features-in-regression"><span class="org-todo todo TODO">TODO</span> Why rescale features in regression</h2>
+<h2 id="linear-regression-do-not-put-free-term-in-the-l2-regularization"><span class="org-todo todo TODO">TODO</span> Linear regression - do not put free term in the L2 regularization</h2>
+<p>See <a href="https://dyakonov.org/2019/10/31/%d0%bb%d0%b8%d0%bd%d0%b5%d0%b9%d0%bd%d0%b0%d1%8f-%d1%80%d0%b5%d0%b3%d1%80%d0%b5%d1%81%d1%81%d0%b8%d1%8f/">https://dyakonov.org/2019/10/31/%d0%bb%d0%b8%d0%bd%d0%b5%d0%b9%d0%bd%d0%b0%d1%8f-%d1%80%d0%b5%d0%b3%d1%80%d0%b5%d1%81%d1%81%d0%b8%d1%8f/</a></p>
+<h2 id="04-numba-basics"><span class="org-todo todo TODO">TODO</span> Using Numba to speedup scientific computations</h2>
+<p>Recently I was helping a student to speed up her code for solving a PDE.
+The code was written in Python and we decided to use
+<a href="https://numba.pydata.org/">Numba</a> optimizing compiler to optimize the code.
+The optimization results were wonderful: we obtained 170x speedup!
+Previously, I experimented with Numba for short time in 2015 but never actually
+used it deeply.
+This experience made me think that probably it is a good idea nowadays first to
+try optimizing code with Numba before attempting to use something like
+<a href="https://cython.org">Cython</a>.</p>
+<p>Below I want to give a small example on how to use Numba.</p>
+<p>Let assume that we have a function like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compute_v1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">      <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">compute_v1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;v1 time: </span><span class="si">{:.6f}</span><span class="s2"> sec&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">v1 time: 0.897440 sec
+</span></span></code></pre></div><h2 id="how-to-obtain-shape-of-a-tensor-in-tf-dot-function-decorated-function"><span class="org-todo todo TODO">TODO</span> How to obtain shape of a tensor in tf.function-decorated function</h2>
+<p>Somehow, you cannot obtain the shape of the dynamic tensor.</p>
+<h2 id="introduction-to-kalman-filters"><span class="org-todo todo TODO">TODO</span> Introduction to Kalman filters</h2>
+<p>A Kalman filter is an iterative mathematical process that uses a set of
+equations (describing some physical process) and consecutive data inputs to
+estimate some quantities when the measurements contain uncertainties or
+errors.</p>
+<p>Each iteration consists of three steps:</p>
+<ol>
+<li>Kalman gain computation. Improved estimate based on measurements and model
+prediction.</li>
+<li>Current state estimation.</li>
+<li>Error computation.</li>
+</ol>
+<p>Kalman filter has an assumption that the noise in measurements has Gaussian
+distribution.
+This assumption is quite natural and works well in many situations.</p>
+<p>If you cannot make this assumption about the noise, then Particle Filtering
+will work better.</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

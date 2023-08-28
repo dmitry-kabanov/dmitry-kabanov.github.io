@@ -6,7 +6,20 @@
     <description>Recent content in c on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“Modern C”: Notes on chapter 4 “Expressing computations”</title>
+      <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-04-modern-c/</link>
+      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/notes-on-chapter-04-modern-c/</guid>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 4
+&amp;ldquo;Expressing computations&amp;rdquo;
+from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;
+&lt;p&gt;This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>“Modern C”: Notes on chapter 3 “Everything is about control”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-03-modern-c/</link>

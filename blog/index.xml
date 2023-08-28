@@ -6,7 +6,20 @@
     <description>Recent content in Blogs on Website of Dmitry Kabanov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“Modern C”: Notes on chapter 4 “Expressing computations”</title>
+      <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-04-modern-c/</link>
+      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/notes-on-chapter-04-modern-c/</guid>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 4
+&amp;ldquo;Expressing computations&amp;rdquo;
+from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;
+&lt;p&gt;This chapter discusses expressions, that is, computations based
+on some values, such as variables and literals.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>“Modern C”: Notes on chapter 3 “Everything is about control”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-03-modern-c/</link>
@@ -305,6 +318,59 @@ Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ
 it consists of subsets of \(X\),
 \(X \in \mathcal B\),
 for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://dmitrykabanov.com/blog/2023/2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dmitrykabanov.com/blog/2023/2023/</guid>
+      <description>&lt;h2 id=&#34;redirect-stdout-stderr-same-file&#34;&gt;&lt;span class=&#34;org-todo done DONE&#34;&gt;DONE&lt;/span&gt; Redirection of stdout and stderr to the same file &lt;span class=&#34;tag&#34;&gt;&lt;span class=&#34;unix&#34;&gt;unix&lt;/span&gt;&lt;span class=&#34;shell&#34;&gt;shell&lt;/span&gt;&lt;span class=&#34;programming&#34;&gt;programming&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (&lt;code&gt;stdout&lt;/code&gt;)
+and to the standard error output (&lt;code&gt;stderr&lt;/code&gt;).
+For example, by default, in a Python program the &lt;code&gt;print&lt;/code&gt; function writes to
+&lt;code&gt;stdout&lt;/code&gt; and the functions of the &lt;code&gt;logging&lt;/code&gt; module to &lt;code&gt;stderr&lt;/code&gt;.
+Therefore, one needs to &lt;strong&gt;redirect both &lt;code&gt;stdout&lt;/code&gt; and &lt;code&gt;stderr&lt;/code&gt;&lt;/strong&gt; to the same file.&lt;/p&gt;
+&lt;h3 id=&#34;redirection-basics&#34;&gt;Redirection basics&lt;/h3&gt;
+&lt;p&gt;Redirection of &lt;code&gt;stdout&lt;/code&gt; is done via &lt;code&gt;&amp;gt;&lt;/code&gt; syntax:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cmd &amp;gt;log.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and redirection of &lt;code&gt;stderr&lt;/code&gt; to &lt;code&gt;stdout&lt;/code&gt; is done with &lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Thus, one just needs to combine these two redirections together
+to redirect stderr to &lt;code&gt;stdout&lt;/code&gt; and then redirect both to &lt;code&gt;log.txt&lt;/code&gt;.
+However, the order of redirection instructions is important here!&lt;/p&gt;
+&lt;h3 id=&#34;wrong-way&#34;&gt;Wrong way&lt;/h3&gt;
+&lt;p&gt;This command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cmd 2&amp;gt;&lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &amp;gt;log.txt  &lt;span class=&#34;c1&#34;&gt;# wrong!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;writes &lt;code&gt;stderr&lt;/code&gt; to &lt;code&gt;stdout&lt;/code&gt; but separately writes &lt;code&gt;stdout&lt;/code&gt; to file &lt;code&gt;log.txt&lt;/code&gt;.
+If &lt;code&gt;stdout&lt;/code&gt; is connected to screen,
+then &lt;code&gt;stderr&lt;/code&gt; effectively will be written to screen but &lt;code&gt;stdout&lt;/code&gt; to file.&lt;/p&gt;
+&lt;p&gt;Why this happens?
+The shell executes these redirection instructions immediately,
+hence, when &lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; redirection is implemented, it is not yet known
+that &lt;code&gt;stdout&lt;/code&gt; will be redirected to &lt;code&gt;log.txt&lt;/code&gt; in the next instruction.&lt;/p&gt;
+&lt;h3 id=&#34;right-way&#34;&gt;Right way&lt;/h3&gt;
+&lt;p&gt;The right way to redirection is the command&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;cmd &amp;gt;log.txt 2&amp;gt;&amp;amp;1  # right!
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;that will write both &lt;code&gt;stderr&lt;/code&gt; and &lt;code&gt;stdout&lt;/code&gt; to the same file &lt;code&gt;file.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;As a shortcut for the previous command, one can use&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;cmd &amp;amp;&amp;gt;log.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This shortcut is not only shorter but also allows to avoid the possibility
+of a bug by using the wrong order.&lt;/p&gt;
+&lt;h2 id=&#34;reencode-h.264-to-h&#34;&gt;&lt;span class=&#34;org-todo done DONE&#34;&gt;DONE&lt;/span&gt; How to reencode H.264 videos to H.265 &lt;span class=&#34;tag&#34;&gt;&lt;span class=&#34;shell&#34;&gt;shell&lt;/span&gt;&lt;span class=&#34;computing&#34;&gt;computing&lt;/span&gt;&lt;span class=&#34;videos&#34;&gt;videos&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;I had videos in H.264 codec that I wanted to reencode to H.265.
+The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
+modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
+which allows to keep the same quality with about twice less storage.&lt;/p&gt;
+&lt;p&gt;As I make from time to time
+&lt;a href=&#34;https://www.youtube.com/@dmitry-kabanov&#34;&gt;YouTube&lt;/a&gt;,
+&lt;a href=&#34;https://www.instagram.com/dmitry.i.kabanov/&#34;&gt;Instagram&lt;/a&gt;, and
+&lt;a href=&#34;https://www.tiktok.com/@dmitry.i.kabanov&#34;&gt;TikTok&lt;/a&gt;
+videos, which
+I need to backup, it is always good to store your data in the most
+storage-efficient format.&lt;/p&gt;</description>
     </item>
     
   </channel>
