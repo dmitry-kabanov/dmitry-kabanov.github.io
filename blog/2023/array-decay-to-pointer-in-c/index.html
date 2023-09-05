@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Array and pointers equivalence myth | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I&rsquo;d like to share some knowledge about subtle thing that I have learned
+recently in C.
+It is related to the relations between arrays and pointers, and how they
+are often treated as equivalent to each other (for example, this is how
+passing an array to a function works when one of the expected arguments
+is a pointer).
+However, arrays and pointers are not equivalent to each other.">
+    <meta name="generator" content="Hugo 0.114.0">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.b063366857c44bfaa0bc6b9f781d1ebdaaf347b1c38be070adb5d5ebca508341.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Array and pointers equivalence myth" />
+<meta property="og:description" content="I&rsquo;d like to share some knowledge about subtle thing that I have learned
+recently in C.
+It is related to the relations between arrays and pointers, and how they
+are often treated as equivalent to each other (for example, this is how
+passing an array to a function works when one of the expected arguments
+is a pointer).
+However, arrays and pointers are not equivalent to each other." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/array-decay-to-pointer-in-c/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-09-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-05T00:00:00+00:00" />
+<meta itemprop="name" content="Array and pointers equivalence myth">
+<meta itemprop="description" content="I&rsquo;d like to share some knowledge about subtle thing that I have learned
+recently in C.
+It is related to the relations between arrays and pointers, and how they
+are often treated as equivalent to each other (for example, this is how
+passing an array to a function works when one of the expected arguments
+is a pointer).
+However, arrays and pointers are not equivalent to each other."><meta itemprop="datePublished" content="2023-09-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-09-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="529">
+<meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Array and pointers equivalence myth"/>
+<meta name="twitter:description" content="I&rsquo;d like to share some knowledge about subtle thing that I have learned
+recently in C.
+It is related to the relations between arrays and pointers, and how they
+are often treated as equivalent to each other (for example, this is how
+passing an array to a function works when one of the expected arguments
+is a pointer).
+However, arrays and pointers are not equivalent to each other."/>
+
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
+}
+</script>
+
+    
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://dmitrykabanov.com/images/2023/array-pointer-equiv.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Array and pointers equivalence myth</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Array and pointers equivalence myth</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-09-05T00:00:00Z">September 5, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I&rsquo;d like to share some knowledge about subtle thing that I have learned
+recently in C.
+It is related to the relations between arrays and pointers, and how they
+are often treated as equivalent to each other (for example, this is how
+passing an array to a function works when one of the expected arguments
+is a pointer).
+However, arrays and pointers are not equivalent to each other.</p>
+<p>The aforementioned conversion of an array to a pointer at a function call
+is what makes one think that they are equivalent.
+I knew already about this implicit conversion since I programmed C++ a bit
+in my undegraduate studies.
+However, this is not always what you need as turned out in
+<a href="https://stackoverflow.com/questions/76907358/ffi-how-to-pass-pointers-in-c-to-c-functions">this discussion on StackOverflow</a>.
+I had a problem using <a href="http://sourceware.org/libffi">libffi</a>
+and the user @selbie pointed
+me to the difference between different types of pointers related to arrays.</p>
+<p>TLDR: There are pointers to the first element of an array
+and there are pointers to the array itself.</p>
+<p>For example, if we have an array:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
+</span></span></code></pre></div><p>then we can obtain a pointer to the first element of this array:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">char</span> <span class="o">*</span><span class="n">ps0</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+</span></span></code></pre></div><p>of we can obtain a pointer to the array itself:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">char</span> <span class="p">(</span><span class="o">*</span><span class="n">ps</span><span class="p">)[]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">;</span>
+</span></span></code></pre></div><p>In the expressions, where we use simply the name of the array,
+it is very often <em>decays</em> to the pointer to the first element,
+that is <code>s</code> is equivalent to <code>&amp;s[0]</code> (note that here <code>s[0]</code>
+is the operand to <code>&amp;</code>.
+For example, this happens when passing arrays to functions:
+inside a function we have a pointer to the first element.
+This is called <em>array decay</em>.
+However, in some operations, such as operator <code>sizeof</code>, the name
+of the variable represents the array itself.
+In details, the text of the C99 standard from
+<a href="https://rgambord.github.io/c99-doc/sections/6/3/2/1/index.html">here</a>
+says:</p>
+<blockquote>
+<p>Except when it is the operand of the sizeof operator or the unary &amp; operator, or is a string literal used to initialize an array, an expression that has type “array of type” is converted to an expression with type “pointer to type” that points to the initial element of the array object and is not an lvalue. If the array object has register storage class, the behavior is undefined.</p>
+</blockquote>
+<p>Note that if you print all three values: <code>s</code>, <code>ps0</code> and <code>ps</code>,
+they all have the same value&mdash;the address of the first element
+of the array, however, they have different types.</p>
+<p>This small C program along with the debugger output demonstrates this.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="c1">// Saved in file array_decay.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;Hello World!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">char</span> <span class="o">*</span><span class="n">p_to_first_element</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kt">char</span> <span class="p">(</span><span class="o">*</span><span class="n">p_to_array</span><span class="p">)[]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%-20s %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;s&#34;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%-20s %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;p_to_first_element&#34;</span><span class="p">,</span> <span class="n">p_to_first_element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%-20s %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="s">&#34;p_to_array&#34;</span><span class="p">,</span> <span class="n">p_to_array</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>We compile it with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  gcc -g -O0 array_decay.c -o array_decay
+</span></span></code></pre></div><p>and run under <code>gdb</code> debugger:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  gdb ./array_decay
+</span></span></code></pre></div><p>The output shows that the values are indeed the same:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">s                    0x7fffffffc7d0
+</span></span><span class="line"><span class="cl">p_to_first_element   0x7fffffffc7d0
+</span></span><span class="line"><span class="cl">p_to_array           0x7fffffffc7d0
+</span></span></code></pre></div><p>Inside the debugging session we can check the types of the variables:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> whatis s
+</span></span><span class="line"><span class="cl"><span class="nb">type</span> <span class="o">=</span> char <span class="o">[</span>16<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> whatis p_to_first_element
+</span></span><span class="line"><span class="cl"><span class="nb">type</span> <span class="o">=</span> char *
+</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> whatis p_to_array
+</span></span><span class="line"><span class="cl"><span class="nb">type</span> <span class="o">=</span> char <span class="o">(</span>*<span class="o">)[]</span>
+</span></span></code></pre></div><p>Additional literature that I have used:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/2528318/how-come-an-arrays-address-is-equal-to-its-value-in-c">https://stackoverflow.com/questions/2528318/how-come-an-arrays-address-is-equal-to-its-value-in-c</a></li>
+<li><a href="https://rgambord.github.io/c99-doc/sections/6/3/2/1/index.html">https://rgambord.github.io/c99-doc/sections/6/3/2/1/index.html</a></li>
+<li><a href="https://stackoverflow.com/questions/57268963/what-is-array-decay-in-c-and-when-it-happen">https://stackoverflow.com/questions/57268963/what-is-array-decay-in-c-and-when-it-happen</a></li>
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-04-modern-c/">“Modern C”: Notes on chapter 4 “Expressing computations”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-03-modern-c/">“Modern C”: Notes on chapter 3 “Everything is about control”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-preamble-level-1-modern-c/">“Modern C”: Notes on preamble “Level 1 Aquaintance”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-02-modern-c/">“Modern C”: Notes on chapter 2 “The principal structure of a program”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-ch01-modern-c/">“Modern C”: Notes on chapter 1 “Getting started”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-modern-c/">“Modern C”: Notes on the book by Jens Gustedt</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/cpp-universal-initialization/">Universal initialization in C&#43;&#43;</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/javascript-functions/">JavaScript: functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

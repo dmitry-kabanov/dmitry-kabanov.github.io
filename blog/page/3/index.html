@@ -167,6 +167,30 @@ if (!doNotTrack) {
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blogs</span>
     <h1 class="f3 near-black">
+      <a href="/blog/2021/basic-terms-probability-theory/" class="link black dim">
+        Basic terms in the probability theory
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Basic terms in probability theory are outcomes, sample space, events, and
+probability measure.</p>
+<p><strong>Outcomes and sample space</strong>
+.
+When you conduct a random experiment, there is a set of possible results of this
+experiment.
+This results are called <em>outcomes</em>.
+All possible outcomes together form a set, which is called <em>sample space</em>.</p>
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blogs</span>
+    <h1 class="f3 near-black">
       <a href="/blog/2021/collaborate-overleaf-git/" class="link black dim">
         Colaborate in Latex: Overleaf and local git
       </a>
@@ -270,67 +294,6 @@ Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ
 it consists of subsets of \(X\),
 \(X \in \mathcal B\),
 for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Blogs</span>
-    <h1 class="f3 near-black">
-      <a href="/blog/2023/2023/" class="link black dim">
-        
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <h2 id="redirect-stdout-stderr-same-file"><span class="org-todo done DONE">DONE</span> Redirection of stdout and stderr to the same file <span class="tag"><span class="unix">unix</span><span class="shell">shell</span><span class="programming">programming</span></span></h2>
-<p>Often, when running a program in console, one needs to save all its output
-to a file.
-Very often, such a program writes both to the standard output (<code>stdout</code>)
-and to the standard error output (<code>stderr</code>).
-For example, by default, in a Python program the <code>print</code> function writes to
-<code>stdout</code> and the functions of the <code>logging</code> module to <code>stderr</code>.
-Therefore, one needs to <strong>redirect both <code>stdout</code> and <code>stderr</code></strong> to the same file.</p>
-<h3 id="redirection-basics">Redirection basics</h3>
-<p>Redirection of <code>stdout</code> is done via <code>&gt;</code> syntax:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmd &gt;log.txt
-</span></span></code></pre></div><p>and redirection of <code>stderr</code> to <code>stdout</code> is done with <code>2&gt;&amp;1</code>.</p>
-<p>Thus, one just needs to combine these two redirections together
-to redirect stderr to <code>stdout</code> and then redirect both to <code>log.txt</code>.
-However, the order of redirection instructions is important here!</p>
-<h3 id="wrong-way">Wrong way</h3>
-<p>This command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmd 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt;log.txt  <span class="c1"># wrong!</span>
-</span></span></code></pre></div><p>writes <code>stderr</code> to <code>stdout</code> but separately writes <code>stdout</code> to file <code>log.txt</code>.
-If <code>stdout</code> is connected to screen,
-then <code>stderr</code> effectively will be written to screen but <code>stdout</code> to file.</p>
-<p>Why this happens?
-The shell executes these redirection instructions immediately,
-hence, when <code>2&gt;&amp;1</code> redirection is implemented, it is not yet known
-that <code>stdout</code> will be redirected to <code>log.txt</code> in the next instruction.</p>
-<h3 id="right-way">Right way</h3>
-<p>The right way to redirection is the command</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">cmd &gt;log.txt 2&gt;&amp;1  # right!
-</code></pre><p>that will write both <code>stderr</code> and <code>stdout</code> to the same file <code>file.txt</code>.</p>
-<p>As a shortcut for the previous command, one can use</p>
-<pre tabindex="0"><code class="language-nil" data-lang="nil">cmd &amp;&gt;log.txt
-</code></pre><p>This shortcut is not only shorter but also allows to avoid the possibility
-of a bug by using the wrong order.</p>
-<h2 id="reencode-h.264-to-h"><span class="org-todo done DONE">DONE</span> How to reencode H.264 videos to H.265 <span class="tag"><span class="shell">shell</span><span class="computing">computing</span><span class="videos">videos</span></span></h2>
-<p>I had videos in H.264 codec that I wanted to reencode to H.265.
-The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
-modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
-which allows to keep the same quality with about twice less storage.</p>
-<p>As I make from time to time
-<a href="https://www.youtube.com/@dmitry-kabanov">YouTube</a>,
-<a href="https://www.instagram.com/dmitry.i.kabanov/">Instagram</a>, and
-<a href="https://www.tiktok.com/@dmitry.i.kabanov">TikTok</a>
-videos, which
-I need to backup, it is always good to store your data in the most
-storage-efficient format.</p>
     </div>
   </div>
 </div>
