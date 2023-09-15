@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>“Modern C”: Notes on chapter 5 “Basic values and data” | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="These are my notes taken while reading chapter 5
+&ldquo;Basic values and data&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses values of different objects
+that are used in a C program,
+and how they are represented.">
+    <meta name="generator" content="Hugo 0.114.0">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.b063366857c44bfaa0bc6b9f781d1ebdaaf347b1c38be070adb5d5ebca508341.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="“Modern C”: Notes on chapter 5 “Basic values and data”" />
+<meta property="og:description" content="These are my notes taken while reading chapter 5
+&ldquo;Basic values and data&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses values of different objects
+that are used in a C program,
+and how they are represented." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/notes-on-chapter-05-modern-c/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-09-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-15T00:00:00+00:00" />
+<meta itemprop="name" content="“Modern C”: Notes on chapter 5 “Basic values and data”">
+<meta itemprop="description" content="These are my notes taken while reading chapter 5
+&ldquo;Basic values and data&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses values of different objects
+that are used in a C program,
+and how they are represented."><meta itemprop="datePublished" content="2023-09-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-09-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1372">
+<meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="“Modern C”: Notes on chapter 5 “Basic values and data”"/>
+<meta name="twitter:description" content="These are my notes taken while reading chapter 5
+&ldquo;Basic values and data&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
+This chapter discusses values of different objects
+that are used in a C program,
+and how they are represented."/>
+
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
+}
+</script>
+
+    
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white production">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://dmitrykabanov.com/images/2023/modern-c-cover.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">“Modern C”: Notes on chapter 5 “Basic values and data”</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 5 “Basic values and data”</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-09-15T00:00:00Z">September 15, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>These are my notes taken while reading chapter 5
+&ldquo;Basic values and data&rdquo;
+from the book &ldquo;Modern C&rdquo; by Jens Gustedt.</p>
+<p>This chapter discusses values of different objects
+that are used in a C program,
+and how they are represented.</p>
+<p>The table of contents for all notes for this book are available <a href="/blog/2023/notes-on-modern-c/">in that post</a>.</p>
+<p>C programs manipulate data values which have different representations
+in a computer.
+Programmer is abstracted out from the actual representations.
+Actual program is C&rsquo;s abstract state machine that has objects
+that are represented with concrete types on a concrete computer,
+and values that change in time (hence, state changes).</p>
+<h2 id="5-dot-1-abstract-state-machine">5.1 Abstract state machine</h2>
+<p>Program has different states as the values manipulated by the program
+change.
+Values are <strong>observable</strong> when they are assigned to variables,
+and not-observable when they are results of intermediate expressions.
+For example, in this statement</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">;</span>
+</span></span></code></pre></div><p>the subexpression <code>(x * 1.5)</code> is hidden as we never assign it to a variable,
+while the value of <code>x</code> may be observable as it is a variable hence
+is saved in <strong>addressable memory</strong>.</p>
+<p>C compiler is allowed to do optimizations that remove some variables
+if it is clear that the end results does not change.</p>
+<p><em>Takeaway 5.2</em>. All values in C programs are numbers or translate to numbers.</p>
+<p>A <em>type</em> is an additional property that is associated with a value.
+In C programs all values have types that are statically determined.
+Also, results of computations depend on the type: for example,
+if the type of subexpression is <code>unsigned</code>, the result cannot be negative.</p>
+<p>Also, the types are actually abstract as they depend on the actual platform.</p>
+<h2 id="5-dot-2-basic-types">5.2 Basic types</h2>
+<p>Some of the basic types are built-in keywords such as <code>unsigned</code>, <code>int</code>,
+and <code>double</code>.
+Some other basic types are defined in header files, such as <code>bool</code>
+or <code>size_t</code>.</p>
+<p>Actually, all basic types in C are numbers or can be treated as numbers.
+There are two principal classes of numbers: integers and floating-point
+numbers.
+Integers can be subclassed as signed and unsigned, while floating-point
+numbers are subclassed as real and complex.</p>
+<p>There are <em>narrow types</em> for integers that are <em>promoted</em> to a wider type
+during computations.
+For example, narrow types <code>bool</code>, <code>(un)signed char</code>, <code>(un)signed short</code>
+are promoted on most of today&rsquo;s platforms to <code>signed int</code>.</p>
+<p>Floating-point numbers are <code>float</code>, <code>double</code>, <code>long double</code> for reals,
+and <code>float complex</code>, <code>double complex</code>, <code>long double complex</code> for complex
+numbers.</p>
+<p>The precision, i.e., the ranges, of these types are not strictly defined,
+that is, they depend on the platform.
+However, C standard constrains the types.
+For example, <code>char</code> is less or equal to <code>short</code>, <code>short</code> is less or equal
+to <code>int</code>, <code>int</code> is less or equal to <code>long</code>.
+On my Linux <code>x86_64</code> machine, GCC compiler says that <code>int</code> has size
+of 4 bytes, while <code>long</code> of 8 bytes, has the range of values for <code>long</code>
+is much bigger than for <code>int</code> on this particular platform.</p>
+<p>For signed and unsigned numbers, their sizes in bytes are equal, hence,
+they can represent different maximum value: for example, typical 32-bit
+<code>int</code> value has maximum <code>2^31 - 1</code> which is about 2 billions, while
+<code>unsigned int</code> has maximum <code>2^32 - 1</code> about 4 billions.</p>
+<p>There are special semantic types. For example, <code>stddef.h</code> defines
+type <code>size_t</code> to represent sizes in programs and the type <code>ptrdiff_t</code>
+to represent differences between large numbers (and negative differences
+are allowed).
+Header file <code>stdint.h</code> add <code>uintmax_t</code> and <code>intmax_t</code> types that denote
+widest possible on this platform unsigned and signed integer types,
+respectively.</p>
+<h2 id="5-dot-3-specifying-values">5.3 Specifying values</h2>
+<p>Values can be specified as normal <strong>decimal</strong> integers,
+<strong>hexadecimal</strong> integers such as <code>0x25ABB7F</code>,
+<strong>decimal floating-point</strong> numbers such as <code>3.14E0</code>,
+<strong>hexadecimal floating-point</strong> numbers such as <code>0x7.AFP10</code>,
+<strong>characters</strong> such as &lsquo;A&rsquo;,
+<strong>strings</strong> such as &ldquo;Hello\b and Heaven&rdquo;, where special escape sequence <code>\b</code>
+deletes previous character.</p>
+<p>Integer literals can have specified type: for example <code>3</code> is perfectly
+representable as <code>short</code>, however, we can prescribed it to be of type
+<code>unsigned long</code> by adding suffix: <code>3UL</code>.</p>
+<p>Floating-point literals by themselves are of type <code>double</code> but
+can be specified as <code>float</code> or <code>long double</code> with suffixes <code>F</code> and <code>L</code>.</p>
+<p>Complex numbers can be specified with the help of the macro <code>I</code>.
+Value of type <code>double complex</code> is given by expressions like <code>2.5 + 0.3*I</code>
+and of type <code>float complex</code> by expressions like <code>0.5F + 0.3F*I</code> .</p>
+<h2 id="5-dot-4-implicit-conversions">5.4 Implicit conversions</h2>
+<p>C compiler does a lot of implicit conversions of types.
+For example, expression <code>-1U</code> has type <code>unsigned</code> because minus operator
+does not change the type, and expression with result more than <code>2^31 - 1</code>
+may not fit into typical 32-bit <code>int</code>.</p>
+<p>The recommendations are basically to avoid narrowing conversions, that is,
+to avoid assigning the result of an expression to a variable of narrower
+type.
+Also, it is not recommended to mix signed and unsigned expressions.
+Last, use unsigned types when you can.</p>
+<h2 id="5-dot-5-initializers">5.5 Initializers</h2>
+<p>In C, practically all variables must be initialized.</p>
+<p>Initialization of arrays can explicitly state the index of the element,
+which is preferable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">7.8</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">B</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">47.23</span><span class="p">};</span>
+</span></span></code></pre></div><p>The default initialization value is <code>0</code>.</p>
+<h2 id="5-dot-6-named-constants">5.6 Named constants</h2>
+<p>Sometimes we have constant values and instead of using them literally,
+it is better to name them.
+For semantic reasons, even if the same value used in the program
+with different meanings, then there must be several different named
+constants with the same value.
+C offers two ways to do this: using <code>enum</code> or using macros.</p>
+<p>Constants should be distinguished from <code>const</code> qualified objects.
+The qualifier <code>const</code> makes variable read-only after it is initialized.</p>
+<p>For example, type <code>char const* const</code> denotes a read-only object
+with read-only strings.</p>
+<p>C allows to name small integers via enumerations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">corvid</span> <span class="p">{</span> <span class="n">magpie</span><span class="p">,</span> <span class="n">raven</span><span class="p">,</span> <span class="n">jay</span><span class="p">,</span> <span class="n">n_corvids</span> <span class="p">};</span>
+</span></span></code></pre></div><p>where <code>magpie</code> will initialize to zero, <code>raven</code> to one, and so on.
+Note, that here we use an idiom of adding as the last element the constant
+which will tell us the number of the elements in the enumeration.</p>
+<p>Enumeration constants are of type <code>signed int</code> and can be initialized
+in more complex ways, for example,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">constants</span> <span class="p">{</span> <span class="n">p0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">p0</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">p1</span> <span class="p">};</span>
+</span></span></code></pre></div><p>as long as the initialization values are integer constant expressions,
+that is, can be fully determined at compile time.</p>
+<p>To declare constants of other types than <code>signed int</code>, the only way
+is to use macros, which are actually handled by C preprocessor.
+Macros are defined like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define M_PI 3.1415926
+</span></span></span></code></pre></div><p>When C preprocessor <em>preprocesses</em> a source code file, it replaces
+all strings <code>M_PI</code> with the actual value (which is a <code>double</code> literal
+in this case).</p>
+<p>It is usually a good idea to write macros names in all caps, <code>LIKE_THIS</code>,
+although in the C library, some values are not using this convention
+(for example, <code>false</code>).</p>
+<h2 id="5-dot-7-binary-representations">5.7 Binary representations</h2>
+<p>This section is super dense and technical, so I only skimmed through it
+as I do not require the knowledge from it directly for my current project.</p>
+<p>The most interesting bits that I have noticed are the following.</p>
+<p>Unigned integers wrap nicely (they form a ring in a mathematical sense)
+and they never leave to problems.</p>
+<p>Signed integers can <em>trap</em>, that is, lead to errors such as arithmetic
+overflow.</p>
+<p>Header file <code>stdint.h</code> provides fixed-width integers, for example,
+<code>uint32_t</code> for unsigned integers of width 32 bits, or <code>int8_t</code>
+for signed integers of width 8 bits.</p>
+<p>Floating-point numbers such as <code>float~s and ~double~s represent a subset of real numbers. Only values that can be expanded in powers of 2 can be represented exactly, for example ~0.5</code>, while others cannot, for example <code>0.3</code> is irrational
+number in binary representation.</p>
+<p>Also, floating-point numbers do not obey to the arithmetic laws
+(associative, commutative, distributive), which means that change
+in order of operations can give diffrent result.
+Also, the results of operations with numbers of very different magnitudes
+can provide results, which are different from mathematics.
+For example, adding very small number to a very large number can have
+just the large number as the result.</p>
+<p>Floating-point numbers must not be compared for equality.
+The only meaningful comparison is, how close they are.</p>
+<p>Complex numbers are a pair of real numbers. Header file <code>tgmath.h</code>
+provides type-generic macros <code>creal</code> and <code>cimag</code> that return
+real and imaginary parts, respectively.</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2023/array-decay-to-pointer-in-c/">Array and pointers equivalence myth</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-04-modern-c/">“Modern C”: Notes on chapter 4 “Expressing computations”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-03-modern-c/">“Modern C”: Notes on chapter 3 “Everything is about control”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-preamble-level-1-modern-c/">“Modern C”: Notes on preamble “Level 1 Aquaintance”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-02-modern-c/">“Modern C”: Notes on chapter 2 “The principal structure of a program”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-ch01-modern-c/">“Modern C”: Notes on chapter 1 “Getting started”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-modern-c/">“Modern C”: Notes on the book by Jens Gustedt</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/cpp-universal-initialization/">Universal initialization in C&#43;&#43;</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/javascript-functions/">JavaScript: functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
