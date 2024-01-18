@@ -8,19 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to allocate memory on the heap in C</title>
-      <link>https://dmitrykabanov.com/blog/2024/changeme/</link>
-      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://dmitrykabanov.com/blog/2024/changeme/</guid>
-      <description>&lt;p&gt;Whenever a computer program needs to store data of the size determined only
-during the runtime, then dynamic memory allocation is required.
-Memory allocation happens in the &lt;em&gt;memory heap&lt;/em&gt;, and in C is commonly done
-via a library function &lt;code&gt;malloc&lt;/code&gt;, which has subtle things with its usage
-that I would like to discuss here.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>How to avoid subtle bugs in malloc usage in C</title>
       <link>https://dmitrykabanov.com/blog/2024/how-to-avoid-subtle-bugs-in-malloc/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
