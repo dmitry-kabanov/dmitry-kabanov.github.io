@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>How to avoid subtle bugs in malloc usage in C | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Whenever a computer program needs to store data of the size determined only
+during the runtime, then dynamic memory allocation is required.
+Memory allocation happens in the memory heap, and in C is commonly done
+via a library function malloc, which has subtle things with its usage
+that I would like to discuss here.">
+    <meta name="generator" content="Hugo 0.118.2">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/style.css">
+  
+
+    
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [['$','$'], ['\\(','\\)']],
+         displayMath: [['$$','$$'], ['\\[', '\\]']],
+         processEscapes: true,
+         processEnvironments: true,
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+         TeX: { equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"] }
+     }
+ });
+ MathJax.Hub.Queue(function() {
+     
+     
+     
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i = 0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+ });
+
+ MathJax.Hub.Config({
+     
+     TeX: {
+         equationNumbers: { autoNumber: "AMS" },
+         Macros: {
+             C: "{\\mathrm{C}}",
+             E: "{\\mathbb{E}}",
+             P: "{\\mathbb{P}}",
+             R: "{\\mathbb{R}}",
+             normal: "{\\mathrm{N}}",
+             uniform: "{\\mathrm{Unif}}",
+         },
+     },
+ });
+</script>
+
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="How to avoid subtle bugs in malloc usage in C" />
+<meta property="og:description" content="Whenever a computer program needs to store data of the size determined only
+during the runtime, then dynamic memory allocation is required.
+Memory allocation happens in the memory heap, and in C is commonly done
+via a library function malloc, which has subtle things with its usage
+that I would like to discuss here." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmitrykabanov.com/blog/2024/how-to-avoid-subtle-bugs-in-malloc/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-18T00:00:00+00:00" />
+<meta itemprop="name" content="How to avoid subtle bugs in malloc usage in C">
+<meta itemprop="description" content="Whenever a computer program needs to store data of the size determined only
+during the runtime, then dynamic memory allocation is required.
+Memory allocation happens in the memory heap, and in C is commonly done
+via a library function malloc, which has subtle things with its usage
+that I would like to discuss here."><meta itemprop="datePublished" content="2024-01-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-01-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="638">
+<meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to avoid subtle bugs in malloc usage in C"/>
+<meta name="twitter:description" content="Whenever a computer program needs to store data of the size determined only
+during the runtime, then dynamic memory allocation is required.
+Memory allocation happens in the memory heap, and in C is commonly done
+via a library function malloc, which has subtle things with its usage
+that I would like to discuss here."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://dmitrykabanov.com/images/2024/malloc.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">How to avoid subtle bugs in malloc usage in C</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        BLOGS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">How to avoid subtle bugs in malloc usage in C</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-01-18T00:00:00Z">January 18, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Whenever a computer program needs to store data of the size determined only
+during the runtime, then dynamic memory allocation is required.
+Memory allocation happens in the <em>memory heap</em>, and in C is commonly done
+via a library function <code>malloc</code>, which has subtle things with its usage
+that I would like to discuss here.</p>
+<p>First of all, <code>malloc</code> has the following signature:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span></code></pre></div><p>To allocate an array of 100 elements of type <code>double</code>, the following code
+is commonly used:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span> <span class="o">*</span><span class="p">)</span> <span class="nf">malloc</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
+</span></span></code></pre></div><p>where operator <code>sizeof</code> is applied to type <code>double</code>, so its operand must be
+parenthesized.</p>
+<p>Although the above code works most of the time, there are ways to improve
+the maintability and correctness of this code.</p>
+<ol>
+<li>
+<p>First of all, explicit cast is applied to the returned
+value of <code>malloc</code> (which returns <code>void *</code>):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">       <span class="kt">double</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span> <span class="o">*</span><span class="p">)</span> <span class="nf">malloc</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
+</span></span></code></pre></div><p>This is completely redundant in C, as <code>void *</code> is implicitly converted
+to <code>double *</code> because of the type information on the left-hand side.
+It is required if this line is compiled in C++, which has stricter type
+conversion rules.</p>
+</li>
+<li>
+<p>Note that in the above example, we type the type (pun intended) of the array
+twice.
+If at any later time, say, the first <code>double</code> in this line will be changed
+to <code>float</code>, and the second one not, then twice more memory will be
+allocated than required.
+Even worse, if the type will be changed to something larger, like <code>long double</code>, then it will most probably lead to memory access issues that can be
+difficult to debug.</p>
+<p>There is an alternative version of evaluating the size of a single element
+of the <code>arr</code> array by applying the <code>sizeof</code> operator to the dereferenced
+pointer <code>arr</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">       <span class="kt">double</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="nf">malloc</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="k">sizeof</span> <span class="o">*</span><span class="n">arr</span><span class="p">);</span>
+</span></span></code></pre></div><p>Note that in this case, <code>sizeof</code> is applied to an object, not a type,
+therefore, parentheses are optional.
+Now we avoid type-information duplication.
+If the variable name <code>arr</code> will be changed later, it is likely that the
+second reference to this variable in this line will be changed as well.</p>
+<p>Alternatively, one can write:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">       <span class="kt">double</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="nf">malloc</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">length</span><span class="p">]);</span>
+</span></span></code></pre></div></li>
+<li>
+<p>The last thing that I would like to mention is the order of the operands
+in the <code>length * sizeof *arr</code>.
+Imagine that instead we have an expression <code>a * b * sizeof *arr</code>
+for some large integer variables <code>a</code> and <code>b</code>.
+Then it is probable that an integer overflow will occur during
+the computation of <code>a * b</code>, and it will get a negative value.
+Then the product with the <code>sizeof</code> value (which has type <code>size_t</code>)
+will promote the result of <code>a * b</code> to <code>size_t</code>,
+which will likely change it to some very large and non-negative value.
+Then the result of the expression <code>a * b * sizeof *arr</code> can have completely
+different value than what the programmer was intending to have.</p>
+<p>The solution to this is to switch the order of the operands of this product:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">      <span class="kt">double</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="nf">malloc</span><span class="p">(</span><span class="k">sizeof</span> <span class="o">*</span><span class="n">arr</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
+</span></span></code></pre></div><p>Then, because <code>sizeof *a</code> is the first operand, then <code>a</code> and <code>b</code> will be
+promoted to type <code>size_t</code>, and the probability that <code>a * b</code> will overflow
+becomes much smaller, because variables of type <code>size_t</code> on modern computers
+can have much larger values (usually <code>2^64-1</code>) than variables of type
+<code>int</code> (usually <code>2^31-1</code> is the maximum value).</p>
+<p>This is one of the examples where programming deviates from mathematics,
+as in mathematics the product of several numbers has a commutative property,
+that is, the result does not depend on the order,
+in which they are multiplied,
+but in programming result can be different depending on the order
+of operands.</p>
+</li>
+</ol>
+<p>This is what I have learned today (well, except item 1) thanks to people
+in the following StackOverflow posts:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/77832680/clang-warns-that-ffi-type-is-not-compatible-with-sizeof?noredirect=1#comment137215292_77832680">https://stackoverflow.com/questions/77832680/clang-warns-that-ffi-type-is-not-compatible-with-sizeof?noredirect=1#comment137215292_77832680</a></li>
+<li><a href="https://stackoverflow.com/questions/71503505/do-i-need-to-put-sizeof-after-array-length-in-malloc">https://stackoverflow.com/questions/71503505/do-i-need-to-put-sizeof-after-array-length-in-malloc</a></li>
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dmitrykabanov" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2024/changeme/">How to allocate memory on the heap in C</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-05-modern-c/">“Modern C”: Notes on chapter 5 “Basic values and data”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/array-decay-to-pointer-in-c/">Array and pointers equivalence myth</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-04-modern-c/">“Modern C”: Notes on chapter 4 “Expressing computations”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-03-modern-c/">“Modern C”: Notes on chapter 3 “Everything is about control”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-preamble-level-1-modern-c/">“Modern C”: Notes on preamble “Level 1 Aquaintance”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-02-modern-c/">“Modern C”: Notes on chapter 2 “The principal structure of a program”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-ch01-modern-c/">“Modern C”: Notes on chapter 1 “Getting started”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-modern-c/">“Modern C”: Notes on the book by Jens Gustedt</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/cpp-universal-initialization/">Universal initialization in C&#43;&#43;</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/javascript-functions/">JavaScript: functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

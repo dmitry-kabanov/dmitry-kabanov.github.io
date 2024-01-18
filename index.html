@@ -12,11 +12,11 @@
     
     
     
-      <meta name="robots" content="index, follow">
+      <meta name="robots" content="noindex, nofollow">
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
@@ -92,23 +92,10 @@
 <meta name="twitter:title" content="Website of Dmitry Kabanov"/>
 <meta name="twitter:description" content=""/>
 
-      
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
-    
 	
   </head>
 
-  <body class="ma0 avenir bg-near-white production">
+  <body class="ma0 avenir bg-near-white">
 
     
 
@@ -196,6 +183,76 @@ if (!doNotTrack) {
       
           
         <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+          <a href="/blog/2024/changeme/" class="db grow">
+            <img src="https://dmitrykabanov.com/images/2024/malloc.png" class="img" alt="image from How to allocate memory on the heap in C">
+          </a>
+        </div>
+      
+      <div class="blah w-100 w-60-ns pl3-ns">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/blog/2024/changeme/" class="color-inherit dim link">
+            How to allocate memory on the heap in C
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>Whenever a computer program needs to store data of the size determined only
+during the runtime, then dynamic memory allocation is required.
+Memory allocation happens in the <em>memory heap</em>, and in C is commonly done
+via a library function <code>malloc</code>, which has subtle things with its usage
+that I would like to discuss here.</p>
+        </div>
+          <a href="/blog/2024/changeme/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+          
+        <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+          <a href="/blog/2024/how-to-avoid-subtle-bugs-in-malloc/" class="db grow">
+            <img src="https://dmitrykabanov.com/images/2024/malloc.png" class="img" alt="image from How to avoid subtle bugs in malloc usage in C">
+          </a>
+        </div>
+      
+      <div class="blah w-100 w-60-ns pl3-ns">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/blog/2024/how-to-avoid-subtle-bugs-in-malloc/" class="color-inherit dim link">
+            How to avoid subtle bugs in malloc usage in C
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>Whenever a computer program needs to store data of the size determined only
+during the runtime, then dynamic memory allocation is required.
+Memory allocation happens in the <em>memory heap</em>, and in C is commonly done
+via a library function <code>malloc</code>, which has subtle things with its usage
+that I would like to discuss here.</p>
+        </div>
+          <a href="/blog/2024/how-to-avoid-subtle-bugs-in-malloc/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+          
+        <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
           <a href="/blog/2023/notes-on-chapter-05-modern-c/" class="db grow">
             <img src="https://dmitrykabanov.com/images/2023/modern-c-cover.png" class="img" alt="image from “Modern C”: Notes on chapter 5 “Basic values and data”">
           </a>
@@ -224,84 +281,24 @@ and how they are represented.</p>
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-          
-        <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
-          <a href="/blog/2023/array-decay-to-pointer-in-c/" class="db grow">
-            <img src="https://dmitrykabanov.com/images/2023/array-pointer-equiv.png" class="img" alt="image from Array and pointers equivalence myth">
-          </a>
-        </div>
-      
-      <div class="blah w-100 w-60-ns pl3-ns">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/blog/2023/array-decay-to-pointer-in-c/" class="color-inherit dim link">
-            Array and pointers equivalence myth
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <p>I&rsquo;d like to share some knowledge about subtle thing that I have learned
-recently in C.
-It is related to the relations between arrays and pointers, and how they
-are often treated as equivalent to each other (for example, this is how
-passing an array to a function works when one of the expected arguments
-is a pointer).
-However, arrays and pointers are not equivalent to each other.</p>
-        </div>
-          <a href="/blog/2023/array-decay-to-pointer-in-c/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-          
-        <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
-          <a href="/blog/2023/notes-on-chapter-04-modern-c/" class="db grow">
-            <img src="https://dmitrykabanov.com/images/2023/modern-c-cover.png" class="img" alt="image from “Modern C”: Notes on chapter 4 “Expressing computations”">
-          </a>
-        </div>
-      
-      <div class="blah w-100 w-60-ns pl3-ns">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/blog/2023/notes-on-chapter-04-modern-c/" class="color-inherit dim link">
-            “Modern C”: Notes on chapter 4 “Expressing computations”
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <p>These are my notes taken while reading chapter 4
-&ldquo;Expressing computations&rdquo;
-from the book &ldquo;Modern C&rdquo; by Jens Gustedt.</p>
-<p>This chapter discusses expressions, that is, computations based
-on some values, such as variables and literals.</p>
-        </div>
-          <a href="/blog/2023/notes-on-chapter-04-modern-c/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/blog/2023/array-decay-to-pointer-in-c/" class="link black dim">
+              Array and pointers equivalence myth
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/blog/2023/notes-on-chapter-04-modern-c/" class="link black dim">
+              “Modern C”: Notes on chapter 4 “Expressing computations”
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/blog/2023/notes-on-chapter-03-modern-c/" class="link black dim">
@@ -312,18 +309,6 @@ on some values, such as variables and literals.</p>
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/blog/2023/notes-on-preamble-level-1-modern-c/" class="link black dim">
               “Modern C”: Notes on preamble “Level 1 Aquaintance”
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/blog/2023/notes-on-chapter-02-modern-c/" class="link black dim">
-              “Modern C”: Notes on chapter 2 “The principal structure of a program”
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/blog/2023/notes-on-ch01-modern-c/" class="link black dim">
-              “Modern C”: Notes on chapter 1 “Getting started”
             </a>
           </h2>
         
@@ -342,7 +327,7 @@ on some values, such as variables and literals.</p>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2023 
+    &copy;  Website of Dmitry Kabanov 2024 
   </a>
     <div>
 <div class="ananke-socials">
