@@ -99,7 +99,7 @@ Memory allocation happens in the memory heap, and in C is commonly done
 via a library function malloc, which has subtle things with its usage
 that I would like to discuss here."><meta itemprop="datePublished" content="2024-01-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2024-01-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="638">
+<meta itemprop="wordCount" content="634">
 <meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to avoid subtle bugs in malloc usage in C"/>
 <meta name="twitter:description" content="Whenever a computer program needs to store data of the size determined only
@@ -236,7 +236,7 @@ parenthesized.</p>
 the maintainability and correctness of this code.</p>
 <ol>
 <li>
-<p>First of all, explicit cast is applied to the returned
+<p>First, often an explicit cast is applied to the returned
 value of <code>malloc</code> (which returns <code>void *</code>):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">       <span class="kt">double</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span> <span class="o">*</span><span class="p">)</span> <span class="nf">malloc</span><span class="p">(</span><span class="n">length</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
 </span></span></code></pre></div><p>This is completely redundant in C, as <code>void *</code> is implicitly converted
@@ -245,8 +245,8 @@ It is required if this line is compiled in C++, which has stricter type
 conversion rules.</p>
 </li>
 <li>
-<p>Note that in the above example, we type the type (pun intended) of the array
-twice.
+<p>Note that in the above example, we type the type (pun intended)
+of the array twice.
 If at any later time, say, the first <code>double</code> in this line will be changed
 to <code>float</code>, and the second one not, then twice more memory will be
 allocated than required.
@@ -280,21 +280,22 @@ different value than what the programmer was intending to have.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">      <span class="kt">double</span> <span class="o">*</span><span class="n">arr</span> <span class="o">=</span> <span class="nf">malloc</span><span class="p">(</span><span class="k">sizeof</span> <span class="o">*</span><span class="n">arr</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">);</span>
 </span></span></code></pre></div><p>Then, because <code>sizeof *a</code> is the first operand, then <code>a</code> and <code>b</code> will be
 promoted to type <code>size_t</code>, and the probability that <code>a * b</code> will overflow
-becomes much smaller, because variables of type <code>size_t</code> on modern computers
-can have much larger values (usually <code>2^64-1</code>) than variables of type
+becomes much smaller.
+On typical modern computer architectures, the variables of type <code>size_t</code>
+can have much larger values (usually <code>2^64-1</code>) than the variables of type
 <code>int</code> (usually <code>2^31-1</code> is the maximum value).</p>
-<p>This is one of the examples where programming deviates from mathematics,
-as in mathematics the product of several numbers has a commutative property,
+<p>This is one of the examples where programming deviates from mathematics.
+In mathematics the product of several numbers has a commutative property,
 that is, the result does not depend on the order,
 in which they are multiplied,
-but in programming result can be different depending on the order
+However, in programming, the result can be different depending on the order
 of operands.</p>
 </li>
 </ol>
-<p>This is what I have learned today (well, except item 1) thanks to people
-in the following StackOverflow posts:</p>
+<p>The information in this post was collected from
+the following StackOverflow posts:</p>
 <ul>
-<li><a href="https://stackoverflow.com/questions/77832680/clang-warns-that-ffi-type-is-not-compatible-with-sizeof?noredirect=1#comment137215292_77832680">https://stackoverflow.com/questions/77832680/clang-warns-that-ffi-type-is-not-compatible-with-sizeof?noredirect=1#comment137215292_77832680</a></li>
+<li><a href="https://stackoverflow.com/questions/77832680/clang-warns-that-ffi-type-is-not-compatible-with-sizeof">https://stackoverflow.com/questions/77832680/clang-warns-that-ffi-type-is-not-compatible-with-sizeof</a></li>
 <li><a href="https://stackoverflow.com/questions/71503505/do-i-need-to-put-sizeof-after-array-length-in-malloc">https://stackoverflow.com/questions/71503505/do-i-need-to-put-sizeof-after-array-length-in-malloc</a></li>
 </ul><ul class="pa0">
   
