@@ -13,7 +13,7 @@
       <link>https://dmitrykabanov.com/blog/2021/collaborate-overleaf-git/</link>
       <pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2021/collaborate-overleaf-git/</guid>
-      <description>&lt;p&gt;When you write a paper in \(\LaTeX\) and your collaborators prefer to use &lt;a href=&#34;https://www.overleaf.com&#34;&gt;Overleaf&lt;/a&gt;&#xA;but you prefer to use local setup, then you can do it with the help of the &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&#xA;version control system&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Overall, the process is the following. You create a local git repository and&#xA;sync it to a remote git service of your choice.&#xA;Then you create a project in Overleaf. In the project settings you can find&#xA;the link which you add to your git setup as the second remote server.&#xA;The details are below.&lt;/p&gt;</description>
+      <description>&lt;p&gt;When you write a paper in \(\LaTeX\) and your collaborators prefer to use &lt;a href=&#34;https://www.overleaf.com&#34;&gt;Overleaf&lt;/a&gt;&#xA;but you prefer to use local setup, then you can do it with the help of the &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&#xA;version control system&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

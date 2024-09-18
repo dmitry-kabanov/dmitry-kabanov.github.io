@@ -7,13 +7,7 @@
     <title>Saving state for tf.function-decorated functions | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="When you decorate a function with `tf.function` decorator, sometimes you need
-to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the
-decorated function if the state is saved in the Python variables.
-To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf
-print(tf.__version__)
-">
+to keep state between invocations of this function.">
     <meta name="generator" content="Hugo 0.134.1">
     
     
@@ -95,10 +89,7 @@ print(tf.__version__)
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/">
   <meta property="og:site_name" content="Website of Dmitry Kabanov">
   <meta property="og:title" content="Saving state for tf.function-decorated functions">
-  <meta property="og:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
-To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) ">
+  <meta property="og:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -108,20 +99,14 @@ import tensorflow as tf print(tf.__version__) ">
     <meta property="article:tag" content="Tensorflow">
 
   <meta itemprop="name" content="Saving state for tf.function-decorated functions">
-  <meta itemprop="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
-To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) ">
+  <meta itemprop="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
   <meta itemprop="datePublished" content="2020-07-31T12:19:00+02:00">
   <meta itemprop="dateModified" content="2020-07-31T12:19:00+02:00">
   <meta itemprop="wordCount" content="633">
   <meta itemprop="keywords" content="Howto,Tensorflow">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Saving state for tf.function-decorated functions">
-  <meta name="twitter:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
-To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) ">
+  <meta name="twitter:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
 
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
@@ -331,8 +316,7 @@ However, it is more difficult to understand the data flow.
 The functional solution gives more direct data flow but forces the user to
 explicitly pass <code>alpha</code> every time when the function <code>scale</code> is called.</p>
 <p>To read more about the constraints of using <code>tf.function</code>-decorated functions,
-you can read <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/autograph/g3doc/reference/limitations.md">Tensorflow&rsquo;s Wiki</a>.</p>
-<ul class="pa0">
+you can read <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/autograph/g3doc/reference/limitations.md">Tensorflow&rsquo;s Wiki</a>.</p><ul class="pa0">
   
    <li class="list di">
      <a href="/tags/howto/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Howto</a>

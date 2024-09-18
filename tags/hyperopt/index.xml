@@ -13,7 +13,7 @@
       <link>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</link>
       <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</guid>
-      <description>&lt;p&gt;This is an introduction to using &lt;a href=&#34;https://github.com/hyperopt/hyperopt&#34;&gt;Hyperopt library&lt;/a&gt;. I will use mostly&#xA;terminology of machine learning (ML) as this library appeared in the ML&#xA;community.&lt;/p&gt;&#xA;&lt;p&gt;Hyperopt library is used to choose the hyperparameters, that is, parameters that&#xA;must be set before the learning process.&#xA;The &lt;em&gt;learning process&lt;/em&gt; is the process of fitting a given model to some dataset,&#xA;which is done by minimization of some function.&lt;/p&gt;&#xA;&lt;p&gt;For example, when you fit model \(\hat f (x)\) by optimizing function&#xA;\[&#xA;\frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f),&#xA;\]&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is an introduction to using &lt;a href=&#34;https://github.com/hyperopt/hyperopt&#34;&gt;Hyperopt library&lt;/a&gt;. I will use mostly&#xA;terminology of machine learning (ML) as this library appeared in the ML&#xA;community.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

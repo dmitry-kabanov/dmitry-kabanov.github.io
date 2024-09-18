@@ -90,7 +90,7 @@
       <link>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</guid>
-      <description>&lt;p&gt;For my new position, I need to improve my knowledge of the C++ programming&#xA;language (which I did not use basically since 2010).&#xA;So I have started reading the book&#xA;&lt;a href=&#34;https://www.informit.com/store/discovering-modern-c-plus-plus-9780136677642&#34;&gt;Discovering Modern C++&lt;/a&gt;&#xA;by Peter Gottschling to get up to speed with, well, modern C++.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I would like to talk about universal initialization (a.k.a.&#xA;brace-initialization) that was introduced in C++11.&lt;/p&gt;&#xA;&lt;p&gt;The syntax for the universal initialization is the following:&lt;/p&gt;</description>
+      <description>&lt;p&gt;For my new position, I need to improve my knowledge of the C++ programming&#xA;language (which I did not use basically since 2010).&#xA;So I have started reading the book&#xA;&lt;a href=&#34;https://www.informit.com/store/discovering-modern-c-plus-plus-9780136677642&#34;&gt;Discovering Modern C++&lt;/a&gt;&#xA;by Peter Gottschling to get up to speed with, well, modern C++.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to use x86_64 packages in Conda on M1 Mac</title>
@@ -139,14 +139,14 @@
       <link>https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/</link>
       <pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
       <guid>https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/</guid>
-      <description>&lt;p&gt;Sometimes, when you try to eject an external volume (logical part of a disk),&#xA;macOS fails to do this as some files are still open.&#xA;Frequently, it is clear what files are open by which program and can be closed.&#xA;However, not always so.&#xA;It has just happened to me &amp;mdash; a file was open by stuck QuickLook app.&lt;/p&gt;&#xA;&lt;p&gt;To find the list of open files on that volume:&lt;/p&gt;</description>
+      <description>&lt;p&gt;Sometimes, when you try to eject an external volume (logical part of a disk),&#xA;macOS fails to do this as some files are still open.&#xA;Frequently, it is clear what files are open by which program and can be closed.&#xA;However, not always so.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Javascript: control flow</title>
       <link>https://dmitrykabanov.com/blog/2022/javascript-control-flow/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
       <guid>https://dmitrykabanov.com/blog/2022/javascript-control-flow/</guid>
-      <description>&lt;h2 id=&#34;conditions&#34;&gt;Conditions&lt;/h2&gt;&#xA;&lt;p&gt;To execute some block of code depending on a condition, the following&#xA;constructions are used; they are exactly like in C programming language.&lt;/p&gt;&#xA;&lt;p&gt;Simple &lt;code&gt;if&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is greater than five&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+      <description>&lt;p&gt;Here we discuss syntax constructions in JavaScript that control the flow&#xA;of program execution such as conditions for branching and loops to repeat&#xA;some part of the execution.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Javascript: expressions and variables</title>
@@ -167,63 +167,63 @@
       <link>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</link>
       <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</guid>
-      <description>&lt;p&gt;Recently I was attending the class on uncertainty quantification for partial&#xA;differential equations.&#xA;As a postdoc, I do participate in the class only partially, however, I have a&#xA;group of students that I am helping with the homework.&lt;/p&gt;&#xA;&lt;p&gt;The first homework required use of Monte Carlo methods with differential&#xA;equations with random coefficients to estimate uncertainty in the solutions of&#xA;these equations.&#xA;As the person with experience in writing PDE solvers, I wrote the solver for the&#xA;PDE that we used in this homework and shared it with others.&#xA;Of course, after writing a solver, I wrote a test that the observed order of&#xA;accuracy is correct (second order, in this case) as I strongly believe that the&#xA;automated testing is superimportant in software and the test on the observed&#xA;order of accuracy is the best test for numerical solvers.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post discusses how lack of tests can make it difficult to progress&#xA;in a software project.&#xA;This happens as at later stages it can become difficult to use components&#xA;developed earlier if these components are unreliable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Books on writing science</title>
       <link>https://dmitrykabanov.com/blog/2021/books-on-writing-science/</link>
       <pubDate>Sat, 15 May 2021 12:16:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2021/books-on-writing-science/</guid>
-      <description>&lt;p&gt;To be successful in academia, it is very important to have a good skill in&#xA;writing and to write often and productively.&#xA;Because the good skill in writing is rarely taught, one should learn it from&#xA;reading books on the topic.&lt;/p&gt;&#xA;&lt;p&gt;Recommended books on this topic are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Belcher W. &lt;em&gt;Writing Your Journal Article in Twelve Weeks&lt;/em&gt;, Second Edition&lt;/p&gt;&#xA;&lt;p&gt;I haven&amp;rsquo;t read it but it has very high grades in reviews.&#xA;The book is in Letter paper size and has 427 pages, so, I guess, it is worth&#xA;considering buying an e-book version on the &lt;a href=&#34;https://press.uchicago.edu/ucp/books/book/chicago/W/bo26985005.html&#34;&gt;publisher&amp;rsquo;s website&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;To be successful in academia, it is very important to have a good skill in&#xA;writing and to write often and productively.&#xA;Because the good skill in writing is rarely taught, one should learn it from&#xA;reading books on the topic.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Basic terms in the probability theory</title>
       <link>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</link>
       <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</guid>
-      <description>&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and&#xA;probability measure.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Outcomes and sample space&lt;/strong&gt;&#xA;.&#xA;When you conduct a random experiment, there is a set of possible results of this&#xA;experiment.&#xA;This results are called &lt;em&gt;outcomes&lt;/em&gt;.&#xA;All possible outcomes together form a set, which is called &lt;em&gt;sample space&lt;/em&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and&#xA;probability measure.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Colaborate in Latex: Overleaf and local git</title>
       <link>https://dmitrykabanov.com/blog/2021/collaborate-overleaf-git/</link>
       <pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2021/collaborate-overleaf-git/</guid>
-      <description>&lt;p&gt;When you write a paper in \(\LaTeX\) and your collaborators prefer to use &lt;a href=&#34;https://www.overleaf.com&#34;&gt;Overleaf&lt;/a&gt;&#xA;but you prefer to use local setup, then you can do it with the help of the &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&#xA;version control system&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Overall, the process is the following. You create a local git repository and&#xA;sync it to a remote git service of your choice.&#xA;Then you create a project in Overleaf. In the project settings you can find&#xA;the link which you add to your git setup as the second remote server.&#xA;The details are below.&lt;/p&gt;</description>
+      <description>&lt;p&gt;When you write a paper in \(\LaTeX\) and your collaborators prefer to use &lt;a href=&#34;https://www.overleaf.com&#34;&gt;Overleaf&lt;/a&gt;&#xA;but you prefer to use local setup, then you can do it with the help of the &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&#xA;version control system&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to handle python job cancelation in Slurm job manager</title>
       <link>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</link>
       <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</guid>
-      <description>&lt;p&gt;If you use Slurm job manager to run jobs on shared cluster, it often occurs&#xA;that your job reaches the time limit and is terminated by Slurm.&#xA;To allow a user to deal with the job termination, Slurm does this in two stages:&#xA;first, the job receives &lt;code&gt;SIGTERM&lt;/code&gt; signal that indicates that the job will be&#xA;killed soon, and then the job receives &lt;code&gt;SIGKILL&lt;/code&gt; signal that actually kills it.&#xA;The time interval between these two signals is specified via Slurm&amp;rsquo;s&#xA;configuration parameter &lt;code&gt;KillWait&lt;/code&gt;. This information is from the&#xA;&lt;a href=&#34;https://slurm.schedmd.com/sbatch.html&#34;&gt;documentation for the &lt;code&gt;sbatch&lt;/code&gt; command&lt;/a&gt; for the&#xA;&lt;code&gt;--time&lt;/code&gt; parameter.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post discusses usage of the &lt;code&gt;signal&lt;/code&gt; Python package to process signals&#xA;that Slurm sends to inform the running job that the time is expiring.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Saving state for tf.function-decorated functions</title>
       <link>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</link>
       <pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</guid>
-      <description>&lt;p&gt;When you decorate a function with `tf.function` decorator, sometimes you need&#xA;to keep state between invocations of this function.&lt;/p&gt;&#xA;&lt;p&gt;The problem here is that the changes to the state will not be visible in the&#xA;decorated function if the state is saved in the Python variables.&lt;/p&gt;&#xA;&lt;p&gt;To illustrate the problem, Tensorflow 2.2 is used:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tensorflow&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tf&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__version__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+      <description>&lt;p&gt;When you decorate a function with `tf.function` decorator, sometimes you need&#xA;to keep state between invocations of this function.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using `tf.function` for performance in Tensorflow 2</title>
       <link>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</link>
       <pubDate>Tue, 28 Jul 2020 13:54:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</guid>
-      <description>&lt;p&gt;Tensorflow 2 uses so called Eager mode by default.&#xA;In this mode, it is easy to define tensors interactively, for example, in&#xA;ipython and see their values.&#xA;However, in Eager mode the execution is slow, which becomes noticable during&#xA;model training.&lt;/p&gt;&#xA;&lt;p&gt;Tensorflow 2 offers another mode of execution called Graph mode.&#xA;In this mode, first the computational graph is created and then used to compute&#xA;loss function and its gradient.&#xA;This mode is more performance efficient.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Tensorflow 2 uses so called Eager mode by default.&#xA;In this mode, it is easy to define tensors interactively, for example, in&#xA;ipython and see their values.&#xA;However, in Eager mode the execution is slow, which becomes noticable during&#xA;model training.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hyperopt Basics</title>
       <link>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</link>
       <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</guid>
-      <description>&lt;p&gt;This is an introduction to using &lt;a href=&#34;https://github.com/hyperopt/hyperopt&#34;&gt;Hyperopt library&lt;/a&gt;. I will use mostly&#xA;terminology of machine learning (ML) as this library appeared in the ML&#xA;community.&lt;/p&gt;&#xA;&lt;p&gt;Hyperopt library is used to choose the hyperparameters, that is, parameters that&#xA;must be set before the learning process.&#xA;The &lt;em&gt;learning process&lt;/em&gt; is the process of fitting a given model to some dataset,&#xA;which is done by minimization of some function.&lt;/p&gt;&#xA;&lt;p&gt;For example, when you fit model \(\hat f (x)\) by optimizing function&#xA;\[&#xA;\frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f),&#xA;\]&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is an introduction to using &lt;a href=&#34;https://github.com/hyperopt/hyperopt&#34;&gt;Hyperopt library&lt;/a&gt;. I will use mostly&#xA;terminology of machine learning (ML) as this library appeared in the ML&#xA;community.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Borel σ-algebra</title>
       <link>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       <guid>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</guid>
-      <description>&lt;p&gt;When one studies probability theory, a notion of a Borel $σ$-algebra arises.&#xA;Here we will look at what this is.&lt;/p&gt;&#xA;&lt;p&gt;First thing is to understand what $σ$-algebra means.&lt;/p&gt;&#xA;&lt;p&gt;Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call&#xA;σ-algebra over \(X\), if it has the following properties:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;it consists of subsets of \(X\),&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;\(X \in \mathcal B\),&lt;/p&gt;</description>
+      <description>&lt;p&gt;When one studies probability theory, a notion of a Borel $σ$-algebra arises.&#xA;Here we will look at what this is.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

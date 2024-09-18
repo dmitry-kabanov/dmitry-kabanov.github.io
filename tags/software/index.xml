@@ -20,7 +20,7 @@
       <link>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</link>
       <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</guid>
-      <description>&lt;p&gt;Recently I was attending the class on uncertainty quantification for partial&#xA;differential equations.&#xA;As a postdoc, I do participate in the class only partially, however, I have a&#xA;group of students that I am helping with the homework.&lt;/p&gt;&#xA;&lt;p&gt;The first homework required use of Monte Carlo methods with differential&#xA;equations with random coefficients to estimate uncertainty in the solutions of&#xA;these equations.&#xA;As the person with experience in writing PDE solvers, I wrote the solver for the&#xA;PDE that we used in this homework and shared it with others.&#xA;Of course, after writing a solver, I wrote a test that the observed order of&#xA;accuracy is correct (second order, in this case) as I strongly believe that the&#xA;automated testing is superimportant in software and the test on the observed&#xA;order of accuracy is the best test for numerical solvers.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post discusses how lack of tests can make it difficult to progress&#xA;in a software project.&#xA;This happens as at later stages it can become difficult to use components&#xA;developed earlier if these components are unreliable.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,7 @@
       <link>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</link>
       <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</guid>
-      <description>&lt;p&gt;If you use Slurm job manager to run jobs on shared cluster, it often occurs&#xA;that your job reaches the time limit and is terminated by Slurm.&#xA;To allow a user to deal with the job termination, Slurm does this in two stages:&#xA;first, the job receives &lt;code&gt;SIGTERM&lt;/code&gt; signal that indicates that the job will be&#xA;killed soon, and then the job receives &lt;code&gt;SIGKILL&lt;/code&gt; signal that actually kills it.&#xA;The time interval between these two signals is specified via Slurm&amp;rsquo;s&#xA;configuration parameter &lt;code&gt;KillWait&lt;/code&gt;. This information is from the&#xA;&lt;a href=&#34;https://slurm.schedmd.com/sbatch.html&#34;&gt;documentation for the &lt;code&gt;sbatch&lt;/code&gt; command&lt;/a&gt; for the&#xA;&lt;code&gt;--time&lt;/code&gt; parameter.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post discusses usage of the &lt;code&gt;signal&lt;/code&gt; Python package to process signals&#xA;that Slurm sends to inform the running job that the time is expiring.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

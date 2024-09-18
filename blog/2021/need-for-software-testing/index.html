@@ -6,19 +6,10 @@
     
     <title>Need for software testing | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Recently I was attending the class on uncertainty quantification for partial
-differential equations.
-As a postdoc, I do participate in the class only partially, however, I have a
-group of students that I am helping with the homework.
-The first homework required use of Monte Carlo methods with differential
-equations with random coefficients to estimate uncertainty in the solutions of
-these equations.
-As the person with experience in writing PDE solvers, I wrote the solver for the
-PDE that we used in this homework and shared it with others.
-Of course, after writing a solver, I wrote a test that the observed order of
-accuracy is correct (second order, in this case) as I strongly believe that the
-automated testing is superimportant in software and the test on the observed
-order of accuracy is the best test for numerical solvers.">
+    <meta name="description" content="This post discusses how lack of tests can make it difficult to progress
+in a software project.
+This happens as at later stages it can become difficult to use components
+developed earlier if these components are unreliable.">
     <meta name="generator" content="Hugo 0.134.1">
     
     
@@ -100,8 +91,7 @@ order of accuracy is the best test for numerical solvers.">
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2021/need-for-software-testing/">
   <meta property="og:site_name" content="Website of Dmitry Kabanov">
   <meta property="og:title" content="Need for software testing">
-  <meta property="og:description" content="Recently I was attending the class on uncertainty quantification for partial differential equations. As a postdoc, I do participate in the class only partially, however, I have a group of students that I am helping with the homework.
-The first homework required use of Monte Carlo methods with differential equations with random coefficients to estimate uncertainty in the solutions of these equations. As the person with experience in writing PDE solvers, I wrote the solver for the PDE that we used in this homework and shared it with others. Of course, after writing a solver, I wrote a test that the observed order of accuracy is correct (second order, in this case) as I strongly believe that the automated testing is superimportant in software and the test on the observed order of accuracy is the best test for numerical solvers.">
+  <meta property="og:description" content="This post discusses how lack of tests can make it difficult to progress in a software project. This happens as at later stages it can become difficult to use components developed earlier if these components are unreliable.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -112,16 +102,14 @@ The first homework required use of Monte Carlo methods with differential equatio
     <meta property="article:tag" content="Testing">
 
   <meta itemprop="name" content="Need for software testing">
-  <meta itemprop="description" content="Recently I was attending the class on uncertainty quantification for partial differential equations. As a postdoc, I do participate in the class only partially, however, I have a group of students that I am helping with the homework.
-The first homework required use of Monte Carlo methods with differential equations with random coefficients to estimate uncertainty in the solutions of these equations. As the person with experience in writing PDE solvers, I wrote the solver for the PDE that we used in this homework and shared it with others. Of course, after writing a solver, I wrote a test that the observed order of accuracy is correct (second order, in this case) as I strongly believe that the automated testing is superimportant in software and the test on the observed order of accuracy is the best test for numerical solvers.">
+  <meta itemprop="description" content="This post discusses how lack of tests can make it difficult to progress in a software project. This happens as at later stages it can become difficult to use components developed earlier if these components are unreliable.">
   <meta itemprop="datePublished" content="2021-06-28T10:49:00+02:00">
   <meta itemprop="dateModified" content="2021-06-28T10:49:00+02:00">
-  <meta itemprop="wordCount" content="885">
+  <meta itemprop="wordCount" content="922">
   <meta itemprop="keywords" content="Numerics,Software,Testing">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Need for software testing">
-  <meta name="twitter:description" content="Recently I was attending the class on uncertainty quantification for partial differential equations. As a postdoc, I do participate in the class only partially, however, I have a group of students that I am helping with the homework.
-The first homework required use of Monte Carlo methods with differential equations with random coefficients to estimate uncertainty in the solutions of these equations. As the person with experience in writing PDE solvers, I wrote the solver for the PDE that we used in this homework and shared it with others. Of course, after writing a solver, I wrote a test that the observed order of accuracy is correct (second order, in this case) as I strongly believe that the automated testing is superimportant in software and the test on the observed order of accuracy is the best test for numerical solvers.">
+  <meta name="twitter:description" content="This post discusses how lack of tests can make it difficult to progress in a software project. This happens as at later stages it can become difficult to use components developed earlier if these components are unreliable.">
 
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
@@ -230,7 +218,11 @@ The first homework required use of Monte Carlo methods with differential equatio
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Recently I was attending the class on uncertainty quantification for partial
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>This post discusses how lack of tests can make it difficult to progress
+in a software project.
+This happens as at later stages it can become difficult to use components
+developed earlier if these components are unreliable.</p>
+<p>Recently I was attending the class on uncertainty quantification for partial
 differential equations.
 As a postdoc, I do participate in the class only partially, however, I have a
 group of students that I am helping with the homework.</p>
@@ -268,7 +260,7 @@ with constant coefficients is not enough to ensure correctness of the solver.</p
 <p>The solver solves an equation of the elliptic type:</p>
 <p>\begin{aligned}
 \mathrm{div} \left( a(x, \omega) \, \nabla u(x, \omega) \right) &amp;= f(x),
-\quad x \in D, \\\
+\quad x \in D, \\
 u(x \in \partial D) &amp;= 0,
 \end{aligned}</p>
 <p>where the source term \(f(x)\) was given, so I hardcoded it into the solver
@@ -298,12 +290,12 @@ where \(u\) and \(f\) are functions discretized on the grid.</p>
 What I haven&rsquo;t realized initially, why programming the solver, that this
 function has some unintuitive behavior when constructing upper diagonals.</p>
 <p>Precisely, if you have the following vectors to build the tridiagonal matrix:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">e1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">e2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">e3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="n">e1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">e2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">e3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">]</span>
 </span></span></code></pre></div><p>then the call to <code>spdiags</code> produces the following results</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sparse</span><span class="o">.</span><span class="n">spdiags</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">todense</span><span class="p">())</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="n">sparse</span><span class="o">.</span><span class="n">spdiags</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">todense</span><span class="p">())</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[[10  2  0  0]
 </span></span><span class="line"><span class="cl"> [-1 20  3  0]
 </span></span><span class="line"><span class="cl"> [ 0 -2 30  4]
@@ -312,7 +304,7 @@ function has some unintuitive behavior when constructing upper diagonals.</p>
 <p>Fortunately, <code>scipy</code> provides another function, <code>diags</code>, which has more
 intuitive behavior.
 The call to <code>diags</code> produces the expected result:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sparse</span><span class="o">.</span><span class="n">diags</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">todense</span><span class="p">())</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="n">sparse</span><span class="o">.</span><span class="n">diags</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">todense</span><span class="p">())</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[[10.  1.  0.  0.]
 </span></span><span class="line"><span class="cl"> [-1. 20.  2.  0.]
 </span></span><span class="line"><span class="cl"> [ 0. -2. 30.  3.]
@@ -326,8 +318,7 @@ the individual components of the code independently.
 Moreover, it is crucial to write good tests: if tests are too “easy”, they
 give a false feeling of safety.
 Only when tests are strict enough, one can be sure that different software
-components work correctly and can be used together to solve a computational task.</p>
-<ul class="pa0">
+components work correctly and can be used together to solve a computational task.</p><ul class="pa0">
   
    <li class="list di">
      <a href="/tags/numerics/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Numerics</a>

@@ -13,7 +13,7 @@
       <link>https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/</link>
       <pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
       <guid>https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/</guid>
-      <description>&lt;p&gt;Sometimes, when you try to eject an external volume (logical part of a disk),&#xA;macOS fails to do this as some files are still open.&#xA;Frequently, it is clear what files are open by which program and can be closed.&#xA;However, not always so.&#xA;It has just happened to me &amp;mdash; a file was open by stuck QuickLook app.&lt;/p&gt;&#xA;&lt;p&gt;To find the list of open files on that volume:&lt;/p&gt;</description>
+      <description>&lt;p&gt;Sometimes, when you try to eject an external volume (logical part of a disk),&#xA;macOS fails to do this as some files are still open.&#xA;Frequently, it is clear what files are open by which program and can be closed.&#xA;However, not always so.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

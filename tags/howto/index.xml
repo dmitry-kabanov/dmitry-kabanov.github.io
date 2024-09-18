@@ -20,21 +20,21 @@
       <link>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</link>
       <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</guid>
-      <description>&lt;p&gt;If you use Slurm job manager to run jobs on shared cluster, it often occurs&#xA;that your job reaches the time limit and is terminated by Slurm.&#xA;To allow a user to deal with the job termination, Slurm does this in two stages:&#xA;first, the job receives &lt;code&gt;SIGTERM&lt;/code&gt; signal that indicates that the job will be&#xA;killed soon, and then the job receives &lt;code&gt;SIGKILL&lt;/code&gt; signal that actually kills it.&#xA;The time interval between these two signals is specified via Slurm&amp;rsquo;s&#xA;configuration parameter &lt;code&gt;KillWait&lt;/code&gt;. This information is from the&#xA;&lt;a href=&#34;https://slurm.schedmd.com/sbatch.html&#34;&gt;documentation for the &lt;code&gt;sbatch&lt;/code&gt; command&lt;/a&gt; for the&#xA;&lt;code&gt;--time&lt;/code&gt; parameter.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post discusses usage of the &lt;code&gt;signal&lt;/code&gt; Python package to process signals&#xA;that Slurm sends to inform the running job that the time is expiring.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Saving state for tf.function-decorated functions</title>
       <link>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</link>
       <pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</guid>
-      <description>&lt;p&gt;When you decorate a function with `tf.function` decorator, sometimes you need&#xA;to keep state between invocations of this function.&lt;/p&gt;&#xA;&lt;p&gt;The problem here is that the changes to the state will not be visible in the&#xA;decorated function if the state is saved in the Python variables.&lt;/p&gt;&#xA;&lt;p&gt;To illustrate the problem, Tensorflow 2.2 is used:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tensorflow&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tf&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__version__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+      <description>&lt;p&gt;When you decorate a function with `tf.function` decorator, sometimes you need&#xA;to keep state between invocations of this function.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hyperopt Basics</title>
       <link>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</link>
       <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</guid>
-      <description>&lt;p&gt;This is an introduction to using &lt;a href=&#34;https://github.com/hyperopt/hyperopt&#34;&gt;Hyperopt library&lt;/a&gt;. I will use mostly&#xA;terminology of machine learning (ML) as this library appeared in the ML&#xA;community.&lt;/p&gt;&#xA;&lt;p&gt;Hyperopt library is used to choose the hyperparameters, that is, parameters that&#xA;must be set before the learning process.&#xA;The &lt;em&gt;learning process&lt;/em&gt; is the process of fitting a given model to some dataset,&#xA;which is done by minimization of some function.&lt;/p&gt;&#xA;&lt;p&gt;For example, when you fit model \(\hat f (x)\) by optimizing function&#xA;\[&#xA;\frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f),&#xA;\]&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is an introduction to using &lt;a href=&#34;https://github.com/hyperopt/hyperopt&#34;&gt;Hyperopt library&lt;/a&gt;. I will use mostly&#xA;terminology of machine learning (ML) as this library appeared in the ML&#xA;community.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

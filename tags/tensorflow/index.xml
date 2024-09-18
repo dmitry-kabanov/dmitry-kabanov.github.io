@@ -13,14 +13,14 @@
       <link>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</link>
       <pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</guid>
-      <description>&lt;p&gt;When you decorate a function with `tf.function` decorator, sometimes you need&#xA;to keep state between invocations of this function.&lt;/p&gt;&#xA;&lt;p&gt;The problem here is that the changes to the state will not be visible in the&#xA;decorated function if the state is saved in the Python variables.&lt;/p&gt;&#xA;&lt;p&gt;To illustrate the problem, Tensorflow 2.2 is used:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tensorflow&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tf&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__version__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+      <description>&lt;p&gt;When you decorate a function with `tf.function` decorator, sometimes you need&#xA;to keep state between invocations of this function.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using `tf.function` for performance in Tensorflow 2</title>
       <link>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</link>
       <pubDate>Tue, 28 Jul 2020 13:54:00 +0200</pubDate>
       <guid>https://dmitrykabanov.com/blog/2020/02-tf-function-performance/</guid>
-      <description>&lt;p&gt;Tensorflow 2 uses so called Eager mode by default.&#xA;In this mode, it is easy to define tensors interactively, for example, in&#xA;ipython and see their values.&#xA;However, in Eager mode the execution is slow, which becomes noticable during&#xA;model training.&lt;/p&gt;&#xA;&lt;p&gt;Tensorflow 2 offers another mode of execution called Graph mode.&#xA;In this mode, first the computational graph is created and then used to compute&#xA;loss function and its gradient.&#xA;This mode is more performance efficient.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Tensorflow 2 uses so called Eager mode by default.&#xA;In this mode, it is easy to define tensors interactively, for example, in&#xA;ipython and see their values.&#xA;However, in Eager mode the execution is slow, which becomes noticable during&#xA;model training.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
