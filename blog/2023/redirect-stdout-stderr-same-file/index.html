@@ -6,17 +6,26 @@
     
     <title>Redirection of stdout and stderr to the same file | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="description" content="Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (stdout)
+and to the standard error output (stderr).
+For example, by default, in a Python program the print function writes to
+stdout and the functions of the logging module to stderr.
+Therefore, one needs to redirect both stdout and stderr to the same file.">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -70,40 +79,56 @@
  });
 </script>
 
-    
+
     
       
 
     
 
     
+
     
-    <meta property="og:title" content="Redirection of stdout and stderr to the same file" />
-<meta property="og:description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2023-02-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-02-06T00:00:00+00:00" />
-<meta itemprop="name" content="Redirection of stdout and stderr to the same file">
-<meta itemprop="description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file."><meta itemprop="datePublished" content="2023-02-06T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-02-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="254">
-<meta itemprop="keywords" content="unix,shell,programming," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Redirection of stdout and stderr to the same file"/>
-<meta name="twitter:description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file."/>
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Redirection of stdout and stderr to the same file">
+  <meta property="og:description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-02-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-02-06T00:00:00+00:00">
+    <meta property="article:tag" content="Unix">
+    <meta property="article:tag" content="Shell">
+    <meta property="article:tag" content="Programming">
+
+  <meta itemprop="name" content="Redirection of stdout and stderr to the same file">
+  <meta itemprop="description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.">
+  <meta itemprop="datePublished" content="2023-02-06T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-02-06T00:00:00+00:00">
+  <meta itemprop="wordCount" content="254">
+  <meta itemprop="keywords" content="Unix,Shell,Programming">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Redirection of stdout and stderr to the same file">
+  <meta name="twitter:description" content="Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -162,9 +187,9 @@ if (!doNotTrack) {
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        BLOGS
+        Blogs
       </aside>
       
 
@@ -231,22 +256,22 @@ of a bug by using the wrong order.</p>
 <ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/unix/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">unix</a>
+     <a href="/tags/unix/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Unix</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/shell/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">shell</a>
+     <a href="/tags/shell/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Shell</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
    </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
       
         <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

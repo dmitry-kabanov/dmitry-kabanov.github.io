@@ -5,3 +5,7 @@
 figure.aligncenter {
     text-align: center;
 }
+
+header.cover {
+    background-size: contain !important;
+}

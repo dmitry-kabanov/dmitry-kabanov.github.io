@@ -4,7 +4,8 @@
     <title>About me on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/about/</link>
     <description>Recent content in About me on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://dmitrykabanov.com/about/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://dmitrykabanov.com/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

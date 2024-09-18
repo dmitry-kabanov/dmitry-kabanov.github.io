@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>software on Website of Dmitry Kabanov</title>
+    <title>Software on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/software/</link>
-    <description>Recent content in software on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Software on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/software/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to quickly insert a figure in LyX</title>
       <link>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</link>
       <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</guid>
-      <description>&lt;p&gt;I will show one of the user-defined commands that I use in
-&lt;a href=&#34;https://lyx.org&#34;&gt;Lyx&lt;/a&gt;, a \(\LaTeX\) frontend, to quickly insert figures with
-captions.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I will show one of the user-defined commands that I use in&#xA;&lt;a href=&#34;https://lyx.org&#34;&gt;Lyx&lt;/a&gt;, a \(\LaTeX\) frontend, to quickly insert figures with&#xA;captions.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Need for software testing</title>
       <link>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</link>
       <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</guid>
-      <description>Recently I was attending the class on uncertainty quantification for partial differential equations. As a postdoc, I do participate in the class only partially, however, I have a group of students that I am helping with the homework.
-The first homework required use of Monte Carlo methods with differential equations with random coefficients to estimate uncertainty in the solutions of these equations. As the person with experience in writing PDE solvers, I wrote the solver for the PDE that we used in this homework and shared it with others.</description>
+      <description>&lt;p&gt;Recently I was attending the class on uncertainty quantification for partial&#xA;differential equations.&#xA;As a postdoc, I do participate in the class only partially, however, I have a&#xA;group of students that I am helping with the homework.&lt;/p&gt;&#xA;&lt;p&gt;The first homework required use of Monte Carlo methods with differential&#xA;equations with random coefficients to estimate uncertainty in the solutions of&#xA;these equations.&#xA;As the person with experience in writing PDE solvers, I wrote the solver for the&#xA;PDE that we used in this homework and shared it with others.&#xA;Of course, after writing a solver, I wrote a test that the observed order of&#xA;accuracy is correct (second order, in this case) as I strongly believe that the&#xA;automated testing is superimportant in software and the test on the observed&#xA;order of accuracy is the best test for numerical solvers.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

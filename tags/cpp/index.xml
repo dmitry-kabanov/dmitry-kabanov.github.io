@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cpp on Website of Dmitry Kabanov</title>
+    <title>Cpp on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/cpp/</link>
-    <description>Recent content in cpp on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Cpp on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Universal initialization in C&#43;&#43;</title>
       <link>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</guid>
-      <description>For my new position, I need to improve my knowledge of the C++ programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C++ by Peter Gottschling to get up to speed with, well, modern C++.
-In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C++11.
-The syntax for the universal initialization is the following:</description>
+      <description>&lt;p&gt;For my new position, I need to improve my knowledge of the C++ programming&#xA;language (which I did not use basically since 2010).&#xA;So I have started reading the book&#xA;&lt;a href=&#34;https://www.informit.com/store/discovering-modern-c-plus-plus-9780136677642&#34;&gt;Discovering Modern C++&lt;/a&gt;&#xA;by Peter Gottschling to get up to speed with, well, modern C++.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I would like to talk about universal initialization (a.k.a.&#xA;brace-initialization) that was introduced in C++11.&lt;/p&gt;&#xA;&lt;p&gt;The syntax for the universal initialization is the following:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

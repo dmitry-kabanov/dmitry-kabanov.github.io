@@ -6,20 +6,27 @@
     
     <title>Saving state for tf.function-decorated functions | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
+    <meta name="description" content="When you decorate a function with `tf.function` decorator, sometimes you need
+to keep state between invocations of this function.
+The problem here is that the changes to the state will not be visible in the
+decorated function if the state is saved in the Python variables.
 To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.">
-    <meta name="generator" content="Hugo 0.118.2">
+import tensorflow as tf
+print(tf.__version__)
+">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -73,49 +80,64 @@ import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsqu
  });
 </script>
 
-    
+
     
       
 
     
 
     
+
     
-    <meta property="og:title" content="Saving state for tf.function-decorated functions" />
-<meta property="og:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Saving state for tf.function-decorated functions">
+  <meta property="og:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
 The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
 To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2020-07-31T12:19:00+02:00" />
-<meta property="article:modified_time" content="2020-07-31T12:19:00+02:00" />
-<meta itemprop="name" content="Saving state for tf.function-decorated functions">
-<meta itemprop="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+import tensorflow as tf print(tf.__version__) ">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2020-07-31T12:19:00+02:00">
+    <meta property="article:modified_time" content="2020-07-31T12:19:00+02:00">
+    <meta property="article:tag" content="Howto">
+    <meta property="article:tag" content="Tensorflow">
+
+  <meta itemprop="name" content="Saving state for tf.function-decorated functions">
+  <meta itemprop="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
 The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
 To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf."><meta itemprop="datePublished" content="2020-07-31T12:19:00+02:00" />
-<meta itemprop="dateModified" content="2020-07-31T12:19:00+02:00" />
-<meta itemprop="wordCount" content="633">
-<meta itemprop="keywords" content="howto,tensorflow," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Saving state for tf.function-decorated functions"/>
-<meta name="twitter:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
+import tensorflow as tf print(tf.__version__) ">
+  <meta itemprop="datePublished" content="2020-07-31T12:19:00+02:00">
+  <meta itemprop="dateModified" content="2020-07-31T12:19:00+02:00">
+  <meta itemprop="wordCount" content="633">
+  <meta itemprop="keywords" content="Howto,Tensorflow">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Saving state for tf.function-decorated functions">
+  <meta name="twitter:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
 The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
 To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf."/>
+import tensorflow as tf print(tf.__version__) ">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -174,9 +196,9 @@ if (!doNotTrack) {
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        BLOGS
+        Blogs
       </aside>
       
 
@@ -313,18 +335,18 @@ you can read <a href="https://github.com/tensorflow/tensorflow/blob/master/tenso
 <ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/howto/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">howto</a>
+     <a href="/tags/howto/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Howto</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/tensorflow/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tensorflow</a>
+     <a href="/tags/tensorflow/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Tensorflow</a>
    </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
       
         <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

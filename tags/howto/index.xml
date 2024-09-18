@@ -1,54 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>howto on Website of Dmitry Kabanov</title>
+    <title>Howto on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/howto/</link>
-    <description>Recent content in howto on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Howto on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/howto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to quickly insert a figure in LyX</title>
       <link>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</link>
       <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</guid>
-      <description>&lt;p&gt;I will show one of the user-defined commands that I use in
-&lt;a href=&#34;https://lyx.org&#34;&gt;Lyx&lt;/a&gt;, a \(\LaTeX\) frontend, to quickly insert figures with
-captions.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I will show one of the user-defined commands that I use in&#xA;&lt;a href=&#34;https://lyx.org&#34;&gt;Lyx&lt;/a&gt;, a \(\LaTeX\) frontend, to quickly insert figures with&#xA;captions.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to handle python job cancelation in Slurm job manager</title>
       <link>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</link>
       <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2020/04-job-cancelation-in-slurm/</guid>
-      <description>If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&amp;rsquo;s configuration parameter KillWait.</description>
+      <description>&lt;p&gt;If you use Slurm job manager to run jobs on shared cluster, it often occurs&#xA;that your job reaches the time limit and is terminated by Slurm.&#xA;To allow a user to deal with the job termination, Slurm does this in two stages:&#xA;first, the job receives &lt;code&gt;SIGTERM&lt;/code&gt; signal that indicates that the job will be&#xA;killed soon, and then the job receives &lt;code&gt;SIGKILL&lt;/code&gt; signal that actually kills it.&#xA;The time interval between these two signals is specified via Slurm&amp;rsquo;s&#xA;configuration parameter &lt;code&gt;KillWait&lt;/code&gt;. This information is from the&#xA;&lt;a href=&#34;https://slurm.schedmd.com/sbatch.html&#34;&gt;documentation for the &lt;code&gt;sbatch&lt;/code&gt; command&lt;/a&gt; for the&#xA;&lt;code&gt;--time&lt;/code&gt; parameter.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Saving state for tf.function-decorated functions</title>
       <link>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</link>
       <pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/</guid>
-      <description>When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
-To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&amp;rsquo;s consider the following code. Let&amp;rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.</description>
+      <description>&lt;p&gt;When you decorate a function with `tf.function` decorator, sometimes you need&#xA;to keep state between invocations of this function.&lt;/p&gt;&#xA;&lt;p&gt;The problem here is that the changes to the state will not be visible in the&#xA;decorated function if the state is saved in the Python variables.&lt;/p&gt;&#xA;&lt;p&gt;To illustrate the problem, Tensorflow 2.2 is used:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tensorflow&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;tf&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__version__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
-    
     <item>
       <title>Hyperopt Basics</title>
       <link>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</link>
       <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2020/01-hyperopt-basics/</guid>
-      <description>This is an introduction to using Hyperopt library. I will use mostly terminology of machine learning (ML) as this library appeared in the ML community.
-Hyperopt library is used to choose the hyperparameters, that is, parameters that must be set before the learning process. The learning process is the process of fitting a given model to some dataset, which is done by minimization of some function.
-For example, when you fit model \(\hat f (x)\) by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]</description>
+      <description>&lt;p&gt;This is an introduction to using &lt;a href=&#34;https://github.com/hyperopt/hyperopt&#34;&gt;Hyperopt library&lt;/a&gt;. I will use mostly&#xA;terminology of machine learning (ML) as this library appeared in the ML&#xA;community.&lt;/p&gt;&#xA;&lt;p&gt;Hyperopt library is used to choose the hyperparameters, that is, parameters that&#xA;must be set before the learning process.&#xA;The &lt;em&gt;learning process&lt;/em&gt; is the process of fitting a given model to some dataset,&#xA;which is done by minimization of some function.&lt;/p&gt;&#xA;&lt;p&gt;For example, when you fit model \(\hat f (x)\) by optimizing function&#xA;\[&#xA;\frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f),&#xA;\]&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

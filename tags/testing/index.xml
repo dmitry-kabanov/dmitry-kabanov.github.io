@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>testing on Website of Dmitry Kabanov</title>
+    <title>Testing on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/testing/</link>
-    <description>Recent content in testing on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Testing on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Jun 2021 10:49:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jun 2021 10:49:00 +0200</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Need for software testing</title>
       <link>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</link>
       <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2021/need-for-software-testing/</guid>
-      <description>Recently I was attending the class on uncertainty quantification for partial differential equations. As a postdoc, I do participate in the class only partially, however, I have a group of students that I am helping with the homework.
-The first homework required use of Monte Carlo methods with differential equations with random coefficients to estimate uncertainty in the solutions of these equations. As the person with experience in writing PDE solvers, I wrote the solver for the PDE that we used in this homework and shared it with others.</description>
+      <description>&lt;p&gt;Recently I was attending the class on uncertainty quantification for partial&#xA;differential equations.&#xA;As a postdoc, I do participate in the class only partially, however, I have a&#xA;group of students that I am helping with the homework.&lt;/p&gt;&#xA;&lt;p&gt;The first homework required use of Monte Carlo methods with differential&#xA;equations with random coefficients to estimate uncertainty in the solutions of&#xA;these equations.&#xA;As the person with experience in writing PDE solvers, I wrote the solver for the&#xA;PDE that we used in this homework and shared it with others.&#xA;Of course, after writing a solver, I wrote a test that the observed order of&#xA;accuracy is correct (second order, in this case) as I strongly believe that the&#xA;automated testing is superimportant in software and the test on the observed&#xA;order of accuracy is the best test for numerical solvers.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

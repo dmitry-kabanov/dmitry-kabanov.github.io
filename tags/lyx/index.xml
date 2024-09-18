@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lyx on Website of Dmitry Kabanov</title>
+    <title>Lyx on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/lyx/</link>
-    <description>Recent content in lyx on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Lyx on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/lyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jul 2021 19:36:00 +0200</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/lyx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to quickly insert a figure in LyX</title>
       <link>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</link>
       <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2021/howto-quickly-insert-figure-in-lyx/</guid>
-      <description>&lt;p&gt;I will show one of the user-defined commands that I use in
-&lt;a href=&#34;https://lyx.org&#34;&gt;Lyx&lt;/a&gt;, a \(\LaTeX\) frontend, to quickly insert figures with
-captions.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I will show one of the user-defined commands that I use in&#xA;&lt;a href=&#34;https://lyx.org&#34;&gt;Lyx&lt;/a&gt;, a \(\LaTeX\) frontend, to quickly insert figures with&#xA;captions.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

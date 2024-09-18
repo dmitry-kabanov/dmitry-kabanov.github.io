@@ -1,190 +1,117 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>programming on Website of Dmitry Kabanov</title>
+    <title>Programming on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/programming/</link>
-    <description>Recent content in programming on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Programming on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“Modern C”: Notes on chapter 7 “Functions”</title>
+      <link>https://dmitrykabanov.com/blog/2024/notes-on-chapter-07-modern-c/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dmitrykabanov.com/blog/2024/notes-on-chapter-07-modern-c/</guid>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 7&#xA;&amp;ldquo;Functions&amp;rdquo;&#xA;from the book &lt;a href=&#34;https://www.manning.com/books/modern-c&#34;&gt;&amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This chapter discusses structuring C program using functions; particularly,&#xA;attention is given to recursion, that is, to the ability of C functions&#xA;to invoke themselves.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>“Modern C”: Notes on chapter 6 “Derived data types”</title>
       <link>https://dmitrykabanov.com/blog/2024/notes-on-chapter-06-modern-c/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2024/notes-on-chapter-06-modern-c/</guid>
-      <description>&lt;p&gt;These are my notes taken while reading chapter 6
-&amp;ldquo;Derived data types&amp;rdquo;
-from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;
-&lt;p&gt;This chapter discusses objects that consist of other objects, such as arrays,
-pointers, structures, and type aliases.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 6&#xA;&amp;ldquo;Derived data types&amp;rdquo;&#xA;from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;&#xA;&lt;p&gt;This chapter discusses objects that consist of other objects, such as arrays,&#xA;pointers, structures, and type aliases.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to avoid subtle bugs in malloc usage in C</title>
       <link>https://dmitrykabanov.com/blog/2024/how-to-avoid-subtle-bugs-in-malloc/</link>
       <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2024/how-to-avoid-subtle-bugs-in-malloc/</guid>
-      <description>&lt;p&gt;Whenever a computer program needs to store data of the size determined only
-during the runtime, then dynamic memory allocation is required.
-Memory allocation happens in the &lt;em&gt;memory heap&lt;/em&gt;, and in C is commonly done
-via a library function &lt;code&gt;malloc&lt;/code&gt;, which has subtle things with its usage
-that I would like to discuss here.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Whenever a computer program needs to store data of the size determined only&#xA;during the runtime, then dynamic memory allocation is required.&#xA;Memory allocation happens in the &lt;em&gt;memory heap&lt;/em&gt;, and in C is commonly done&#xA;via a library function &lt;code&gt;malloc&lt;/code&gt;, which has subtle things with its usage&#xA;that I would like to discuss here.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>“Modern C”: Notes on chapter 5 “Basic values and data”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-05-modern-c/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/notes-on-chapter-05-modern-c/</guid>
-      <description>&lt;p&gt;These are my notes taken while reading chapter 5
-&amp;ldquo;Basic values and data&amp;rdquo;
-from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;
-&lt;p&gt;This chapter discusses values of different objects
-that are used in a C program,
-and how they are represented.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 5&#xA;&amp;ldquo;Basic values and data&amp;rdquo;&#xA;from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;&#xA;&lt;p&gt;This chapter discusses values of different objects&#xA;that are used in a C program,&#xA;and how they are represented.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Array and pointers equivalence myth</title>
       <link>https://dmitrykabanov.com/blog/2023/array-decay-to-pointer-in-c/</link>
       <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/array-decay-to-pointer-in-c/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;d like to share some knowledge about subtle thing that I have learned
-recently in C.
-It is related to the relations between arrays and pointers, and how they
-are often treated as equivalent to each other (for example, this is how
-passing an array to a function works when one of the expected arguments
-is a pointer).
-However, arrays and pointers are not equivalent to each other.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;d like to share some knowledge about subtle thing that I have learned&#xA;recently in C.&#xA;It is related to the relations between arrays and pointers, and how they&#xA;are often treated as equivalent to each other (for example, this is how&#xA;passing an array to a function works when one of the expected arguments&#xA;is a pointer).&#xA;However, arrays and pointers are not equivalent to each other.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>“Modern C”: Notes on chapter 4 “Expressing computations”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-04-modern-c/</link>
       <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/notes-on-chapter-04-modern-c/</guid>
-      <description>&lt;p&gt;These are my notes taken while reading chapter 4
-&amp;ldquo;Expressing computations&amp;rdquo;
-from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;
-&lt;p&gt;This chapter discusses expressions, that is, computations based
-on some values, such as variables and literals.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 4&#xA;&amp;ldquo;Expressing computations&amp;rdquo;&#xA;from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&lt;/p&gt;&#xA;&lt;p&gt;This chapter discusses expressions, that is, computations based&#xA;on some values, such as variables and literals.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>“Modern C”: Notes on chapter 3 “Everything is about control”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-03-modern-c/</link>
       <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/notes-on-chapter-03-modern-c/</guid>
-      <description>&lt;p&gt;These are my notes taken while reading chapter 3
-&amp;ldquo;Everything is about control&amp;rdquo;
-from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.
-This chapter explains five control block statements:
-conditional statements with &lt;code&gt;if&lt;/code&gt;, loops with &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, and &lt;code&gt;do-while&lt;/code&gt;,
-and selection statements with &lt;code&gt;switch&lt;/code&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 3&#xA;&amp;ldquo;Everything is about control&amp;rdquo;&#xA;from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&#xA;This chapter explains five control block statements:&#xA;conditional statements with &lt;code&gt;if&lt;/code&gt;, loops with &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, and &lt;code&gt;do-while&lt;/code&gt;,&#xA;and selection statements with &lt;code&gt;switch&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>“Modern C”: Notes on preamble “Level 1 Aquaintance”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-preamble-level-1-modern-c/</link>
       <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/notes-on-preamble-level-1-modern-c/</guid>
-      <description>&lt;p&gt;These are my notes taken while reading the preamble for the part
-&amp;ldquo;Level 1. Aquaintance&amp;rdquo;
-from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.
-This preamble introduces stylistic decisions that
-the author uses in the rest of the book.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are my notes taken while reading the preamble for the part&#xA;&amp;ldquo;Level 1. Aquaintance&amp;rdquo;&#xA;from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&#xA;This preamble introduces stylistic decisions that&#xA;the author uses in the rest of the book.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>“Modern C”: Notes on chapter 2 “The principal structure of a program”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-chapter-02-modern-c/</link>
       <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/notes-on-chapter-02-modern-c/</guid>
-      <description>&lt;p&gt;These are my notes taken while reading chapter 2
-&amp;ldquo;The principal structure of a program&amp;rdquo;
-from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.
-This chapter explains details of C grammar, distinction between declaration
-and definition of objects, and statements.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 2&#xA;&amp;ldquo;The principal structure of a program&amp;rdquo;&#xA;from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&#xA;This chapter explains details of C grammar, distinction between declaration&#xA;and definition of objects, and statements.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>“Modern C”: Notes on chapter 1 “Getting started”</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-ch01-modern-c/</link>
       <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/notes-on-ch01-modern-c/</guid>
-      <description>&lt;p&gt;These are my notes taken while reading chapter 1 &amp;ldquo;Getting Started&amp;rdquo;
-from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.
-This chapter introduces imperative programming and teaches how to compile
-and run a C program.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are my notes taken while reading chapter 1 &amp;ldquo;Getting Started&amp;rdquo;&#xA;from the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt.&#xA;This chapter introduces imperative programming and teaches how to compile&#xA;and run a C program.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>“Modern C”: Notes on the book by Jens Gustedt</title>
       <link>https://dmitrykabanov.com/blog/2023/notes-on-modern-c/</link>
       <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/notes-on-modern-c/</guid>
-      <description>&lt;p&gt;These are the table of contents for my notes taken
-while reading the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt,
-which teaches C according to new language standards, C11 and C17.&lt;/p&gt;</description>
+      <description>&lt;p&gt;These are the table of contents for my notes taken&#xA;while reading the book &amp;ldquo;Modern C&amp;rdquo; by Jens Gustedt,&#xA;which teaches C according to new language standards, C11 and C17.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Universal initialization in C&#43;&#43;</title>
       <link>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/</guid>
-      <description>For my new position, I need to improve my knowledge of the C++ programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C++ by Peter Gottschling to get up to speed with, well, modern C++.
-In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C++11.
-The syntax for the universal initialization is the following:</description>
+      <description>&lt;p&gt;For my new position, I need to improve my knowledge of the C++ programming&#xA;language (which I did not use basically since 2010).&#xA;So I have started reading the book&#xA;&lt;a href=&#34;https://www.informit.com/store/discovering-modern-c-plus-plus-9780136677642&#34;&gt;Discovering Modern C++&lt;/a&gt;&#xA;by Peter Gottschling to get up to speed with, well, modern C++.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I would like to talk about universal initialization (a.k.a.&#xA;brace-initialization) that was introduced in C++11.&lt;/p&gt;&#xA;&lt;p&gt;The syntax for the universal initialization is the following:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>JavaScript: functions</title>
       <link>https://dmitrykabanov.com/blog/2023/javascript-functions/</link>
       <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/javascript-functions/</guid>
-      <description>&lt;p&gt;As any programming language, JavaScript allows to pack useful things into
-functions, and it is the key to good JavaScript knowledge, to use them
-efficiently.
-In this post, I describe three ways that the functions can be declared
-in JavaScript,
-talk about visibility of variables inside the functions,
-how to have optional function arguments with default values,
-how to create closures (functions, bound to outer variables),
-and how to use recursion.&lt;/p&gt;</description>
+      <description>&lt;p&gt;As any programming language, JavaScript allows to pack useful things into&#xA;functions, and it is the key to good JavaScript knowledge, to use them&#xA;efficiently.&#xA;In this post, I describe three ways that the functions can be declared&#xA;in JavaScript,&#xA;talk about visibility of variables inside the functions,&#xA;how to have optional function arguments with default values,&#xA;how to create closures (functions, bound to outer variables),&#xA;and how to use recursion.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Solving Perfect Squares problem using breadth-first search</title>
       <link>https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/</link>
       <pubDate>Mon, 17 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/</guid>
-      <description>I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &amp;ldquo;by levels&amp;rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
-One typical application of BFS is to find the shortest path between the root and the given nodes.
-To implement BFS, one should use the queue data structure.</description>
+      <description>&lt;p&gt;I was learning recently about solving problems that use&#xA;breadth-first search (BFS).&#xA;This is a family of computer science algorithms that traverse&#xA;tree data structures &amp;ldquo;by levels&amp;rdquo;.&#xA;That is, starting at the root, we process all nodes on level 1,&#xA;then all nodes on level 2, etc.&lt;/p&gt;&#xA;&lt;p&gt;One typical application of BFS is to find the shortest path between&#xA;the root and the given nodes.&lt;/p&gt;&#xA;&lt;p&gt;To implement BFS, one should use the queue data structure.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Redirection of stdout and stderr to the same file</title>
       <link>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</link>
       <pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</guid>
-      <description>Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.</description>
+      <description>&lt;p&gt;Often, when running a program in console, one needs to save all its output&#xA;to a file.&#xA;Very often, such a program writes both to the standard output (&lt;code&gt;stdout&lt;/code&gt;)&#xA;and to the standard error output (&lt;code&gt;stderr&lt;/code&gt;).&#xA;For example, by default, in a Python program the &lt;code&gt;print&lt;/code&gt; function writes to&#xA;&lt;code&gt;stdout&lt;/code&gt; and the functions of the &lt;code&gt;logging&lt;/code&gt; module to &lt;code&gt;stderr&lt;/code&gt;.&#xA;Therefore, one needs to &lt;strong&gt;redirect both &lt;code&gt;stdout&lt;/code&gt; and &lt;code&gt;stderr&lt;/code&gt;&lt;/strong&gt; to the same file.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

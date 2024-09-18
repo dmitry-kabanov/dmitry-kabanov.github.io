@@ -6,19 +6,27 @@
     
     <title>Universal initialization in C&#43;&#43; | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
-In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
+    <meta name="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming
+language (which I did not use basically since 2010).
+So I have started reading the book
+Discovering Modern C&#43;&#43;
+by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+In this post, I would like to talk about universal initialization (a.k.a.
+brace-initialization) that was introduced in C&#43;&#43;11.
 The syntax for the universal initialization is the following:">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -72,46 +80,61 @@ The syntax for the universal initialization is the following:">
  });
 </script>
 
-    
+
     
       
 
     
 
     
+
     
-    <meta property="og:title" content="Universal initialization in C&#43;&#43;" />
-<meta property="og:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Universal initialization in C&#43;&#43;">
+  <meta property="og:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
 In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
-The syntax for the universal initialization is the following:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2023-06-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-06-23T00:00:00+00:00" />
-<meta itemprop="name" content="Universal initialization in C&#43;&#43;">
-<meta itemprop="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+The syntax for the universal initialization is the following:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-06-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-06-23T00:00:00+00:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Cpp">
+
+  <meta itemprop="name" content="Universal initialization in C&#43;&#43;">
+  <meta itemprop="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
 In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
-The syntax for the universal initialization is the following:"><meta itemprop="datePublished" content="2023-06-23T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-06-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="385">
-<meta itemprop="keywords" content="programming,cpp," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Universal initialization in C&#43;&#43;"/>
-<meta name="twitter:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
+The syntax for the universal initialization is the following:">
+  <meta itemprop="datePublished" content="2023-06-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-06-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="385">
+  <meta itemprop="keywords" content="Programming,Cpp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Universal initialization in C&#43;&#43;">
+  <meta name="twitter:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.
 In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C&#43;&#43;11.
-The syntax for the universal initialization is the following:"/>
+The syntax for the universal initialization is the following:">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -170,9 +193,9 @@ if (!doNotTrack) {
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        BLOGS
+        Blogs
       </aside>
       
 
@@ -257,18 +280,18 @@ while it is a one-liner with the universal initialization:</p>
 </span></span></code></pre></div><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/cpp/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">cpp</a>
+     <a href="/tags/cpp/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Cpp</a>
    </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
       
         <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

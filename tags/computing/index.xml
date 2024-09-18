@@ -1,39 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>computing on Website of Dmitry Kabanov</title>
+    <title>Computing on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/computing/</link>
-    <description>Recent content in computing on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Computing on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/computing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/computing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to use x86_64 packages in Conda on M1 Mac</title>
       <link>https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/</guid>
-      <description>If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture.</description>
+      <description>&lt;p&gt;If you work on an M1 Mac computer (that is, on an Apple computer with&#xA;an ARM processor)&#xA;and use &lt;a href=&#34;https://docs.conda.io/en/latest/&#34;&gt;Conda&lt;/a&gt;&#xA;to manage Python environments and packages,&#xA;sometimes you need to work with packages that are available&#xA;only for &lt;code&gt;x86_64&lt;/code&gt; architecture, that is, for Macs with Intel processors&#xA;(&lt;code&gt;x86_64&lt;/code&gt; is a common name for 64-bit Intel processors).&#xA;For example, I ran into this problem when I wanted to go through&#xA;&lt;a href=&#34;https://snakemake.readthedocs.io/en/stable/tutorial/setup.html&#34;&gt;SnakeMake tutorial&lt;/a&gt;,&#xA;and it turned out that many bioinformatics tools (needed for the tutorial)&#xA;are not available for the M1 architecture.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to reencode H.264 videos to H.265</title>
       <link>https://dmitrykabanov.com/blog/2023/reencode-h.264-to-h/</link>
       <pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/reencode-h.264-to-h/</guid>
-      <description>&lt;p&gt;I had videos in H.264 codec that I wanted to reencode to H.265.
-The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
-modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
-which allows to keep the same quality with about twice less storage.&lt;/p&gt;
-&lt;p&gt;As I make from time to time
-&lt;a href=&#34;https://www.youtube.com/@dmitry-kabanov&#34;&gt;YouTube&lt;/a&gt;,
-&lt;a href=&#34;https://www.instagram.com/dmitry.i.kabanov/&#34;&gt;Instagram&lt;/a&gt;, and
-&lt;a href=&#34;https://www.tiktok.com/@dmitry.i.kabanov&#34;&gt;TikTok&lt;/a&gt;
-videos, which
-I need to backup, it is always good to store your data in the most
-storage-efficient format.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I had videos in H.264 codec that I wanted to reencode to H.265.&#xA;The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more&#xA;modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),&#xA;which allows to keep the same quality with about twice less storage.&lt;/p&gt;&#xA;&lt;p&gt;As I make from time to time&#xA;&lt;a href=&#34;https://www.youtube.com/@dmitry-kabanov&#34;&gt;YouTube&lt;/a&gt;,&#xA;&lt;a href=&#34;https://www.instagram.com/dmitry.i.kabanov/&#34;&gt;Instagram&lt;/a&gt;, and&#xA;&lt;a href=&#34;https://www.tiktok.com/@dmitry.i.kabanov&#34;&gt;TikTok&lt;/a&gt;&#xA;videos, which&#xA;I need to backup, it is always good to store your data in the most&#xA;storage-efficient format.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

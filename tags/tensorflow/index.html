@@ -4,19 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>tensorflow | Website of Dmitry Kabanov</title>
+    <title>Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -70,7 +71,7 @@
  });
 </script>
 
-    
+
     
       
 
@@ -82,28 +83,38 @@
       <link href="/tags/tensorflow/index.xml" rel="feed" type="application/rss+xml" title="Website of Dmitry Kabanov" />
       
     
+
     
-    <meta property="og:title" content="tensorflow" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://dmitrykabanov.com/tags/tensorflow/" />
-<meta itemprop="name" content="tensorflow">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="tensorflow"/>
-<meta name="twitter:description" content=""/>
+      <link rel="canonical" href="https://dmitrykabanov.com/tags/tensorflow/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/tags/tensorflow/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Tensorflow">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Tensorflow">
+  <meta itemprop="datePublished" content="2020-07-31T12:19:00+02:00">
+  <meta itemprop="dateModified" content="2020-07-31T12:19:00+02:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tensorflow">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -152,7 +163,7 @@ if (!doNotTrack) {
 
       <div class="tc-l pv3 ph3 ph4-ns">
         <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          tensorflow
+          Tensorflow
         </h1>
         
       </div>
@@ -164,7 +175,7 @@ if (!doNotTrack) {
       
   <article class="cf pa3 pa4-m pa4-l">
     <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
-      <p>Below you will find pages that utilize the taxonomy term “tensorflow”</p>
+      <p>Below you will find pages that utilize the taxonomy term “Tensorflow”</p>
     </div>
   </article>
   <div class="mw8 center">
@@ -180,11 +191,16 @@ if (!doNotTrack) {
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
-To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.
+      <p>When you decorate a function with `tf.function` decorator, sometimes you need
+to keep state between invocations of this function.</p>
+<p>The problem here is that the changes to the state will not be visible in the
+decorated function if the state is saved in the Python variables.</p>
+<p>To illustrate the problem, Tensorflow 2.2 is used:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</span></span></code></pr
     </div>
+    <a href="/blog/2020/03-saving-state-tf-function/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -200,9 +216,17 @@ import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsqu
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
-Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient.
+      <p>Tensorflow 2 uses so called Eager mode by default.
+In this mode, it is easy to define tensors interactively, for example, in
+ipython and see their values.
+However, in Eager mode the execution is slow, which becomes noticable during
+model training.</p>
+<p>Tensorflow 2 offers another mode of execution called Graph mode.
+In this mode, first the computational graph is created and then used to compute
+loss function and its gradient.
+This mode is more performance efficient.</p>
     </div>
+    <a href="/blog/2020/02-tf-function-performance/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 

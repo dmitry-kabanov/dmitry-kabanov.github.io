@@ -13,16 +13,19 @@ are often treated as equivalent to each other (for example, this is how
 passing an array to a function works when one of the expected arguments
 is a pointer).
 However, arrays and pointers are not equivalent to each other.">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -76,58 +79,55 @@ However, arrays and pointers are not equivalent to each other.">
  });
 </script>
 
-    
+
     
       
 
     
 
     
+
     
-    <meta property="og:title" content="Array and pointers equivalence myth" />
-<meta property="og:description" content="I&rsquo;d like to share some knowledge about subtle thing that I have learned
-recently in C.
-It is related to the relations between arrays and pointers, and how they
-are often treated as equivalent to each other (for example, this is how
-passing an array to a function works when one of the expected arguments
-is a pointer).
-However, arrays and pointers are not equivalent to each other." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/array-decay-to-pointer-in-c/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2023-09-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-09-05T00:00:00+00:00" />
-<meta itemprop="name" content="Array and pointers equivalence myth">
-<meta itemprop="description" content="I&rsquo;d like to share some knowledge about subtle thing that I have learned
-recently in C.
-It is related to the relations between arrays and pointers, and how they
-are often treated as equivalent to each other (for example, this is how
-passing an array to a function works when one of the expected arguments
-is a pointer).
-However, arrays and pointers are not equivalent to each other."><meta itemprop="datePublished" content="2023-09-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-09-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="529">
-<meta itemprop="keywords" content="programming,c," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Array and pointers equivalence myth"/>
-<meta name="twitter:description" content="I&rsquo;d like to share some knowledge about subtle thing that I have learned
-recently in C.
-It is related to the relations between arrays and pointers, and how they
-are often treated as equivalent to each other (for example, this is how
-passing an array to a function works when one of the expected arguments
-is a pointer).
-However, arrays and pointers are not equivalent to each other."/>
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2023/array-decay-to-pointer-in-c/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2023/array-decay-to-pointer-in-c/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Array and pointers equivalence myth">
+  <meta property="og:description" content="I’d like to share some knowledge about subtle thing that I have learned recently in C. It is related to the relations between arrays and pointers, and how they are often treated as equivalent to each other (for example, this is how passing an array to a function works when one of the expected arguments is a pointer). However, arrays and pointers are not equivalent to each other.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-09-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-09-05T00:00:00+00:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="C">
+
+  <meta itemprop="name" content="Array and pointers equivalence myth">
+  <meta itemprop="description" content="I’d like to share some knowledge about subtle thing that I have learned recently in C. It is related to the relations between arrays and pointers, and how they are often treated as equivalent to each other (for example, this is how passing an array to a function works when one of the expected arguments is a pointer). However, arrays and pointers are not equivalent to each other.">
+  <meta itemprop="datePublished" content="2023-09-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="529">
+  <meta itemprop="keywords" content="Programming,C">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Array and pointers equivalence myth">
+  <meta name="twitter:description" content="I’d like to share some knowledge about subtle thing that I have learned recently in C. It is related to the relations between arrays and pointers, and how they are often treated as equivalent to each other (for example, this is how passing an array to a function works when one of the expected arguments is a pointer). However, arrays and pointers are not equivalent to each other.">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -193,9 +193,9 @@ if (!doNotTrack) {
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        BLOGS
+        Blogs
       </aside>
       
 
@@ -309,18 +309,18 @@ of the array, however, they have different types.</p>
 </ul><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c</a>
+     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">C</a>
    </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
       
         <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

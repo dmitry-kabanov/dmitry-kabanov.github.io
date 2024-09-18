@@ -1,39 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shell on Website of Dmitry Kabanov</title>
+    <title>Shell on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/shell/</link>
-    <description>Recent content in shell on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Shell on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to reencode H.264 videos to H.265</title>
       <link>https://dmitrykabanov.com/blog/2023/reencode-h.264-to-h/</link>
       <pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/reencode-h.264-to-h/</guid>
-      <description>&lt;p&gt;I had videos in H.264 codec that I wanted to reencode to H.265.
-The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more
-modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),
-which allows to keep the same quality with about twice less storage.&lt;/p&gt;
-&lt;p&gt;As I make from time to time
-&lt;a href=&#34;https://www.youtube.com/@dmitry-kabanov&#34;&gt;YouTube&lt;/a&gt;,
-&lt;a href=&#34;https://www.instagram.com/dmitry.i.kabanov/&#34;&gt;Instagram&lt;/a&gt;, and
-&lt;a href=&#34;https://www.tiktok.com/@dmitry.i.kabanov&#34;&gt;TikTok&lt;/a&gt;
-videos, which
-I need to backup, it is always good to store your data in the most
-storage-efficient format.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I had videos in H.264 codec that I wanted to reencode to H.265.&#xA;The reason is that H.265 (a.k.a. High Efficiency Video Codec, HEVC) is a more&#xA;modern and efficient format than H.264 (a.k.a. Advanced Video Codec, AVC),&#xA;which allows to keep the same quality with about twice less storage.&lt;/p&gt;&#xA;&lt;p&gt;As I make from time to time&#xA;&lt;a href=&#34;https://www.youtube.com/@dmitry-kabanov&#34;&gt;YouTube&lt;/a&gt;,&#xA;&lt;a href=&#34;https://www.instagram.com/dmitry.i.kabanov/&#34;&gt;Instagram&lt;/a&gt;, and&#xA;&lt;a href=&#34;https://www.tiktok.com/@dmitry.i.kabanov&#34;&gt;TikTok&lt;/a&gt;&#xA;videos, which&#xA;I need to backup, it is always good to store your data in the most&#xA;storage-efficient format.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Redirection of stdout and stderr to the same file</title>
       <link>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</link>
       <pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</guid>
-      <description>Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.</description>
+      <description>&lt;p&gt;Often, when running a program in console, one needs to save all its output&#xA;to a file.&#xA;Very often, such a program writes both to the standard output (&lt;code&gt;stdout&lt;/code&gt;)&#xA;and to the standard error output (&lt;code&gt;stderr&lt;/code&gt;).&#xA;For example, by default, in a Python program the &lt;code&gt;print&lt;/code&gt; function writes to&#xA;&lt;code&gt;stdout&lt;/code&gt; and the functions of the &lt;code&gt;logging&lt;/code&gt; module to &lt;code&gt;stderr&lt;/code&gt;.&#xA;Therefore, one needs to &lt;strong&gt;redirect both &lt;code&gt;stdout&lt;/code&gt; and &lt;code&gt;stderr&lt;/code&gt;&lt;/strong&gt; to the same file.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

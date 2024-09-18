@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>js on Website of Dmitry Kabanov</title>
+    <title>Js on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/js/</link>
-    <description>Recent content in js on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Js on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Javascript: control flow</title>
       <link>https://dmitrykabanov.com/blog/2022/javascript-control-flow/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2022/javascript-control-flow/</guid>
-      <description>Conditions To execute some block of code depending on a condition, the following constructions are used; they are exactly like in C programming language.
-Simple if:
-let x = 7; if (x &amp;gt; 5) { console.log(&amp;#34;x is greater than five&amp;#34;); } x is greater than five Construction if-else:
-x = 3; if (x &amp;gt; 5) { console.log(&amp;#34;x is greater than five&amp;#34;); } else { console.log(&amp;#34;x is not greater than five&amp;#34;); } x is not greater than five And the conditions can be chained together:</description>
+      <description>&lt;h2 id=&#34;conditions&#34;&gt;Conditions&lt;/h2&gt;&#xA;&lt;p&gt;To execute some block of code depending on a condition, the following&#xA;constructions are used; they are exactly like in C programming language.&lt;/p&gt;&#xA;&lt;p&gt;Simple &lt;code&gt;if&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is greater than five&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
-    
     <item>
       <title>Javascript: expressions and variables</title>
       <link>https://dmitrykabanov.com/blog/2022/javascript-expressions-and-variables/</link>
       <pubDate>Thu, 24 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2022/javascript-expressions-and-variables/</guid>
-      <description>&lt;p&gt;I was recently studying Javascript out of curiousity as this language is used
-so much in the current web and mobile development.
-These are notes on basic Javascript knowledge to better memorize its syntax.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I was recently studying Javascript out of curiousity as this language is used&#xA;so much in the current web and mobile development.&#xA;These are notes on basic Javascript knowledge to better memorize its syntax.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

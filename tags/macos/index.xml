@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>macos on Website of Dmitry Kabanov</title>
+    <title>Macos on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/macos/</link>
-    <description>Recent content in macos on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Macos on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get list of open files on external volume in macOS</title>
       <link>https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/</link>
       <pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/</guid>
-      <description>Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me &amp;mdash; a file was open by stuck QuickLook app.
-To find the list of open files on that volume:
-lsof /Volumes/MyVolume </description>
+      <description>&lt;p&gt;Sometimes, when you try to eject an external volume (logical part of a disk),&#xA;macOS fails to do this as some files are still open.&#xA;Frequently, it is clear what files are open by which program and can be closed.&#xA;However, not always so.&#xA;It has just happened to me &amp;mdash; a file was open by stuck QuickLook app.&lt;/p&gt;&#xA;&lt;p&gt;To find the list of open files on that volume:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

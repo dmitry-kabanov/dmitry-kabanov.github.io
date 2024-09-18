@@ -6,19 +6,28 @@
     
     <title>Solving Perfect Squares problem using breadth-first search | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &ldquo;by levels&rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
-One typical application of BFS is to find the shortest path between the root and the given nodes.
+    <meta name="description" content="I was learning recently about solving problems that use
+breadth-first search (BFS).
+This is a family of computer science algorithms that traverse
+tree data structures &ldquo;by levels&rdquo;.
+That is, starting at the root, we process all nodes on level 1,
+then all nodes on level 2, etc.
+One typical application of BFS is to find the shortest path between
+the root and the given nodes.
 To implement BFS, one should use the queue data structure.">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -72,46 +81,61 @@ To implement BFS, one should use the queue data structure.">
  });
 </script>
 
-    
+
     
       
 
     
 
     
+
     
-    <meta property="og:title" content="Solving Perfect Squares problem using breadth-first search" />
-<meta property="og:description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &ldquo;by levels&rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Solving Perfect Squares problem using breadth-first search">
+  <meta property="og:description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures “by levels”. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
 One typical application of BFS is to find the shortest path between the root and the given nodes.
-To implement BFS, one should use the queue data structure." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/solving-perfect-squares-via-bfs/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2023-04-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-04-17T00:00:00+00:00" />
-<meta itemprop="name" content="Solving Perfect Squares problem using breadth-first search">
-<meta itemprop="description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &ldquo;by levels&rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
+To implement BFS, one should use the queue data structure.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-04-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-17T00:00:00+00:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Algorithms">
+
+  <meta itemprop="name" content="Solving Perfect Squares problem using breadth-first search">
+  <meta itemprop="description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures “by levels”. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
 One typical application of BFS is to find the shortest path between the root and the given nodes.
-To implement BFS, one should use the queue data structure."><meta itemprop="datePublished" content="2023-04-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-04-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="506">
-<meta itemprop="keywords" content="programming,algorithms," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Solving Perfect Squares problem using breadth-first search"/>
-<meta name="twitter:description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &ldquo;by levels&rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
+To implement BFS, one should use the queue data structure.">
+  <meta itemprop="datePublished" content="2023-04-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-04-17T00:00:00+00:00">
+  <meta itemprop="wordCount" content="506">
+  <meta itemprop="keywords" content="Programming,Algorithms">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Solving Perfect Squares problem using breadth-first search">
+  <meta name="twitter:description" content="I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures “by levels”. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
 One typical application of BFS is to find the shortest path between the root and the given nodes.
-To implement BFS, one should use the queue data structure."/>
+To implement BFS, one should use the queue data structure.">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -170,9 +194,9 @@ if (!doNotTrack) {
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        BLOGS
+        Blogs
       </aside>
       
 
@@ -294,18 +318,18 @@ that lead the sum to exceed the given number <code>n</code>.</p>
 <ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/algorithms/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">algorithms</a>
+     <a href="/tags/algorithms/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Algorithms</a>
    </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
       
         <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

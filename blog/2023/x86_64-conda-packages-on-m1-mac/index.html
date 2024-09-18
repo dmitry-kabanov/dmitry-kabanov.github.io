@@ -6,17 +6,30 @@
     
     <title>How to use x86_64 packages in Conda on M1 Mac | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture.">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="description" content="If you work on an M1 Mac computer (that is, on an Apple computer with
+an ARM processor)
+and use Conda
+to manage Python environments and packages,
+sometimes you need to work with packages that are available
+only for x86_64 architecture, that is, for Macs with Intel processors
+(x86_64 is a common name for 64-bit Intel processors).
+For example, I ran into this problem when I wanted to go through
+SnakeMake tutorial,
+and it turned out that many bioinformatics tools (needed for the tutorial)
+are not available for the M1 architecture.">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -70,40 +83,55 @@
  });
 </script>
 
-    
+
     
       
 
     
 
     
+
     
-    <meta property="og:title" content="How to use x86_64 packages in Conda on M1 Mac" />
-<meta property="og:description" content="If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2023-06-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-06-05T00:00:00+00:00" />
-<meta itemprop="name" content="How to use x86_64 packages in Conda on M1 Mac">
-<meta itemprop="description" content="If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture."><meta itemprop="datePublished" content="2023-06-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-06-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="314">
-<meta itemprop="keywords" content="computing,mac," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to use x86_64 packages in Conda on M1 Mac"/>
-<meta name="twitter:description" content="If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture."/>
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2023/x86_64-conda-packages-on-m1-mac/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="How to use x86_64 packages in Conda on M1 Mac">
+  <meta property="og:description" content="If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2023-06-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-06-05T00:00:00+00:00">
+    <meta property="article:tag" content="Computing">
+    <meta property="article:tag" content="Mac">
+
+  <meta itemprop="name" content="How to use x86_64 packages in Conda on M1 Mac">
+  <meta itemprop="description" content="If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture.">
+  <meta itemprop="datePublished" content="2023-06-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-06-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="314">
+  <meta itemprop="keywords" content="Computing,Mac">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to use x86_64 packages in Conda on M1 Mac">
+  <meta name="twitter:description" content="If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture.">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -162,9 +190,9 @@ if (!doNotTrack) {
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        BLOGS
+        Blogs
       </aside>
       
 
@@ -217,14 +245,14 @@ Rosetta mode is macOS&rsquo; compatibility layer
 for software written for Intel processors.
 As I would like to use the terminal most of the time in native M1 mode,
 I open the <code>/Applications</code> directory in Finder and copy the terminal app:</p>
-<figure><img src="/images/2023/x86_64-copy-app.png" width="50%"/>
+<figure><img src="/images/2023/x86_64-copy-app.png" width="50%">
 </figure>
 
 <p>I use <a href="https://iterm2.com/">iTerm2</a> as my default terminal, so I name the copy <code>iTerm x86_64</code>.
 Now open &ldquo;Get info&rdquo; window for the app
 and check the &ldquo;Open with Rosetta&rdquo; checkbox,
 so that this copy of the terminal always opens in compability mode:</p>
-<figure><img src="/images/2023/x86_64-rosetta.png" width="50%"/>
+<figure><img src="/images/2023/x86_64-rosetta.png" width="50%">
 </figure>
 
 <p>Now when you need to work in a Conda environment with <code>x86_64</code> packages,
@@ -241,18 +269,18 @@ the M1 packages are denoted <code>osx-arm64</code>).</p>
 <ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/computing/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">computing</a>
+     <a href="/tags/computing/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Computing</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/mac/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">mac</a>
+     <a href="/tags/mac/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Mac</a>
    </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
       
         <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

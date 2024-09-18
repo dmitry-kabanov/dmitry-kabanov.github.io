@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>writing on Website of Dmitry Kabanov</title>
+    <title>Writing on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/writing/</link>
-    <description>Recent content in writing on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Writing on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 May 2021 12:16:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 12:16:00 +0200</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/writing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Books on writing science</title>
       <link>https://dmitrykabanov.com/blog/2021/books-on-writing-science/</link>
       <pubDate>Sat, 15 May 2021 12:16:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2021/books-on-writing-science/</guid>
-      <description>To be successful in academia, it is very important to have a good skill in writing and to write often and productively. Because the good skill in writing is rarely taught, one should learn it from reading books on the topic.
-Recommended books on this topic are:
-Belcher W. Writing Your Journal Article in Twelve Weeks, Second Edition
-I haven&amp;rsquo;t read it but it has very high grades in reviews. The book is in Letter paper size and has 427 pages, so, I guess, it is worth considering buying an e-book version on the publisher&amp;rsquo;s website.</description>
+      <description>&lt;p&gt;To be successful in academia, it is very important to have a good skill in&#xA;writing and to write often and productively.&#xA;Because the good skill in writing is rarely taught, one should learn it from&#xA;reading books on the topic.&lt;/p&gt;&#xA;&lt;p&gt;Recommended books on this topic are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Belcher W. &lt;em&gt;Writing Your Journal Article in Twelve Weeks&lt;/em&gt;, Second Edition&lt;/p&gt;&#xA;&lt;p&gt;I haven&amp;rsquo;t read it but it has very high grades in reviews.&#xA;The book is in Letter paper size and has 427 pages, so, I guess, it is worth&#xA;considering buying an e-book version on the &lt;a href=&#34;https://press.uchicago.edu/ucp/books/book/chicago/W/bo26985005.html&#34;&gt;publisher&amp;rsquo;s website&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

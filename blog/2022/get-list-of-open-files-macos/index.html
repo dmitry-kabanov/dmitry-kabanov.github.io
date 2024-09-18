@@ -6,19 +6,25 @@
     
     <title>Get list of open files on external volume in macOS | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me &mdash; a file was open by stuck QuickLook app.
-To find the list of open files on that volume:
-lsof /Volumes/MyVolume ">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="description" content="Sometimes, when you try to eject an external volume (logical part of a disk),
+macOS fails to do this as some files are still open.
+Frequently, it is clear what files are open by which program and can be closed.
+However, not always so.
+It has just happened to me &mdash; a file was open by stuck QuickLook app.
+To find the list of open files on that volume:">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -72,46 +78,58 @@ lsof /Volumes/MyVolume ">
  });
 </script>
 
-    
+
     
       
 
     
 
     
+
     
-    <meta property="og:title" content="Get list of open files on external volume in macOS" />
-<meta property="og:description" content="Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me &mdash; a file was open by stuck QuickLook app.
-To find the list of open files on that volume:
-lsof /Volumes/MyVolume " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2022-12-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-12-04T00:00:00+00:00" />
-<meta itemprop="name" content="Get list of open files on external volume in macOS">
-<meta itemprop="description" content="Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me &mdash; a file was open by stuck QuickLook app.
-To find the list of open files on that volume:
-lsof /Volumes/MyVolume "><meta itemprop="datePublished" content="2022-12-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-12-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="71">
-<meta itemprop="keywords" content="sysadmin,macos," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Get list of open files on external volume in macOS"/>
-<meta name="twitter:description" content="Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me &mdash; a file was open by stuck QuickLook app.
-To find the list of open files on that volume:
-lsof /Volumes/MyVolume "/>
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2022/get-list-of-open-files-macos/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Get list of open files on external volume in macOS">
+  <meta property="og:description" content="Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me — a file was open by stuck QuickLook app.
+To find the list of open files on that volume:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2022-12-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-04T00:00:00+00:00">
+    <meta property="article:tag" content="Sysadmin">
+    <meta property="article:tag" content="Macos">
+
+  <meta itemprop="name" content="Get list of open files on external volume in macOS">
+  <meta itemprop="description" content="Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me — a file was open by stuck QuickLook app.
+To find the list of open files on that volume:">
+  <meta itemprop="datePublished" content="2022-12-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-12-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="71">
+  <meta itemprop="keywords" content="Sysadmin,Macos">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Get list of open files on external volume in macOS">
+  <meta name="twitter:description" content="Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me — a file was open by stuck QuickLook app.
+To find the list of open files on that volume:">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -170,9 +188,9 @@ if (!doNotTrack) {
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        BLOGS
+        Blogs
       </aside>
       
 
@@ -214,18 +232,18 @@ It has just happened to me &mdash; a file was open by stuck QuickLook app.</p>
 </span></span></code></pre></div><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/sysadmin/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">sysadmin</a>
+     <a href="/tags/sysadmin/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Sysadmin</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/macos/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">macos</a>
+     <a href="/tags/macos/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Macos</a>
    </li>
   
 </ul>
 <div class="mt6 instapaper_ignoref">
       
         <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

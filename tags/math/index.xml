@@ -1,41 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>math on Website of Dmitry Kabanov</title>
+    <title>Math on Website of Dmitry Kabanov</title>
     <link>https://dmitrykabanov.com/tags/math/</link>
-    <description>Recent content in math on Website of Dmitry Kabanov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Math on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Apr 2021 18:54:00 +0200</lastBuildDate><atom:link href="https://dmitrykabanov.com/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Apr 2021 18:54:00 +0200</lastBuildDate>
+    <atom:link href="https://dmitrykabanov.com/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic terms in the probability theory</title>
       <link>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</link>
       <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</guid>
-      <description>&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and
-probability measure.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Outcomes and sample space&lt;/strong&gt;
-.
-When you conduct a random experiment, there is a set of possible results of this
-experiment.
-This results are called &lt;em&gt;outcomes&lt;/em&gt;.
-All possible outcomes together form a set, which is called &lt;em&gt;sample space&lt;/em&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and&#xA;probability measure.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Outcomes and sample space&lt;/strong&gt;&#xA;.&#xA;When you conduct a random experiment, there is a set of possible results of this&#xA;experiment.&#xA;This results are called &lt;em&gt;outcomes&lt;/em&gt;.&#xA;All possible outcomes together form a set, which is called &lt;em&gt;sample space&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Borel σ-algebra</title>
       <link>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</guid>
-      <description>When one studies probability theory, a notion of a Borel $σ$-algebra arises. Here we will look at what this is.
-First thing is to understand what $σ$-algebra means.
-Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ-algebra over \(X\), if it has the following properties:
-it consists of subsets of \(X\),
-\(X \in \mathcal B\),
-for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,</description>
+      <description>&lt;p&gt;When one studies probability theory, a notion of a Borel $σ$-algebra arises.&#xA;Here we will look at what this is.&lt;/p&gt;&#xA;&lt;p&gt;First thing is to understand what $σ$-algebra means.&lt;/p&gt;&#xA;&lt;p&gt;Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call&#xA;σ-algebra over \(X\), if it has the following properties:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;it consists of subsets of \(X\),&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;\(X \in \mathcal B\),&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
