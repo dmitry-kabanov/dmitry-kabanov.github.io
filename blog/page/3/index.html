@@ -7,16 +7,17 @@
     <title>Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -70,7 +71,7 @@
  });
 </script>
 
-    
+
     
       
 
@@ -82,28 +83,38 @@
       <link href="/blog/index.xml" rel="feed" type="application/rss+xml" title="Website of Dmitry Kabanov" />
       
     
+
     
-    <meta property="og:title" content="Blogs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/" />
-<meta itemprop="name" content="Blogs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Blogs"/>
-<meta name="twitter:description" content=""/>
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Blogs">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Blogs">
+  <meta itemprop="datePublished" content="2024-09-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-09-18T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blogs">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -171,6 +182,26 @@ if (!doNotTrack) {
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blogs</span>
     <h1 class="f3 near-black">
+      <a href="/blog/2022/javascript-expressions-and-variables/" class="link black dim">
+        Javascript: expressions and variables
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I was recently studying Javascript out of curiousity as this language is used
+so much in the current web and mobile development.
+These are notes on basic Javascript knowledge to better memorize its syntax.</p>
+    </div>
+    <a href="/blog/2022/javascript-expressions-and-variables/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blogs</span>
+    <h1 class="f3 near-black">
       <a href="/blog/2021/howto-quickly-insert-figure-in-lyx/" class="link black dim">
         How to quickly insert a figure in LyX
       </a>
@@ -180,6 +211,7 @@ if (!doNotTrack) {
 <a href="https://lyx.org">Lyx</a>, a \(\LaTeX\) frontend, to quickly insert figures with
 captions.</p>
     </div>
+    <a href="/blog/2021/howto-quickly-insert-figure-in-lyx/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -195,9 +227,21 @@ captions.</p>
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Recently I was attending the class on uncertainty quantification for partial differential equations. As a postdoc, I do participate in the class only partially, however, I have a group of students that I am helping with the homework.
-The first homework required use of Monte Carlo methods with differential equations with random coefficients to estimate uncertainty in the solutions of these equations. As the person with experience in writing PDE solvers, I wrote the solver for the PDE that we used in this homework and shared it with others.
+      <p>Recently I was attending the class on uncertainty quantification for partial
+differential equations.
+As a postdoc, I do participate in the class only partially, however, I have a
+group of students that I am helping with the homework.</p>
+<p>The first homework required use of Monte Carlo methods with differential
+equations with random coefficients to estimate uncertainty in the solutions of
+these equations.
+As the person with experience in writing PDE solvers, I wrote the solver for the
+PDE that we used in this homework and shared it with others.
+Of course, after writing a solver, I wrote a test that the observed order of
+accuracy is correct (second order, in this case) as I strongly believe that the
+automated testing is superimportant in software and the test on the observed
+order of accuracy is the best test for numerical solvers.</p>
     </div>
+    <a href="/blog/2021/need-for-software-testing/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -213,11 +257,19 @@ The first homework required use of Monte Carlo methods with differential equatio
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      To be successful in academia, it is very important to have a good skill in writing and to write often and productively. Because the good skill in writing is rarely taught, one should learn it from reading books on the topic.
-Recommended books on this topic are:
-Belcher W. Writing Your Journal Article in Twelve Weeks, Second Edition
-I haven&rsquo;t read it but it has very high grades in reviews. The book is in Letter paper size and has 427 pages, so, I guess, it is worth considering buying an e-book version on the publisher&rsquo;s website.
+      <p>To be successful in academia, it is very important to have a good skill in
+writing and to write often and productively.
+Because the good skill in writing is rarely taught, one should learn it from
+reading books on the topic.</p>
+<p>Recommended books on this topic are:</p>
+<ul>
+<li>
+<p>Belcher W. <em>Writing Your Journal Article in Twelve Weeks</em>, Second Edition</p>
+<p>I haven&rsquo;t read it but it has very high grades in reviews.
+The book is in Letter paper size and has 427 pages, so, I guess, it is worth
+considering buying an e-book version on the <a href="https://press.uchicago.edu/ucp/books/book/chicago/W/bo26985005.html">publisher&rsquo;s website</a>.</p>
     </div>
+    <a href="/blog/2021/books-on-writing-science/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -242,6 +294,7 @@ experiment.
 This results are called <em>outcomes</em>.
 All possible outcomes together form a set, which is called <em>sample space</em>.</p>
     </div>
+    <a href="/blog/2021/basic-terms-probability-theory/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -257,9 +310,16 @@ All possible outcomes together form a set, which is called <em>sample space</em>
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      When you write a paper in \(\LaTeX\) and your collaborators prefer to use Overleaf but you prefer to use local setup, then you can do it with the help of the git version control system.
-Overall, the process is the following. You create a local git repository and sync it to a remote git service of your choice. Then you create a project in Overleaf. In the project settings you can find the link which you add to your git setup as the second remote server.
+      <p>When you write a paper in \(\LaTeX\) and your collaborators prefer to use <a href="https://www.overleaf.com">Overleaf</a>
+but you prefer to use local setup, then you can do it with the help of the <a href="https://git-scm.com/">git
+version control system</a>.</p>
+<p>Overall, the process is the following. You create a local git repository and
+sync it to a remote git service of your choice.
+Then you create a project in Overleaf. In the project settings you can find
+the link which you add to your git setup as the second remote server.
+The details are below.</p>
     </div>
+    <a href="/blog/2021/collaborate-overleaf-git/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -275,8 +335,17 @@ Overall, the process is the following. You create a local git repository and syn
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      If you use Slurm job manager to run jobs on shared cluster, it often occurs that your job reaches the time limit and is terminated by Slurm. To allow a user to deal with the job termination, Slurm does this in two stages: first, the job receives SIGTERM signal that indicates that the job will be killed soon, and then the job receives SIGKILL signal that actually kills it. The time interval between these two signals is specified via Slurm&rsquo;s configuration parameter KillWait.
+      <p>If you use Slurm job manager to run jobs on shared cluster, it often occurs
+that your job reaches the time limit and is terminated by Slurm.
+To allow a user to deal with the job termination, Slurm does this in two stages:
+first, the job receives <code>SIGTERM</code> signal that indicates that the job will be
+killed soon, and then the job receives <code>SIGKILL</code> signal that actually kills it.
+The time interval between these two signals is specified via Slurm&rsquo;s
+configuration parameter <code>KillWait</code>. This information is from the
+<a href="https://slurm.schedmd.com/sbatch.html">documentation for the <code>sbatch</code> command</a> for the
+<code>--time</code> parameter.</p>
     </div>
+    <a href="/blog/2020/04-job-cancelation-in-slurm/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -292,11 +361,16 @@ Overall, the process is the following. You create a local git repository and syn
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.
-The problem here is that the changes to the state will not be visible in the decorated function if the state is saved in the Python variables.
-To illustrate the problem, Tensorflow 2.2 is used:
-import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsquo;s consider the following code. Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using `tf.
+      <p>When you decorate a function with `tf.function` decorator, sometimes you need
+to keep state between invocations of this function.</p>
+<p>The problem here is that the changes to the state will not be visible in the
+decorated function if the state is saved in the Python variables.</p>
+<p>To illustrate the problem, Tensorflow 2.2 is used:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</span></span></code></pr
     </div>
+    <a href="/blog/2020/03-saving-state-tf-function/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -312,9 +386,17 @@ import tensorflow as tf print(tf.__version__) 2.2.0 To see the problem, let&rsqu
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.
-Tensorflow 2 offers another mode of execution called Graph mode. In this mode, first the computational graph is created and then used to compute loss function and its gradient. This mode is more performance efficient.
+      <p>Tensorflow 2 uses so called Eager mode by default.
+In this mode, it is easy to define tensors interactively, for example, in
+ipython and see their values.
+However, in Eager mode the execution is slow, which becomes noticable during
+model training.</p>
+<p>Tensorflow 2 offers another mode of execution called Graph mode.
+In this mode, first the computational graph is created and then used to compute
+loss function and its gradient.
+This mode is more performance efficient.</p>
     </div>
+    <a href="/blog/2020/02-tf-function-performance/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -330,32 +412,19 @@ Tensorflow 2 offers another mode of execution called Graph mode. In this mode, f
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      This is an introduction to using Hyperopt library. I will use mostly terminology of machine learning (ML) as this library appeared in the ML community.
-Hyperopt library is used to choose the hyperparameters, that is, parameters that must be set before the learning process. The learning process is the process of fitting a given model to some dataset, which is done by minimization of some function.
-For example, when you fit model \(\hat f (x)\) by optimizing function \[ \frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f), \]
+      <p>This is an introduction to using <a href="https://github.com/hyperopt/hyperopt">Hyperopt library</a>. I will use mostly
+terminology of machine learning (ML) as this library appeared in the ML
+community.</p>
+<p>Hyperopt library is used to choose the hyperparameters, that is, parameters that
+must be set before the learning process.
+The <em>learning process</em> is the process of fitting a given model to some dataset,
+which is done by minimization of some function.</p>
+<p>For example, when you fit model \(\hat f (x)\) by optimizing function
+\[
+\frac{1}{N} \sum_{i=1}^N \left( y_i - \hat f (x_i) \right)^2 + \lambda R(f),
+\]</p>
     </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Blogs</span>
-    <h1 class="f3 near-black">
-      <a href="/blog/2019/borel-sigma-algebra/" class="link black dim">
-        Borel σ-algebra
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      When one studies probability theory, a notion of a Borel $σ$-algebra arises. Here we will look at what this is.
-First thing is to understand what $σ$-algebra means.
-Let \(X\) be a set. Then if we have another set \(\mathcal B\), which we call σ-algebra over \(X\), if it has the following properties:
-it consists of subsets of \(X\),
-\(X \in \mathcal B\),
-for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where superscript \(\C\) denotes complement,
-    </div>
+    <a href="/blog/2020/01-hyperopt-basics/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -378,11 +447,14 @@ for any \(b \in \mathcal B\), it follows that \(b^\C \in \mathcal B\), where sup
       <li class="page-item active">
         <a aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
       </li>
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      <li class="page-item">
+        <a href="/blog/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
       </li>
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      <li class="page-item">
+        <a href="/blog/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul></article>
 

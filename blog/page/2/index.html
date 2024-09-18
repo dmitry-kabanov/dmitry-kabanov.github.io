@@ -7,16 +7,17 @@
     <title>Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.134.1">
     
     
     
     
       <meta name="robots" content="index, follow">
     
+    
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.2438bcafd7af9675c426d1a4afcd16cfff18e4e10f401071e45b5ccd3be40a0d.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
 
 
 
@@ -70,7 +71,7 @@
  });
 </script>
 
-    
+
     
       
 
@@ -82,28 +83,38 @@
       <link href="/blog/index.xml" rel="feed" type="application/rss+xml" title="Website of Dmitry Kabanov" />
       
     
+
     
-    <meta property="og:title" content="Blogs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://dmitrykabanov.com/blog/" />
-<meta itemprop="name" content="Blogs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Blogs"/>
-<meta name="twitter:description" content=""/>
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Blogs">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Blogs">
+  <meta itemprop="datePublished" content="2024-09-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-09-18T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blogs">
 
       
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-RZQVXP6B2M', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
     
 	
   </head>
@@ -171,15 +182,41 @@ if (!doNotTrack) {
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blogs</span>
     <h1 class="f3 near-black">
+      <a href="/blog/2023/notes-on-modern-c/" class="link black dim">
+        “Modern C”: Notes on the book by Jens Gustedt
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>These are the table of contents for my notes taken
+while reading the book &ldquo;Modern C&rdquo; by Jens Gustedt,
+which teaches C according to new language standards, C11 and C17.</p>
+    </div>
+    <a href="/blog/2023/notes-on-modern-c/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blogs</span>
+    <h1 class="f3 near-black">
       <a href="/blog/2023/cpp-universal-initialization/" class="link black dim">
         Universal initialization in C&#43;&#43;
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      For my new position, I need to improve my knowledge of the C++ programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C++ by Peter Gottschling to get up to speed with, well, modern C++.
-In this post, I would like to talk about universal initialization (a.k.a. brace-initialization) that was introduced in C++11.
-The syntax for the universal initialization is the following:
+      <p>For my new position, I need to improve my knowledge of the C++ programming
+language (which I did not use basically since 2010).
+So I have started reading the book
+<a href="https://www.informit.com/store/discovering-modern-c-plus-plus-9780136677642">Discovering Modern C++</a>
+by Peter Gottschling to get up to speed with, well, modern C++.</p>
+<p>In this post, I would like to talk about universal initialization (a.k.a.
+brace-initialization) that was introduced in C++11.</p>
+<p>The syntax for the universal initialization is the following:</p>
     </div>
+    <a href="/blog/2023/cpp-universal-initialization/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -195,8 +232,19 @@ The syntax for the universal initialization is the following:
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      If you work on an M1 Mac computer (that is, on an Apple computer with an ARM processor) and use Conda to manage Python environments and packages, sometimes you need to work with packages that are available only for x86_64 architecture, that is, for Macs with Intel processors (x86_64 is a common name for 64-bit Intel processors). For example, I ran into this problem when I wanted to go through SnakeMake tutorial, and it turned out that many bioinformatics tools (needed for the tutorial) are not available for the M1 architecture.
+      <p>If you work on an M1 Mac computer (that is, on an Apple computer with
+an ARM processor)
+and use <a href="https://docs.conda.io/en/latest/">Conda</a>
+to manage Python environments and packages,
+sometimes you need to work with packages that are available
+only for <code>x86_64</code> architecture, that is, for Macs with Intel processors
+(<code>x86_64</code> is a common name for 64-bit Intel processors).
+For example, I ran into this problem when I wanted to go through
+<a href="https://snakemake.readthedocs.io/en/stable/tutorial/setup.html">SnakeMake tutorial</a>,
+and it turned out that many bioinformatics tools (needed for the tutorial)
+are not available for the M1 architecture.</p>
     </div>
+    <a href="/blog/2023/x86_64-conda-packages-on-m1-mac/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -222,6 +270,7 @@ how to have optional function arguments with default values,
 how to create closures (functions, bound to outer variables),
 and how to use recursion.</p>
     </div>
+    <a href="/blog/2023/javascript-functions/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -242,6 +291,7 @@ it can be set up directly in the GitLab repo settings.
 Note that here we use new fine-grained tokens functionality of GitHub
 (which is currently in beta, as of May 2023).</p>
     </div>
+    <a href="/blog/2023/how-to-mirror-gitlab-repo-to-github/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -257,10 +307,17 @@ Note that here we use new fine-grained tokens functionality of GitHub
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      I was learning recently about solving problems that use breadth-first search (BFS). This is a family of computer science algorithms that traverse tree data structures &ldquo;by levels&rdquo;. That is, starting at the root, we process all nodes on level 1, then all nodes on level 2, etc.
-One typical application of BFS is to find the shortest path between the root and the given nodes.
-To implement BFS, one should use the queue data structure.
+      <p>I was learning recently about solving problems that use
+breadth-first search (BFS).
+This is a family of computer science algorithms that traverse
+tree data structures &ldquo;by levels&rdquo;.
+That is, starting at the root, we process all nodes on level 1,
+then all nodes on level 2, etc.</p>
+<p>One typical application of BFS is to find the shortest path between
+the root and the given nodes.</p>
+<p>To implement BFS, one should use the queue data structure.</p>
     </div>
+    <a href="/blog/2023/solving-perfect-squares-via-bfs/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -288,6 +345,7 @@ videos, which
 I need to backup, it is always good to store your data in the most
 storage-efficient format.</p>
     </div>
+    <a href="/blog/2023/reencode-h.264-to-h/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -303,8 +361,15 @@ storage-efficient format.</p>
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Often, when running a program in console, one needs to save all its output to a file. Very often, such a program writes both to the standard output (stdout) and to the standard error output (stderr). For example, by default, in a Python program the print function writes to stdout and the functions of the logging module to stderr. Therefore, one needs to redirect both stdout and stderr to the same file.
+      <p>Often, when running a program in console, one needs to save all its output
+to a file.
+Very often, such a program writes both to the standard output (<code>stdout</code>)
+and to the standard error output (<code>stderr</code>).
+For example, by default, in a Python program the <code>print</code> function writes to
+<code>stdout</code> and the functions of the <code>logging</code> module to <code>stderr</code>.
+Therefore, one needs to <strong>redirect both <code>stdout</code> and <code>stderr</code></strong> to the same file.</p>
     </div>
+    <a href="/blog/2023/redirect-stdout-stderr-same-file/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -320,10 +385,14 @@ storage-efficient format.</p>
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Sometimes, when you try to eject an external volume (logical part of a disk), macOS fails to do this as some files are still open. Frequently, it is clear what files are open by which program and can be closed. However, not always so. It has just happened to me &mdash; a file was open by stuck QuickLook app.
-To find the list of open files on that volume:
-lsof /Volumes/MyVolume 
+      <p>Sometimes, when you try to eject an external volume (logical part of a disk),
+macOS fails to do this as some files are still open.
+Frequently, it is clear what files are open by which program and can be closed.
+However, not always so.
+It has just happened to me &mdash; a file was open by stuck QuickLook app.</p>
+<p>To find the list of open files on that volume:</p>
     </div>
+    <a href="/blog/2022/get-list-of-open-files-macos/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -339,30 +408,18 @@ lsof /Volumes/MyVolume
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Conditions To execute some block of code depending on a condition, the following constructions are used; they are exactly like in C programming language.
-Simple if:
-let x = 7; if (x &gt; 5) { console.log(&#34;x is greater than five&#34;); } x is greater than five Construction if-else:
-x = 3; if (x &gt; 5) { console.log(&#34;x is greater than five&#34;); } else { console.log(&#34;x is not greater than five&#34;); } x is not greater than five And the conditions can be chained together:
+      <h2 id="conditions">Conditions</h2>
+<p>To execute some block of code depending on a condition, the following
+constructions are used; they are exactly like in C programming language.</p>
+<p>Simple <code>if</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;x is greater than five&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pr
     </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Blogs</span>
-    <h1 class="f3 near-black">
-      <a href="/blog/2022/javascript-expressions-and-variables/" class="link black dim">
-        Javascript: expressions and variables
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <p>I was recently studying Javascript out of curiousity as this language is used
-so much in the current web and mobile development.
-These are notes on basic Javascript knowledge to better memorize its syntax.</p>
-    </div>
+    <a href="/blog/2022/javascript-control-flow/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -386,10 +443,13 @@ These are notes on basic Javascript knowledge to better memorize its syntax.</p>
         <a href="/blog/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
       </li>
       <li class="page-item">
+        <a href="/blog/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
         <a href="/blog/page/3/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/blog/page/3/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/blog/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul></article>
 
