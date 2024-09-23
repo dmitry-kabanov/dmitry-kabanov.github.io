@@ -6,6 +6,12 @@ figure.aligncenter {
     text-align: center;
 }
 
+/* Is not used anymore actually, as I decided to avoid featured images. */
 header.cover {
     background-size: contain !important;
+}
+
+pre .pre {
+    overflow: visible;
+    white-space: pre-wrap;
 }
