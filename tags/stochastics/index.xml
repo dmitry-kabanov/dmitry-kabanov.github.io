@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stochastics on Website of Dmitry Kabanov</title>
+    <link>http://localhost:1313/tags/stochastics/</link>
+    <description>Recent content in Stochastics on Website of Dmitry Kabanov</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/stochastics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stochastic processes of brownian motion type</title>
+      <link>http://localhost:1313/blog/2021/stochastic-processes-brownian-motion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/2021/stochastic-processes-brownian-motion/</guid>
+      <description>&lt;p&gt;In this post, I consider several stochastic processes of Brownian motion&#xA;type&amp;mdash;precisely, standard Brownian motion, Brownian motion with drift, and&#xA;geometric Brownian motion.&lt;/p&gt;&#xA;&lt;h2 id=&#34;standard-brownian-motion&#34;&gt;Standard Brownian motion&lt;/h2&gt;&#xA;&lt;p&gt;This process has the property that the increments are independent and normally&#xA;distributed with zero mean and variance equal to the time between increments.&#xA;It is also known as Wiener process. Formally, definition is&lt;/p&gt;&#xA;&lt;p&gt;A stochastic process \(B(t)\), \(t\ge0\) is called&#xA;standard Brownian Motion (BM), if&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -134,11 +134,8 @@ that I would like to discuss here.">
 
     
    
-  
-
-  
-  <header class="cover bg-top" style="background-image: url('https://dmitrykabanov.com/images/2024/malloc.png');">
-    <div class="bg-black-60">
+    <header>
+    <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -175,12 +172,6 @@ that I would like to discuss here.">
   </div>
 </nav>
 
-      <div class="tc-l pv6 ph3 ph4-ns">
-        
-          <div class="f2 f1-l fw2 white-90 mb0 lh-title">How to avoid subtle bugs in malloc usage in C</div>
-          
-        
-      </div>
     </div>
   </header>
 
@@ -190,7 +181,7 @@ that I would like to discuss here.">
       
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
+      <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Blogs
@@ -225,7 +216,10 @@ that I would like to discuss here.">
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Whenever a computer program needs to store data of the size determined only
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><div class="w-two-thirds-l mv4" style="margin: 2rem auto">
+        <img src="https://dmitrykabanov.com/images/2024/malloc.png" style="width: 100%"/>
+        <hr />
+        </div><p>Whenever a computer program needs to store data of the size determined only
 during the runtime, then dynamic memory allocation is required.
 Memory allocation happens in the <em>memory heap</em>, and in C is commonly done
 via a library function <code>malloc</code>, which has subtle things with its usage
@@ -341,7 +335,7 @@ the following StackOverflow posts:</p>
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
+    <aside class="w-30-l mt2-l">
 
 
 
