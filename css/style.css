@@ -11,7 +11,7 @@ header.cover {
     background-size: contain !important;
 }
 
-pre .pre {
+pre.chroma {
     overflow: visible;
     white-space: pre-wrap;
 }
