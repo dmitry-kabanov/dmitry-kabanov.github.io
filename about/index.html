@@ -34,45 +34,29 @@
     
 
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
- MathJax.Hub.Config({
-     tex2jax: {
-         inlineMath: [['$','$'], ['\\(','\\)']],
-         displayMath: [['$$','$$'], ['\\[', '\\]']],
-         processEscapes: true,
-         processEnvironments: true,
-         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-         TeX: { equationNumbers: { autoNumber: "AMS" },
-                extensions: ["AMSmath.js", "AMSsymbols.js"] }
-     }
- });
- MathJax.Hub.Queue(function() {
-     
-     
-     
-     var all = MathJax.Hub.getAllJax(), i;
-     for(i = 0; i < all.length; i += 1) {
-         all[i].SourceElement().parentNode.className += ' has-jax';
-     }
- });
-
- MathJax.Hub.Config({
-     
-     TeX: {
-         equationNumbers: { autoNumber: "AMS" },
-         Macros: {
-             C: "{\\mathrm{C}}",
-             E: "{\\mathbb{E}}",
-             P: "{\\mathbb{P}}",
-             R: "{\\mathbb{R}}",
-             normal: "{\\mathrm{N}}",
-             uniform: "{\\mathrm{Unif}}",
-         },
-     },
- });
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']],                 
+      tags: 'ams',
+      macros: {
+        C: "{\\mathrm{C}}",
+        E: "{\\mathbb{E}}",
+        P: "{\\mathbb{P}}",
+        R: "{\\mathbb{R}}",
+        normal: "{\\mathrm{N}}",
+        uniform: "{\\mathrm{Unif}}",
+      },
+    },
+    startup: {
+      pageReady: () => {
+        return MathJax.startup.defaultPageReady();
+      }
+    },
+  };
 </script>
-
 
     
       
@@ -93,20 +77,23 @@
     <meta property="og:url" content="https://dmitrykabanov.com/about/">
   <meta property="og:site_name" content="Website of Dmitry Kabanov">
   <meta property="og:title" content="About me">
-  <meta property="og:description" content=" Hi! My name is Dmitry Kabanov.
+  <meta property="og:description" content="
+Hi! My name is Dmitry Kabanov.
 This blog is a presentation of the things that I learn in relation to my professional activities, which are in the intersection of software development and math/scientific computing.
 I currently work as a Research Software Engineer in the University of Münster, Germany, in the group Numerical Analysis and Scientific Computing lead by Prof. Dr. Mario Ohlberger. My responsibility is to improve interoperability between scientific computing languages by providing open interfaces and data marshalling between these languages. This project is a part of the Mathematical Research Data Initiative (MaRDI).">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="About me">
-  <meta itemprop="description" content=" Hi! My name is Dmitry Kabanov.
+  <meta itemprop="description" content="
+Hi! My name is Dmitry Kabanov.
 This blog is a presentation of the things that I learn in relation to my professional activities, which are in the intersection of software development and math/scientific computing.
 I currently work as a Research Software Engineer in the University of Münster, Germany, in the group Numerical Analysis and Scientific Computing lead by Prof. Dr. Mario Ohlberger. My responsibility is to improve interoperability between scientific computing languages by providing open interfaces and data marshalling between these languages. This project is a part of the Mathematical Research Data Initiative (MaRDI).">
   <meta itemprop="wordCount" content="161">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="About me">
-  <meta name="twitter:description" content=" Hi! My name is Dmitry Kabanov.
+  <meta name="twitter:description" content="
+Hi! My name is Dmitry Kabanov.
 This blog is a presentation of the things that I learn in relation to my professional activities, which are in the intersection of software development and math/scientific computing.
 I currently work as a Research Software Engineer in the University of Münster, Germany, in the group Numerical Analysis and Scientific Computing lead by Prof. Dr. Mario Ohlberger. My responsibility is to improve interoperability between scientific computing languages by providing open interfaces and data marshalling between these languages. This project is a part of the Mathematical Research Data Initiative (MaRDI).">
 
@@ -178,11 +165,11 @@ I currently work as a Research Software Engineer in the University of Münster, 
 
     <main class="pb7" role="main">
       
-  <article class="pa3 pa4-ns nested-copy-line-height">
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
     
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 center measure-widest lh-copy mid-gray"><figure class="aligncenter"><img src="/images/me.jpg">
-</figure>
-
+    <section class="cf ph3 ph5-l f4 tc-l center measure-wide lh-copy mid-gray">
+      <h1 class="f1 center lh-title black">About me</h1>
+    <div class="tl serif"><p class="flex justify-center"><img src="/images/me.jpg" alt="Dmitry Kabanov" class="br-100 h5 w5"></p>
 <p>Hi! My name is Dmitry Kabanov.</p>
 <p>This blog is a presentation of the things that I learn in relation
 to my professional activities,
@@ -209,7 +196,8 @@ in 2018.</p>
 <li><a href="https://github.com/dmitry-kabanov">GitHub</a></li>
 <li><a href="https://www.linkedin.com/in/dmitrykabanov">LinkedIn</a></li>
 </ul>
-</section>
+</div>
+    </section>
   </article>
 
     </main>
@@ -223,6 +211,7 @@ in 2018.</p>
   
 </div>
 </div>
+  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
 

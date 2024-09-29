@@ -32,45 +32,29 @@
     
 
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
- MathJax.Hub.Config({
-     tex2jax: {
-         inlineMath: [['$','$'], ['\\(','\\)']],
-         displayMath: [['$$','$$'], ['\\[', '\\]']],
-         processEscapes: true,
-         processEnvironments: true,
-         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-         TeX: { equationNumbers: { autoNumber: "AMS" },
-                extensions: ["AMSmath.js", "AMSsymbols.js"] }
-     }
- });
- MathJax.Hub.Queue(function() {
-     
-     
-     
-     var all = MathJax.Hub.getAllJax(), i;
-     for(i = 0; i < all.length; i += 1) {
-         all[i].SourceElement().parentNode.className += ' has-jax';
-     }
- });
-
- MathJax.Hub.Config({
-     
-     TeX: {
-         equationNumbers: { autoNumber: "AMS" },
-         Macros: {
-             C: "{\\mathrm{C}}",
-             E: "{\\mathbb{E}}",
-             P: "{\\mathbb{P}}",
-             R: "{\\mathbb{R}}",
-             normal: "{\\mathrm{N}}",
-             uniform: "{\\mathrm{Unif}}",
-         },
-     },
- });
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']],                 
+      tags: 'ams',
+      macros: {
+        C: "{\\mathrm{C}}",
+        E: "{\\mathbb{E}}",
+        P: "{\\mathbb{P}}",
+        R: "{\\mathbb{R}}",
+        normal: "{\\mathrm{N}}",
+        uniform: "{\\mathrm{Unif}}",
+      },
+    },
+    startup: {
+      pageReady: () => {
+        return MathJax.startup.defaultPageReady();
+      }
+    },
+  };
 </script>
-
 
     
       
@@ -271,6 +255,7 @@ reading books on the topic.</p>
   
 </div>
 </div>
+  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
 

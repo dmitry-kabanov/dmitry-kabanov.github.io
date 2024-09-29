@@ -36,45 +36,29 @@ community.">
     
 
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
- MathJax.Hub.Config({
-     tex2jax: {
-         inlineMath: [['$','$'], ['\\(','\\)']],
-         displayMath: [['$$','$$'], ['\\[', '\\]']],
-         processEscapes: true,
-         processEnvironments: true,
-         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-         TeX: { equationNumbers: { autoNumber: "AMS" },
-                extensions: ["AMSmath.js", "AMSsymbols.js"] }
-     }
- });
- MathJax.Hub.Queue(function() {
-     
-     
-     
-     var all = MathJax.Hub.getAllJax(), i;
-     for(i = 0; i < all.length; i += 1) {
-         all[i].SourceElement().parentNode.className += ' has-jax';
-     }
- });
-
- MathJax.Hub.Config({
-     
-     TeX: {
-         equationNumbers: { autoNumber: "AMS" },
-         Macros: {
-             C: "{\\mathrm{C}}",
-             E: "{\\mathbb{E}}",
-             P: "{\\mathbb{P}}",
-             R: "{\\mathbb{R}}",
-             normal: "{\\mathrm{N}}",
-             uniform: "{\\mathrm{Unif}}",
-         },
-     },
- });
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']],                 
+      tags: 'ams',
+      macros: {
+        C: "{\\mathrm{C}}",
+        E: "{\\mathbb{E}}",
+        P: "{\\mathbb{P}}",
+        R: "{\\mathbb{R}}",
+        normal: "{\\mathrm{N}}",
+        uniform: "{\\mathrm{Unif}}",
+      },
+    },
+    startup: {
+      pageReady: () => {
+        return MathJax.startup.defaultPageReady();
+      }
+    },
+  };
 </script>
-
 
     
       
@@ -232,7 +216,7 @@ which is done by minimization of some function.</p>
 <li>Define an objective function that numerically measures the quality of the
 given set of hyperparameters.</li>
 <li>Define hyperparameters space.</li>
-<li>Call function `hyperopt.fmin` that will find optimal set of hyperparameters
+<li>Call function <code>hyperopt.fmin</code> that will find optimal set of hyperparameters
 given objective function and hyperparameter space.</li>
 </ol>
 <h2 id="defining-objective-function">Defining objective function</h2>
@@ -245,7 +229,7 @@ given objective function and hyperparameter space.</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">loss</span>
 </span></span></code></pre></div><h2 id="defining-parameter-space">Defining parameter space</h2>
-<p>Hyperparameter space is defined using utility module `hp`.
+<p>Hyperparameter space is defined using utility module <code>hp</code>.
 For each parameter, we can specify which distribution it has.</p>
 <p>For example, the following code specifies that variable
 \(\alpha \sim \uniform(-2, 5)\) while \(\beta \sim \normal(0, 3^2)\):</p>
@@ -255,7 +239,7 @@ For each parameter, we can specify which distribution it has.</p>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span></code></pre></div><h2 id="running-hyperparameter-optimization">Running hyperparameter optimization</h2>
 <p>Now we are ready to optimize hyperparameters. For that, we use function
-`hyperopt.fmin` which accepts objective function and parameter space.
+<code>hyperopt.fmin</code> which accepts objective function and parameter space.
 Besides that, we need to specify the algorithm that we use, and how many trials
 we would like to run:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="n">params_star</span> <span class="o">=</span> <span class="n">hyperopt</span><span class="o">.</span><span class="n">fmin</span><span class="p">(</span>
@@ -324,6 +308,7 @@ Hyperopt library.</p>
   
 </div>
 </div>
+  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
 

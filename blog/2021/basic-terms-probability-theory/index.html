@@ -35,45 +35,29 @@ probability measure.">
     
 
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async>
- MathJax.Hub.Config({
-     tex2jax: {
-         inlineMath: [['$','$'], ['\\(','\\)']],
-         displayMath: [['$$','$$'], ['\\[', '\\]']],
-         processEscapes: true,
-         processEnvironments: true,
-         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-         TeX: { equationNumbers: { autoNumber: "AMS" },
-                extensions: ["AMSmath.js", "AMSsymbols.js"] }
-     }
- });
- MathJax.Hub.Queue(function() {
-     
-     
-     
-     var all = MathJax.Hub.getAllJax(), i;
-     for(i = 0; i < all.length; i += 1) {
-         all[i].SourceElement().parentNode.className += ' has-jax';
-     }
- });
-
- MathJax.Hub.Config({
-     
-     TeX: {
-         equationNumbers: { autoNumber: "AMS" },
-         Macros: {
-             C: "{\\mathrm{C}}",
-             E: "{\\mathbb{E}}",
-             P: "{\\mathbb{P}}",
-             R: "{\\mathbb{R}}",
-             normal: "{\\mathrm{N}}",
-             uniform: "{\\mathrm{Unif}}",
-         },
-     },
- });
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']],                 
+      tags: 'ams',
+      macros: {
+        C: "{\\mathrm{C}}",
+        E: "{\\mathbb{E}}",
+        P: "{\\mathbb{P}}",
+        R: "{\\mathbb{R}}",
+        normal: "{\\mathrm{N}}",
+        uniform: "{\\mathrm{Unif}}",
+      },
+    },
+    startup: {
+      pageReady: () => {
+        return MathJax.startup.defaultPageReady();
+      }
+    },
+  };
 </script>
-
 
     
       
@@ -102,7 +86,7 @@ probability measure.">
   <meta itemprop="description" content="Basic terms in probability theory are outcomes, sample space, events, and probability measure.">
   <meta itemprop="datePublished" content="2021-04-24T18:54:00+02:00">
   <meta itemprop="dateModified" content="2021-04-24T18:54:00+02:00">
-  <meta itemprop="wordCount" content="264">
+  <meta itemprop="wordCount" content="263">
   <meta itemprop="keywords" content="Probability-Theory,Math">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Basic terms in the probability theory">
@@ -220,9 +204,9 @@ probability measure.</p>
 When you conduct a random experiment, there is a set of possible results of this
 experiment.
 This results are called <em>outcomes</em>.
-All possible outcomes together form a set, which is called <em>sample space</em>.
-&lt;!&ndash;more&ndash;&gt;
-It is customary to denote outcomes with \(\omega\) and sample space with \(\Omega\):
+All possible outcomes together form a set, which is called <em>sample space</em>.</p>
+<!--more-->
+<p>It is customary to denote outcomes with \(\omega\) and sample space with \(\Omega\):
 \[
 \Omega = \{
 \omega \text{ such that } \omega \text{ is an outcome of random experiment}
@@ -237,7 +221,7 @@ but also unions and intersections of all of them.
 Besides, if an event is in \(\mathcal F\), the complement of this event must be
 also in \(\mathcal F\).
 Sets such as \(\mathcal F\) are called
-<a href="/blog/2019/borel-sigma-algebra">$σ$-algebras</a>.</p>
+<a href="/blog/2019/borel-sigma-algebra">\(\sigma\)-algebras</a>.</p>
 <p><strong>Important</strong>. Note that \(\omega\) is an outcome, while
 \(\{\omega\}\) is a possible event.</p>
 <p><strong>Probability measure</strong>.
@@ -247,7 +231,7 @@ called <em>probability measure</em>, or just simply probability.
 In general, <a href="https://en.wikipedia.org/wiki/Measure"><em>measure</em></a> in mathematics is a function that takes a set and returns
 its size as a nonnegative number.</p>
 <p><strong>Probability space</strong>.
-Three quantities&mdash;sample space, $σ$-algebra of events, probablity measure&mdash;
+Three quantities&mdash;sample space, \(\sigma\)-algebra of events, probablity measure&mdash;
 form a <em>triplet</em> called <em>probability space</em>:
 \[
 (\Omega, \mathcal F, \P).
@@ -320,6 +304,7 @@ form a <em>triplet</em> called <em>probability space</em>:
   
 </div>
 </div>
+  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
 
