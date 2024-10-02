@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Model-View-Controller architecture, part 1 | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Model-View-Controller (MVC)
+is one of the most common ideas used in programming
+applications with graphical user interfaces (GUI), especially
+in object-oriented programming languages.
+I have read three initial works on MVC from 1970s and 1980s and summarize my
+reading here along with my comments.">
+    <meta name="generator" content="Hugo 0.134.1">
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+      <meta name="author" content = "Dmitry Kabanov">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/chroma.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/style.css">
+  
+
+    
+
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']],                 
+      tags: 'ams',
+      macros: {
+        C: "{\\mathrm{C}}",
+        E: "{\\mathbb{E}}",
+        P: "{\\mathbb{P}}",
+        R: "{\\mathbb{R}}",
+        normal: "{\\mathrm{N}}",
+        uniform: "{\\mathrm{Unif}}",
+      },
+    },
+    startup: {
+      pageReady: () => {
+        return MathJax.startup.defaultPageReady();
+      }
+    },
+  };
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2024/mvc-part-1/">
+    
+
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2024/mvc-part-1/">
+  <meta property="og:site_name" content="Website of Dmitry Kabanov">
+  <meta property="og:title" content="Model-View-Controller architecture, part 1">
+  <meta property="og:description" content="Model-View-Controller (MVC) is one of the most common ideas used in programming applications with graphical user interfaces (GUI), especially in object-oriented programming languages.
+I have read three initial works on MVC from 1970s and 1980s and summarize my reading here along with my comments.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-10-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-02T00:00:00+00:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Oop">
+    <meta property="article:tag" content="Patterns">
+
+  <meta itemprop="name" content="Model-View-Controller architecture, part 1">
+  <meta itemprop="description" content="Model-View-Controller (MVC) is one of the most common ideas used in programming applications with graphical user interfaces (GUI), especially in object-oriented programming languages.
+I have read three initial works on MVC from 1970s and 1980s and summarize my reading here along with my comments.">
+  <meta itemprop="datePublished" content="2024-10-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-10-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2511">
+  <meta itemprop="keywords" content="Programming,Oop,Patterns">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Model-View-Controller architecture, part 1">
+  <meta name="twitter:description" content="Model-View-Controller (MVC) is one of the most common ideas used in programming applications with graphical user interfaces (GUI), especially in object-oriented programming languages.
+I have read three initial works on MVC from 1970s and 1980s and summarize my reading here along with my comments.">
+
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+        }
+      </script>
+    
+	
+  </head>
+
+  <body class="ma0 helvetica bg-near-white production">
+
+    
+   
+    <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Website of Dmitry Kabanov
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+      <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Blogs
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Model-View-Controller architecture, part 1</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-10-02T00:00:00Z">October 2, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><div class="w-two-thirds-l mv4" style="margin: 2rem auto">
+        <img src="https://dmitrykabanov.com/images/2024/mvc.svg" style="width: 100%"/>
+        <hr />
+        </div><p><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Model-View-Controller (MVC)</a>
+is one of the most common ideas used in programming
+applications with graphical user interfaces (GUI), especially
+in object-oriented programming languages.</p>
+<p>I have read three initial works on MVC from 1970s and 1980s and summarize my
+reading here along with my comments.</p>
+<h2 id="introduction">Introduction</h2>
+<p>It is actually a meta design pattern that specifies splitting of software
+components in classes with distinct responsibilities.
+<em>Models</em> are responsible for reflecting the application domain including
+the data that the application operates on.
+<em>Views</em> are responsible for presenting the models to the user.
+<em>Controllers</em> are intermediate components that process user actions
+and request models to read/modify the data in response to these actions.</p>
+<p>This idea was formulated in late 1970s in Xerox Palo Alto Research Center,
+and passed through multiple transformations,
+as the way GUI applications are written nowadays is not exactly the same
+as it was then.</p>
+<p>Particularly, modern applications are based on GUI toolkits that provide
+common widgets such as text fields and buttons, and processing user actions
+does not require an application programmer to implement code to determine
+which widget the user has clicked on,
+although it seems this was an important responsibility for controllers
+in the original idea, as will be seen below.
+Hence, the meaning of Controller has fluctuated, as
+many authors use the same word in different meaning
+(for example, in the <a href="https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)">GRASP patterns by Craig Larman</a>,
+Controller object is non-UI class that handles external input, which,
+as we will see below, is not exactly how Controllers were thought of
+when the idea of MVC was created).</p>
+<p>There are multiple variations on the idea of MVC, such as</p>
+<ul>
+<li><a href="https://doc.qt.io/qt-6/model-view-programming.html">Model/View architecture in Qt</a></li>
+<li><a href="https://www.hackingwithswift.com/books/ios-swiftui/introducing-mvvm-into-your-swiftui-project">Model-View-ViewModel architecture in SwiftUI framework</a></li>
+<li>MVC web frameworks like <a href="https://www.djangoproject.com/">Django</a>.</li>
+</ul>
+<p>Nevertheless, the main idea of MVC,
+the idea of <a href="https://martinfowler.com/eaaDev/SeparatedPresentation.html">Separated Presentation</a>,
+is preserved in all variations.</p>
+<p>One of the goals of reading initial works on MVC for me
+was to see how the MVC was defined initially and why there are so many
+variations of this pattern.</p>
+<p>To make it easier to understand MVC,
+it is useful to understand these design patterns:</p>
+<ul>
+<li><a href="https://refactoring.guru/design-patterns/observer">Observer pattern</a> that allows one object (Observable) to inform
+indefinite number of other objects (Observers) about some event;</li>
+<li><a href="https://refactoring.guru/design-patterns/composite">Composite pattern</a> that allows to work with hierarchical projects
+as with single entities;</li>
+<li><a href="https://refactoring.guru/design-patterns/strategy">Strategy pattern</a> that allows one object (Context) to delegate an operation
+to another object (Strategy).</li>
+</ul>
+<h2 id="original-mvc-idea-from-parc-by-trygve-reenskaug">Original MVC idea from PARC by Trygve Reenskaug</h2>
+<p>The original version of MVC was developed by Trygve Reenskaug in 1979.
+The following original documents can be read at
+<a href="https://folk.universitetetioslo.no/trygver/">his webpage at the University of Oslo</a>:</p>
+<ul>
+<li><a href="https://folk.universitetetioslo.no/trygver/1979/mvc-1/1979-05-MVC.pdf">Thing-Model-View-Editor, 12 May 1979</a></li>
+<li><a href="https://folk.universitetetioslo.no/trygver/1979/mvc-2/1979-12-MVC.pdf">Models-Views-Controllers, 10 December 1979</a></li>
+</ul>
+<h3 id="thing-model-view-editor-12-may-1979">&ldquo;Thing-Model-View-Editor&rdquo;, 12 May 1979</h3>
+<p>This technical note seems to be the first
+prototype for the MVC architecture, although there are four, not three,
+objects (the author calls them metaphors) in this note.</p>
+<p>He provides examples of these objects from a software
+for planning system for large projects,
+that is, the projects, where one must do task management not
+in the head due to the number of different tasks and participants.</p>
+<p>The first object in this &ldquo;quadriad&rdquo; is <em>Thing</em>, which is actually
+not something that belongs directly to software but something
+from the real world that is of interest to the user,
+something that the software is developed for.
+In the planning system,
+the examples of Things are <code>Gannt diagrams</code> and <code>activities</code>,
+that is, tasks with their <code>predecessors</code> (previous tasks)
+and <code>successors</code> (the following tasks).</p>
+<p>The <em>Model</em> in this note is more or less the Model in MVC.
+It is a representation of Things in the form of data in computer,
+along with operations on these data.
+Using the large-planning-system example, activities
+are represented in the software as objects, where the collection
+of activities is a field in the class <code>NetworkModel</code>, with the collection
+being represented as a dictionary.
+That is, the Model actually models
+the objects of the real world (even if they are abstract) in terms
+of data structures and object-oriented classes.
+The author also states the fundamental postulate of MVC here:
+<em>the Model is not concerned with the visual representation
+of the data on computer display</em>.</p>
+<p>The <em>View</em> in this note visually represents the Model,
+and there can be several Views attached to the given Model.
+The first two examples are lists of networks and the list of activities
+in a given network.
+The author models these lists as classes
+<code>NetworkList</code> and <code>ActivityList</code>, which are subclasses of <code>ListView</code>.
+[ <em>I actually do not think that this idea of subclassing widgets
+(that is, generic GUI components like <code>ListView</code>) has survived,
+as nowadays one would use just a generic <code>List</code> widget parameterized
+by the actual list that it displays, without introducing subclasses.</em> ]</p>
+<p>When the author explains how <code>ListView</code> is organized, it gives us
+also the hint that the Editor (a.k.a. Controller) is basically
+attached to a given widget, while he gives examples that the Editor
+is responsible for organization of scrolling inside the view
+and reacting to the selected item in the ListView, e.g., by informing
+other views that an item is selected.
+Interestingly, the last statement is formulated as &ldquo;The Editor
+then asks the <code>ListView</code> and any other Views to select that item&rdquo;,
+which shows that apparently the Observer pattern was not the initial
+part of MVC but appeared later.
+What I mean is that the Editor was responsible to inform one or more
+Views about changes directly, not the Model, indirectly, via sending
+notifications to observers.
+I think this idea is used nowadays in the variant of MVC called
+<a href="https://martinfowler.com/eaaDev/PassiveScreen.html">Passive View by Martin Fowler</a>:
+one of the reasons for that is that it improves
+testability as the more active Controller can be tested
+with the mock of its View so that tests are independent of GUI framework.</p>
+<p>Additional quote I would like particularly
+put here as the hint that the views must be relatively passive
+in terms of the software functions
+as they are already reponsible for displaying:
+&ldquo;This separation of user interface and actual command execution
+provides for great flexibility in the Editor.&rdquo;</p>
+<p>Then he gives an example of <code>ActivityText</code> view which is a subclass
+of <code>TextView</code>, generic component that is able to display textual
+information.</p>
+<p>The next two examples are representation of activities inside a given
+network in the subclass of the <code>DiagramView</code>, which allows to visualize
+activities as rectangles with connections to their predecessors
+and successors.
+Here there are two views - one shows smaller networks with activities
+names and the other shows larger networks without activities names
+and on the gridded background.
+Here he mentions that not every aspect of the View can be deduced
+from the Model itself as the Model does not have any information
+about where to put on the screen a particular activity in the network.</p>
+<p>Here the author proposes again to model them as subclasses of the common
+view or as one view as a subclass of another.
+However, he also proposes here to have just one class <code>DiagramView</code>
+that is parameterized by some field with values <code>small/large</code>,
+so that an appropriate visualization could be chosen.</p>
+<p>The last two examples of views are <code>GanntDiagram</code>
+(subclass of <code>ChartDiagram</code>)
+and <code>ResourceDiagram</code> (subclass of <code>DiagramView</code>).
+Here the most interesting statements are that these view should provide
+operations that allow the user to retrieve some information
+by, say, pointing at some activity in the <code>GanntDiagram</code>.</p>
+<p>The last metaphor in this note, <em>Editor</em>, is &ldquo;an interface between a user
+and one or more views.&rdquo;
+Editor is responsible for providing commands to the user
+in the form of menus and coordinating views.</p>
+<p>The most interesting example of Editor given by the author
+is the Demonstration Editor.
+This Editor shows several panes in a single window, so that these panes
+reflect the modelled Activities network.
+Here the author states the following:</p>
+<blockquote>
+<p>&ldquo;Each of its panes is a sub-Editor that communicates with its
+particular View.
+It also gives commands to the demonstration Editor and receives commands
+from it.&rdquo;</p>
+</blockquote>
+<p>which is basically the idea behind the much later developed patterns
+<a href="https://www.lri.fr/~mbl/ENS/FONDIHM/2013/papers/Coutaz-Interact87.pdf">Presentation-Action-Control (1987)</a>
+and <a href="https://www.infoworld.com/article/2162000/hmvc-the-layered-pattern-for-developing-strong-client-tiers.html">Hierarchical MVC (2001)</a>.
+Hence, the MVC from the very start was considered as a Model
+with a collection of Views and Editors (Controllers) that are connected
+to different aspects of the Model, with the Editors potentially
+being organized hierarchically.</p>
+<h3 id="second-technical-note-10-december-1979">Second technical note, 10 December 1979</h3>
+<p>The second note is actually very short (two pages) but has extremely
+important statements about the role of each component in MVC.</p>
+<ul>
+<li>&ldquo;Models represent knowledge&rdquo;, that is, they represent the domain
+in which software operates. The author also notes that usually there are
+multiple models if the application domain is nontrivial.</li>
+<li>Views represent models visually. The author states also that the
+views are coupled to models (or submodels) as they can directly request
+data from models and can send messages to models to update themselves.</li>
+<li>&ldquo;A controller is the link between a user and the system.
+It provides the user with input by arranging for relevant views
+to present themselves in appropriate places on the screen.&rdquo;
+The author also states that
+&ldquo;Conversely, a view should never know about user input,
+such as mouse operations and keystrokes.
+It should always be possible to write a method in a controller
+that sends messages to views which exactly reproduces any sequence
+of user commands.&rdquo;</li>
+</ul>
+<p>I find this short technical note very insightful.
+I have understood the idea of a Model long time ago:
+it is in general a whole network of collaborating objects,
+representing application domain.
+Also, the statement that Controller is responsbile
+for arranging for relevant views
+is very interesting as this is not obvious to understand,
+for example by reading about MVC in Wikipedia.</p>
+<p>The idea of views not knowing about keystrokes and mouse operations,
+I think, did not survive.
+I think with modern toolkits the views are actually responsible
+for knowing about these things,
+while Controllers are actually not concerned with these things anymore.
+However, I think Controllers are in general written in such way
+that tests should be possible without GUI.</p>
+<h2 id="paper-by-g-dot-e-dot-krasner-and-s-dot-e-dot-pope-from-1988">Paper by G.E. Krasner &amp; S.E. Pope from 1988</h2>
+<p>G.E. Krasner and S.T. Pope published a <a href="https://dl.acm.org/doi/10.5555/50757.50759">paper</a>
+&ldquo;A cookbook for using the model-view controller user interface paradigm
+in Smalltalk-80&rdquo; in the Journal of Object-Oriented Programming
+in 1988 that was, AFAIK,
+the first published work about MVC not from the authors.</p>
+<p>One of the most interesting aspects of this paper for me was that
+the authors basically mention several design patterns several years before
+<a href="https://en.wikipedia.org/wiki/Design_Patterns">the book by Gang of Four</a>
+that made the idea of design patterns popular.</p>
+<p>The authors mention in the beginning:
+&ldquo;The use of pop-up versus fixed menus, the meaning attached to
+keyboard and mouse/function keys, and scheduling of multiple
+views should be choices that can be made independently of the
+model or its view(s)&rdquo;, which further augments the idea that the Controller
+component is responsible for orchestrating the views,
+found in the <code>Demonstration Editor</code> example from the first technical
+note by Trygve Reenskaug.</p>
+<p>&ldquo;Each view may be thought of as being closely associated with a controller,
+each having exactly one model.
+But a model may have many view/controller pairs&rdquo;.
+This is a very important idea, that they will further use in this paper
+by introducing the Observer design pattern to MVC.</p>
+<p>The authors state that the Model can be as simple as an integer, for example,
+for a trivial app that counts how many times user has clicked on a button,
+or a complex object consisting of multiple objects.
+This is the same statement about Model as was in the original formulation.</p>
+<p>Additionally, the authors explictly state that the Views obey to the
+Composite design pattern, that is, that the views can have subviews
+and be put into superviews.
+Therefore, a message <code>display</code> (on a Model update)
+is passed from top-level views to its subviews transparently.</p>
+<p>&ldquo;Controllers also deal with scheduling interactions with other
+view-controller pairs: they track mouse movement between application views
+and implement messages for mouse button activity
+and input from the input sensor.&rdquo;
+They also say that the menus are in the realm of Controllers.</p>
+<p>The interaction between these three components is as follows.
+The Model does not know anything about controllers and views.
+The Controller requests updates on the Model in response to user actions.
+The Model carries out the requested operations.
+As they can be multiple views connecting to the same Model, they all
+must be updated when the Model is updated to preserve consistency.
+This is where the Observer design pattern appears (it is called <em>Dependents</em>
+in the paper): Controllers and Views connected to the Model register
+as its dependents, and the Model informs them about the changes, which
+can be parameterized, so that different types of changes are passed only
+to the dependents that are interested in them.</p>
+<p>When all the interested dependents are informed about the changes,
+they can update themselves.
+Views ask the Model about the updated state. Controllers may also update
+themselves in reaction to the Model changes, for example, some menu items
+can be enabled/disabled due to the new Model state (e.g., when a text
+document is changed after it was saved, the Controller can enable &ldquo;Save&rdquo;
+button in the toolbar).
+In principle, the View that represents these toolbar
+can enable this button&mdash;this is one of the situations where distinction
+between Controller and View is blurry.
+The way of thinking about why the Controller must do it, not the View,
+is that the View visualizes the Model itself,
+while the Controller is responsible for graphical parts
+of the application interface).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>So after reading these three original works, from 1979 and 1987,
+I can say the following:</p>
+<ul>
+<li>the original idea of Model as a representation of application domain
+was there from the very beginning;</li>
+<li>the idea of hierarchy between Controllers was also there from the very
+beginning, as a way to manage complex views consisting of subviews;</li>
+<li>the idea of Model being completely oblivious to Controllers and Views
+is one of the ideas that is preserved in all variations on the MVC idea;</li>
+<li>the idea that Controllers know about mouse/key events, I think,
+in general, did not survive, as now GUI toolkits, which Views are based on,
+handle these things themselves, and Controllers&rsquo; main responsibility
+is to pass external requests to Model;</li>
+<li>both original works by Trygve Reenskaug as well as the paper
+by Krasner &amp; Pope state that quite often not everything about application
+behavior can be derived from Model: a lot of aspects, such as disabling
+menu items or buttons, how to display data, and so on, lead to the idea
+of Presentation Model (or ViewModel) which is responsible for tackling
+these aspects, which are more application-centric, than domain-centric;</li>
+<li>the paper of Krasner &amp; Pope introduced the Observer design pattern
+to MVC with the goal of decoupling Model from Controllers and Views
+and to simplify handling updates of multiple Views attached to the same
+Model;</li>
+<li>the paper of Krasner &amp; Pope introduced also the Composite design pattern
+for structuring Views, although to some extent the Demonstration Editor
+example from the original technical report by Trygve Reenskaug
+introduced the same idea, although not explicit.</li>
+</ul>
+<p>Thank you for reading!</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/oop/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Oop</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/patterns/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Patterns</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dmitrykabanov" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt2-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/2024/notes-on-chapter-07-modern-c/">“Modern C”: Notes on chapter 7 “Functions”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2024/notes-on-chapter-06-modern-c/">“Modern C”: Notes on chapter 6 “Derived data types”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2024/how-to-avoid-subtle-bugs-in-malloc/">How to avoid subtle bugs in malloc usage in C</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-05-modern-c/">“Modern C”: Notes on chapter 5 “Basic values and data”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/array-decay-to-pointer-in-c/">Array and pointers equivalence myth</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-04-modern-c/">“Modern C”: Notes on chapter 4 “Expressing computations”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-03-modern-c/">“Modern C”: Notes on chapter 3 “Everything is about control”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-preamble-level-1-modern-c/">“Modern C”: Notes on preamble “Level 1 Aquaintance”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-chapter-02-modern-c/">“Modern C”: Notes on chapter 2 “The principal structure of a program”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-ch01-modern-c/">“Modern C”: Notes on chapter 1 “Getting started”</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/notes-on-modern-c/">“Modern C”: Notes on the book by Jens Gustedt</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/cpp-universal-initialization/">Universal initialization in C&#43;&#43;</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/javascript-functions/">JavaScript: functions</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/solving-perfect-squares-via-bfs/">Solving Perfect Squares problem using breadth-first search</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/blog/2023/redirect-stdout-stderr-same-file/">Redirection of stdout and stderr to the same file</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
+  </div>
+</footer>
+
+  </body>
+</html>

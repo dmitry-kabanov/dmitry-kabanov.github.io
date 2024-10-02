@@ -6,8 +6,15 @@
     <description>Recent content in Blogs on Website of Dmitry Kabanov</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dmitrykabanov.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Model-View-Controller architecture, part 1</title>
+      <link>https://dmitrykabanov.com/blog/2024/mvc-part-1/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dmitrykabanov.com/blog/2024/mvc-part-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&#34;&gt;Model-View-Controller (MVC)&lt;/a&gt;&#xA;is one of the most common ideas used in programming&#xA;applications with graphical user interfaces (GUI), especially&#xA;in object-oriented programming languages.&lt;/p&gt;&#xA;&lt;p&gt;I have read three initial works on MVC from 1970s and 1980s and summarize my&#xA;reading here along with my comments.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>“Modern C”: Notes on chapter 7 “Functions”</title>
       <link>https://dmitrykabanov.com/blog/2024/notes-on-chapter-07-modern-c/</link>
