@@ -15,3 +15,7 @@ pre.chroma {
     overflow: visible;
     white-space: pre-wrap;
 }
+
+.bg-flat-ui-blue-dark {
+    background-color: #2980b9;
+}
