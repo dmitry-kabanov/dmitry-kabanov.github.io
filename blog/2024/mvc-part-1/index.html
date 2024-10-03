@@ -6,12 +6,7 @@
     
     <title>Model-View-Controller architecture, part 1 | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Model-View-Controller (MVC)
-is one of the most common ideas used in programming
-applications with graphical user interfaces (GUI), especially
-in object-oriented programming languages.
-I have read three initial works on MVC from 1970s and 1980s and summarize my
-reading here along with my comments.">
+    <meta name="description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
     <meta name="generator" content="Hugo 0.134.1">
     
     
@@ -77,8 +72,7 @@ reading here along with my comments.">
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2024/mvc-part-1/">
   <meta property="og:site_name" content="Website of Dmitry Kabanov">
   <meta property="og:title" content="Model-View-Controller architecture, part 1">
-  <meta property="og:description" content="Model-View-Controller (MVC) is one of the most common ideas used in programming applications with graphical user interfaces (GUI), especially in object-oriented programming languages.
-I have read three initial works on MVC from 1970s and 1980s and summarize my reading here along with my comments.">
+  <meta property="og:description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -89,16 +83,14 @@ I have read three initial works on MVC from 1970s and 1980s and summarize my rea
     <meta property="article:tag" content="Patterns">
 
   <meta itemprop="name" content="Model-View-Controller architecture, part 1">
-  <meta itemprop="description" content="Model-View-Controller (MVC) is one of the most common ideas used in programming applications with graphical user interfaces (GUI), especially in object-oriented programming languages.
-I have read three initial works on MVC from 1970s and 1980s and summarize my reading here along with my comments.">
+  <meta itemprop="description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
   <meta itemprop="datePublished" content="2024-10-02T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-10-02T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2511">
+  <meta itemprop="wordCount" content="2507">
   <meta itemprop="keywords" content="Programming,Oop,Patterns">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Model-View-Controller architecture, part 1">
-  <meta name="twitter:description" content="Model-View-Controller (MVC) is one of the most common ideas used in programming applications with graphical user interfaces (GUI), especially in object-oriented programming languages.
-I have read three initial works on MVC from 1970s and 1980s and summarize my reading here along with my comments.">
+  <meta name="twitter:description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
 
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
@@ -209,11 +201,11 @@ I have read three initial works on MVC from 1970s and 1980s and summarize my rea
         <img src="https://dmitrykabanov.com/images/2024/mvc.svg" style="width: 100%"/>
         <hr />
         </div><p><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Model-View-Controller (MVC)</a>
-is one of the most common ideas used in programming
-applications with graphical user interfaces (GUI), especially
-in object-oriented programming languages.</p>
-<p>I have read three initial works on MVC from 1970s and 1980s and summarize my
-reading here along with my comments.</p>
+is one of the most common design patterns used to develop
+applications with graphical user interfaces (GUI),
+especially in object-oriented programming languages.</p>
+<p>I summarize here three initial works on MVC from 1970s and 1980s
+along with my comments.</p>
 <h2 id="introduction">Introduction</h2>
 <p>It is actually a meta design pattern that specifies splitting of software
 components in classes with distinct responsibilities.
