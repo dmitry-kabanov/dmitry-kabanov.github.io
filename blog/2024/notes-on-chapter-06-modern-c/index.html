@@ -11,30 +11,16 @@
 from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
 This chapter discusses objects that consist of other objects, such as arrays,
 pointers, structures, and type aliases.">
-    <meta name="generator" content="Hugo 0.134.1">
-    
+    <meta name="generator" content="Hugo 0.166.0">
     
     
     
       <meta name="robots" content="index, follow">
     
+    <meta name="author" content="Dmitry Kabanov">
     
-      <meta name="author" content = "Dmitry Kabanov">
-    
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
-
-
-
-  
-    <link rel="stylesheet" href="/css/chroma.css">
-  
-
-  
-    <link rel="stylesheet" href="/css/style.css">
-  
-
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous"><link rel="stylesheet" href="/css/chroma.css"><link rel="stylesheet" href="/css/style.css">
     
 
 
@@ -75,36 +61,39 @@ pointers, structures, and type aliases.">
       <link rel="canonical" href="https://dmitrykabanov.com/blog/2024/notes-on-chapter-06-modern-c/">
     
 
+    
+    
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2024/notes-on-chapter-06-modern-c/">
-  <meta property="og:site_name" content="Website of Dmitry Kabanov">
-  <meta property="og:title" content="“Modern C”: Notes on chapter 6 “Derived data types”">
-  <meta property="og:description" content="These are my notes taken while reading chapter 6 “Derived data types” from the book “Modern C” by Jens Gustedt.
+	<meta property="og:site_name" content="Website of Dmitry Kabanov">
+	<meta property="og:title" content="“Modern C”: Notes on chapter 6 “Derived data types”">
+	<meta property="og:description" content="These are my notes taken while reading chapter 6 “Derived data types” from the book “Modern C” by Jens Gustedt.
 This chapter discusses objects that consist of other objects, such as arrays, pointers, structures, and type aliases.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2024-03-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-03-01T00:00:00+00:00">
-    <meta property="article:tag" content="Programming">
-    <meta property="article:tag" content="C">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2024-03-01T00:00:00+00:00">
+		<meta property="article:modified_time" content="2024-03-01T00:00:00+00:00">
+		<meta property="article:tag" content="Programming">
+		<meta property="article:tag" content="C">
 
-  <meta itemprop="name" content="“Modern C”: Notes on chapter 6 “Derived data types”">
-  <meta itemprop="description" content="These are my notes taken while reading chapter 6 “Derived data types” from the book “Modern C” by Jens Gustedt.
+	<meta itemprop="name" content="“Modern C”: Notes on chapter 6 “Derived data types”">
+	<meta itemprop="description" content="These are my notes taken while reading chapter 6 “Derived data types” from the book “Modern C” by Jens Gustedt.
 This chapter discusses objects that consist of other objects, such as arrays, pointers, structures, and type aliases.">
-  <meta itemprop="datePublished" content="2024-03-01T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-03-01T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1270">
-  <meta itemprop="keywords" content="Programming,C">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="“Modern C”: Notes on chapter 6 “Derived data types”">
-  <meta name="twitter:description" content="These are my notes taken while reading chapter 6 “Derived data types” from the book “Modern C” by Jens Gustedt.
+	<meta itemprop="datePublished" content="2024-03-01T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2024-03-01T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1287">
+	<meta itemprop="keywords" content="Programming,C">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="“Modern C”: Notes on chapter 6 “Derived data types”">
+	<meta name="twitter:description" content="These are my notes taken while reading chapter 6 “Derived data types” from the book “Modern C” by Jens Gustedt.
 This chapter discusses objects that consist of other objects, such as arrays, pointers, structures, and type aliases.">
 
+      
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -117,19 +106,15 @@ This chapter discusses objects that consist of other objects, such as arrays, po
       </script>
     
 	
-  </head>
-
-  <body class="ma0 helvetica bg-near-white production">
-
-    
+  </head><body class="ma0 helvetica bg-near-white production is-page is-page page-notes-on-chapter-06-modern-c">
    
     <header>
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem;" alt="Website of Dmitry Kabanov" />
+        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem" alt="Website of Dmitry Kabanov" />
       
     </a>
     <div class="flex-l items-center">
@@ -139,23 +124,26 @@ This chapter discusses objects that consist of other objects, such as arrays, po
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About me page">
               About me
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blogs page">
               Blogs
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/publications/" title="My publications page">
+              My publications
             </a>
           </li>
           
         </ul>
       
-      
-<div class="ananke-socials">
-  
-</div>
+      <div class="ananke-socials"></div>
 
     </div>
   </div>
@@ -165,33 +153,15 @@ This chapter discusses objects that consist of other objects, such as arrays, po
   </header>
 
 
-
-    <main class="pb7" role="main">
-      
+<main class="pb7" role="main">
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
       <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Blogs
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 6 “Derived data types”</h1>
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 6 “Derived data types”</h1>
       
       <p class="tracked">
         By <strong>Dmitry Kabanov</strong>
@@ -229,9 +199,13 @@ location).</p>
 <p>Arrays in C are deeply connected to pointers, however, it is important
 to remember that <em>arrays are not pointers</em>.</p>
 <p>Arrays are declared like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">B</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">20</span><span class="p">];</span>
-</span></span></code></pre></div><p>Note that <code>B</code> is two-dimensional array, precisely, B is 16 arrays
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">B</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">20</span><span class="p">];</span></span></span></code></pre></div>
+  </div><p>Note that <code>B</code> is two-dimensional array, precisely, B is 16 arrays
 of array <code>int[20]</code>.</p>
 <p>Arrays behave differently than the objects of scalar types.
 Particularly, arrays evaluate to <code>true</code> in conditions, they cannot
@@ -243,10 +217,14 @@ VLA are available only from C99, they can can be declared with
 length, defined by a variable.</p>
 <p>FLA have length determined either by an integer constant expression
 (ICE) or by an initializer:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">B</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">C</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">13.0</span> <span class="p">};</span>
-</span></span></code></pre></div><p>All the above arrays has length 4.</p>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">C</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">13.0</span> <span class="p">};</span></span></span></code></pre></div>
+  </div><p>All the above arrays has length 4.</p>
 <p>The length of an array <code>arr</code> is <code>(sizeof arr) / (sizeof arr[0])</code>.
 Note that here the operator <code>sizeof</code> is applied to an object, therefore,
 parentheses are not needed.</p>
@@ -258,9 +236,14 @@ a function can change the passed array.</p>
 <p>Strings are special arrays that have type <code>char</code> and have null character in them.</p>
 <p>Note that during initialization one can by mistake create a <code>char</code> array
 that is not a proper string:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;jay&#34;</span><span class="p">;</span>  <span class="c1">// Has 4 elements: &#39;j&#39;, &#39;a&#39;, &#39;y&#39;, &#39;\0&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">not_s</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;jay&#34;</span><span class="p">;</span>  <span class="c1">// Has 3 elements: &#39;j&#39;, &#39;a&#39;, &#39;y&#39;, so not a proper 0-string.
-</span></span></span></code></pre></div><p>Header file <code>string.h</code> contains function to work with <code>char</code> arrays and strings.
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;jay&#34;</span><span class="p">;</span>  <span class="c1">// Has 4 elements: &#39;j&#39;, &#39;a&#39;, &#39;y&#39;, &#39;\0&#39;
+</span></span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">not_s</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;jay&#34;</span><span class="p">;</span>  <span class="c1">// Has 3 elements: &#39;j&#39;, &#39;a&#39;, &#39;y&#39;, so not a proper 0-string.
+</span></span></span></code></pre></div>
+  </div><p>Header file <code>string.h</code> contains function to work with <code>char</code> arrays and strings.
 Functions that start with <code>mem</code> require only <code>char</code> arrays,
 and with <code>str</code> require strings
 For example <code>memcpy</code> is used to copy <code>len</code> characters from source array
@@ -270,11 +253,19 @@ to target array or <code>memchr</code> looks for character in a given <code>char
 <p>It is often happening mistake that string functions are used on character
 arrays that do not contain null character.</p>
 <p>In prototype to <code>strlen</code> we can see that at least one character (<code>\0</code>) is required:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="kt">char</span> <span class="k">const</span> <span class="n">s</span><span class="p">[</span><span class="k">static</span> <span class="mi">1</span><span class="p">])</span>
-</span></span></code></pre></div><p>And, for example, <code>memcpy</code> has a prototype that does not actually care
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">size_t</span> <span class="nf">strlen</span><span class="p">(</span><span class="kt">char</span> <span class="k">const</span> <span class="n">s</span><span class="p">[</span><span class="k">static</span> <span class="mi">1</span><span class="p">])</span></span></span></code></pre></div>
+  </div><p>And, for example, <code>memcpy</code> has a prototype that does not actually care
 if it is a <code>char</code> array or not:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">target</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">);</span>
-</span></span></code></pre></div><p>Here <code>void *</code> means an object of unknown type and <code>len</code> should be treated
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">target</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">);</span></span></span></code></pre></div>
+  </div><p>Here <code>void *</code> means an object of unknown type and <code>len</code> should be treated
 as the number of bytes to copy.</p>
 <h2 id="6-dot-2-pointers-as-opaque-types">6.2 Pointers as opaque types</h2>
 <p>Pointers are opaque types, in a sense, that they are related indirectly
@@ -288,52 +279,72 @@ can happed inside the program.</p>
 <p><strong>Very important rule</strong>. Always initialize pointers.</p>
 <h2 id="6-dot-3-structures">6.3 Structures</h2>
 <p>We can combine different variables of different types in a <em>structure</em>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">birdStruct</span> <span class="p">{</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">birdStruct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">jay</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">magpie</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">raven</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">chough</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span></code></pre></div><p>(mind the ; in the end),
+</span></span><span class="line"><span class="cl">  <span class="p">};</span></span></span></code></pre></div>
+  </div><p>(mind the ; in the end),
 and then we can create a variable of this type and initialize it:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">birdStruct</span> <span class="k">const</span> <span class="n">birds</span> <span class="o">=</span> <span class="p">{</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">birdStruct</span> <span class="k">const</span> <span class="n">birds</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">chouch</span> <span class="o">=</span> <span class="s">&#34;Henry&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">raven</span> <span class="o">=</span> <span class="s">&#34;Lissy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">magpie</span> <span class="o">=</span> <span class="s">&#34;Frau&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">jay</span> <span class="o">=</span> <span class="s">&#34;Joe&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span></code></pre></div><p>Later in the problem we can refer to the name of the raven as
+</span></span><span class="line"><span class="cl">  <span class="p">};</span></span></span></code></pre></div>
+  </div><p>Later in the problem we can refer to the name of the raven as
 <code>birds.raven</code>.</p>
 <p>Another example is from <code>&lt;time.h&gt;</code> to represent time:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">tm</span> <span class="p">{</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">tm</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_sec</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_min</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_hour</span><span class="p">;</span>   <span class="c1">// [0; 23].
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">tm_mday</span><span class="p">;</span>   <span class="c1">// [1; 31]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">tm_mon</span><span class="p">;</span>    <span class="c1">// Months since January [0; 11]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">tm_year</span><span class="p">;</span>   <span class="c1">// Years sinc 1900
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">tm_wday</span><span class="p">;</span>   <span class="c1">// Weekday since Sunday [0; 6]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">tm_yday</span><span class="p">;</span>   <span class="c1">// Days since new year [0; 365]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">tm_isdst</span><span class="p">;</span>  <span class="c1">// Is Daylight-Saving Time true?
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">};</span>
-</span></span></code></pre></div><p>Note that when you initialize a <code>struct</code> omitted members are set to zero
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_mday</span><span class="p">;</span>   <span class="c1">// [1; 31]
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_mon</span><span class="p">;</span>    <span class="c1">// Months since January [0; 11]
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_year</span><span class="p">;</span>   <span class="c1">// Years sinc 1900
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_wday</span><span class="p">;</span>   <span class="c1">// Weekday since Sunday [0; 6]
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_yday</span><span class="p">;</span>   <span class="c1">// Days since new year [0; 365]
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tm_isdst</span><span class="p">;</span>  <span class="c1">// Is Daylight-Saving Time true?
+</span></span></span><span class="line"><span class="cl">  <span class="p">};</span></span></span></code></pre></div>
+  </div><p>Note that when you initialize a <code>struct</code> omitted members are set to zero
 automatically.</p>
 <p>When we initialize a structure like this, it is a bit tedious to set
 all the values by hand, for example, wday and yday can be determined
 automatically from <code>mday</code>, <code>mon</code>, and <code>year</code>.
 We can write a function that fills in remaining structure members:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">tm</span> <span class="nf">time_set_yday</span><span class="p">(</span><span class="k">struct</span> <span class="n">tm</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">tm</span> <span class="nf">time_set_yday</span><span class="p">(</span><span class="k">struct</span> <span class="n">tm</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">t</span><span class="p">.</span><span class="n">tm_yday</span> <span class="o">=</span> <span class="p">...;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">t</span><span class="p">.</span><span class="n">tm_yday</span> <span class="o">=</span> <span class="p">...;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">t</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></div><p>Two important things here:</p>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span></span></span></code></pre></div>
+  </div><p>Two important things here:</p>
 <ul>
 <li>one needs to write always <code>struct tm</code> which is a bit annoying;</li>
 <li>when structure is passed, it is passed by value, therefore, we need
 to return it back to the caller. The caller code is then:
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">      <span class="n">today</span> <span class="o">=</span> <span class="nf">time_set_yday</span><span class="p">(</span><span class="n">today</span><span class="p">);</span>
-</span></span></code></pre></div></li>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">      <span class="n">today</span> <span class="o">=</span> <span class="nf">time_set_yday</span><span class="p">(</span><span class="n">today</span><span class="p">);</span></span></span></code></pre></div>
+  </div></li>
 </ul>
 <p>Note that returned object is <em>different</em> from the function argument,
 as <code>struct</code> is passed by value!</p>
@@ -343,66 +354,94 @@ with comparison operators <code>==</code> and <code>!=</code>.</p>
 done carefully.</p>
 <p>For example, one can work with nano-second-precise timestamps using
 the following structure:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">timespec</span> <span class="p">{</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">timespec</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">time_t</span> <span class="n">tv_sec</span><span class="p">;</span>    <span class="c1">// Whole seconds &gt;= 0
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">long</span> <span class="n">tv_nsec</span><span class="p">;</span>     <span class="c1">// Nanoseconds [0; 999&#39;999&#39;999]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">};</span>
-</span></span></code></pre></div><p>Any data type except VLA is allowed as a struct member.
+</span></span></span><span class="line"><span class="cl">    <span class="kt">long</span> <span class="n">tv_nsec</span><span class="p">;</span>     <span class="c1">// Nanoseconds [0; 999&#39;999&#39;999]
+</span></span></span><span class="line"><span class="cl">  <span class="p">};</span></span></span></code></pre></div>
+  </div><p>Any data type except VLA is allowed as a struct member.
 Therefore, structures can be nested, and the embedded structure can
 be declared directly insides the enclosing data structure:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">stardate</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">struct</span> <span class="n">tm</span> <span class="n">date</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="k">struct</span> <span class="n">timespec</span> <span class="n">precision</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">bdate</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span></code></pre></div><p>Nested struct&rsquo;s have the same visibility scope as the enclosing one.</p>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span></span></span></code></pre></div>
+  </div><p>Nested struct&rsquo;s have the same visibility scope as the enclosing one.</p>
 <p>The above definition is equivalent to:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">stardate</span> <span class="p">{</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">stardate</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">struct</span> <span class="n">tm</span> <span class="n">date</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="k">struct</span> <span class="n">timespec</span> <span class="n">precision</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">};</span>
 </span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">stardate</span> <span class="n">bdate</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span></code></pre></div><h2 id="6-dot-4-new-names-for-types-type-aliases">6.4 New names for types: type aliases</h2>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span></span></span></code></pre></div>
+  </div><h2 id="6-dot-4-new-names-for-types-type-aliases">6.4 New names for types: type aliases</h2>
 <p>When we need to declare a variable of newly defined structure,
 we need to add <code>struct</code> in the beginning, which makes it a bit clumsy.</p>
 <p>To avoid is, one can introduce new names for existing types using
 the keyword <code>typedef</code>.
 Then we can have new aliases for structures:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="k">struct</span> <span class="n">birdStruct</span> <span class="n">birdStructure</span><span class="p">;</span>
-</span></span></code></pre></div><p>Moreover, one can reuse the structure tag as the alias!
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="k">struct</span> <span class="n">birdStruct</span> <span class="n">birdStructure</span><span class="p">;</span></span></span></code></pre></div>
+  </div><p>Moreover, one can reuse the structure tag as the alias!
 Idiomatic use is to fordward-declare the alias for a struct:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="k">struct</span> <span class="n">birdStruct</span> <span class="n">birdStruct</span><span class="p">;</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="k">struct</span> <span class="n">birdStruct</span> <span class="n">birdStruct</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">birdStruct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="p">...</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span></code></pre></div><p>Other examples of aliases:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="kt">double</span> <span class="n">vector</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span></span></span></code></pre></div>
+  </div><p>Other examples of aliases:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="kt">double</span> <span class="n">vector</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="n">vector</span> <span class="n">vecvec</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="kt">double</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">16</span><span class="p">][</span><span class="mi">64</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">  <span class="n">vecvec</span> <span class="n">A</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">matrix</span> <span class="n">B</span><span class="p">;</span>
-</span></span></code></pre></div><p>Here, both <code>A</code> and <code>B</code> have the same data type of <code>double[16][64]</code>.
+</span></span><span class="line"><span class="cl">  <span class="n">matrix</span> <span class="n">B</span><span class="p">;</span></span></span></code></pre></div>
+  </div><p>Here, both <code>A</code> and <code>B</code> have the same data type of <code>double[16][64]</code>.
 Yes, the syntax for array aliases is a little bit strange, but one
 can get used to it.</p>
 <p>Just for clarity again:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="kt">double</span> <span class="n">vector</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
-</span></span></code></pre></div><p>declares a new type alias <code>vector</code> which resolves to <code>double[64]</code>.</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="k">typedef</span> <span class="kt">double</span> <span class="n">vector</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span></span></span></code></pre></div>
+  </div><p>declares a new type alias <code>vector</code> which resolves to <code>double[64]</code>.</p>
 <p>The C standard uses suffix <code>_t</code> for data types to emphasize that
 they are aliases.
 It is not recommended to use this suffix, to avoid future conflicts
 with the new revisions of C.</p><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+     <a href="/tags/programming/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Programming</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">C</a>
+     <a href="/tags/c/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">C</a>
    </li>
   
 </ul>
@@ -426,8 +465,9 @@ with the new revisions of C.</p><ul class="pa0">
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
       
       
       </div>
@@ -500,21 +540,44 @@ with the new revisions of C.</p><ul class="pa0">
 </aside>
 
   </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2024 
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2026 
   </a>
-    <div>
-<div class="ananke-socials">
-  
+    <div><div class="ananke-socials"></div>
 </div>
-</div>
-  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
-
-  </body>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,30 +12,16 @@ from the book &ldquo;Modern C&rdquo; by Jens Gustedt.
 This chapter discusses values of different objects
 that are used in a C program,
 and how they are represented.">
-    <meta name="generator" content="Hugo 0.134.1">
-    
+    <meta name="generator" content="Hugo 0.166.0">
     
     
     
       <meta name="robots" content="index, follow">
     
+    <meta name="author" content="Dmitry Kabanov">
     
-      <meta name="author" content = "Dmitry Kabanov">
-    
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
-
-
-
-  
-    <link rel="stylesheet" href="/css/chroma.css">
-  
-
-  
-    <link rel="stylesheet" href="/css/style.css">
-  
-
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous"><link rel="stylesheet" href="/css/chroma.css"><link rel="stylesheet" href="/css/style.css">
     
 
 
@@ -76,36 +62,39 @@ and how they are represented.">
       <link rel="canonical" href="https://dmitrykabanov.com/blog/2023/notes-on-chapter-05-modern-c/">
     
 
+    
+    
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2023/notes-on-chapter-05-modern-c/">
-  <meta property="og:site_name" content="Website of Dmitry Kabanov">
-  <meta property="og:title" content="“Modern C”: Notes on chapter 5 “Basic values and data”">
-  <meta property="og:description" content="These are my notes taken while reading chapter 5 “Basic values and data” from the book “Modern C” by Jens Gustedt.
+	<meta property="og:site_name" content="Website of Dmitry Kabanov">
+	<meta property="og:title" content="“Modern C”: Notes on chapter 5 “Basic values and data”">
+	<meta property="og:description" content="These are my notes taken while reading chapter 5 “Basic values and data” from the book “Modern C” by Jens Gustedt.
 This chapter discusses values of different objects that are used in a C program, and how they are represented.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2023-09-15T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-09-15T00:00:00+00:00">
-    <meta property="article:tag" content="Programming">
-    <meta property="article:tag" content="C">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2023-09-15T00:00:00+00:00">
+		<meta property="article:modified_time" content="2023-09-15T00:00:00+00:00">
+		<meta property="article:tag" content="Programming">
+		<meta property="article:tag" content="C">
 
-  <meta itemprop="name" content="“Modern C”: Notes on chapter 5 “Basic values and data”">
-  <meta itemprop="description" content="These are my notes taken while reading chapter 5 “Basic values and data” from the book “Modern C” by Jens Gustedt.
+	<meta itemprop="name" content="“Modern C”: Notes on chapter 5 “Basic values and data”">
+	<meta itemprop="description" content="These are my notes taken while reading chapter 5 “Basic values and data” from the book “Modern C” by Jens Gustedt.
 This chapter discusses values of different objects that are used in a C program, and how they are represented.">
-  <meta itemprop="datePublished" content="2023-09-15T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-09-15T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1372">
-  <meta itemprop="keywords" content="Programming,C">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="“Modern C”: Notes on chapter 5 “Basic values and data”">
-  <meta name="twitter:description" content="These are my notes taken while reading chapter 5 “Basic values and data” from the book “Modern C” by Jens Gustedt.
+	<meta itemprop="datePublished" content="2023-09-15T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2023-09-15T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1377">
+	<meta itemprop="keywords" content="Programming,C">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="“Modern C”: Notes on chapter 5 “Basic values and data”">
+	<meta name="twitter:description" content="These are my notes taken while reading chapter 5 “Basic values and data” from the book “Modern C” by Jens Gustedt.
 This chapter discusses values of different objects that are used in a C program, and how they are represented.">
 
+      
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -118,19 +107,15 @@ This chapter discusses values of different objects that are used in a C program,
       </script>
     
 	
-  </head>
-
-  <body class="ma0 helvetica bg-near-white production">
-
-    
+  </head><body class="ma0 helvetica bg-near-white production is-page is-page page-notes-on-chapter-05-modern-c">
    
     <header>
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem;" alt="Website of Dmitry Kabanov" />
+        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem" alt="Website of Dmitry Kabanov" />
       
     </a>
     <div class="flex-l items-center">
@@ -140,23 +125,26 @@ This chapter discusses values of different objects that are used in a C program,
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About me page">
               About me
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blogs page">
               Blogs
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/publications/" title="My publications page">
+              My publications
             </a>
           </li>
           
         </ul>
       
-      
-<div class="ananke-socials">
-  
-</div>
+      <div class="ananke-socials"></div>
 
     </div>
   </div>
@@ -166,33 +154,15 @@ This chapter discusses values of different objects that are used in a C program,
   </header>
 
 
-
-    <main class="pb7" role="main">
-      
+<main class="pb7" role="main">
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
       <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Blogs
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 5 “Basic values and data”</h1>
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">“Modern C”: Notes on chapter 5 “Basic values and data”</h1>
       
       <p class="tracked">
         By <strong>Dmitry Kabanov</strong>
@@ -228,8 +198,12 @@ change.
 Values are <strong>observable</strong> when they are assigned to variables,
 and not-observable when they are results of intermediate expressions.
 For example, in this statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">;</span>
-</span></span></code></pre></div><p>the subexpression <code>(x * 1.5)</code> is hidden as we never assign it to a variable,
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">;</span></span></span></code></pre></div>
+  </div><p>the subexpression <code>(x * 1.5)</code> is hidden as we never assign it to a variable,
 while the value of <code>x</code> may be observable as it is a variable hence
 is saved in <strong>addressable memory</strong>.</p>
 <p>C compiler is allowed to do optimizations that remove some variables
@@ -306,9 +280,13 @@ Last, use unsigned types when you can.</p>
 <p>In C, practically all variables must be initialized.</p>
 <p>Initialization of arrays can explicitly state the index of the element,
 which is preferable:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">7.8</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">B</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">47.23</span><span class="p">};</span>
-</span></span></code></pre></div><p>The default initialization value is <code>0</code>.</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">A</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">7.8</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">B</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">47.23</span><span class="p">};</span></span></span></code></pre></div>
+  </div><p>The default initialization value is <code>0</code>.</p>
 <h2 id="5-dot-6-named-constants">5.6 Named constants</h2>
 <p>Sometimes we have constant values and instead of using them literally,
 it is better to name them.
@@ -321,20 +299,32 @@ The qualifier <code>const</code> makes variable read-only after it is initialize
 <p>For example, type <code>char const* const</code> denotes a read-only object
 with read-only strings.</p>
 <p>C allows to name small integers via enumerations:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">corvid</span> <span class="p">{</span> <span class="n">magpie</span><span class="p">,</span> <span class="n">raven</span><span class="p">,</span> <span class="n">jay</span><span class="p">,</span> <span class="n">n_corvids</span> <span class="p">};</span>
-</span></span></code></pre></div><p>where <code>magpie</code> will initialize to zero, <code>raven</code> to one, and so on.
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">corvid</span> <span class="p">{</span> <span class="n">magpie</span><span class="p">,</span> <span class="n">raven</span><span class="p">,</span> <span class="n">jay</span><span class="p">,</span> <span class="n">n_corvids</span> <span class="p">};</span></span></span></code></pre></div>
+  </div><p>where <code>magpie</code> will initialize to zero, <code>raven</code> to one, and so on.
 Note, that here we use an idiom of adding as the last element the constant
 which will tell us the number of the elements in the enumeration.</p>
 <p>Enumeration constants are of type <code>signed int</code> and can be initialized
 in more complex ways, for example,</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">constants</span> <span class="p">{</span> <span class="n">p0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">p0</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">p1</span> <span class="p">};</span>
-</span></span></code></pre></div><p>as long as the initialization values are integer constant expressions,
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">constants</span> <span class="p">{</span> <span class="n">p0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">p0</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">p1</span> <span class="p">};</span></span></span></code></pre></div>
+  </div><p>as long as the initialization values are integer constant expressions,
 that is, can be fully determined at compile time.</p>
 <p>To declare constants of other types than <code>signed int</code>, the only way
 is to use macros, which are actually handled by C preprocessor.
 Macros are defined like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define M_PI 3.1415926
-</span></span></span></code></pre></div><p>When C preprocessor <em>preprocesses</em> a source code file, it replaces
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define M_PI 3.1415926</span></span></span></code></pre></div>
+  </div><p>When C preprocessor <em>preprocesses</em> a source code file, it replaces
 all strings <code>M_PI</code> with the actual value (which is a <code>double</code> literal
 in this case).</p>
 <p>It is usually a good idea to write macros names in all caps, <code>LIKE_THIS</code>,
@@ -367,11 +357,11 @@ provides type-generic macros <code>creal</code> and <code>cimag</code> that retu
 real and imaginary parts, respectively.</p><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+     <a href="/tags/programming/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Programming</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/c/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">C</a>
+     <a href="/tags/c/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">C</a>
    </li>
   
 </ul>
@@ -395,8 +385,9 @@ real and imaginary parts, respectively.</p><ul class="pa0">
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
       
       
       </div>
@@ -461,21 +452,44 @@ real and imaginary parts, respectively.</p><ul class="pa0">
 </aside>
 
   </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2024 
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2026 
   </a>
-    <div>
-<div class="ananke-socials">
-  
+    <div><div class="ananke-socials"></div>
 </div>
-</div>
-  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
-
-  </body>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

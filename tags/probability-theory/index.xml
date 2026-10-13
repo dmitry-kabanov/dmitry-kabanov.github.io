@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Probability-Theory on Website of Dmitry Kabanov</title>
-    <link>https://dmitrykabanov.com/tags/probability-theory/</link>
-    <description>Recent content in Probability-Theory on Website of Dmitry Kabanov</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 24 Apr 2021 18:54:00 +0200</lastBuildDate>
-    <atom:link href="https://dmitrykabanov.com/tags/probability-theory/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Basic terms in the probability theory</title>
-      <link>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</link>
-      <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</guid>
-      <description>&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and&#xA;probability measure.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Probability-Theory on Website of Dmitry Kabanov</title>
+		<link>https://dmitrykabanov.com/tags/probability-theory/</link>
+		<description>Recent content in Probability-Theory on Website of Dmitry Kabanov</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 24 Apr 2021 18:54:00 +0200</lastBuildDate>
+		
+			<atom:link href="https://dmitrykabanov.com/tags/probability-theory/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Basic terms in the probability theory</title>
+				<link>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</link>
+				<pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/blog/2021/basic-terms-probability-theory/</guid>
+				<description>&lt;p&gt;Basic terms in probability theory are outcomes, sample space, events, and&#xA;probability measure.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

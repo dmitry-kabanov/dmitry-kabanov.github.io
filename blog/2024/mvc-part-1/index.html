@@ -7,30 +7,16 @@
     <title>Model-View-Controller architecture, part 1 | Website of Dmitry Kabanov</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
-    <meta name="generator" content="Hugo 0.134.1">
-    
+    <meta name="generator" content="Hugo 0.166.0">
     
     
     
       <meta name="robots" content="index, follow">
     
+    <meta name="author" content="Dmitry Kabanov">
     
-      <meta name="author" content = "Dmitry Kabanov">
-    
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
-
-
-
-  
-    <link rel="stylesheet" href="/css/chroma.css">
-  
-
-  
-    <link rel="stylesheet" href="/css/style.css">
-  
-
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous"><link rel="stylesheet" href="/css/chroma.css"><link rel="stylesheet" href="/css/style.css">
     
 
 
@@ -71,34 +57,37 @@
       <link rel="canonical" href="https://dmitrykabanov.com/blog/2024/mvc-part-1/">
     
 
+    
+    
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2024/mvc-part-1/">
-  <meta property="og:site_name" content="Website of Dmitry Kabanov">
-  <meta property="og:title" content="Model-View-Controller architecture, part 1">
-  <meta property="og:description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2024-10-02T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-10-02T00:00:00+00:00">
-    <meta property="article:tag" content="Programming">
-    <meta property="article:tag" content="Oop">
-    <meta property="article:tag" content="Patterns">
+	<meta property="og:site_name" content="Website of Dmitry Kabanov">
+	<meta property="og:title" content="Model-View-Controller architecture, part 1">
+	<meta property="og:description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2024-10-02T00:00:00+00:00">
+		<meta property="article:modified_time" content="2024-10-02T00:00:00+00:00">
+		<meta property="article:tag" content="Programming">
+		<meta property="article:tag" content="Oop">
+		<meta property="article:tag" content="Patterns">
 
-  <meta itemprop="name" content="Model-View-Controller architecture, part 1">
-  <meta itemprop="description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
-  <meta itemprop="datePublished" content="2024-10-02T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-10-02T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2507">
-  <meta itemprop="keywords" content="Programming,Oop,Patterns">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Model-View-Controller architecture, part 1">
-  <meta name="twitter:description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
+	<meta itemprop="name" content="Model-View-Controller architecture, part 1">
+	<meta itemprop="description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
+	<meta itemprop="datePublished" content="2024-10-02T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2024-10-02T00:00:00+00:00">
+	<meta itemprop="wordCount" content="2507">
+	<meta itemprop="keywords" content="Programming,Oop,Patterns">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Model-View-Controller architecture, part 1">
+	<meta name="twitter:description" content="Model View Controller (MVC) design pattern for programming applications with graphical user interfaces as described in initial works from 1970s and 1980s">
 
+      
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -111,19 +100,15 @@
       </script>
     
 	
-  </head>
-
-  <body class="ma0 helvetica bg-near-white production">
-
-    
+  </head><body class="ma0 helvetica bg-near-white production is-page is-page page-mvc-part-1">
    
     <header>
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem;" alt="Website of Dmitry Kabanov" />
+        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem" alt="Website of Dmitry Kabanov" />
       
     </a>
     <div class="flex-l items-center">
@@ -133,23 +118,26 @@
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About me page">
               About me
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blogs page">
               Blogs
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/publications/" title="My publications page">
+              My publications
             </a>
           </li>
           
         </ul>
       
-      
-<div class="ananke-socials">
-  
-</div>
+      <div class="ananke-socials"></div>
 
     </div>
   </div>
@@ -159,33 +147,15 @@
   </header>
 
 
-
-    <main class="pb7" role="main">
-      
+<main class="pb7" role="main">
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
       <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Blogs
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Model-View-Controller architecture, part 1</h1>
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Model-View-Controller architecture, part 1</h1>
       
       <p class="tracked">
         By <strong>Dmitry Kabanov</strong>
@@ -500,15 +470,15 @@ introduced the same idea, although not explicit.</li>
 <p>Thank you for reading!</p><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+     <a href="/tags/programming/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Programming</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/oop/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Oop</a>
+     <a href="/tags/oop/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Oop</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/patterns/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Patterns</a>
+     <a href="/tags/patterns/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Patterns</a>
    </li>
   
 </ul>
@@ -532,8 +502,9 @@ introduced the same idea, although not explicit.</li>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
       
       
       </div>
@@ -614,21 +585,44 @@ introduced the same idea, although not explicit.</li>
 </aside>
 
   </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2024 
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2026 
   </a>
-    <div>
-<div class="ananke-socials">
-  
+    <div><div class="ananke-socials"></div>
 </div>
-</div>
-  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
-
-  </body>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

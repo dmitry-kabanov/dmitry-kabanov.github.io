@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Unix on Website of Dmitry Kabanov</title>
-    <link>https://dmitrykabanov.com/tags/unix/</link>
-    <description>Recent content in Unix on Website of Dmitry Kabanov</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 06 Feb 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dmitrykabanov.com/tags/unix/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Redirection of stdout and stderr to the same file</title>
-      <link>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</link>
-      <pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</guid>
-      <description>&lt;p&gt;Often, when running a program in console, one needs to save all its output&#xA;to a file.&#xA;Very often, such a program writes both to the standard output (&lt;code&gt;stdout&lt;/code&gt;)&#xA;and to the standard error output (&lt;code&gt;stderr&lt;/code&gt;).&#xA;For example, by default, in a Python program the &lt;code&gt;print&lt;/code&gt; function writes to&#xA;&lt;code&gt;stdout&lt;/code&gt; and the functions of the &lt;code&gt;logging&lt;/code&gt; module to &lt;code&gt;stderr&lt;/code&gt;.&#xA;Therefore, one needs to &lt;strong&gt;redirect both &lt;code&gt;stdout&lt;/code&gt; and &lt;code&gt;stderr&lt;/code&gt;&lt;/strong&gt; to the same file.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Unix on Website of Dmitry Kabanov</title>
+		<link>https://dmitrykabanov.com/tags/unix/</link>
+		<description>Recent content in Unix on Website of Dmitry Kabanov</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 06 Feb 2023 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://dmitrykabanov.com/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Redirection of stdout and stderr to the same file</title>
+				<link>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</link>
+				<pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/blog/2023/redirect-stdout-stderr-same-file/</guid>
+				<description>&lt;p&gt;Often, when running a program in console, one needs to save all its output&#xA;to a file.&#xA;Very often, such a program writes both to the standard output (&lt;code&gt;stdout&lt;/code&gt;)&#xA;and to the standard error output (&lt;code&gt;stderr&lt;/code&gt;).&#xA;For example, by default, in a Python program the &lt;code&gt;print&lt;/code&gt; function writes to&#xA;&lt;code&gt;stdout&lt;/code&gt; and the functions of the &lt;code&gt;logging&lt;/code&gt; module to &lt;code&gt;stderr&lt;/code&gt;.&#xA;Therefore, one needs to &lt;strong&gt;redirect both &lt;code&gt;stdout&lt;/code&gt; and &lt;code&gt;stderr&lt;/code&gt;&lt;/strong&gt; to the same file.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

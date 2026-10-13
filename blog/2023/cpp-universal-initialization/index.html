@@ -11,30 +11,16 @@ language (which I did not use basically since 2010).
 So I have started reading the book
 Discovering Modern C&#43;&#43;
 by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
-    <meta name="generator" content="Hugo 0.134.1">
-    
+    <meta name="generator" content="Hugo 0.166.0">
     
     
     
       <meta name="robots" content="index, follow">
     
+    <meta name="author" content="Dmitry Kabanov">
     
-      <meta name="author" content = "Dmitry Kabanov">
-    
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
-
-
-
-  
-    <link rel="stylesheet" href="/css/chroma.css">
-  
-
-  
-    <link rel="stylesheet" href="/css/style.css">
-  
-
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous"><link rel="stylesheet" href="/css/chroma.css"><link rel="stylesheet" href="/css/style.css">
     
 
 
@@ -75,33 +61,36 @@ by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
       <link rel="canonical" href="https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/">
     
 
+    
+    
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2023/cpp-universal-initialization/">
-  <meta property="og:site_name" content="Website of Dmitry Kabanov">
-  <meta property="og:title" content="Universal initialization in C&#43;&#43;">
-  <meta property="og:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2023-06-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-06-23T00:00:00+00:00">
-    <meta property="article:tag" content="Programming">
-    <meta property="article:tag" content="Cpp">
+	<meta property="og:site_name" content="Website of Dmitry Kabanov">
+	<meta property="og:title" content="Universal initialization in C&#43;&#43;">
+	<meta property="og:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2023-06-23T00:00:00+00:00">
+		<meta property="article:modified_time" content="2023-06-23T00:00:00+00:00">
+		<meta property="article:tag" content="Programming">
+		<meta property="article:tag" content="Cpp">
 
-  <meta itemprop="name" content="Universal initialization in C&#43;&#43;">
-  <meta itemprop="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
-  <meta itemprop="datePublished" content="2023-06-23T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-06-23T00:00:00+00:00">
-  <meta itemprop="wordCount" content="385">
-  <meta itemprop="keywords" content="Programming,Cpp">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Universal initialization in C&#43;&#43;">
-  <meta name="twitter:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
+	<meta itemprop="name" content="Universal initialization in C&#43;&#43;">
+	<meta itemprop="description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
+	<meta itemprop="datePublished" content="2023-06-23T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2023-06-23T00:00:00+00:00">
+	<meta itemprop="wordCount" content="389">
+	<meta itemprop="keywords" content="Programming,Cpp">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Universal initialization in C&#43;&#43;">
+	<meta name="twitter:description" content="For my new position, I need to improve my knowledge of the C&#43;&#43; programming language (which I did not use basically since 2010). So I have started reading the book Discovering Modern C&#43;&#43; by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
 
+      
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -114,19 +103,15 @@ by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
       </script>
     
 	
-  </head>
-
-  <body class="ma0 helvetica bg-near-white production">
-
-    
+  </head><body class="ma0 helvetica bg-near-white production is-page is-page page-cpp-universal-initialization">
    
     <header>
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem;" alt="Website of Dmitry Kabanov" />
+        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem" alt="Website of Dmitry Kabanov" />
       
     </a>
     <div class="flex-l items-center">
@@ -136,23 +121,26 @@ by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About me page">
               About me
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blogs page">
               Blogs
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/publications/" title="My publications page">
+              My publications
             </a>
           </li>
           
         </ul>
       
-      
-<div class="ananke-socials">
-  
-</div>
+      <div class="ananke-socials"></div>
 
     </div>
   </div>
@@ -162,33 +150,15 @@ by Peter Gottschling to get up to speed with, well, modern C&#43;&#43;.">
   </header>
 
 
-
-    <main class="pb7" role="main">
-      
+<main class="pb7" role="main">
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
       <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Blogs
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Universal initialization in C&#43;&#43;</h1>
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Universal initialization in C&#43;&#43;</h1>
       
       <p class="tracked">
         By <strong>Dmitry Kabanov</strong>
@@ -210,12 +180,16 @@ by Peter Gottschling to get up to speed with, well, modern C++.</p>
 <p>In this post, I would like to talk about universal initialization (a.k.a.
 brace-initialization) that was introduced in C++11.</p>
 <p>The syntax for the universal initialization is the following:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">{};</span>  <span class="c1">// Initialize integer variable to zero.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">string</span> <span class="n">s</span><span class="p">{</span><span class="s">&#34;Hello World!&#34;</span><span class="p">};</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">{};</span>  <span class="c1">// Initialize integer variable to zero.
+</span></span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="n">s</span><span class="p">{</span><span class="s">&#34;Hello World!&#34;</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="o">*</span><span class="n">pData</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">27.43</span><span class="p">,</span> <span class="mf">1e-38</span><span class="p">};</span>
 </span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">values</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">geo</span> <span class="p">{</span> <span class="p">{</span><span class="s">&#34;Germany&#34;</span><span class="p">,</span> <span class="s">&#34;Berlin&#34;</span><span class="p">},</span> <span class="s">&#34;France&#34;</span><span class="p">,</span> <span class="s">&#34;Paris&#34;</span> <span class="p">};</span>
-</span></span></code></pre></div><p>Note that the whitespace is not important here, but it looks cleaner when
+</span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">geo</span> <span class="p">{</span> <span class="p">{</span><span class="s">&#34;Germany&#34;</span><span class="p">,</span> <span class="s">&#34;Berlin&#34;</span><span class="p">},</span> <span class="s">&#34;France&#34;</span><span class="p">,</span> <span class="s">&#34;Paris&#34;</span> <span class="p">};</span></span></span></code></pre></div>
+  </div><p>Note that the whitespace is not important here, but it looks cleaner when
 there is a space before the opening brace in complicated initializations
 like in the third line above.</p>
 <p>The universal initialization was introduced to overcome the following
@@ -229,37 +203,51 @@ problems:</p>
 operator, it is possible to introduce hidden errors like loss of precision, as
 the compiler narrows the type of the initialization expression to the type of
 the variable, while this does not happen with the universal initialization:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">7.7</span><span class="p">;</span>  <span class="c1">// 7.7 will be truncated to 7 (although a compiler warns about it)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">x</span> <span class="p">{</span><span class="mf">7.7</span><span class="p">};</span>  <span class="c1">// compiler will emit an error; 7.7 must be changed to int(7.7)
-</span></span></span></code></pre></div><p><strong>Avoid syntactic ambiguity</strong>.
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">7.7</span><span class="p">;</span>  <span class="c1">// 7.7 will be truncated to 7 (although a compiler warns about it)
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span> <span class="p">{</span><span class="mf">7.7</span><span class="p">};</span>  <span class="c1">// compiler will emit an error; 7.7 must be changed to int(7.7)
+</span></span></span></code></pre></div>
+  </div><p><strong>Avoid syntactic ambiguity</strong>.
 This is what is called &ldquo;most vexing parse&rdquo; in the book
 &ldquo;Effective C++&rdquo; by Scott Meyers.
 The normal syntax for object initialization is ambiguous and consides
 with the syntax for function declaration. The universal initialization
 allows us to avoid this ambiguity, which makes it easier to read for humans.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Test</span> <span class="nf">test</span><span class="p">();</span>  <span class="c1">// Is it object initialization or function declaration?
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Test</span> <span class="n">test</span><span class="p">{};</span>  <span class="c1">// This is definitely object initialization.
-</span></span></span></code></pre></div><p><strong>Container initialization</strong>.
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Test</span> <span class="nf">test</span><span class="p">();</span>  <span class="c1">// Is it object initialization or function declaration?
+</span></span></span><span class="line"><span class="cl"><span class="n">Test</span> <span class="n">test</span><span class="p">{};</span>  <span class="c1">// This is definitely object initialization.
+</span></span></span></code></pre></div>
+  </div><p><strong>Container initialization</strong>.
 When you need to initialize a small-size container,
 the universal initialization syntax is much shorter.
 Say, you need to initialize a vector with four elements.
 Then you need to use <code>push-back</code> method in old-style initialization,
 while it is a one-liner with the universal initialization:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// In C++11 you can do it more elegant with a one-liner:
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-</span></span></code></pre></div><ul class="pa0">
+</span></span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span></span></span></code></pre></div>
+  </div><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/programming/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Programming</a>
+     <a href="/tags/programming/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Programming</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/cpp/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Cpp</a>
+     <a href="/tags/cpp/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cpp</a>
    </li>
   
 </ul>
@@ -283,8 +271,9 @@ while it is a one-liner with the universal initialization:</p>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
       
       
       </div>
@@ -317,21 +306,44 @@ while it is a one-liner with the universal initialization:</p>
 </aside>
 
   </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2024 
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2026 
   </a>
-    <div>
-<div class="ananke-socials">
-  
+    <div><div class="ananke-socials"></div>
 </div>
-</div>
-  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
-
-  </body>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

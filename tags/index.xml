@@ -1,208 +1,213 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Website of Dmitry Kabanov</title>
-    <link>https://dmitrykabanov.com/tags/</link>
-    <description>Recent content in Tags on Website of Dmitry Kabanov</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Oop</title>
-      <link>https://dmitrykabanov.com/tags/oop/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/oop/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Patterns</title>
-      <link>https://dmitrykabanov.com/tags/patterns/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/patterns/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>https://dmitrykabanov.com/tags/programming/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>C</title>
-      <link>https://dmitrykabanov.com/tags/c/</link>
-      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/c/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cpp</title>
-      <link>https://dmitrykabanov.com/tags/cpp/</link>
-      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/cpp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Computing</title>
-      <link>https://dmitrykabanov.com/tags/computing/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/computing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Mac</title>
-      <link>https://dmitrykabanov.com/tags/mac/</link>
-      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/mac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Javascript</title>
-      <link>https://dmitrykabanov.com/tags/javascript/</link>
-      <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/javascript/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Algorithms</title>
-      <link>https://dmitrykabanov.com/tags/algorithms/</link>
-      <pubDate>Mon, 17 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/algorithms/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Shell</title>
-      <link>https://dmitrykabanov.com/tags/shell/</link>
-      <pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/shell/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Videos</title>
-      <link>https://dmitrykabanov.com/tags/videos/</link>
-      <pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/videos/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Unix</title>
-      <link>https://dmitrykabanov.com/tags/unix/</link>
-      <pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/unix/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Macos</title>
-      <link>https://dmitrykabanov.com/tags/macos/</link>
-      <pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/macos/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sysadmin</title>
-      <link>https://dmitrykabanov.com/tags/sysadmin/</link>
-      <pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/sysadmin/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Js</title>
-      <link>https://dmitrykabanov.com/tags/js/</link>
-      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://dmitrykabanov.com/tags/js/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Howto</title>
-      <link>https://dmitrykabanov.com/tags/howto/</link>
-      <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/howto/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Lyx</title>
-      <link>https://dmitrykabanov.com/tags/lyx/</link>
-      <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/lyx/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Software</title>
-      <link>https://dmitrykabanov.com/tags/software/</link>
-      <pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/software/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Numerics</title>
-      <link>https://dmitrykabanov.com/tags/numerics/</link>
-      <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/numerics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Testing</title>
-      <link>https://dmitrykabanov.com/tags/testing/</link>
-      <pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/testing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Writing</title>
-      <link>https://dmitrykabanov.com/tags/writing/</link>
-      <pubDate>Sat, 15 May 2021 12:16:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/writing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Math</title>
-      <link>https://dmitrykabanov.com/tags/math/</link>
-      <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/math/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Probability-Theory</title>
-      <link>https://dmitrykabanov.com/tags/probability-theory/</link>
-      <pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/probability-theory/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Git</title>
-      <link>https://dmitrykabanov.com/tags/git/</link>
-      <pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
-      <guid>https://dmitrykabanov.com/tags/git/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Latex</title>
-      <link>https://dmitrykabanov.com/tags/latex/</link>
-      <pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
-      <guid>https://dmitrykabanov.com/tags/latex/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Slurm</title>
-      <link>https://dmitrykabanov.com/tags/slurm/</link>
-      <pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
-      <guid>https://dmitrykabanov.com/tags/slurm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tensorflow</title>
-      <link>https://dmitrykabanov.com/tags/tensorflow/</link>
-      <pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
-      <guid>https://dmitrykabanov.com/tags/tensorflow/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hyperopt</title>
-      <link>https://dmitrykabanov.com/tags/hyperopt/</link>
-      <pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
-      <guid>https://dmitrykabanov.com/tags/hyperopt/</guid>
-      <description></description>
-    </item>
-  </channel>
+	<channel>
+		<title>Tags on Website of Dmitry Kabanov</title>
+		<link>https://dmitrykabanov.com/tags/</link>
+		<description>Recent content in Tags on Website of Dmitry Kabanov</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://dmitrykabanov.com/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Oop</title>
+				<link>https://dmitrykabanov.com/tags/oop/</link>
+				<pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/oop/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Patterns</title>
+				<link>https://dmitrykabanov.com/tags/patterns/</link>
+				<pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/patterns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Programming</title>
+				<link>https://dmitrykabanov.com/tags/programming/</link>
+				<pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/programming/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>C</title>
+				<link>https://dmitrykabanov.com/tags/c/</link>
+				<pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/c/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Cpp</title>
+				<link>https://dmitrykabanov.com/tags/cpp/</link>
+				<pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/cpp/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Computing</title>
+				<link>https://dmitrykabanov.com/tags/computing/</link>
+				<pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/computing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Mac</title>
+				<link>https://dmitrykabanov.com/tags/mac/</link>
+				<pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/mac/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Javascript</title>
+				<link>https://dmitrykabanov.com/tags/javascript/</link>
+				<pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/javascript/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Algorithms</title>
+				<link>https://dmitrykabanov.com/tags/algorithms/</link>
+				<pubDate>Mon, 17 Apr 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/algorithms/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Shell</title>
+				<link>https://dmitrykabanov.com/tags/shell/</link>
+				<pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/shell/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Videos</title>
+				<link>https://dmitrykabanov.com/tags/videos/</link>
+				<pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/videos/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Unix</title>
+				<link>https://dmitrykabanov.com/tags/unix/</link>
+				<pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/unix/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Macos</title>
+				<link>https://dmitrykabanov.com/tags/macos/</link>
+				<pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/macos/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Sysadmin</title>
+				<link>https://dmitrykabanov.com/tags/sysadmin/</link>
+				<pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/sysadmin/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Js</title>
+				<link>https://dmitrykabanov.com/tags/js/</link>
+				<pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+				<guid>https://dmitrykabanov.com/tags/js/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Howto</title>
+				<link>https://dmitrykabanov.com/tags/howto/</link>
+				<pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/howto/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Lyx</title>
+				<link>https://dmitrykabanov.com/tags/lyx/</link>
+				<pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/lyx/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Software</title>
+				<link>https://dmitrykabanov.com/tags/software/</link>
+				<pubDate>Sat, 03 Jul 2021 19:36:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/software/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Numerics</title>
+				<link>https://dmitrykabanov.com/tags/numerics/</link>
+				<pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/numerics/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Testing</title>
+				<link>https://dmitrykabanov.com/tags/testing/</link>
+				<pubDate>Mon, 28 Jun 2021 10:49:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/testing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Writing</title>
+				<link>https://dmitrykabanov.com/tags/writing/</link>
+				<pubDate>Sat, 15 May 2021 12:16:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/writing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Math</title>
+				<link>https://dmitrykabanov.com/tags/math/</link>
+				<pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/math/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Probability-Theory</title>
+				<link>https://dmitrykabanov.com/tags/probability-theory/</link>
+				<pubDate>Sat, 24 Apr 2021 18:54:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/probability-theory/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Git</title>
+				<link>https://dmitrykabanov.com/tags/git/</link>
+				<pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
+				<guid>https://dmitrykabanov.com/tags/git/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Latex</title>
+				<link>https://dmitrykabanov.com/tags/latex/</link>
+				<pubDate>Fri, 19 Feb 2021 21:55:00 +0100</pubDate>
+				<guid>https://dmitrykabanov.com/tags/latex/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Slurm</title>
+				<link>https://dmitrykabanov.com/tags/slurm/</link>
+				<pubDate>Sat, 19 Dec 2020 23:01:00 +0100</pubDate>
+				<guid>https://dmitrykabanov.com/tags/slurm/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tensorflow</title>
+				<link>https://dmitrykabanov.com/tags/tensorflow/</link>
+				<pubDate>Fri, 31 Jul 2020 12:19:00 +0200</pubDate>
+				<guid>https://dmitrykabanov.com/tags/tensorflow/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Hyperopt</title>
+				<link>https://dmitrykabanov.com/tags/hyperopt/</link>
+				<pubDate>Thu, 12 Mar 2020 15:16:00 +0100</pubDate>
+				<guid>https://dmitrykabanov.com/tags/hyperopt/</guid>
+				<description></description>
+			</item>
+	</channel>
 </rss>

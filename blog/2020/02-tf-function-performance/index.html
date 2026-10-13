@@ -11,30 +11,16 @@ In this mode, it is easy to define tensors interactively, for example, in
 ipython and see their values.
 However, in Eager mode the execution is slow, which becomes noticable during
 model training.">
-    <meta name="generator" content="Hugo 0.134.1">
-    
+    <meta name="generator" content="Hugo 0.166.0">
     
     
     
       <meta name="robots" content="index, follow">
     
+    <meta name="author" content="Dmitry Kabanov">
     
-      <meta name="author" content = "Dmitry Kabanov">
-    
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
-
-
-
-  
-    <link rel="stylesheet" href="/css/chroma.css">
-  
-
-  
-    <link rel="stylesheet" href="/css/style.css">
-  
-
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous"><link rel="stylesheet" href="/css/chroma.css"><link rel="stylesheet" href="/css/style.css">
     
 
 
@@ -75,32 +61,35 @@ model training.">
       <link rel="canonical" href="https://dmitrykabanov.com/blog/2020/02-tf-function-performance/">
     
 
+    
+    
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2020/02-tf-function-performance/">
-  <meta property="og:site_name" content="Website of Dmitry Kabanov">
-  <meta property="og:title" content="Using `tf.function` for performance in Tensorflow 2">
-  <meta property="og:description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-07-28T13:54:00+02:00">
-    <meta property="article:modified_time" content="2020-07-28T13:54:00+02:00">
-    <meta property="article:tag" content="Tensorflow">
+	<meta property="og:site_name" content="Website of Dmitry Kabanov">
+	<meta property="og:title" content="Using `tf.function` for performance in Tensorflow 2">
+	<meta property="og:description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-07-28T13:54:00+02:00">
+		<meta property="article:modified_time" content="2020-07-28T13:54:00+02:00">
+		<meta property="article:tag" content="Tensorflow">
 
-  <meta itemprop="name" content="Using `tf.function` for performance in Tensorflow 2">
-  <meta itemprop="description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.">
-  <meta itemprop="datePublished" content="2020-07-28T13:54:00+02:00">
-  <meta itemprop="dateModified" content="2020-07-28T13:54:00+02:00">
-  <meta itemprop="wordCount" content="299">
-  <meta itemprop="keywords" content="Tensorflow">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Using `tf.function` for performance in Tensorflow 2">
-  <meta name="twitter:description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.">
+	<meta itemprop="name" content="Using `tf.function` for performance in Tensorflow 2">
+	<meta itemprop="description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.">
+	<meta itemprop="datePublished" content="2020-07-28T13:54:00+02:00">
+	<meta itemprop="dateModified" content="2020-07-28T13:54:00+02:00">
+	<meta itemprop="wordCount" content="304">
+	<meta itemprop="keywords" content="Tensorflow">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Using `tf.function` for performance in Tensorflow 2">
+	<meta name="twitter:description" content="Tensorflow 2 uses so called Eager mode by default. In this mode, it is easy to define tensors interactively, for example, in ipython and see their values. However, in Eager mode the execution is slow, which becomes noticable during model training.">
 
+      
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -113,19 +102,15 @@ model training.">
       </script>
     
 	
-  </head>
-
-  <body class="ma0 helvetica bg-near-white production">
-
-    
+  </head><body class="ma0 helvetica bg-near-white production is-page is-page page-02-tf-function-performance">
    
     <header>
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem;" alt="Website of Dmitry Kabanov" />
+        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem" alt="Website of Dmitry Kabanov" />
       
     </a>
     <div class="flex-l items-center">
@@ -135,23 +120,26 @@ model training.">
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About me page">
               About me
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blogs page">
               Blogs
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/publications/" title="My publications page">
+              My publications
             </a>
           </li>
           
         </ul>
       
-      
-<div class="ananke-socials">
-  
-</div>
+      <div class="ananke-socials"></div>
 
     </div>
   </div>
@@ -161,33 +149,15 @@ model training.">
   </header>
 
 
-
-    <main class="pb7" role="main">
-      
+<main class="pb7" role="main">
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
       <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Blogs
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Using `tf.function` for performance in Tensorflow 2</h1>
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Using `tf.function` for performance in Tensorflow 2</h1>
       
       <p class="tracked">
         By <strong>Dmitry Kabanov</strong>
@@ -215,17 +185,29 @@ decorating it with the <a href="https://www.tensorflow.org/guide/function">tf.fu
 This gives a simple way to speed up a function.</p>
 <p>Let&rsquo;s compare the execution time when using each of these modes.
 I will use Tensorflow 2.2 in this post:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Tensorflow version: &#34;</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Tensorflow version:  2.2.0
-</span></span></code></pre></div><p>As an example, consider computation of the quantity
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Tensorflow version: &#34;</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span></span></span></code></pre></div>
+  </div><div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Tensorflow version:  2.2.0</span></span></code></pre></div>
+  </div><p>As an example, consider computation of the quantity
 \[
 \left(\sin x \right)^2 + \left( \cos y \right)^2
 \]
 with \(x\) and \(y\) being two-dimensional arrays (matrices).
 We define two functions (one without and another with the decorator) and
 create the arrays:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f_slow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f_slow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@tf.function</span>
@@ -233,9 +215,13 @@ create the arrays:</p>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-</span></span></code></pre></div><p>Now let&rsquo;s measure the difference in the performance:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">timeit</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span></span></span></code></pre></div>
+  </div><p>Now let&rsquo;s measure the difference in the performance:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">timeit</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">t_slow</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="n">stmt</span><span class="o">=</span><span class="s1">&#39;f_slow(x, y)&#39;</span><span class="p">,</span>
@@ -249,10 +235,14 @@ create the arrays:</p>
 </span></span><span class="line"><span class="cl">    <span class="n">setup</span><span class="o">=</span><span class="s1">&#39;from __main__ import f_fast, x, y&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">number</span><span class="o">=</span><span class="mi">100</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">t_fast</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1.02903594000054
-</span></span><span class="line"><span class="cl">0.6089697299994441
-</span></span></code></pre></div><p>You can see that the runtime of the decorated function is only 60% of that
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">t_fast</span><span class="p">)</span></span></span></code></pre></div>
+  </div><div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1.02903594000054
+</span></span><span class="line"><span class="cl">0.6089697299994441</span></span></code></pre></div>
+  </div><p>You can see that the runtime of the decorated function is only 60% of that
 of the pure Python function.
 In general, <code>tf.function</code> decorator should be used whenever you have some
 computation-heavy function.
@@ -261,7 +251,7 @@ evaluate loss function, compute its gradient and then update the neural-network
 parameters.</p><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/tensorflow/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Tensorflow</a>
+     <a href="/tags/tensorflow/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Tensorflow</a>
    </li>
   
 </ul>
@@ -285,8 +275,9 @@ parameters.</p><ul class="pa0">
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
       
       
       </div>
@@ -300,21 +291,44 @@ parameters.</p><ul class="pa0">
 </aside>
 
   </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2024 
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2026 
   </a>
-    <div>
-<div class="ananke-socials">
-  
+    <div><div class="ananke-socials"></div>
 </div>
-</div>
-  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
-
-  </body>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

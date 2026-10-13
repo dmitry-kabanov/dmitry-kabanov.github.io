@@ -8,30 +8,16 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="When you decorate a function with `tf.function` decorator, sometimes you need
 to keep state between invocations of this function.">
-    <meta name="generator" content="Hugo 0.134.1">
-    
+    <meta name="generator" content="Hugo 0.166.0">
     
     
     
       <meta name="robots" content="index, follow">
     
+    <meta name="author" content="Dmitry Kabanov">
     
-      <meta name="author" content = "Dmitry Kabanov">
-    
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.d05fb5f317fcf33b3a52936399bdf6f47dc776516e1692e412ec7d76f4a5faa2.css" >
-
-
-
-  
-    <link rel="stylesheet" href="/css/chroma.css">
-  
-
-  
-    <link rel="stylesheet" href="/css/style.css">
-  
-
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous"><link rel="stylesheet" href="/css/chroma.css"><link rel="stylesheet" href="/css/style.css">
     
 
 
@@ -72,33 +58,36 @@ to keep state between invocations of this function.">
       <link rel="canonical" href="https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/">
     
 
+    
+    
     <meta property="og:url" content="https://dmitrykabanov.com/blog/2020/03-saving-state-tf-function/">
-  <meta property="og:site_name" content="Website of Dmitry Kabanov">
-  <meta property="og:title" content="Saving state for tf.function-decorated functions">
-  <meta property="og:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2020-07-31T12:19:00+02:00">
-    <meta property="article:modified_time" content="2020-07-31T12:19:00+02:00">
-    <meta property="article:tag" content="Howto">
-    <meta property="article:tag" content="Tensorflow">
+	<meta property="og:site_name" content="Website of Dmitry Kabanov">
+	<meta property="og:title" content="Saving state for tf.function-decorated functions">
+	<meta property="og:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2020-07-31T12:19:00+02:00">
+		<meta property="article:modified_time" content="2020-07-31T12:19:00+02:00">
+		<meta property="article:tag" content="Howto">
+		<meta property="article:tag" content="Tensorflow">
 
-  <meta itemprop="name" content="Saving state for tf.function-decorated functions">
-  <meta itemprop="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
-  <meta itemprop="datePublished" content="2020-07-31T12:19:00+02:00">
-  <meta itemprop="dateModified" content="2020-07-31T12:19:00+02:00">
-  <meta itemprop="wordCount" content="633">
-  <meta itemprop="keywords" content="Howto,Tensorflow">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Saving state for tf.function-decorated functions">
-  <meta name="twitter:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
+	<meta itemprop="name" content="Saving state for tf.function-decorated functions">
+	<meta itemprop="description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
+	<meta itemprop="datePublished" content="2020-07-31T12:19:00+02:00">
+	<meta itemprop="dateModified" content="2020-07-31T12:19:00+02:00">
+	<meta itemprop="wordCount" content="642">
+	<meta itemprop="keywords" content="Howto,Tensorflow">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Saving state for tf.function-decorated functions">
+	<meta name="twitter:description" content="When you decorate a function with `tf.function` decorator, sometimes you need to keep state between invocations of this function.">
 
+      
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -111,19 +100,15 @@ to keep state between invocations of this function.">
       </script>
     
 	
-  </head>
-
-  <body class="ma0 helvetica bg-near-white production">
-
-    
+  </head><body class="ma0 helvetica bg-near-white production is-page is-page page-03-saving-state-tf-function">
    
     <header>
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem;" alt="Website of Dmitry Kabanov" />
+        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem" alt="Website of Dmitry Kabanov" />
       
     </a>
     <div class="flex-l items-center">
@@ -133,23 +118,26 @@ to keep state between invocations of this function.">
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/about/" title="About me page">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About me page">
               About me
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blogs page">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blogs page">
               Blogs
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/publications/" title="My publications page">
+              My publications
             </a>
           </li>
           
         </ul>
       
-      
-<div class="ananke-socials">
-  
-</div>
+      <div class="ananke-socials"></div>
 
     </div>
   </div>
@@ -159,33 +147,15 @@ to keep state between invocations of this function.">
   </header>
 
 
-
-    <main class="pb7" role="main">
-      
+<main class="pb7" role="main">
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
       <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
         Blogs
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Saving state for tf.function-decorated functions</h1>
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Saving state for tf.function-decorated functions</h1>
       
       <p class="tracked">
         By <strong>Dmitry Kabanov</strong>
@@ -204,25 +174,41 @@ to keep state between invocations of this function.</p>
 <p>The problem here is that the changes to the state will not be visible in the
 decorated function if the state is saved in the Python variables.</p>
 <p>To illustrate the problem, Tensorflow 2.2 is used:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2.2.0
-</span></span></code></pre></div><p>To see the problem, let&rsquo;s consider the following code.
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span></span></span></code></pre></div>
+  </div><div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2.2.0</span></span></code></pre></div>
+  </div><p>To see the problem, let&rsquo;s consider the following code.
 Let&rsquo;s assume that we need to scale a given Tensor `x` and we do it using
 `tf.function`-decorated function `scale` for performance reasons.
 Besides, the scaling factor is saved as an object attribute.
 So, the code looks like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Initial version of the calculator.</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Initial version of the calculator.</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Calc</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@tf.function</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span>
-</span></span></code></pre></div><p>Now when we use <code>Calc.scale</code> function while changing the value of the scaling
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span></span></span></code></pre></div>
+  </div><p>Now when we use <code>Calc.scale</code> function while changing the value of the scaling
 factor, we can see that the changes are ignored by Tensorflow:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Data to work with.</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Data to work with.</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># %% Run and see the bug.</span>
@@ -230,13 +216,17 @@ factor, we can see that the changes are ignored by Tensorflow:</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.0</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2020-07-31 12:13:47.432493: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></span></span></code></pre></div>
+  </div><div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2020-07-31 12:13:47.432493: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
 </span></span><span class="line"><span class="cl">2020-07-31 12:13:47.452824: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fcbd0434600 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
 </span></span><span class="line"><span class="cl">2020-07-31 12:13:47.452839: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
 </span></span><span class="line"><span class="cl">tf.Tensor([1. 2. 3.], shape=(3,), dtype=float32)
-</span></span><span class="line"><span class="cl">tf.Tensor([1. 2. 3.], shape=(3,), dtype=float32)
-</span></span></code></pre></div><p>As you can see above, the value of <code>alpha</code> has been changed from 1 to 2 between
+</span></span><span class="line"><span class="cl">tf.Tensor([1. 2. 3.], shape=(3,), dtype=float32)</span></span></code></pre></div>
+  </div><p>As you can see above, the value of <code>alpha</code> has been changed from 1 to 2 between
 two invocations, but the output of the <code>scale</code> function did not changed!</p>
 <p>The reason is that that the type of the variable <code>alpha</code> is Python&rsquo;s <code>float</code>,
 and it is not monitored by Tensorflow.
@@ -244,7 +234,11 @@ One possible fix to this is to use object-oriented
 style of programming and save <code>alpha</code> internally as a Tensorflow variable, while
 allowing the code user to deal only with Python&rsquo;s <code>float</code> for simplicity.
 This can be done using properties, and then the result is what expected:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Fix problem with state mutation using object attributes.</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Fix problem with state mutation using object attributes.</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CalcVersionTwo</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
@@ -267,14 +261,22 @@ This can be done using properties, and then the result is what expected:</p>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c_v2</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">c_v2</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.0</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c_v2</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">tf.Tensor([1. 2. 3.], shape=(3,), dtype=float32)
-</span></span><span class="line"><span class="cl">tf.Tensor([2. 4. 6.], shape=(3,), dtype=float32)
-</span></span></code></pre></div><p>As you can see from the above example, when <code>alpha</code> changes, the output of the
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c_v2</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></span></span></code></pre></div>
+  </div><div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">tf.Tensor([1. 2. 3.], shape=(3,), dtype=float32)
+</span></span><span class="line"><span class="cl">tf.Tensor([2. 4. 6.], shape=(3,), dtype=float32)</span></span></code></pre></div>
+  </div><p>As you can see from the above example, when <code>alpha</code> changes, the output of the
 <code>scale</code> function changes as well.</p>
 <p>Another solution is to use function style of programming and pass the value of
 <code>alpha</code> as a function argument:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Fix problem using functional style of programming.</span>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %% Fix problem using functional style of programming.</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CalcVersionThree</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@tf.function</span>
 </span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
@@ -284,10 +286,14 @@ This can be done using properties, and then the result is what expected:</p>
 </span></span><span class="line"><span class="cl"><span class="c1"># %% See that the issue is fixed with using functional style of programming.</span>
 </span></span><span class="line"><span class="cl"><span class="n">c_v3</span> <span class="o">=</span> <span class="n">CalcVersionThree</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c_v3</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c_v3</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">tf.Tensor([1. 2. 3.], shape=(3,), dtype=float32)
-</span></span><span class="line"><span class="cl">tf.Tensor([2. 4. 6.], shape=(3,), dtype=float32)
-</span></span></code></pre></div><p>As you can, again, vector <code>x</code> is properly scaled when <code>alpha</code> changes its values.
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c_v3</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span></span></span></code></pre></div>
+  </div><div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">tf.Tensor([1. 2. 3.], shape=(3,), dtype=float32)
+</span></span><span class="line"><span class="cl">tf.Tensor([2. 4. 6.], shape=(3,), dtype=float32)</span></span></code></pre></div>
+  </div><p>As you can, again, vector <code>x</code> is properly scaled when <code>alpha</code> changes its values.
 Of course, in this particular example, the whole existence of the class
 <code>CalcVersionThree</code> is a bit questionable as there is no state that it keeps,
 however, I keep it as a class to make it less different from other code examples
@@ -303,11 +309,11 @@ explicitly pass <code>alpha</code> every time when the function <code>scale</cod
 you can read <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/autograph/g3doc/reference/limitations.md">Tensorflow&rsquo;s Wiki</a>.</p><ul class="pa0">
   
    <li class="list di">
-     <a href="/tags/howto/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Howto</a>
+     <a href="/tags/howto/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Howto</a>
    </li>
   
    <li class="list di">
-     <a href="/tags/tensorflow/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Tensorflow</a>
+     <a href="/tags/tensorflow/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Tensorflow</a>
    </li>
   
 </ul>
@@ -331,8 +337,9 @@ you can read <a href="https://github.com/tensorflow/tensorflow/blob/master/tenso
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
       
       
       </div>
@@ -361,21 +368,44 @@ you can read <a href="https://github.com/tensorflow/tensorflow/blob/master/tenso
 </aside>
 
   </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://dmitrykabanov.com/" >
-    &copy;  Website of Dmitry Kabanov 2024 
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2026 
   </a>
-    <div>
-<div class="ananke-socials">
-  
+    <div><div class="ananke-socials"></div>
 </div>
-</div>
-  <div class="flex justify-center white-70 items-center">Powered by&nbsp;<a href="https://gohugo.io" class="hover-white white-70 no-underline">Hugo</a><span class="mh2">|</span>Theme is based on&nbsp;<a href="https://github.com/theNewDynamic/gohugo-theme-ananke" class="hover-white white-70 no-underline">Ananke</a></div>
   </div>
 </footer>
-
-  </body>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
