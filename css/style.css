@@ -16,6 +16,40 @@ pre.chroma {
     white-space: pre-wrap;
 }
 
-.bg-flat-ui-blue-dark {
-    background-color: #2980b9;
+#cookies-consent-banner {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #2a6496;
+  color: #fefefe;
+  padding: 1rem;
+  z-index: 9999;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fefefe;
+}
+
+#cookies-consent-banner > button {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: 0 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fefefe;
+  cursor: pointer;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  /* Smooth transition for hover effects */
+  transition: all 0.2s ease-in-out;
+}
+
+#cookies-reject-btn {
+  background-color: #f44336;
+}
+
+#cookies-accept-btn {
+  background-color: #04AA6D;
 }
