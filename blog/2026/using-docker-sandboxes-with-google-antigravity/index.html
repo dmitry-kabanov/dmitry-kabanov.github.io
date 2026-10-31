@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Using Docker Sandboxes with Google Antigravity | Website of Dmitry Kabanov</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Instruction on how to run the Google Antigravity AI agent inside a Docker Sandbox container">
+    <meta name="generator" content="Hugo 0.166.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <meta name="author" content="Dmitry Kabanov">
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous">
+    
+
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['\\(', '\\)']],                 
+      tags: 'ams',
+      macros: {
+        C: "{\\mathrm{C}}",
+        E: "{\\mathbb{E}}",
+        P: "{\\mathbb{P}}",
+        R: "{\\mathbb{R}}",
+        normal: "{\\mathrm{N}}",
+        uniform: "{\\mathrm{Unif}}",
+      },
+    },
+    startup: {
+      pageReady: () => {
+        return MathJax.startup.defaultPageReady();
+      }
+    },
+  };
+</script>
+
+
+    
+      
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://dmitrykabanov.com/blog/2026/using-docker-sandboxes-with-google-antigravity/">
+    
+
+    
+    
+    <meta property="og:url" content="https://dmitrykabanov.com/blog/2026/using-docker-sandboxes-with-google-antigravity/">
+	<meta property="og:site_name" content="Website of Dmitry Kabanov">
+	<meta property="og:title" content="Using Docker Sandboxes with Google Antigravity">
+	<meta property="og:description" content="Instruction on how to run the Google Antigravity AI agent inside a Docker Sandbox container">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="blog">
+		<meta property="article:published_time" content="2026-10-31T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-10-31T00:00:00+00:00">
+
+	<meta itemprop="name" content="Using Docker Sandboxes with Google Antigravity">
+	<meta itemprop="description" content="Instruction on how to run the Google Antigravity AI agent inside a Docker Sandbox container">
+	<meta itemprop="datePublished" content="2026-10-31T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-10-31T00:00:00+00:00">
+	<meta itemprop="wordCount" content="435">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Using Docker Sandboxes with Google Antigravity">
+	<meta name="twitter:description" content="Instruction on how to run the Google Antigravity AI agent inside a Docker Sandbox container">
+
+      
+      
+      <script type="text/javascript">
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          window.gtag = gtag;
+
+          gtag("consent", "default", {
+              "analytics_storage": "denied",
+              "ad_storage": "denied",
+              "ad_user_data": "denied",
+              "ad_personalization": "denied",
+          });
+      </script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZQVXP6B2M"></script>
+      <script type="text/javascript">
+          gtag('js', new Date());
+          gtag('config', 'G-RZQVXP6B2M');
+      </script>
+    
+	<link href="/css/style.min.442c057d728ad0076da6bc672b9aada8c3bd35fbf0dea88f1bcaf5f8f602bc5f.css" integrity="sha256-RCwFfXKK0AdtprxnK5qtqMO9Nfvw3qiPG8r1&#43;PYCvF8=" rel="stylesheet" crossorigin="anonymous"/><link href="/css/chroma.min.850acb584fdbf160faac71c5915825d3049003bdbeb05c57c988731ca2fd84e8.css" integrity="sha256-hQrLWE/b8WD6rHHFkVgl0wSQA72&#43;sFxXyYhzHKL9hOg=" rel="stylesheet" crossorigin="anonymous"/>
+  </head><body class="ma0 helvetica bg-near-white production is-page is-page page-using-docker-sandboxes-with-google-antigravity">
+   
+    <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        <img src="/logo.svg" class="w100 mw5-ns" style="height: 3rem" alt="Website of Dmitry Kabanov" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blogs page">
+              Blogs
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/publications/" title="Publications page">
+              Publications
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+      <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Blogs
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Using Docker Sandboxes with Google Antigravity</h1>
+      
+      <p class="tracked">
+        By <strong>Dmitry Kabanov</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2026-10-31T00:00:00Z">October 31, 2026</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><div class="w-two-thirds-l mv4" style="margin: 2rem auto">
+        <img src="https://dmitrykabanov.com/images/2026/docker-sbx-antigravity.png" style="width: 100%"/>
+        <hr />
+        </div><p>It is 2026, and it is common to run AI agents in a terminal or an integrated development environment for coding tasks.</p>
+<p>The problem is, AI agents can be insecure to run directly on your machine:
+only in Summer 2026 were several incidents reported.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
+I have recently experienced a strange situation myself
+when <a href="https://antigravity.google/">Antigravity</a>, an AI agent from Google, has asked me
+if it was allowed to run tests from the <code>Tests/</code> directory
+<em>one level above the current working directory</em>,
+because it has looked there for unknown reason.
+Of course, many software packages look for different things on the file system,
+for example, for a C compiler, etc.
+However, they usually check some predefined system locations like <code>/usr/bin</code>
+on Linux.</p>
+<p>So, after that had happened, I have started to think about running AI agents
+strictly in virtual machines instead of directly.
+It turned out that Docker Inc. has a special solution for this:
+<a href="https://docs.docker.com/ai/sandboxes/">Docker Sandboxes</a>.
+These are <em>isolated</em> virtual machines that also run Docker containers inside of them.
+That is, each sandbox has its own Docker daemon, filesystem and network,
+so it cannot break into other Docker containers
+(normally, Docker containers share the same kernel, for example, on macOS
+several Docker containers run inside the same virtual Linux machine).
+Hence, the sandboxes are designed to be more secure:
+however, they use normal Docker facilities to automatically mount a project directory inside the sandbox,
+so that an AI agent can work with the project code.</p>
+<p>Docker Sandboxes can be used with different AI agents.
+Below I describe how to use them with Google Antigravity.</p>
+<h2 id="how-to-run-google-antigravity">How to run Google Antigravity</h2>
+<p>First, install the <code>sbx</code> utility as instructed <a href="https://docs.docker.com/ai/sandboxes/install/">here</a>.</p>
+<p>Many popular AI agents are supported and can be started with the command</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sbx run &lt;agent&gt;</span></span></code></pre></div>
+  </div><p>where <code>&lt;agent&gt;</code> is the lowercase name of an AI agent.</p>
+<p>Strangely,</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sbx run gemini</span></span></code></pre></div>
+  </div><p>still exists, although <code>gemini</code> is deprecated since June 2026;
+however,</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sbx run antigravity</span></span></code></pre></div>
+  </div><p>is not yet available.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Fortunately, there is an <a href="https://hub.docker.com/r/sbx/antigravity">official Docker image</a> for Google Antigravity.
+It can be run with the command:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sbx run <span class="s2">&#34;docker.io/sbx/antigravity:latest&#34;</span></span></span></code></pre></div>
+  </div><p>When the container starts, one needs to authorize the agent,
+which opens an authorization webpage in a browser.
+After that, using the agent inside the sandbox is as convenient as running it directly on the machine, because the project directory is automatically mounted inside the sandbox.
+Yet, running inside the sandbox should be more secure,
+as there is more control over what the agent can access on your computer.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://genai.owasp.org/2026/10/08/genai-and-agentic-ai-exploit-roundup-q3-2026/">GenAI and Agentic AI Exploit Roundup Q3 2026</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Google renamed its AI Agent <em>Gemini</em> to <em>Antigravity</em>
+in May 2026&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+<div id="ai-disclaimer" class="f8 mid-gray lh-copy bg-light-yellow bl bw3 pv1 ph3 mv3 dark-gray">
+  <strong>Disclaimer on AI use</strong><br />
+  The content of this blog post is written by me, Dmitry I.&nbsp;Kabanov.
+  AI&nbsp;tools may have been used to check for grammatical and stylistic mistakes,
+  without changing the meaning of the text.
+  Any other content generated by AI&nbsp;tools (for example, images)
+  is clearly marked as such.
+</div>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+        <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dmitrykabanov" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt2-l">
+
+
+
+
+</aside>
+
+  </article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://dmitrykabanov.com/" >
+    &copy;  Website of Dmitry Kabanov 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+<div id="cookies-consent-banner">
+  <p>We use Google Analytics on this website to understand our audience. Do you consent?</p>
+  <button id="cookies-reject-btn">I reject</button>
+  <button id="cookies-accept-btn">I accept</button>
+</div>
+
+<script src="/js/cookies-consent.js?1792102991" integrity="sha256-qgshvtH1AtrCC3HRJ&#43;JjNVT2UrdWnjYTFieiwogbvAw=" type="text/javascript" defer></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

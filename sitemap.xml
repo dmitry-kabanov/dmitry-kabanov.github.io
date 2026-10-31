@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dmitrykabanov.com/blog/</loc>
-    <lastmod>2024-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/blog/2025/using-docker-sandboxes-with-with-antigravity/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/blog/2026/using-docker-sandboxes-with-google-antigravity/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/blog/2026/using-docker-sandboxes-with-with-antigravity/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dmitrykabanov.com/blog/2024/mvc-part-1/</loc>
     <lastmod>2024-10-02T00:00:00+00:00</lastmod>
@@ -18,9 +30,6 @@
     <lastmod>2024-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dmitrykabanov.com/tags/</loc>
-    <lastmod>2024-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dmitrykabanov.com/</loc>
     <lastmod>2024-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dmitrykabanov.com/blog/2024/notes-on-chapter-07-modern-c/</loc>
@@ -199,6 +208,8 @@
   </url><url>
     <loc>https://dmitrykabanov.com/blog/2019/borel-sigma-algebra/</loc>
     <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/blog/2025/2026/</loc>
   </url><url>
     <loc>https://dmitrykabanov.com/about/</loc>
   </url><url>

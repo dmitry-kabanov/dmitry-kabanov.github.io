@@ -73,8 +73,8 @@
 
 	<meta itemprop="name" content="Blogs">
 	<meta itemprop="description" content="blog on programming, computer technologies, math, writing">
-	<meta itemprop="datePublished" content="2024-10-02T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2024-10-02T00:00:00+00:00">
+	<meta itemprop="datePublished" content="2026-10-31T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-10-31T00:00:00+00:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blogs">
 	<meta name="twitter:description" content="blog on programming, computer technologies, math, writing">
@@ -155,6 +155,72 @@
       
     </section>
     <aside class="flex-ns flex-wrap justify-around">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 ph4 pt4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        May 15, 2021
+      </div>
+    
+    <h1 class="f3 near-black h3">
+      <a href="/blog/2021/books-on-writing-science/" class="link black dim">
+        Books on writing science
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To be successful in academia, it is very important to have a good skill in
+writing and to write often and productively.
+Because the good skill in writing is rarely taught, one should learn it from
+reading books on the topic.</p>
+    </div>
+  <a href="/blog/2021/books-on-writing-science/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 ph4 pt4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        April 24, 2021
+      </div>
+    
+    <h1 class="f3 near-black h3">
+      <a href="/blog/2021/basic-terms-probability-theory/" class="link black dim">
+        Basic terms in the probability theory
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Basic terms in probability theory are outcomes, sample space, events, and
+probability measure.</p>
+    </div>
+  <a href="/blog/2021/basic-terms-probability-theory/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 ph4 pt4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        February 19, 2021
+      </div>
+    
+    <h1 class="f3 near-black h3">
+      <a href="/blog/2021/collaborate-overleaf-git/" class="link black dim">
+        Colaborate in Latex: Overleaf and local git
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>When you write a paper in \(\LaTeX\) and your collaborators prefer to use <a href="https://www.overleaf.com">Overleaf</a>
+but you prefer to use local setup, then you can do it with the help of the <a href="https://git-scm.com/">git
+version control system</a>.</p>
+    </div>
+  <a href="/blog/2021/collaborate-overleaf-git/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
       
         <div class="relative w-100 w-30-l mb4 bg-white">
             <div class="mb3 ph4 pt4 mid-gray overflow-hidden">
@@ -261,6 +327,188 @@ community.</p>
 Here we will look at what this is.</p>
     </div>
   <a href="/blog/2019/borel-sigma-algebra/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 ph4 pt4 mid-gray overflow-hidden">
+    
+    <h1 class="f3 near-black h3">
+      <a href="/blog/2025/2026/" class="link black dim">
+        
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h2 id="using-docker-sandboxes-with-with-antigravity"><span class="org-todo done DONE">DONE</span> Using Docker Sandboxes with Google Antigravity</h2>
+<p>It is 2026, and it is common to run AI agents in a terminal or an integrated development environment for coding tasks.</p>
+<p>The problem is, AI agents can be insecure to run directly on your machine:
+only in Summer 2026 were several incidents reported.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
+I have recently experienced a strange situation myself
+when <a href="https://antigravity.google/">Antigravity</a>, an AI agent from Google, has asked me
+if it was allowed to run tests from the <code>Tests/</code> directory
+<em>one level above the current working directory</em>,
+because it has looked there for unknown reason.
+Of course, many software packages look for different things on the file system,
+for example, for a C compiler, etc.
+However, they usually check some predefined system locations like <code>/usr/bin</code>
+on Linux.</p>
+<p>So, after that had happened, I have started to think about running AI agents
+strictly in virtual machines instead of directly.
+It turned out that Docker Inc. has a special solution for this:
+<a href="https://docs.docker.com/ai/sandboxes/">Docker Sandboxes</a>.
+These are <em>isolated</em> virtual machines that also run Docker containers inside of them.
+That is, each sandbox has its own Docker daemon, filesystem and network,
+so it cannot break into other Docker containers
+(normally, Docker containers share the same kernel, for example, on macOS
+several Docker containers run inside the same virtual Linux machine).
+Hence, the sandboxes are designed to be more secure:
+however, they use normal Docker facilities to automatically mount a project directory inside the sandbox,
+so that an AI agent can work with the project code.</p>
+<p>Docker Sandboxes can be used with different AI agents.
+Below I describe how to use them with Google Antigravity.</p>
+<h3 id="how-to-run-google-antigravity">How to run Google Antigravity</h3>
+<p>First, install the <code>sbx</code> utility as instructed <a href="https://docs.docker.com/ai/sandboxes/install/">on that page</a>.</p>
+<p>Many popular AI agents are supported and can be started with the command</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sbx run &lt;agent&gt;</span></span></code></pre></div>
+  </div><p>where <code>&lt;agent&gt;</code> is the lowercase name of an AI agent.</p>
+<p>Strangely, <code>sbx run gemini</code> still exists,
+although <code>gemini</code> is deprecated since June 2026;
+however, <code>sbx run antigravity</code> is not yet available.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Fortunately, there is an <a href="https://hub.docker.com/r/sbx/antigravity">official Docker image</a> for Google Antigravity.
+It can be run with the command:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sbx run <span class="s2">&#34;docker.io/sbx/antigravity:latest&#34;</span></span></span></code></pre></div>
+  </div><p>When the container starts, one needs to authorize the agent,
+which opens an authorization webpage in a browser.
+After that, using the agent inside the sandbox is as convenient as running it directly on the machine, because the project directory is automatically mounted inside the sandbox.
+Yet, running inside the sandbox should be more secure,
+as there is more control over what the agent can access on your computer.</p>
+<h2 id="use-git-submodule-for-dependency"><span class="org-todo todo TODO">TODO</span> Use git submodule for dependency</h2>
+<p>This is workflow when you have two projects tracked in Git,
+and one of the projects is a dependency for another one.
+Important part of this particular workflow is that we want to track
+the dependency continuously:
+not by a specific commit but by a branch.</p>
+<p>Let&rsquo;s call the dependency project simply a <em>dependency</em>,
+and the other project a <em>root project</em>.</p>
+<p>Git has a solution for version-tracking dependencies using <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git submodules</a>.</p>
+<p>We add the dependency project as a Git submodule for the root project
+and point it to the <code>main</code> branch of the dependency:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git submodule add -b main &lt;dep-URL&gt; &lt;dep-path&gt;</span></span></code></pre></div>
+  </div><p>where <code>&lt;dep-URL&gt;</code> is the remote URL of the dependency,
+and the <code>&lt;dep-path&gt;</code> is where it inside the root project it should be checked out.
+Note that if the dependency repo is already in that path,
+Git will notice it and will just say
+&ldquo;Adding existing repo at &lsquo;&lt;dep-path&gt;&rsquo; to the index&rdquo;.
+Otherwise, it will clone the dependency repository to that path.
+Note also that the syntax of <code>git submodule add</code> is basically like
+the syntax of <code>git clone</code>: if you do not provide <code>&lt;dep-path&gt;</code>,
+it will use the repository name as <code>&lt;dep-path&gt;</code>.</p>
+<p>Now, if you do <code>git status</code>, you will see that the file <code>.gitmodules</code>
+will be added with the information given in the command <code>submodule add</code> above.
+Besides that, it will be reported that a new file, which is <em>actually the path
+where the dependency is checked out</em> is staged to be committed.
+Git actually tracks the whole directory of the submodule as a file
+with a given commit hash.</p>
+<p>Note that the work with the dependency repo should be done still in the directory of the dependency.
+Whenever there will be new changes there,
+<code>git status</code> in the root repo will report that there are changes,
+which can be staged for commit with <code>git add &lt;path&gt;</code>.</p>
+<p><strong>Workflow improvement</strong>.
+When you commit changes in the submodule repo, and update the superproject repo,
+and then you push the superproject repo, it can happen that the submodule repo
+was not pushed.
+Hence, other developers or CI server will not be able to checkout the required version of the submodule repo.</p>
+<p>Git provides a special configuration setting that will reject to push the superproject repo, if the required changes of the supermodule repo are not on the remote.</p>
+<p>One way to set this option is</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config push.recurseSubmodules check</span></span></code></pre></div>
+  </div><p>then an attempt to push the superrepo will show an error message:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <pre tabindex="0"><code class="language-nil" data-lang="nil">The following submodule paths contain changes that can
+not be found on any remote:
+  &lt;submodule-path&gt;
+
+Please try
+
+        git push --recurse-submodules=on-demand
+
+or cd to the path and use
+
+        git push
+
+to push them to a remote.
+
+fatal: Aborting.</code></pre>
+  </div><p>and this error message gives a hint that we can config git to automatically
+push the submodules when needed:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config push.recurseSubmodules on-demand</span></span></code></pre></div>
+  </div><p>However, I would not recommend to use this option,
+especially in cases when the superproject repo and the submodule repo
+are on branches with different names.
+It is easier to simply switch to the submodule repo and do <code>git push origin</code>
+there, and then to do the push in the superproject.</p>
+<p>There another thing.
+We can modify the submodule worktree and forget to commit it.
+Then in the superproject repo, <code>git status</code> says that the submodule has new changes.</p>
+<p>However, if you do <code>git add &lt;submodule-path&gt;</code>, it will silently do nothing:
+git sees that the submodule has exactly the same HEAD hash as before,
+hence, it does nothing.
+It does not know that we forgot to commit the changes.</p>
+<p>To prevent such a situation, it is handy to add the following <code>pre-commit</code>
+Git hook (do not confuse with the Python utility <code>pre-commit</code> that does the similar thing):</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Check for uncommited changes in the submodule in the &lt;submodule-path&gt;.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">dirty_themes</span><span class="o">=</span><span class="k">$(</span>git status --porcelain <span class="p">|</span> grep <span class="s1">&#39;^.M &lt;submodule-path&gt;/&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$dirty_themes</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;ERROR: There are uncommitted changes in the /themes subdirectory:&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dirty_themes</span><span class="s2">&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Switch to the corresponding submodule repo and commit the changes there.&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span></span></span></code></pre></div>
+  </div><p>Now we have two protections:</p>
+<ul>
+<li>Forgetting to commit changes in the submodule before commiting in the superproject</li>
+<li>Forgetting to push changes in the submodule before pushing in the superproject</li>
+</ul>
+<h2 id="use-git-worktree-with-ai-agents-for-safety">Use git worktree with AI agents for safety</h2>
+<p>Even when you use an AI agent inside a Docker container to confine it,
+it can rewrite .git/hooks if you share .</p>
+<h2 id="post-about-git-latexdiff"><span class="org-todo todo TODO">TODO</span> Post about git latexdiff</h2>
+<p>git latexdiff &ndash;latexmk &ndash;main main.tex -o diff-v04-vs-v06.pdf &ndash;latexopt -shell-escape v04-fix HEAD</p>
+<h2 id="safe-string-formatting-in-c-via-snprintf"><span class="org-todo todo TODO">TODO</span> Safe string formatting in C via <code>snprintf</code> <span class="tag"><span class="programming">programming</span><span class="c">c</span></span></h2>
+<h2 id="why-your-eyes-are-often-tired"><span class="org-todo todo TODO">TODO</span> Why your eyes are often tired. Probably <span class="tag"><span class="health">health</span></span></h2>
+<p>I have recently discovered that probable reason for eye strain for me is
+that I am sensitive to light flickering,
+and I want to discuss it here.</p>
+    </div>
+  <a href="/blog/2025/2026/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 
         </div>
