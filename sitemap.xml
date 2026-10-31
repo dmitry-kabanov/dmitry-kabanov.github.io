@@ -2,7 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://dmitrykabanov.com/tags/agents/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/tags/ai/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dmitrykabanov.com/blog/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/tags/docker/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/tags/security/</loc>
+    <lastmod>2026-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dmitrykabanov.com/tags/</loc>
     <lastmod>2026-10-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dmitrykabanov.com/blog/2026/using-docker-sandboxes-with-google-antigravity/</loc>
@@ -21,9 +36,6 @@
     <lastmod>2024-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dmitrykabanov.com/tags/programming/</loc>
-    <lastmod>2024-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dmitrykabanov.com/tags/</loc>
     <lastmod>2024-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dmitrykabanov.com/blog/2024/notes-on-chapter-07-modern-c/</loc>
