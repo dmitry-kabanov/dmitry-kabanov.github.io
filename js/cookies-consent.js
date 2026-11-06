@@ -8,16 +8,67 @@ const GDPR_COUNTRIES_LIST = [
   'GB', 'CH'
 ];
 
-function onCookiesAccepted() {
-    updateConsent("granted");
-    setCookie('cookie_consent', 'accepted', DAYS_COOKIES_DURATION);
-    document.getElementById('cookies-consent-banner').style.display = 'none';
+const CONSENT_STATE = Object.freeze({
+    UNDECIDED: "undecided",
+    ACCEPTED: "accepted",
+    REJECTED: "rejected",
+});
+
+let consentState = CONSENT_STATE.UNDECIDED;
+
+function setCookiesConsentState(nextConsentState, { saveCookiesConsent = true} = {}) {
+    const prevConsentState = consentState;
+    consentState = nextConsentState;
+
+    switch (consentState) {
+        case CONSENT_STATE.UNDECIDED:
+            // Show the banner after a short delay
+            // to not distract the user immediately from the page itself.
+            showBanner(300);
+            break;
+        case CONSENT_STATE.ACCEPTED:
+            updateConsent("granted");
+            if (prevConsentState == CONSENT_STATE.REJECTED) {
+                gtag("event", "page_view");
+            }
+            if (saveCookiesConsent && prevConsentState != CONSENT_STATE.ACCEPTED) {
+                setCookie('cookie_consent', CONSENT_STATE.ACCEPTED, DAYS_COOKIES_DURATION);
+            }
+            hideBanner();
+            break;
+        case CONSENT_STATE.REJECTED:
+            updateConsent("denied");
+            deleteGoogleAnalyticsCookies();
+            if (saveCookiesConsent && prevConsentState != CONSENT_STATE.REJECTED) {
+                setCookie('cookie_consent', CONSENT_STATE.REJECTED, DAYS_COOKIES_DURATION);
+            }
+            hideBanner();
+            break;
+        default:
+            console.warn("Unknown consent state: " + consentState);
+    }
 }
 
-function onCookiesRejected() {
-    updateConsent("denied");
-    setCookie('cookie_consent', 'rejected', DAYS_COOKIES_DURATION);
-    document.getElementById('cookies-consent-banner').style.display = 'none';
+function deleteCookie(name) {
+    const expires = "expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    document.cookie = `${name}=;${expires}`;
+    const parts = window.location.hostname.split(".");
+    while (parts.length > 0) {
+        const domain = parts.join(".");
+        document.cookie = `${name}=;${expires};domain=${domain}`;
+        document.cookie = `${name}=;${expires};domain=.${domain}`;
+        parts.shift();
+    }
+}
+
+function deleteGoogleAnalyticsCookies() {
+    const cookies = document.cookie.split(";");
+    for (const cookie of cookies) {
+        const name = cookie.split("=")[0].trim();
+        if (/^(_ga|_gid|_gat)/.test(name)) {
+            deleteCookie(name);
+        }
+    }
 }
 
 function updateConsent(status) {
@@ -40,26 +91,25 @@ function getCookie(name) {
     return match ? match[2] : null;
 }
 
-function showBanner() {
-    const banner = document.getElementById("cookies-consent-banner");
-    if (banner) {
-        banner.style.display = 'block';
-    }
+function showBanner(delay = 0) {
+    setTimeout(() => {
+        document.getElementById("cookies-consent-banner")?.classList.add("visible");
+        const link = document.getElementById("change-cookies-settings");
+        if (link) {
+            link.style.display = "none";
+        }
+    }, delay);
 }
 
 function hideBanner() {
-    const banner = document.getElementById("cookies-consent-banner");
-    if (banner) {
-        banner.style.display = 'none';
+    document.getElementById("cookies-consent-banner")?.classList.remove("visible");
+    const link = document.getElementById("change-cookies-settings");
+    if (link) {
+        link.style.display = "inline";
     }
 }
 
 async function checkGDPRLocation() {
-	const cachedCountry = getCookie("cached_country");
-	if (cachedCountry) {
-		return GDPR_COUNTRIES_LIST.includes(cachedCountry);
-	}
-
     let checkers = [];
 
     if (Math.random() < 0.5) {
@@ -82,7 +132,6 @@ async function checkGDPRLocation() {
     }
 
     if (countryCode) {
-        setCookie("cached_country", countryCode, DAYS_COOKIES_DURATION);
         return GDPR_COUNTRIES_LIST.includes(countryCode);
     }
 
@@ -91,12 +140,9 @@ async function checkGDPRLocation() {
 }
 
 async function checkViaApiCountryIs(timeout) {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort, timeout);
     const response = await fetch("https://api.country.is", {
-        signal: controller.signal,
+        signal: AbortSignal.timeout(timeout),
     });
-    clearTimeout(timeoutId);
 
     if (!response.ok) {
         throw new Error("[checkViaApiCountryIs] Response status: " + response.status);
@@ -105,19 +151,16 @@ async function checkViaApiCountryIs(timeout) {
     const data = await response.json();
     const country = (data.country || "").toUpperCase();
     if (!country) {
-        throw new Error("[checkViaApiCountryIs] No country code"); 
+        throw new Error("[checkViaApiCountryIs] No country code");
     }
 
     return country;
 }
 
 async function checkViaCloudflare(timeout) {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort, timeout);
     const response = await fetch("https://cloudflare.com/cdn-cgi/trace", {
-        signal: controller.signal,
+        signal: AbortSignal.timeout(timeout),
     });
-    clearTimeout(timeoutId);
 
     if (!response.ok) {
         throw new Error("[checkViaCloudflare] Response status: " + response.status);
@@ -133,15 +176,26 @@ async function checkViaCloudflare(timeout) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const consentCookieValue = getCookie("cookie_consent");
+    document.getElementById('cookies-reject-btn')
+        ?.addEventListener("click", () => setCookiesConsentState(CONSENT_STATE.REJECTED));
+    document.getElementById('cookies-accept-btn')
+        ?.addEventListener("click", () => setCookiesConsentState(CONSENT_STATE.ACCEPTED));
 
-    if (consentCookieValue == "accepted") {
-        updateConsent("granted");
-        return;
+    document.getElementById("change-cookies-settings")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        showBanner();
+    });
+
+    // TODO: Remove this block on 2027-11-01
+    const cachedCountryCookie = getCookie("cached_country");
+    if (cachedCountryCookie) {
+        deleteCookie("cached_country");
     }
 
-    if (consentCookieValue == "rejected") {
-        updateConsent("denied");
+    const consentCookieValue = getCookie("cookie_consent");
+
+    if (consentCookieValue == CONSENT_STATE.ACCEPTED || consentCookieValue == CONSENT_STATE.REJECTED) {
+        setCookiesConsentState(consentCookieValue, { saveCookiesConsent: false });
         return;
     }
 
@@ -149,13 +203,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const isGDPRLocation = await checkGDPRLocation();
 
     if (isGDPRLocation) {
-        showBanner();
-        const rejectButton = document.getElementById('cookies-reject-btn');
-        const acceptButton = document.getElementById('cookies-accept-btn');
-        rejectButton.addEventListener("click", onCookiesRejected);
-        acceptButton.addEventListener("click", onCookiesAccepted);
+        setCookiesConsentState(CONSENT_STATE.UNDECIDED, { saveCookiesConsent: false });
     } else {
-        updateConsent("granted");
+        setCookiesConsentState(CONSENT_STATE.ACCEPTED, { saveCookiesConsent: false });
     }
 });
 
